@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  mcp-gateway:
+    image: ghcr.io/docker/mcp-gateway:latest
+    container_name: mcp-jungle
+    ports:
+      - "8080:8080"
+    environment:
+      - NOTION_API_KEY=${NOTION_API_KEY:-}
+      - GITLAB_PERSONAL_ACCESS_TOKEN=${GITLAB_PERSONAL_ACCESS_TOKEN:-}
+      - GITLAB_API_URL=${GITLAB_API_URL:-https://gitlab.com}
+      - NODE_EXTRA_CA_CERTS=${NODE_EXTRA_CA_CERTS:-}
+    volumes:
+      - type: bind
+        source: ./mcp-servers.json
+        target: /etc/mcp/servers.json
+      - type: bind
+        source: ../
+        target: /workspace
+    restart: unless-stopped
+    networks:
+      - mcp-network
+
+  # Sandbox Container for YOLO mode execution
+  firecracker-sandbox:
+    image: ghcr.io/firecracker-microvm/firecracker:latest
+    container_name: mcp-sandbox
+    privileged: true
+    volumes:
+      - type: bind
+        source: ../
+        target: /workspace
+    networks:
+      - mcp-network
+
+networks:
+  mcp-network:
+    driver: bridge

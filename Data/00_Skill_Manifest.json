@@ -1,0 +1,317 @@
+{
+  "agency-orchestrator-skill": {
+    "description": "Agency-Agents 最高總管，負責通用意圖解析與全局任務拆解，並執行 4-Phase 狀態機工作流。",
+    "version": "3.1.3",
+    "type": "skill",
+    "path": "./skills/01_Orchestrators/agency-orchestrator-skill/SKILL.md",
+    "capabilities": {}
+  },
+  "autoresearch-agent": {
+    "description": "微型 AI 模型超參數自動化優化代理人。僅在指令包含「$$自動化$$」且涉及模型優化時啟用。符合 SOP §2.4 強制授權協議。",
+    "version": "3.0.0",
+    "type": "skill",
+    "path": "./skills/01_Orchestrators/autoresearch-agent/SKILL.md",
+    "capabilities": {}
+  },
+  "optimization-status": {
+    "description": "🤖 背景自動優化狀態監控器。追蹤超參數實驗進度，管理 val_bpb 閾值與結果日誌。",
+    "version": "3.0.0",
+    "type": "skill",
+    "path": "./skills/01_Orchestrators/optimization-status/SKILL.md",
+    "capabilities": {}
+  },
+  "quant-research-loop": {
+    "description": "Autonomous financial experimentation and strategy validation loop. 僅在指令包含「$$自動化$$」時啟用。符合 SOP §2.4 強制授權協議。",
+    "version": "3.0.0",
+    "type": "skill",
+    "path": "./skills/01_Orchestrators/quant-research-loop/SKILL.md",
+    "capabilities": {}
+  },
+  "quota-monitor-skill": {
+    "description": "本協作系統 Cockpit Quota API 監控系統，強制實施 20% 安全熔斷。僅在啟用「$$自動化$$」流程或手動查詢時調用。符合 SOP §2.4 授權協議。",
+    "version": "3.0.0",
+    "type": "skill",
+    "path": "./skills/01_Orchestrators/quota-monitor-skill/SKILL.md",
+    "capabilities": {}
+  },
+  "reality-checker": {
+    "description": "品質保證與幻覺過濾器，負責審核計畫、架構與代碼的技術可行性。",
+    "version": "3.1.3",
+    "type": "skill",
+    "path": "./skills/01_Orchestrators/reality-checker/SKILL.md",
+    "capabilities": {}
+  },
+  "recursive-research-automation": {
+    "description": "通用的遞迴研究自動化框架。僅在指令包含「$$自動化$$」時啟用。符合 SOP §2.4 強制授權協議。",
+    "version": "3.0.0",
+    "type": "skill",
+    "path": "./skills/01_Orchestrators/recursive-research-automation/SKILL.md",
+    "capabilities": {}
+  },
+  "reflection-module": {
+    "description": "'具備前瞻性 (Prospective) 與多代理人 (Multi-Agent) 協作架構的自我反思與行為優化模組。'",
+    "version": "'2.0.0'",
+    "type": "skill",
+    "path": "./skills/01_Orchestrators/reflection-module/SKILL.md",
+    "capabilities": {}
+  },
+  "twse-dev-sop-skill": {
+    "description": "臺股分析網站開發標準作業程式 (SOP)。整合 subagent-collaboration-skill、d3-viz-skill、webapp-testing-skill 三大技能，提供從計畫→實作→驗證的完整開發循環。",
+    "version": "3.0.0",
+    "type": "skill",
+    "path": "./skills/01_Orchestrators/twse-dev-sop-skill/SKILL.md",
+    "capabilities": {}
+  },
+  "backend-architect": {
+    "description": "後端架構師，負責 API 設計、資料庫 Schema 與資料流優化。",
+    "version": "3.0.0",
+    "type": "skill",
+    "path": "./skills/02_Cognitive/backend-architect/SKILL.md",
+    "capabilities": {}
+  },
+  "chip-logic-expert": {
+    "description": "進階台股籌碼分析邏輯，包含券商借券、融資維持率以及大戶籌碼衝突分析。",
+    "version": "3.0.0",
+    "type": "skill",
+    "path": "./skills/02_Cognitive/chip-logic-expert/SKILL.md",
+    "capabilities": {}
+  },
+  "data-engineer": {
+    "description": "資料工程師，負責 ETL 流程、資料清洗與標準化。",
+    "version": "3.0.0",
+    "type": "skill",
+    "path": "./skills/02_Cognitive/data-engineer/SKILL.md",
+    "capabilities": {}
+  },
+  "devops-engineer": {
+    "description": "運維工程師，負責環境配置、CI/CD、部署策略與系統監控。",
+    "version": "3.0.0",
+    "type": "skill",
+    "path": "./skills/02_Cognitive/devops-engineer/SKILL.md",
+    "capabilities": {}
+  },
+  "evidence-collector": {
+    "description": "證據收集官，負責為所有決策提供事實支撐、鏈接與原始數據。",
+    "version": "3.0.0",
+    "type": "skill",
+    "path": "./skills/02_Cognitive/evidence-collector/SKILL.md",
+    "capabilities": {}
+  },
+  "financial-analyst": {
+    "description": "財務分析師，負責估值建模、比率分析與財務風險評估。",
+    "version": "3.0.0",
+    "type": "skill",
+    "path": "./skills/02_Cognitive/financial-analyst/SKILL.md",
+    "capabilities": {}
+  },
+  "frontend-developer": {
+    "description": "前端開發工程師，負責 UI/UX 邏輯、組件實作與互動設計。",
+    "version": "3.0.0",
+    "type": "skill",
+    "path": "./skills/02_Cognitive/frontend-developer/SKILL.md",
+    "capabilities": {}
+  },
+  "huashu-nuwa": {
+    "description": "|",
+    "version": "3.0.0",
+    "type": "skill",
+    "path": "./skills/02_Cognitive/huashu-nuwa/SKILL.md",
+    "capabilities": {}
+  },
+  "investment-researcher": {
+    "description": "投資研究員，負責台股產業研究、個股基本面與量化趨勢分析。",
+    "version": "3.0.0",
+    "type": "skill",
+    "path": "./skills/02_Cognitive/investment-researcher/SKILL.md",
+    "capabilities": {}
+  },
+  "macro-linkage": {
+    "description": "|",
+    "version": "3.0.0",
+    "type": "skill",
+    "path": "./skills/02_Cognitive/macro-linkage/SKILL.md",
+    "capabilities": {}
+  },
+  "ownership-cluster": {
+    "description": "機構持股與籌碼集中度指數（CI_INDEX）分析。",
+    "version": "3.0.0",
+    "type": "skill",
+    "path": "./skills/02_Cognitive/ownership-cluster/SKILL.md",
+    "capabilities": {}
+  },
+  "sentiment-scout": {
+    "description": "|",
+    "version": "3.0.0",
+    "type": "skill",
+    "path": "./skills/02_Cognitive/sentiment-scout/SKILL.md",
+    "capabilities": {}
+  },
+  "software-architect": {
+    "description": "軟體架構師，負責系統高層設計、模式定義與技術選型。",
+    "version": "3.0.0",
+    "type": "skill",
+    "path": "./skills/02_Cognitive/software-architect/SKILL.md",
+    "capabilities": {}
+  },
+  "tech-analyzer": {
+    "description": "專家級的價格形態、量能結構和趨勢指標技術分析。",
+    "version": "3.0.0",
+    "type": "skill",
+    "path": "./skills/02_Cognitive/tech-analyzer/SKILL.md",
+    "capabilities": {}
+  },
+  "twse-market-logic-skill": {
+    "description": "臺股市場分析深度邏輯。包含恐慌指數 (VIX/VIXTWN) 閾值、分層確認模型 (Hierarchical Confirmation)、MSTL 網絡預測、以及籌碼面分析 (法人、融資維持率、大戶持股)。用於規劃分析功能、設定警報閾值、以及開發投資決策支援系統。Triggers on: '恐慌指數', 'Panic Index', '市場邏輯', '籌碼分析', '融資維持率', '千張大戶', '八大行庫'.",
+    "version": "3.0.0",
+    "type": "skill",
+    "path": "./skills/02_Cognitive/twse-market-logic-skill/SKILL.md",
+    "capabilities": {}
+  },
+  "artifacts-builder": {
+    "description": "一套用於使用現代前端 Web 技術（React、Tailwind CSS、shadcn/ui）建立精細、多組件 HTML 成品的工具。適用於需要狀態管理、路由或 shadcn/ui 元件的複雜成品。",
+    "version": "3.0.0",
+    "type": "skill",
+    "path": "./skills/03_Execution/artifacts-builder/SKILL.md",
+    "capabilities": {}
+  },
+  "canvas-design": {
+    "description": "使用設計哲學在 .png 和 .pdf 文件中建立美觀的視覺藝術。當使用者要求建立海報、藝術品、設計或其他靜態視覺作品時使用。",
+    "version": "3.0.0",
+    "type": "skill",
+    "path": "./skills/03_Execution/canvas-design/SKILL.md",
+    "capabilities": {}
+  },
+  "changelog-generator": {
+    "description": "透過分析提交歷史、對變更進行分類，並將技術性提交訊息轉換為清晰、對客戶友好的發佈說明，從 Git 提交紀錄自動生成面向使用者的版本日誌。",
+    "version": "3.0.0",
+    "type": "skill",
+    "path": "./skills/03_Execution/changelog-generator/SKILL.md",
+    "capabilities": {}
+  },
+  "connect-apps": {
+    "description": "",
+    "version": "3.0.0",
+    "type": "skill",
+    "path": "./skills/03_Execution/connect-apps/SKILL.md",
+    "capabilities": {}
+  },
+  "csv-data-summarizer": {
+    "description": "",
+    "version": "3.0.0",
+    "type": "skill",
+    "path": "./skills/03_Execution/csv-data-summarizer/SKILL.md",
+    "capabilities": {}
+  },
+  "d3js-visualization": {
+    "description": "使用 d3.js 建立互動式資料視覺化。適用於客製化圖表、網路圖、地理視覺化，或任何需要對視覺元素、過渡或互動進行精細控制的複雜 SVG 資料視覺化。",
+    "version": "3.0.0",
+    "type": "skill",
+    "path": "./skills/03_Execution/d3js-visualization/SKILL.md",
+    "capabilities": {}
+  },
+  "gemma-4-api": {
+    "description": "",
+    "version": "3.0.0",
+    "type": "skill",
+    "path": "./skills/03_Execution/gemma-4-api/SKILL.md",
+    "capabilities": {}
+  },
+  "image-enhancer": {
+    "description": "透過提高解析度、銳利度和清晰度來提升圖像（特別是截圖）的品質。非常適合為簡報、文件或社群媒體貼文準備圖像。",
+    "version": "3.0.0",
+    "type": "skill",
+    "path": "./skills/03_Execution/image-enhancer/SKILL.md",
+    "capabilities": {}
+  },
+  "langsmith-fetch": {
+    "description": "透過從 LangSmith Studio 獲取執行追蹤來偵錯 LangChain 和 LangGraph 代理人。在偵錯代理人行為、調查錯誤、分析工具呼叫、檢查記憶體操作或檢查代理人效能時使用。自動獲取最近的追蹤並分析執行模式。需要安裝 langsmith-fetch CLI。",
+    "version": "3.0.0",
+    "type": "skill",
+    "path": "./skills/03_Execution/langsmith-fetch/SKILL.md",
+    "capabilities": {}
+  },
+  "mcp-builder": {
+    "description": "建立高品質 MCP (Model Context Protocol) 伺服器的指南，使 LLM 能夠透過設計良好的工具與外部服務進行互動。",
+    "version": "3.0.0",
+    "type": "skill",
+    "path": "./skills/03_Execution/mcp-builder/SKILL.md",
+    "capabilities": {}
+  },
+  "mcp-setup": {
+    "description": "",
+    "version": "3.0.0",
+    "type": "skill",
+    "path": "./skills/03_Execution/mcp-setup/SKILL.md",
+    "capabilities": {}
+  },
+  "notebooklm-mcp": {
+    "description": "",
+    "version": "3.0.0",
+    "type": "skill",
+    "path": "./skills/03_Execution/notebooklm-mcp/SKILL.md",
+    "capabilities": {}
+  },
+  "pdf": {
+    "description": "當使用者想要對 PDF 檔案執行任何操作時使用此技能。包含讀取/提取文字、合併 PDF、拆分、旋轉頁面、添加浮水印、建立新 PDF、填寫表單、加密、提取圖像以及對掃描 PDF 進行 OCR。",
+    "version": "3.0.0",
+    "type": "skill",
+    "path": "./skills/03_Execution/pdf/SKILL.md",
+    "capabilities": {}
+  },
+  "pe-river-map": {
+    "description": "用於長期投資評估的互動式本益比河流圖（PE Band）估值視覺化。",
+    "version": "3.0.0",
+    "type": "skill",
+    "path": "./skills/03_Execution/pe-river-map/SKILL.md",
+    "capabilities": {}
+  },
+  "playwright-automation": {
+    "description": "使用 Playwright 進行完整的瀏覽器自動化。自動偵測開發伺服器，編寫乾淨的測試指令碼。測試頁面、填寫表單、截取螢幕截圖、檢查響應式設計、驗證 UX、測試登入流程、檢查連結，並自動化任何瀏覽器任務。",
+    "version": "3.0.0",
+    "type": "skill",
+    "path": "./skills/03_Execution/playwright-automation/SKILL.md",
+    "capabilities": {}
+  },
+  "postgres": {
+    "description": "對多個 PostgreSQL 資料庫執行唯讀 SQL 查詢。支援結構探索、資料分析和品質檢查。為確保安全，封鎖所有寫入操作。",
+    "version": "3.0.0",
+    "type": "skill",
+    "path": "./skills/03_Execution/postgres/SKILL.md",
+    "capabilities": {}
+  },
+  "skill-creator": {
+    "description": "建立高效技能的指南。當使用者想要建立新技能（或更新現有技能），以專業知識、工作流或工具整合來擴充 Claude 的能力時，應使用此技能。",
+    "version": "3.0.0",
+    "type": "skill",
+    "path": "./skills/03_Execution/skill-creator/SKILL.md",
+    "capabilities": {}
+  },
+  "systematic-debugging-skill": {
+    "description": "當遇到 MCP 連接失敗、工具載入錯誤、npm/pip 安裝失敗、Docker 問題、JSON 設定語法錯誤或 本協作系統 本地環境中的任何異常行為時，在提出任何修正方案前使用此技能。",
+    "version": "3.0.0",
+    "type": "skill",
+    "path": "./skills/03_Execution/systematic-debugging-skill/SKILL.md",
+    "capabilities": {}
+  },
+  "theme-factory": {
+    "description": "為成品設定主題風格的工具包。成品可以是投影片、文件、報告、HTML 登陸頁面等。包含 10 個預設的主題色彩/字體可供套用，或即時生成新主題。",
+    "version": "3.0.0",
+    "type": "skill",
+    "path": "./skills/03_Execution/theme-factory/SKILL.md",
+    "capabilities": {}
+  },
+  "webapp-testing": {
+    "description": "使用 Playwright 互動和測試本地 Web 應用程式的工具包。支援驗證前端功能、偵錯 UI 行為、擷取瀏覽器螢幕截圖以及查看瀏覽器日誌。",
+    "version": "3.0.0",
+    "type": "skill",
+    "path": "./skills/03_Execution/webapp-testing/SKILL.md",
+    "capabilities": {}
+  },
+  "xlsx": {
+    "description": "",
+    "version": "3.0.0",
+    "type": "skill",
+    "path": "./skills/03_Execution/xlsx/SKILL.md",
+    "capabilities": {}
+  }
+}

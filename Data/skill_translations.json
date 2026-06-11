@@ -1,0 +1,622 @@
+{
+  "_schema_version": "3.0.0",
+  "_description": "全域技能別名映射表 — Skill Translations Registry。依 SOP §6.2 嚴格命名空間映射規範，記錄每個技能的 name、實體路徑與所有別名。任何更名或新增動作必須同步更新本文件。V3.1.0: 導入 Agency-Agents Squad 並修復結構 Bug。",
+  "_last_updated": "2026-05-05T00:53:00+08:00",
+  "_total_skills": 63,
+  "_compliance": "V3.0.0 — SOP §6.2 100% Absolute Compliance",
+  "translations": [
+    {
+      "name": "agency-orchestrator-skill",
+      "folder_path": "01_Orchestrators/agency-orchestrator-skill",
+      "layer": "01_Orchestrators",
+      "aliases": [
+        "agency",
+        "總管",
+        "意圖解析",
+        "CEO"
+      ]
+    },
+    {
+      "name": "reality-checker",
+      "folder_path": "01_Orchestrators/reality-checker",
+      "layer": "01_Orchestrators",
+      "aliases": [
+        "qa",
+        "審核員",
+        "現實守門人"
+      ]
+    },
+    {
+      "name": "software-architect",
+      "folder_path": "02_Cognitive/software-architect",
+      "layer": "02_Cognitive",
+      "aliases": [
+        "architect",
+        "架構師",
+        "系統設計"
+      ]
+    },
+    {
+      "name": "backend-architect",
+      "folder_path": "02_Cognitive/backend-architect",
+      "layer": "02_Cognitive",
+      "aliases": [
+        "backend",
+        "後端設計"
+      ]
+    },
+    {
+      "name": "data-engineer",
+      "folder_path": "02_Cognitive/data-engineer",
+      "layer": "02_Cognitive",
+      "aliases": [
+        "data",
+        "資料工程",
+        "ETL"
+      ]
+    },
+    {
+      "name": "evidence-collector",
+      "folder_path": "02_Cognitive/evidence-collector",
+      "layer": "02_Cognitive",
+      "aliases": [
+        "evidence",
+        "證據收集",
+        "事實核查"
+      ]
+    },
+    {
+      "name": "investment-researcher",
+      "folder_path": "02_Cognitive/investment-researcher",
+      "layer": "02_Cognitive",
+      "aliases": [
+        "researcher",
+        "投研",
+        "產業研究"
+      ]
+    },
+    {
+      "name": "financial-analyst",
+      "folder_path": "02_Cognitive/financial-analyst",
+      "layer": "02_Cognitive",
+      "aliases": [
+        "analyst",
+        "財務分析",
+        "估值"
+      ]
+    },
+    {
+      "name": "frontend-developer",
+      "folder_path": "02_Cognitive/frontend-developer",
+      "layer": "02_Cognitive",
+      "aliases": [
+        "frontend",
+        "前端開發"
+      ]
+    },
+    {
+      "name": "devops-engineer",
+      "folder_path": "02_Cognitive/devops-engineer",
+      "layer": "02_Cognitive",
+      "aliases": [
+        "devops",
+        "運維",
+        "部署"
+      ]
+    },
+    {
+      "name": "quant-research-loop",
+      "folder_path": "01_Orchestrators/quant-research-loop",
+      "layer": "01_Orchestrators",
+      "aliases": [
+        "finance-quant-research-loop",
+        "量化研究循環"
+      ]
+    },
+    {
+      "name": "twse-dev-sop-skill",
+      "folder_path": "01_Orchestrators/twse-dev-sop-skill",
+      "layer": "01_Orchestrators",
+      "aliases": [
+        "finance-twse-dev-sop",
+        "twse-dev-sop",
+        "臺股開發SOP"
+      ]
+    },
+    {
+      "name": "autoresearch-agent",
+      "folder_path": "01_Orchestrators/autoresearch-agent",
+      "layer": "01_Orchestrators",
+      "aliases": [
+        "sys-autoresearch",
+        "autoresearch",
+        "自動研究代理"
+      ]
+    },
+    {
+      "name": "handover-manual-skill",
+      "folder_path": "01_Orchestrators/handover-manual-skill",
+      "layer": "01_Orchestrators",
+      "aliases": [
+        "sys-handover-manual",
+        "handover-manual",
+        "交接手冊"
+      ]
+    },
+    {
+      "name": "optimization-status",
+      "folder_path": "01_Orchestrators/optimization-status",
+      "layer": "01_Orchestrators",
+      "aliases": [
+        "sys-optimization-status",
+        "優化狀態"
+      ]
+    },
+    {
+      "name": "quota-monitor-skill",
+      "folder_path": "01_Orchestrators/quota-monitor-skill",
+      "layer": "01_Orchestrators",
+      "aliases": [
+        "sys-quota-monitor",
+        "quota-monitor",
+        "配額監控"
+      ]
+    },
+    {
+      "name": "recursive-research-automation",
+      "folder_path": "01_Orchestrators/recursive-research-automation",
+      "layer": "01_Orchestrators",
+      "aliases": [
+        "sys-recursive-research",
+        "recursive-research",
+        "遞迴研究自動化"
+      ]
+    },
+    {
+      "name": "reflection-module",
+      "folder_path": "01_Orchestrators/reflection-module",
+      "layer": "01_Orchestrators",
+      "aliases": [
+        "sys-reflection-module",
+        "reflection",
+        "反思模組"
+      ]
+    },
+    {
+      "name": "skill-governance-skill",
+      "folder_path": "01_Orchestrators/skill-governance-skill",
+      "layer": "01_Orchestrators",
+      "aliases": [
+        "sys-skill-governance",
+        "skill-governance",
+        "技能治理"
+      ]
+    },
+    {
+      "name": "subagent-collaboration-skill",
+      "folder_path": "01_Orchestrators/subagent-collaboration-skill",
+      "layer": "01_Orchestrators",
+      "aliases": [
+        "sys-subagent-collaboration",
+        "subagent-collaboration",
+        "子代理協作",
+        "配方混合器"
+      ]
+    },
+    {
+      "name": "chip-logic-expert",
+      "folder_path": "02_Cognitive/chip-logic-expert",
+      "layer": "02_Cognitive",
+      "aliases": [
+        "finance-chip-logic",
+        "chip-logic",
+        "籌碼邏輯",
+        "進階籌碼分析"
+      ]
+    },
+    {
+      "name": "macro-linkage",
+      "folder_path": "02_Cognitive/macro-linkage",
+      "layer": "02_Cognitive",
+      "aliases": [
+        "finance-macro-linkage",
+        "總經連動"
+      ]
+    },
+    {
+      "name": "ownership-cluster",
+      "folder_path": "02_Cognitive/ownership-cluster",
+      "layer": "02_Cognitive",
+      "aliases": [
+        "finance-ownership-cluster",
+        "CI_INDEX",
+        "籌碼集中度"
+      ]
+    },
+    {
+      "name": "sentiment-scout",
+      "folder_path": "02_Cognitive/sentiment-scout",
+      "layer": "02_Cognitive",
+      "aliases": [
+        "finance-sentiment-scout",
+        "情緒偵察"
+      ]
+    },
+    {
+      "name": "tech-analyzer",
+      "folder_path": "02_Cognitive/tech-analyzer",
+      "layer": "02_Cognitive",
+      "aliases": [
+        "finance-tech-analyzer",
+        "技術分析"
+      ]
+    },
+    {
+      "name": "twse-market-logic-skill",
+      "folder_path": "02_Cognitive/twse-market-logic-skill",
+      "layer": "02_Cognitive",
+      "aliases": [
+        "finance-twse-market-logic",
+        "twse-market-logic",
+        "臺股市場邏輯",
+        "市場邏輯"
+      ]
+    },
+    {
+      "name": "elon-musk-perspective",
+      "folder_path": "02_Cognitive/elon-musk-perspective",
+      "layer": "02_Cognitive",
+      "aliases": [
+        "persona-elon-musk",
+        "馬斯克",
+        "Musk模式"
+      ]
+    },
+    {
+      "name": "feynman-perspective",
+      "folder_path": "02_Cognitive/feynman-perspective",
+      "layer": "02_Cognitive",
+      "aliases": [
+        "persona-feynman",
+        "費曼",
+        "feynman perspective"
+      ]
+    },
+    {
+      "name": "ilya-sutskever-perspective",
+      "folder_path": "02_Cognitive/ilya-sutskever-perspective",
+      "layer": "02_Cognitive",
+      "aliases": [
+        "persona-ilya",
+        "ilya-sutskever",
+        "Ilya模式"
+      ]
+    },
+    {
+      "name": "sun-yuchen-perspective",
+      "folder_path": "02_Cognitive/sun-yuchen-perspective",
+      "layer": "02_Cognitive",
+      "aliases": [
+        "persona-justin-sun",
+        "孫宇晨",
+        "孫割",
+        "割神"
+      ]
+    },
+    {
+      "name": "andrej-karpathy-perspective",
+      "folder_path": "02_Cognitive/andrej-karpathy-perspective",
+      "layer": "02_Cognitive",
+      "aliases": [
+        "persona-karpathy",
+        "karpathy",
+        "卡帕西",
+        "karpathy模式"
+      ]
+    },
+    {
+      "name": "mrbeast-perspective",
+      "folder_path": "02_Cognitive/mrbeast-perspective",
+      "layer": "02_Cognitive",
+      "aliases": [
+        "persona-mrbeast",
+        "Beast模式"
+      ]
+    },
+    {
+      "name": "munger-perspective",
+      "folder_path": "02_Cognitive/munger-perspective",
+      "layer": "02_Cognitive",
+      "aliases": [
+        "persona-munger",
+        "芒格",
+        "munger perspective"
+      ]
+    },
+    {
+      "name": "naval-perspective",
+      "folder_path": "02_Cognitive/naval-perspective",
+      "layer": "02_Cognitive",
+      "aliases": [
+        "persona-naval",
+        "納瓦爾",
+        "Naval perspective"
+      ]
+    },
+    {
+      "name": "paul-graham-perspective",
+      "folder_path": "02_Cognitive/paul-graham-perspective",
+      "layer": "02_Cognitive",
+      "aliases": [
+        "persona-paul-graham",
+        "PG",
+        "paul graham perspective"
+      ]
+    },
+    {
+      "name": "steve-jobs-perspective",
+      "folder_path": "02_Cognitive/steve-jobs-perspective",
+      "layer": "02_Cognitive",
+      "aliases": [
+        "persona-steve-jobs",
+        "喬布斯",
+        "Jobs模式"
+      ]
+    },
+    {
+      "name": "taleb-perspective",
+      "folder_path": "02_Cognitive/taleb-perspective",
+      "layer": "02_Cognitive",
+      "aliases": [
+        "persona-taleb",
+        "塔勒布",
+        "反脆弱視角"
+      ]
+    },
+    {
+      "name": "trump-perspective",
+      "folder_path": "02_Cognitive/trump-perspective",
+      "layer": "02_Cognitive",
+      "aliases": [
+        "persona-trump",
+        "川普",
+        "懂王"
+      ]
+    },
+    {
+      "name": "x-mastery-mentor",
+      "folder_path": "02_Cognitive/x-mastery-mentor",
+      "layer": "02_Cognitive",
+      "aliases": [
+        "persona-x-mastery-mentor",
+        "X運營導師"
+      ]
+    },
+    {
+      "name": "zhangxuefeng-perspective",
+      "folder_path": "02_Cognitive/zhangxuefeng-perspective",
+      "layer": "02_Cognitive",
+      "aliases": [
+        "persona-zhang-xuefeng",
+        "張雪峰",
+        "雪峰視角"
+      ]
+    },
+    {
+      "name": "zhang-yiming-perspective",
+      "folder_path": "02_Cognitive/zhang-yiming-perspective",
+      "layer": "02_Cognitive",
+      "aliases": [
+        "persona-zhang-yiming",
+        "張一鳴",
+        "位元組邏輯"
+      ]
+    },
+    {
+      "name": "huashu-nuwa",
+      "folder_path": "02_Cognitive/huashu-nuwa",
+      "layer": "02_Cognitive",
+      "aliases": [
+        "sys-nuwa-skill-template",
+        "nuwa",
+        "女媧",
+        "造人術",
+        "Skill造人"
+      ]
+    },
+    {
+      "name": "pe-river-map",
+      "folder_path": "03_Execution/pe-river-map",
+      "layer": "03_Execution",
+      "aliases": [
+        "finance-pe-river-map",
+        "本益比河流圖"
+      ]
+    },
+    {
+      "name": "systematic-debugging-skill",
+      "folder_path": "03_Execution/systematic-debugging-skill",
+      "layer": "03_Execution",
+      "aliases": [
+        "sys-debugging",
+        "debugging",
+        "系統除錯"
+      ]
+    },
+    {
+      "name": "skill-creator",
+      "folder_path": "03_Execution/skill-creator",
+      "layer": "03_Execution",
+      "aliases": [
+        "sys-skill-creator",
+        "技能創建"
+      ]
+    },
+    {
+      "name": "artifacts-builder",
+      "folder_path": "03_Execution/artifacts-builder",
+      "layer": "03_Execution",
+      "aliases": [
+        "tool-artifacts-builder",
+        "成品建造器"
+      ]
+    },
+    {
+      "name": "canvas-design",
+      "folder_path": "03_Execution/canvas-design",
+      "layer": "03_Execution",
+      "aliases": [
+        "tool-canvas-design",
+        "畫布設計"
+      ]
+    },
+    {
+      "name": "changelog-generator",
+      "folder_path": "03_Execution/changelog-generator",
+      "layer": "03_Execution",
+      "aliases": [
+        "tool-changelog-generator",
+        "版本日誌生成"
+      ]
+    },
+    {
+      "name": "connect-apps",
+      "folder_path": "03_Execution/connect-apps",
+      "layer": "03_Execution",
+      "aliases": [
+        "tool-connect-apps",
+        "應用連接"
+      ]
+    },
+    {
+      "name": "csv-data-summarizer",
+      "folder_path": "03_Execution/csv-data-summarizer",
+      "layer": "03_Execution",
+      "aliases": [
+        "tool-csv-data-summarizer",
+        "CSV分析"
+      ]
+    },
+    {
+      "name": "d3js-visualization",
+      "folder_path": "03_Execution/d3js-visualization",
+      "layer": "03_Execution",
+      "aliases": [
+        "tool-d3js-visualization",
+        "D3視覺化",
+        "d3-viz"
+      ]
+    },
+    {
+      "name": "gemma-4-api",
+      "folder_path": "03_Execution/gemma-4-api",
+      "layer": "03_Execution",
+      "aliases": [
+        "tool-gemma-4-api",
+        "Gemma4"
+      ]
+    },
+    {
+      "name": "image-enhancer",
+      "folder_path": "03_Execution/image-enhancer",
+      "layer": "03_Execution",
+      "aliases": [
+        "tool-image-enhancer",
+        "圖像增強"
+      ]
+    },
+    {
+      "name": "langsmith-fetch",
+      "folder_path": "03_Execution/langsmith-fetch",
+      "layer": "03_Execution",
+      "aliases": [
+        "tool-langsmith-fetch",
+        "LangSmith追蹤"
+      ]
+    },
+    {
+      "name": "mcp-builder",
+      "folder_path": "03_Execution/mcp-builder",
+      "layer": "03_Execution",
+      "aliases": [
+        "tool-mcp-builder",
+        "MCP建造器"
+      ]
+    },
+    {
+      "name": "mcp-setup",
+      "folder_path": "03_Execution/mcp-setup",
+      "layer": "03_Execution",
+      "aliases": [
+        "tool-mcp-setup",
+        "MCP設定"
+      ]
+    },
+    {
+      "name": "notebooklm-mcp",
+      "folder_path": "03_Execution/notebooklm-mcp",
+      "layer": "03_Execution",
+      "aliases": [
+        "tool-notebooklm-mcp",
+        "nlm",
+        "NotebookLM"
+      ]
+    },
+    {
+      "name": "pdf",
+      "folder_path": "03_Execution/pdf",
+      "layer": "03_Execution",
+      "aliases": [
+        "tool-pdf",
+        "PDF工具"
+      ]
+    },
+    {
+      "name": "playwright-automation",
+      "folder_path": "03_Execution/playwright-automation",
+      "layer": "03_Execution",
+      "aliases": [
+        "tool-playwright-automation",
+        "playwright",
+        "Playwright自動化"
+      ]
+    },
+    {
+      "name": "postgres",
+      "folder_path": "03_Execution/postgres",
+      "layer": "03_Execution",
+      "aliases": [
+        "tool-postgres",
+        "PostgreSQL"
+      ]
+    },
+    {
+      "name": "theme-factory",
+      "folder_path": "03_Execution/theme-factory",
+      "layer": "03_Execution",
+      "aliases": [
+        "tool-theme-factory",
+        "主題工廠"
+      ]
+    },
+    {
+      "name": "webapp-testing",
+      "folder_path": "03_Execution/webapp-testing",
+      "layer": "03_Execution",
+      "aliases": [
+        "tool-webapp-testing",
+        "webapp-testing-skill",
+        "Webapp測試"
+      ]
+    },
+    {
+      "name": "xlsx",
+      "folder_path": "03_Execution/xlsx",
+      "layer": "03_Execution",
+      "aliases": [
+        "tool-xlsx",
+        "Excel工具"
+      ]
+    }
+  ]
+}
