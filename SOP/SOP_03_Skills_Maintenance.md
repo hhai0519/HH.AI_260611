@@ -130,6 +130,9 @@ version: "1.0.0"
 - 更新 `SKILL_TW.md` 技能 Modal 詳細資訊
 - 觸發儀表板自動重整
 
+### 大規模合規性巡檢腳本 (Massive Optimization Loop)
+若因 SOP 結構性改版導致大量技能不合規，授權 Agent 以 `$$自動化$$` 權限撰寫並執行 Node.js 腳本 (如 `massive_optimization_loop.js`)，進行全系統的 3 輪以上自我修復與驗證，取代人工逐一修改。確保 100% 絕對合規。
+
 ### 同步義務（V3.1.3 修訂）
 技能更新後，Agent 必須直接執行以下檔案寫入操作，無需依賴外部 Node.js 腳本：
 1. 更新 `Data/00_Skill_Manifest.json`（寫入或修改對應技能物件）

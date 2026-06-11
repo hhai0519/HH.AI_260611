@@ -313,5 +313,33 @@
     "type": "skill",
     "path": "./skills/03_Execution/xlsx/SKILL.md",
     "capabilities": {}
+  },
+  "ui-prototype-builder": {
+    "description": "Claude Design——用HTML做高保真原型、互動Demo、幻燈片、動畫、設計變體探索的一體化設計能力。",
+    "version": "1.4.0",
+    "type": "skill",
+    "path": "./skills/03_Execution/ui-prototype-builder/SKILL.md",
+    "capabilities": {}
+  },
+  "handover-manual-skill": {
+    "description": "Auto-generated manifest entry during massive optimization.",
+    "version": "3.0.0",
+    "type": "skill",
+    "path": "./skills/01_Orchestrators/handover-manual-skill/SKILL.md",
+    "capabilities": {}
+  },
+  "skill-governance-skill": {
+    "description": "Auto-generated manifest entry during massive optimization.",
+    "version": "3.0.0",
+    "type": "skill",
+    "path": "./skills/01_Orchestrators/skill-governance-skill/SKILL.md",
+    "capabilities": {}
+  },
+  "subagent-collaboration-skill": {
+    "description": "Auto-generated manifest entry during massive optimization.",
+    "version": "3.0.0",
+    "type": "skill",
+    "path": "./skills/01_Orchestrators/subagent-collaboration-skill/SKILL.md",
+    "capabilities": {}
   }
 }

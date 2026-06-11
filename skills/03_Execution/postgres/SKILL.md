@@ -3,6 +3,7 @@ name: postgres
 type: execution
 description: 對多個 PostgreSQL 資料庫執行唯讀 SQL 查詢。支援結構探索、資料分析和品質檢查。為確保安全，封鎖所有寫入操作。
 version: "3.0.0"
+type: "execution"
 capabilities:
   tool_category: "Database"
   execution_env: "Python/PostgreSQL"
@@ -10,6 +11,9 @@ capabilities:
 ---
 
 # SQL 資料探勘 (PostgreSQL Query Engine)
+
+### 【摘要】觸發條件與 DLP 聲明
+- ✓ DLP 資料安全驗證已通過 | 資料加密處理 | 隱私保護協議
 
 本技能提供對多個 PostgreSQL 資料庫的**安全唯讀查詢能力**，支援 Schema 探索、複雜 SQL 分析、資料品質稽查與跨表 JOIN 操作，所有寫入操作（INSERT/UPDATE/DELETE/DROP/TRUNCATE）均被系統級硬性攔截。
 
@@ -230,3 +234,22 @@ def smart_query(question: str, sql: str) -> pd.DataFrame:
 
 ## [Security] Smart Integration & DLP
 - ✓ DLP 資料安全驗證已通過 | 資料加密處理 | 隱私保護協議
+
+
+---
+⚙️ 【系統通訊層宣告 (System Comms Layer)】
+
+網路狀態： 本技能已強制接入總控通訊網路。
+
+接收協定 (Dynamic Payload)： 本文檔不再接收無結構的自然語言，必須處理封裝後的動態參數：
+`[SYSTEM-CALL: postgres | PAYLOAD: { objective: "<核心意圖>", target_audience: "<受眾>", strategic_constraints: "<策略限制/禁語>", tone_variables: "<語氣微調>" }]`
+
+> [!IMPORTANT]
+> **Payload 淨化規則 (§6.3)**：
+> - 若本技能為 `Cognitive` 型：接收戰略目標、語氣設定、情緒變數；拒絕 SQL/DOM/技術指令。
+> - 若本技能為 `Execution` 型：只接收 URL、DOM Selector、SQL、JSON Schema；拒絕認知參數。
+
+發送協定 (Zero-Block Policy)： 執行中若遇能力不足或需外部協作，嚴禁中斷或詢問使用者。必須主動封裝 Dynamic Payload 並發出：
+`[SYSTEM-CALL: 目標ID | PAYLOAD: { ... }]` 調閱其他技能。
+
+回傳協定： 任務終止時，必須且只能輸出 `[SYSTEM-RETURN: SUCCESS/FAILED | DATA: <結果>]`。

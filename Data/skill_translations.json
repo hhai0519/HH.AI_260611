@@ -2,7 +2,7 @@
   "_schema_version": "3.0.0",
   "_description": "全域技能別名映射表 — Skill Translations Registry。依 SOP §6.2 嚴格命名空間映射規範，記錄每個技能的 name、實體路徑與所有別名。任何更名或新增動作必須同步更新本文件。V3.1.0: 導入 Agency-Agents Squad 並修復結構 Bug。",
   "_last_updated": "2026-05-05T00:53:00+08:00",
-  "_total_skills": 63,
+  "_total_skills": 64,
   "_compliance": "V3.0.0 — SOP §6.2 100% Absolute Compliance",
   "translations": [
     {
@@ -616,6 +616,18 @@
       "aliases": [
         "tool-xlsx",
         "Excel工具"
+      ]
+    },
+    {
+      "name": "ui-prototype-builder",
+      "folder_path": "03_Execution/ui-prototype-builder",
+      "layer": "03_Execution",
+      "aliases": [
+        "claude-design",
+        "claude-canva-design",
+        "互動原型",
+        "HTML演示",
+        "設計變體"
       ]
     }
   ]

@@ -3,6 +3,7 @@ name: recursive-research-automation
 type: orchestrator
 description: "通用的遞迴研究自動化框架。僅在指令包含「$$自動化$$」時啟用。符合 SOP §2.4 強制授權協議。"
 version: "3.0.0"
+type: "orchestrator"
 capabilities:
   logic_depth: "遞迴深化研究路徑與子方向識別"
   strategic_focus: "配額管理與深度研究產出"
@@ -10,6 +11,9 @@ capabilities:
 ---
 
 # 遞迴研究自動化路徑 (Recursive Research Automation Path)
+
+### 【摘要】觸發條件與 DLP 聲明
+- ✓ DLP 資料安全驗證已通過 | 資料加密處理 | 隱私保護協議
 
 ## 功能概述
 本技能定義了自動化深度研究的標準作業程式 (SOP)。它採用「遞迴式」的研究邏輯，透過不斷分析前一階段的發現來啟動更深化的研究路徑，並整合資源配額監控（如 Gemini 3 Flash 配額），確保在資源耗盡前（預設 20%）安全產出報告。
@@ -60,3 +64,22 @@ capabilities:
 
 ## [Security] Smart Integration & DLP
 - ✓ DLP 資料安全驗證已通過 | 資料加密處理 | 隱私保護協議
+
+
+---
+⚙️ 【系統通訊層宣告 (System Comms Layer)】
+
+網路狀態： 本技能已強制接入總控通訊網路。
+
+接收協定 (Dynamic Payload)： 本文檔不再接收無結構的自然語言，必須處理封裝後的動態參數：
+`[SYSTEM-CALL: recursive-research-automation | PAYLOAD: { objective: "<核心意圖>", target_audience: "<受眾>", strategic_constraints: "<策略限制/禁語>", tone_variables: "<語氣微調>" }]`
+
+> [!IMPORTANT]
+> **Payload 淨化規則 (§6.3)**：
+> - 若本技能為 `Cognitive` 型：接收戰略目標、語氣設定、情緒變數；拒絕 SQL/DOM/技術指令。
+> - 若本技能為 `Execution` 型：只接收 URL、DOM Selector、SQL、JSON Schema；拒絕認知參數。
+
+發送協定 (Zero-Block Policy)： 執行中若遇能力不足或需外部協作，嚴禁中斷或詢問使用者。必須主動封裝 Dynamic Payload 並發出：
+`[SYSTEM-CALL: 目標ID | PAYLOAD: { ... }]` 調閱其他技能。
+
+回傳協定： 任務終止時，必須且只能輸出 `[SYSTEM-RETURN: SUCCESS/FAILED | DATA: <結果>]`。

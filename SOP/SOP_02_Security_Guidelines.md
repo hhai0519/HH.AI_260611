@@ -26,6 +26,7 @@ dependencies: []
 - **嚴禁硬編碼**：禁止在 `SKILL.md` 或任何 Markdown 文件中直接嵌入明文憑證或密碼。
 - **安全存放**：所有憑證必須透過環境變數存放，並確保相關目錄已納入 `.gitignore` 保護範圍。
 - **AI 任務中的憑證引用**：在自動化任務中，AI 系統須透過環境變數（Environment Variables）引用憑證，嚴禁使用硬編碼字串。
+- **Git 歷史污染處置原則**：若敏感 API Token 不慎進入 Git 歷史紀錄並觸發 Push Protection，嚴禁僅使用 `git rm` 刪除檔案。必須執行完整的 `.git` 歷史重置 (History Wipe) 或使用 BFG 工具清理，確保歷史負債被徹底銷毀。
 
 ---
 

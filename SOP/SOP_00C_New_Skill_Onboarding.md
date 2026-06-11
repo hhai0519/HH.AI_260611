@@ -11,6 +11,7 @@ dependencies: ["Templates/Template_00_Universal_Skill.md", "Data/00_Skill_Manife
 
 ## 1. 自動克隆 (Auto-Clone)
 強制複製 `Templates/Template_00_Universal_Skill.md` 作為開發起點。
+- **目錄命名強制原則**：技能資料夾的命名必須完全基於「功能性」（例如 `ui-prototype-builder`），嚴禁直接保留來源專案的原始名稱（例如 `claude-canva-design`）。
 - 絕對禁止使用 Agent 自身的預設格式。
 - 必須保留模板底部的 `【系統通訊層宣告 (System Comms Layer)】`。
 
@@ -155,3 +156,11 @@ Agent 必須模擬發送以下格式的字串：
 1. 寫入 `Data/skill_translations.json` 完整條目
 2. 確保在 Neon DB 中將該筆任務更新為 `"RESOLVED"`（或交由排程器處理）
 3. 旁路條款自動失效，後續調用恢復正常強制查詢流程
+
+---
+
+## 7. MCP 伺服器與外部大腦串接 (MCP Integration)
+
+當新技能需要調用外部環境（如 GitHub、Notion、NotebookLM）時，必須遵守 MCP 串接規範：
+- **單一真理來源**：所有 MCP 伺服器的連線配置必須且只能維護於 `C:\Users\HH.AI_260611\.gemini\config\mcp_config.json`。
+- **禁止本地配置**：嚴禁在單一技能的目錄內私自存放獨立的 MCP 啟動設定檔，以確保全域授權的統一管理與安全性。
