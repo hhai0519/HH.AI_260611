@@ -2,7 +2,7 @@
 title: "Handover Manual"
 version: "3.1.3"
 tags: [SOP, Handover, Architecture]
-dependencies: []
+dependencies: ["SOP_00_Skill_Lifecycle_Management.md", "SOP_05_System_Policies.md", "SOP_03_Skills_Maintenance.md"]
 ---
 # 本協作系統 (Argus v6.0) 專案維護日誌 CORE_MAINTENANCE_LOG
 

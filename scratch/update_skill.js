@@ -1,7 +1,7 @@
 const fs = require('fs');
 
 // 1. Update SKILL.md
-let content = fs.readFileSync('skills/03_Execution/ui-prototype-builder/SKILL.md', 'utf8');
+let content = fs.readFileSync('skills/05_自動化業務行動層_Actions/ui-prototype-builder/SKILL.md', 'utf8');
 content = content.replace(/^\uFEFF+/, ''); // Remove BOM
 
 content = content.replace(/name: claude-canva-design/, 'name: ui-prototype-builder');
@@ -35,7 +35,7 @@ if (!content.includes('【系統通訊層宣告 (System Comms Layer)】')) {
 `;
 }
 
-fs.writeFileSync('skills/03_Execution/ui-prototype-builder/SKILL.md', content, 'utf8');
+fs.writeFileSync('skills/05_自動化業務行動層_Actions/ui-prototype-builder/SKILL.md', content, 'utf8');
 
 // 2. Update Manifest
 const manifestPath = 'Data/00_Skill_Manifest.json';
@@ -44,7 +44,7 @@ manifest['ui-prototype-builder'] = {
   "description": "Claude Design——用HTML做高保真原型、互動Demo、幻燈片、動畫、設計變體探索的一體化設計能力。",
   "version": "1.4.0",
   "type": "skill",
-  "path": "./skills/03_Execution/ui-prototype-builder/SKILL.md",
+  "path": "./skills/05_自動化業務行動層_Actions/ui-prototype-builder/SKILL.md",
   "capabilities": {}
 };
 fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2), 'utf8');
@@ -55,8 +55,8 @@ let trans = JSON.parse(fs.readFileSync(translationsPath, 'utf8'));
 if (!trans.translations.find(t => t.name === 'ui-prototype-builder')) {
   trans.translations.push({
     "name": "ui-prototype-builder",
-    "folder_path": "03_Execution/ui-prototype-builder",
-    "layer": "03_Execution",
+    "folder_path": "05_自動化業務行動層_Actions/ui-prototype-builder",
+    "layer": "05_自動化業務行動層_Actions",
     "aliases": [
       "claude-design",
       "claude-canva-design",

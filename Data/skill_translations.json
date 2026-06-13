@@ -629,6 +629,18 @@
         "HTML演示",
         "設計變體"
       ]
+    },
+    {
+      "name": "line-bot-zero-delay",
+      "folder_path": "03_Execution/line-bot-zero-delay",
+      "layer": "03_Execution",
+      "aliases": [
+        "$$啟動LINE$$",
+        "啟動LINE",
+        "LINE監聽器",
+        "LINE橋接",
+        "line-startup"
+      ]
     }
   ]
 }

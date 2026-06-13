@@ -9,7 +9,7 @@ const fs = require('fs');
 const path = require('path');
 
 const BASE = path.resolve(__dirname, '..');
-const ORCHESTRATORS_DIR = path.join(BASE, 'skills', '01_Orchestrators');
+const ORCHESTRATORS_DIR = path.join(BASE, 'skills', '01_總管與路由層_Orchestration');
 const MANIFEST_PATH = path.join(BASE, 'Data', '00_Skill_Manifest.json');
 
 // ── 5 remaining Orchestrators with designed capabilities ──────────────────────

@@ -1,6 +1,6 @@
 ---
 title: "新技能全自動報到標準作業程序"
-version: "3.1.3"
+version: "3.1.4"
 tags: ["SOP", "技能新增", "Onboarding", "CI/CD"]
 dependencies: ["Templates/Template_00_Universal_Skill.md", "Data/00_Skill_Manifest.json", "SOP_00_Skill_Lifecycle_Management.md"]
 ---
@@ -24,7 +24,7 @@ dependencies: ["Templates/Template_00_Universal_Skill.md", "Data/00_Skill_Manife
 ```json
 {
   "id": "技能的唯一識別碼",
-  "path": "相對路徑 (例如: skills/03_Execution/tool-example)",
+  "path": "相對路徑 (例如: skills/05_自動化業務行動層_Actions/tool-example)",
   "type": "分類 (Orchestrators/Cognitive/Execution)",
   "triggers": ["觸發關鍵字1", "觸發關鍵字2"],
   "dependencies": ["相依的技能ID"]
@@ -40,8 +40,8 @@ dependencies: ["Templates/Template_00_Universal_Skill.md", "Data/00_Skill_Manife
 ```json
 {
   "name": "技能 YAML 標頭的 name 值（與資料夾名稱完全一致）",
-  "folder_path": "層級/資料夾名稱（例如 03_Execution/playwright-automation）",
-  "layer": "所屬層級（01_Orchestrators / 02_Cognitive / 03_Execution）",
+  "folder_path": "層級/資料夾名稱（例如 03_外部串接與IO層_Integration/playwright-automation）",
+  "layer": "所屬層級（01_總管與路由層_Orchestration / 04_大腦認知分析層_Cognitive / 05_自動化業務行動層_Actions）",
   "aliases": ["舊目錄前綴名", "中文簡稱", "其他觸發別名"]
 }
 ```
@@ -89,39 +89,6 @@ Agent 必須模擬發送以下格式的字串：
 
 ---
 
-## 5. CI/CD 旁路機制 (Onboarding Bypass) — V3.0.0 新增
-
-> [!IMPORTANT]
-> **死鎖解除條款**：新技能在通過 CI/CD 測試前無法寫入 `skill_translations.json`，但查詢失敗會阻斷 CI/CD，形成循環死鎖。本條款提供合法旁路出口。
-
-### 5.1 旁路觸發條件
-
-當技能尚在 Onboarding 測試階段（即 `skill_translations.json` 中**尚無**該技能的映射條目），允許在 `[SYSTEM-CALL]` 中傳入旁路旗標：
-
-```text
-[SYSTEM-CALL: <新技能ID> | TASK: Ping | is_onboarding_test: true | CONTEXT: None]
-- **DLP 與結構檢核**：強制檢查檔案是否包含 SOP_03 規定的 `### 【摘要】觸發條件與 DLP 聲明`，以及標準 H2 標題（核心功能、操作步驟等）。若有缺失，一律阻擋存檔。
-
-## 4. 連線與 Payload 合規測試 (CI/CD Gate) [防呆機制]
-Agent 必須執行兩階段測試：
-
-**階段 4a — Ping Test：**
-```text
-[SYSTEM-CALL: <新技能ID> | TASK: Ping | CONTEXT: None]
-```
-必須驗證該技能可以正確解析並回傳：
-```text
-[SYSTEM-RETURN: SUCCESS | DATA: Pong]
-```
-
-**階段 4b — Payload 解析合規測試（僅限 Cognitive / Orchestrator 技能）：**
-Agent 必須模擬發送以下格式的字串：
-```text
-[SYSTEM-CALL: <新技能ID> | PAYLOAD: { "objective": "test", "target_audience": "QA", "strategic_constraints": "none", "tone_variables": "neutral" }]
-```
-技能必須能將 `PAYLOAD` 正確解析為 JSON 物件並印出 `objective` Key 的值。若解析失敗，視為「CI/CD 不通過」，禁止存檔，Agent 必須進入 Debugging 流程自行修復直至兩項測試均通過為止。
-
----
 
 ## 5. CI/CD 旁路機制 (Onboarding Bypass) — V3.0.0 新增
 

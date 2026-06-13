@@ -30,7 +30,7 @@ dependencies: ["00_Master_Menu.ps1"]
    - **命名規則**：`動詞-名詞.ps1` (例: `Fix-Encoding.ps1`)。這使得純程式腳本與代理人技能完全解耦。
 
 3. **[IF] 檔案是「AI 代理人系統技能目錄 (包含 `SKILL.md`)」：**
-   - **落地層**：➔ 存入 `skills/` 並嚴格歸入三大子層級（`01_Orchestrators/`, `02_Cognitive/`, `03_Execution/`）
+   - **落地層**：➔ 存入 `skills/` 並嚴格歸入三大子層級（`01_總管與路由層_Orchestration/`, `04_大腦認知分析層_Cognitive/`, `05_自動化業務行動層_Actions/`）
    - **命名規則**：嚴格遵守 **1:1 映射（無前綴）原則** ─ 實體目錄名稱必須與 `SKILL.md` YAML 標頭的 `name` 欄位完全一致。
    - **嚴禁**使用任何領域前綴（`sys-*`, `finance-*`, `tool-*`, `persona-*`）。此政策已於 V3.1.3 正式廢除。
    - **技能分類**：由 `Data/00_Skill_Manifest.json` 統一管理，不在目錄名稱中編碼。

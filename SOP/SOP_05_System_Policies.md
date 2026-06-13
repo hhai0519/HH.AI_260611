@@ -73,9 +73,9 @@ dependencies: ["SOP_00_Skill_Lifecycle_Management.md", "Modules/db_state_manager
 
 ### 5.1 架構層級劃分
 - 所有技能實體必須存放於 `skills/` 目錄，並嚴格歸類於以下三大主目錄：
-  - `01_Orchestrators/`：總管與高階流程控制模組。
-  - `02_Cognitive/`：思考模型、邏輯推演與知識性分析模組。
-  - `03_Execution/`：單純的工具調用、檔案操作與實體執行腳本。
+  - `01_總管與路由層_Orchestration/`：總管與高階流程控制模組。
+  - `04_大腦認知分析層_Cognitive/`：思考模型、邏輯推演與知識性分析模組。
+  - `05_自動化業務行動層_Actions/`：單純的工具調用、檔案操作與實體執行腳本。
 
 ### 5.2 嚴格 1:1 映射原則（無前綴）
 

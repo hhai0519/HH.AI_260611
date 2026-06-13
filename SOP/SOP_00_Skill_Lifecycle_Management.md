@@ -198,12 +198,12 @@ Buffer 寫入完成後，Agent **僅能**在對話**結尾**以一行警示通�
 
 ### §6.1 反死鎖與單向依賴協定 (Anti-Deadlock & Uni-directional Flow)
 
-**規則**：嚴禁同層級技能（特別是 `02_Cognitive` 層）產生「循環互相依賴」。
+**規則**：嚴禁同層級技能（特別是 `04_大腦認知分析層_Cognitive` 層）產生「循環互相依賴」。
 
 **定義**：若技能 A 在其「協同技能」或 `dependencies` 中宣告依賴技能 B，而技能 B 同時也宣告依賴技能 A，則構成循環依賴死鎖，**一律違規**。
 
 **強制處置**：
-- 若 A 技能與 B 技能需要共用邏輯或資料，必須將共用部分「向下抽取 (Extract-Down)」，於 `03_Execution` 層建立獨立的中轉工具（例如：共用的 `twse-market-logic-skill`）。
+- 若 A 技能與 B 技能需要共用邏輯或資料，必須將共用部分「向下抽取 (Extract-Down)」，於 `05_自動化業務行動層_Actions` 層建立獨立的中轉工具（例如：共用的 `twse-market-logic-skill`）。
 - 兩個技能各自單向依賴該中轉工具，禁止互相引用。
 - 違者必須解耦後才允許存檔。
 
@@ -233,7 +233,7 @@ Buffer 寫入完成後，Agent **僅能**在對話**結尾**以一行警示通�
 // Data/skill_translations.json
 {
   "name": "chip-logic-expert",
-  "folder_path": "02_Cognitive/chip-logic-expert",
+  "folder_path": "06_股票分析與量化層_Stock_Analysis/chip-logic-expert",
   "aliases": ["chip-logic", "finance-chip-logic", "籌碼專家"]
 }
 ```
@@ -250,8 +250,8 @@ Buffer 寫入完成後，Agent **僅能**在對話**結尾**以一行警示通�
 
 | 目標層級 | 允許的 Payload 內容 | 嚴禁包含 |
 |---|---|---|
-| `02_Cognitive` (Persona / Analyst) | 戰略目標、語氣設定、情緒變數、自然語言約束 | SQL 語句、DOM 路徑、raw URL、技術指令 |
-| `03_Execution` (Tool) | URL、DOM Selector、SQL Query、JSON Schema、檔案路徑 | 認知參數、語氣描述、角色設定、情緒變數 |
+| `04_大腦認知分析層_Cognitive` (Persona / Analyst) | 戰略目標、語氣設定、情緒變數、自然語言約束 | SQL 語句、DOM 路徑、raw URL、技術指令 |
+| `05_自動化業務行動層_Actions` (Tool) | URL、DOM Selector、SQL Query、JSON Schema、檔案路徑 | 認知參數、語氣描述、角色設定、情緒變數 |
 
 **執行規則**：
 1. `sys-subagent-collaboration` 作為 Payload 淨化的責任方，在組裝 Dynamic Payload 前必須識別目標層級。

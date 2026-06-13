@@ -1,6 +1,6 @@
 ---
 title: "技能生命週期維護標準作業程序"
-version: "3.1.3"
+version: "3.1.4"
 tags: ["SOP", "技能維護", "Skills", "Dashboard"]
 dependencies: ["SOP_00_Skill_Lifecycle_Management.md", "Data/00_Skill_Manifest.json"]
 ---
@@ -163,11 +163,10 @@ Get-ChildItem -Path "<USER_HOME>\.gemini\本協作系統\skills" -Recurse -Name 
 ### 步驟 2：選取需要補齊的技能
 確認清單後，按照第 4 節範本逐一補齊 `SKILL_TW.md` 的內容。
 
-### 步驟 3：觸發儀表板更新
-```powershell
-# @EXECUTE
-node "<USER_HOME>\.gemini\本協作系統\skills\scripts\refresh_skills.js"
-```
+### 步驟 3：同步技能資料（V3.1.3+ 新方式）
+> [!WARNING]
+> `scripts/refresh_skills.js` 已於 V3.1.3 正式廢除，禁止使用。
+> 請直接手動更新 `Data/00_Skill_Manifest.json` 與 `Data/skill_translations.json`，或由 Agent 自動執行 Manifest Inject 流程（見 SOP_00C §2）。
 
 ### 步驟 4：驗證儀表板大小（確認更新成功）
 ```powershell
