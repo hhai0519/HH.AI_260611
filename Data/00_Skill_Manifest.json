@@ -341,5 +341,12 @@
     "type": "skill",
     "path": "./skills/01_Orchestrators/subagent-collaboration-skill/SKILL.md",
     "capabilities": {}
+  },
+  "json-to-flex-renderer": {
+    "description": "純程式化將 JSON 轉換為 LINE Flex Message 的渲染引擎。",
+    "version": "1.0.0",
+    "type": "skill",
+    "path": "./skills/04_大腦認知分析層_Cognitive/json-to-flex-renderer/SKILL.md",
+    "capabilities": {}
   }
 }
