@@ -1,93 +1,9 @@
 {
-  "agency-orchestrator-skill": {
-    "description": "Agency-Agents 最高總管，負責通用意圖解析與全局任務拆解，並執行 4-Phase 狀態機工作流。",
-    "version": "3.1.3",
-    "type": "skill",
-    "path": "./skills/01_Orchestrators/agency-orchestrator-skill/SKILL.md",
-    "capabilities": {}
-  },
-  "autoresearch-agent": {
-    "description": "微型 AI 模型超參數自動化優化代理人。僅在指令包含「$$自動化$$」且涉及模型優化時啟用。符合 SOP §2.4 強制授權協議。",
-    "version": "3.0.0",
-    "type": "skill",
-    "path": "./skills/01_Orchestrators/autoresearch-agent/SKILL.md",
-    "capabilities": {}
-  },
-  "optimization-status": {
-    "description": "🤖 背景自動優化狀態監控器。追蹤超參數實驗進度，管理 val_bpb 閾值與結果日誌。",
-    "version": "3.0.0",
-    "type": "skill",
-    "path": "./skills/01_Orchestrators/optimization-status/SKILL.md",
-    "capabilities": {}
-  },
-  "quant-research-loop": {
-    "description": "Autonomous financial experimentation and strategy validation loop. 僅在指令包含「$$自動化$$」時啟用。符合 SOP §2.4 強制授權協議。",
-    "version": "3.0.0",
-    "type": "skill",
-    "path": "./skills/01_Orchestrators/quant-research-loop/SKILL.md",
-    "capabilities": {}
-  },
-  "quota-monitor-skill": {
-    "description": "本協作系統 Cockpit Quota API 監控系統，強制實施 20% 安全熔斷。僅在啟用「$$自動化$$」流程或手動查詢時調用。符合 SOP §2.4 授權協議。",
-    "version": "3.0.0",
-    "type": "skill",
-    "path": "./skills/01_Orchestrators/quota-monitor-skill/SKILL.md",
-    "capabilities": {}
-  },
-  "reality-checker": {
-    "description": "品質保證與幻覺過濾器，負責審核計畫、架構與代碼的技術可行性。",
-    "version": "3.1.3",
-    "type": "skill",
-    "path": "./skills/01_Orchestrators/reality-checker/SKILL.md",
-    "capabilities": {}
-  },
-  "recursive-research-automation": {
-    "description": "通用的遞迴研究自動化框架。僅在指令包含「$$自動化$$」時啟用。符合 SOP §2.4 強制授權協議。",
-    "version": "3.0.0",
-    "type": "skill",
-    "path": "./skills/01_Orchestrators/recursive-research-automation/SKILL.md",
-    "capabilities": {}
-  },
-  "reflection-module": {
-    "description": "'具備前瞻性 (Prospective) 與多代理人 (Multi-Agent) 協作架構的自我反思與行為優化模組。'",
-    "version": "'2.0.0'",
-    "type": "skill",
-    "path": "./skills/01_Orchestrators/reflection-module/SKILL.md",
-    "capabilities": {}
-  },
-  "twse-dev-sop-skill": {
-    "description": "臺股分析網站開發標準作業程式 (SOP)。整合 subagent-collaboration-skill、d3-viz-skill、webapp-testing-skill 三大技能，提供從計畫→實作→驗證的完整開發循環。",
-    "version": "3.0.0",
-    "type": "skill",
-    "path": "./skills/01_Orchestrators/twse-dev-sop-skill/SKILL.md",
-    "capabilities": {}
-  },
-  "backend-architect": {
-    "description": "後端架構師，負責 API 設計、資料庫 Schema 與資料流優化。",
-    "version": "3.0.0",
-    "type": "skill",
-    "path": "./skills/02_Cognitive/backend-architect/SKILL.md",
-    "capabilities": {}
-  },
   "chip-logic-expert": {
     "description": "進階台股籌碼分析邏輯，包含券商借券、融資維持率以及大戶籌碼衝突分析。",
     "version": "3.0.0",
     "type": "skill",
     "path": "./skills/02_Cognitive/chip-logic-expert/SKILL.md",
-    "capabilities": {}
-  },
-  "data-engineer": {
-    "description": "資料工程師，負責 ETL 流程、資料清洗與標準化。",
-    "version": "3.0.0",
-    "type": "skill",
-    "path": "./skills/02_Cognitive/data-engineer/SKILL.md",
-    "capabilities": {}
-  },
-  "devops-engineer": {
-    "description": "運維工程師，負責環境配置、CI/CD、部署策略與系統監控。",
-    "version": "3.0.0",
-    "type": "skill",
-    "path": "./skills/02_Cognitive/devops-engineer/SKILL.md",
     "capabilities": {}
   },
   "evidence-collector": {
@@ -102,20 +18,6 @@
     "version": "3.0.0",
     "type": "skill",
     "path": "./skills/02_Cognitive/financial-analyst/SKILL.md",
-    "capabilities": {}
-  },
-  "frontend-developer": {
-    "description": "前端開發工程師，負責 UI/UX 邏輯、組件實作與互動設計。",
-    "version": "3.0.0",
-    "type": "skill",
-    "path": "./skills/02_Cognitive/frontend-developer/SKILL.md",
-    "capabilities": {}
-  },
-  "huashu-nuwa": {
-    "description": "|",
-    "version": "3.0.0",
-    "type": "skill",
-    "path": "./skills/02_Cognitive/huashu-nuwa/SKILL.md",
     "capabilities": {}
   },
   "investment-researcher": {
@@ -139,20 +41,6 @@
     "path": "./skills/02_Cognitive/ownership-cluster/SKILL.md",
     "capabilities": {}
   },
-  "sentiment-scout": {
-    "description": "|",
-    "version": "3.0.0",
-    "type": "skill",
-    "path": "./skills/02_Cognitive/sentiment-scout/SKILL.md",
-    "capabilities": {}
-  },
-  "software-architect": {
-    "description": "軟體架構師，負責系統高層設計、模式定義與技術選型。",
-    "version": "3.0.0",
-    "type": "skill",
-    "path": "./skills/02_Cognitive/software-architect/SKILL.md",
-    "capabilities": {}
-  },
   "tech-analyzer": {
     "description": "專家級的價格形態、量能結構和趨勢指標技術分析。",
     "version": "3.0.0",
@@ -165,160 +53,6 @@
     "version": "3.0.0",
     "type": "skill",
     "path": "./skills/02_Cognitive/twse-market-logic-skill/SKILL.md",
-    "capabilities": {}
-  },
-  "artifacts-builder": {
-    "description": "一套用於使用現代前端 Web 技術（React、Tailwind CSS、shadcn/ui）建立精細、多組件 HTML 成品的工具。適用於需要狀態管理、路由或 shadcn/ui 元件的複雜成品。",
-    "version": "3.0.0",
-    "type": "skill",
-    "path": "./skills/03_Execution/artifacts-builder/SKILL.md",
-    "capabilities": {}
-  },
-  "canvas-design": {
-    "description": "使用設計哲學在 .png 和 .pdf 文件中建立美觀的視覺藝術。當使用者要求建立海報、藝術品、設計或其他靜態視覺作品時使用。",
-    "version": "3.0.0",
-    "type": "skill",
-    "path": "./skills/03_Execution/canvas-design/SKILL.md",
-    "capabilities": {}
-  },
-  "changelog-generator": {
-    "description": "透過分析提交歷史、對變更進行分類，並將技術性提交訊息轉換為清晰、對客戶友好的發佈說明，從 Git 提交紀錄自動生成面向使用者的版本日誌。",
-    "version": "3.0.0",
-    "type": "skill",
-    "path": "./skills/03_Execution/changelog-generator/SKILL.md",
-    "capabilities": {}
-  },
-  "connect-apps": {
-    "description": "",
-    "version": "3.0.0",
-    "type": "skill",
-    "path": "./skills/03_Execution/connect-apps/SKILL.md",
-    "capabilities": {}
-  },
-  "csv-data-summarizer": {
-    "description": "",
-    "version": "3.0.0",
-    "type": "skill",
-    "path": "./skills/03_Execution/csv-data-summarizer/SKILL.md",
-    "capabilities": {}
-  },
-  "d3js-visualization": {
-    "description": "使用 d3.js 建立互動式資料視覺化。適用於客製化圖表、網路圖、地理視覺化，或任何需要對視覺元素、過渡或互動進行精細控制的複雜 SVG 資料視覺化。",
-    "version": "3.0.0",
-    "type": "skill",
-    "path": "./skills/03_Execution/d3js-visualization/SKILL.md",
-    "capabilities": {}
-  },
-  "gemma-4-api": {
-    "description": "",
-    "version": "3.0.0",
-    "type": "skill",
-    "path": "./skills/03_Execution/gemma-4-api/SKILL.md",
-    "capabilities": {}
-  },
-  "image-enhancer": {
-    "description": "透過提高解析度、銳利度和清晰度來提升圖像（特別是截圖）的品質。非常適合為簡報、文件或社群媒體貼文準備圖像。",
-    "version": "3.0.0",
-    "type": "skill",
-    "path": "./skills/03_Execution/image-enhancer/SKILL.md",
-    "capabilities": {}
-  },
-  "langsmith-fetch": {
-    "description": "透過從 LangSmith Studio 獲取執行追蹤來偵錯 LangChain 和 LangGraph 代理人。在偵錯代理人行為、調查錯誤、分析工具呼叫、檢查記憶體操作或檢查代理人效能時使用。自動獲取最近的追蹤並分析執行模式。需要安裝 langsmith-fetch CLI。",
-    "version": "3.0.0",
-    "type": "skill",
-    "path": "./skills/03_Execution/langsmith-fetch/SKILL.md",
-    "capabilities": {}
-  },
-  "mcp-builder": {
-    "description": "建立高品質 MCP (Model Context Protocol) 伺服器的指南，使 LLM 能夠透過設計良好的工具與外部服務進行互動。",
-    "version": "3.0.0",
-    "type": "skill",
-    "path": "./skills/03_Execution/mcp-builder/SKILL.md",
-    "capabilities": {}
-  },
-  "mcp-setup": {
-    "description": "",
-    "version": "3.0.0",
-    "type": "skill",
-    "path": "./skills/03_Execution/mcp-setup/SKILL.md",
-    "capabilities": {}
-  },
-  "notebooklm-mcp": {
-    "description": "",
-    "version": "3.0.0",
-    "type": "skill",
-    "path": "./skills/03_Execution/notebooklm-mcp/SKILL.md",
-    "capabilities": {}
-  },
-  "pdf": {
-    "description": "當使用者想要對 PDF 檔案執行任何操作時使用此技能。包含讀取/提取文字、合併 PDF、拆分、旋轉頁面、添加浮水印、建立新 PDF、填寫表單、加密、提取圖像以及對掃描 PDF 進行 OCR。",
-    "version": "3.0.0",
-    "type": "skill",
-    "path": "./skills/03_Execution/pdf/SKILL.md",
-    "capabilities": {}
-  },
-  "pe-river-map": {
-    "description": "用於長期投資評估的互動式本益比河流圖（PE Band）估值視覺化。",
-    "version": "3.0.0",
-    "type": "skill",
-    "path": "./skills/03_Execution/pe-river-map/SKILL.md",
-    "capabilities": {}
-  },
-  "playwright-automation": {
-    "description": "使用 Playwright 進行完整的瀏覽器自動化。自動偵測開發伺服器，編寫乾淨的測試指令碼。測試頁面、填寫表單、截取螢幕截圖、檢查響應式設計、驗證 UX、測試登入流程、檢查連結，並自動化任何瀏覽器任務。",
-    "version": "3.0.0",
-    "type": "skill",
-    "path": "./skills/03_Execution/playwright-automation/SKILL.md",
-    "capabilities": {}
-  },
-  "postgres": {
-    "description": "對多個 PostgreSQL 資料庫執行唯讀 SQL 查詢。支援結構探索、資料分析和品質檢查。為確保安全，封鎖所有寫入操作。",
-    "version": "3.0.0",
-    "type": "skill",
-    "path": "./skills/03_Execution/postgres/SKILL.md",
-    "capabilities": {}
-  },
-  "skill-creator": {
-    "description": "建立高效技能的指南。當使用者想要建立新技能（或更新現有技能），以專業知識、工作流或工具整合來擴充 Claude 的能力時，應使用此技能。",
-    "version": "3.0.0",
-    "type": "skill",
-    "path": "./skills/03_Execution/skill-creator/SKILL.md",
-    "capabilities": {}
-  },
-  "systematic-debugging-skill": {
-    "description": "當遇到 MCP 連接失敗、工具載入錯誤、npm/pip 安裝失敗、Docker 問題、JSON 設定語法錯誤或 本協作系統 本地環境中的任何異常行為時，在提出任何修正方案前使用此技能。",
-    "version": "3.0.0",
-    "type": "skill",
-    "path": "./skills/03_Execution/systematic-debugging-skill/SKILL.md",
-    "capabilities": {}
-  },
-  "theme-factory": {
-    "description": "為成品設定主題風格的工具包。成品可以是投影片、文件、報告、HTML 登陸頁面等。包含 10 個預設的主題色彩/字體可供套用，或即時生成新主題。",
-    "version": "3.0.0",
-    "type": "skill",
-    "path": "./skills/03_Execution/theme-factory/SKILL.md",
-    "capabilities": {}
-  },
-  "handover-manual-skill": {
-    "description": "Auto-generated manifest entry during massive optimization.",
-    "version": "3.0.0",
-    "type": "skill",
-    "path": "./skills/01_Orchestrators/handover-manual-skill/SKILL.md",
-    "capabilities": {}
-  },
-  "skill-governance-skill": {
-    "description": "Auto-generated manifest entry during massive optimization.",
-    "version": "3.0.0",
-    "type": "skill",
-    "path": "./skills/01_Orchestrators/skill-governance-skill/SKILL.md",
-    "capabilities": {}
-  },
-  "subagent-collaboration-skill": {
-    "description": "Auto-generated manifest entry during massive optimization.",
-    "version": "3.0.0",
-    "type": "skill",
-    "path": "./skills/01_Orchestrators/subagent-collaboration-skill/SKILL.md",
     "capabilities": {}
   },
   "investment-aggregator": {
@@ -347,6 +81,118 @@
     "version": "1.0.0",
     "type": "skill",
     "path": "./skills/05_自動化業務行動層_Actions/twse-data-analyst/SKILL.md",
+    "capabilities": {}
+  },
+  "active-inference": {
+    "description": "系統的 System 2 大腦。負責將使用者的自然語言意圖轉化為決定論的狀態機 (SDLC/EARS 語法)，並執行主動推論 (Active Inference) 來預測並最小化專案失敗的風險 (Surprise)。",
+    "version": "1.0.0",
+    "type": "orchestrator",
+    "path": "./skills\\01_Orchestrators\\active-inference\\SKILL.md",
+    "capabilities": {}
+  },
+  "cost-benefit-router": {
+    "description": "智慧成本效益路由器。取代舊有的配額監控技能。攔截 A2A Envelope 進行預算分析，並根據任務難度演算法 (AdCo/UCB) 動態決定將任務派發給便宜的本地模型或昂貴的頂尖雲端模型。",
+    "version": "1.0.0",
+    "type": "orchestrator",
+    "path": "./skills\\01_Orchestrators\\cost-benefit-router\\SKILL.md",
+    "capabilities": {}
+  },
+  "episodic-consolidation": {
+    "description": "長期記憶生命週期管理者。取代人工的交接手冊與靜態 SOP。負責將完成的任務或重大的失敗經驗，壓縮並歸檔至 4-Layer Hybrid Memory (情境/語意/程序記憶) 中，供 MCP 伺服器未來精準檢索。",
+    "version": "1.0.0",
+    "type": "orchestrator",
+    "path": "./skills\\01_Orchestrators\\episodic-consolidation\\SKILL.md",
+    "capabilities": {}
+  },
+  "global-workspace": {
+    "description": "動態工作流引擎。取代靜態的協作腳本與研究迴圈。實作 ReCAP (Recursive Context-Aware Planning) 引擎，負責遞迴式任務拆解、滑動視窗上下文廣播 (Context Broadcasting)，並透過 A2A Gateway 指揮 Loki Swarm。",
+    "version": "1.0.0",
+    "type": "orchestrator",
+    "path": "./skills\\01_Orchestrators\\global-workspace\\SKILL.md",
+    "capabilities": {}
+  },
+  "self-improvement": {
+    "description": "系統的自我進化與修復協議。取代靜態的技能治理。定期掃描 AUDIT_LOG 與失敗的 RARV 紀錄，找出流程瓶頸，並自動覆寫底層的程式碼與 procedural memory (技能規範)，讓系統愈用愈聰明。",
+    "version": "1.0.0",
+    "type": "orchestrator",
+    "path": "./skills\\01_Orchestrators\\self-improvement\\SKILL.md",
+    "capabilities": {}
+  },
+  "declarative-visual-intent-generator": {
+    "description": "宣告式視覺意圖生成器。取代前端開發與特定 UI 渲染技能。透過 A2UI 協定，將 Agent 的複雜推演結果轉換成結構化的宣告式 UI 意圖 (Intent)，而非生硬的 HTML/CSS。具備 Generative UI 能力，能根據使用者需求動態呼叫圖片或圖表生成工具來組合混合式介面。",
+    "version": "1.0.0",
+    "type": "cognitive",
+    "path": "./skills\\02_Cognitive\\declarative-visual-intent-generator\\SKILL.md",
+    "capabilities": {}
+  },
+  "dynamic-tool-synthesizer": {
+    "description": "動態工具合成器。取代傳統的後端、資料工程與軟體架構師。具備知識編譯 (Knowledge Compilation) 能力，當發現現有工具或 API 整合不足時，能自主生成程式碼、測試並進行熱部署 (Hot-deploy) 以擴展系統能力。",
+    "version": "1.0.0",
+    "type": "cognitive",
+    "path": "./skills\\02_Cognitive\\dynamic-tool-synthesizer\\SKILL.md",
+    "capabilities": {}
+  },
+  "epistemic-state-governor": {
+    "description": "認知狀態管制官。取代 DevOps，負責監控整個 Swarm 的推演健康度。實作 SMARt 模型，作為系統的自主性控制閥。能動態撤銷 Agent 的外部輸出權限，強制系統進行內部反思或尋求人類協助，徹底防堵幻覺擴散。",
+    "version": "1.0.0",
+    "type": "cognitive",
+    "path": "./skills\\02_Cognitive\\epistemic-state-governor\\SKILL.md",
+    "capabilities": {}
+  },
+  "real-time-stream-orchestrator": {
+    "description": "即時串流總指揮。取代傳統的話術腳本與溝通風格包裝。實作 Interactive ReAct 架構，支援非同步的「邊想邊說、邊聽邊想」，並透過 AG-UI 協定將推演過程即時投影至前端介面。",
+    "version": "1.0.0",
+    "type": "cognitive",
+    "path": "./skills\\02_Cognitive\\real-time-stream-orchestrator\\SKILL.md",
+    "capabilities": {}
+  },
+  "episodic-semantic-consolidator": {
+    "description": "記憶整合與反思模組。負責管理情境記憶 (Episodic) 與語意記憶 (Semantic) 之間的轉換，定時進行對話日誌的濃縮 (Consolidation)、遺忘 (Decay) 與永久性知識萃取。",
+    "version": "1.0.0",
+    "type": "cognitive",
+    "path": "./skills\\02_記憶與上下文層_Memory\\episodic-semantic-consolidator\\SKILL.md",
+    "capabilities": {}
+  },
+  "graph-rag-engine": {
+    "description": "知識圖譜推演引擎。專責從 MemCube 中抽取實體 (Entities) 與關係 (Relationships)，建構 Knowledge Graph，並在面對複雜、多跳 (Multi-hop) 問題時執行圖譜遍歷 (Graph Traversal) 檢索。",
+    "version": "1.0.0",
+    "type": "cognitive",
+    "path": "./skills\\02_記憶與上下文層_Memory\\graph-rag-engine\\SKILL.md",
+    "capabilities": {}
+  },
+  "hybrid-rag-orchestrator": {
+    "description": "混合檢索總指揮官。代理系統的記憶提取核心，平行調度 Vector、BM25 與 Graph 檢索結果，執行 RRF 融合、時間感知加權 (Temporal Boosting) 與 Cross-Encoder 重排，提供最精確的上下文。",
+    "version": "1.0.0",
+    "type": "orchestrator",
+    "path": "./skills\\02_記憶與上下文層_Memory\\hybrid-rag-orchestrator\\SKILL.md",
+    "capabilities": {}
+  },
+  "unified-memcube-ingestor": {
+    "description": "統一的記憶中樞匯入器。取代傳統的獨立檔案解析器，負責將結構化與非結構化檔案 (PDF, CSV, XLSX, Chat Logs) 轉換為帶有層次化 Metadata 的 Contextual Chunks，並封裝為標準 MemCube 物件以供長期記憶儲存。具備 Context-Aware Ingestion 能力，可動態判斷新增、更新或刪除記憶。",
+    "version": "1.0.0",
+    "type": "cognitive",
+    "path": "./skills\\02_記憶與上下文層_Memory\\unified-memcube-ingestor\\SKILL.md",
+    "capabilities": {}
+  },
+  "vector-memory-manager": {
+    "description": "向量記憶體管理員。負責管理高維度 Vector DB 與稀疏矩陣 (BM25) 的資料儲存與語意相似度檢索。採用 Matryoshka 雙維度架構進行高速過濾與精確排序。",
+    "version": "1.0.0",
+    "type": "cognitive",
+    "path": "./skills\\02_記憶與上下文層_Memory\\vector-memory-manager\\SKILL.md",
+    "capabilities": {}
+  },
+  "mcp-gateway": {
+    "description": "Zero-Trust 萬用執行閘道器。負責啟動並連接所有的 MCP (Model Context Protocol) 伺服器，管理安全白名單 (mcp_config.json)，並訂閱外部資料的即時更新 (Server-Sent Events 推播)。",
+    "version": "1.0.0",
+    "type": "execution",
+    "path": "./skills\\03_Execution\\mcp-gateway\\SKILL.md",
+    "capabilities": {}
+  },
+  "tool-executor": {
+    "description": "萬用工具執行器。作為大腦層 (System 2) 與外部環境之間的唯一橋樑。將自然語言意圖轉換為嚴謹的 JSON-RPC 工具呼叫，並提供完整的 Audit Log 追蹤。",
+    "version": "1.0.0",
+    "type": "execution",
+    "path": "./skills\\03_Execution\\tool-executor\\SKILL.md",
     "capabilities": {}
   }
 }
