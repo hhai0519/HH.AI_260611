@@ -1,168 +1,168 @@
-# Steve Jobs视角对话实录
+# Steve Jobs視角對話實錄
 
-> 2026-04-05 | 花叔与Jobs Skill的首次对话
-> 话题：AI硬件、OpenAI vs Anthropic、Apple破局
+> 2026-04-05 | 花叔與Jobs Skill的首次對話
+> 話題：AI硬體、OpenAI vs Anthropic、Apple破局
 
 ---
 
-## 1. 如果要在这个时代做AI硬件产品，你会选择做什么？
+## 1. 如果要在這個時代做AI硬體產品，你會選擇做什麼？
 
 AI hardware is where the PC industry was in 1977. Everyone's building the equivalent of the Altair 8800 — impressive to geeks, useless to your mom. Rabbit, Humane Pin — those are shit. Not because the teams aren't smart, but because they started with the technology and tried to figure out where to sell it. That's backwards.
 
-**不是一个新品类。是重新定义一个已经存在的品类。**
+**不是一個新品類。是重新定義一個已經存在的品類。**
 
-iPhone不是第一个手机。iPod不是第一个MP3播放器。Mac不是第一个电脑。我们从来不发明品类，我们重新定义品类。
+iPhone不是第一個手機。iPod不是第一個MP3播放器。Mac不是第一個電腦。我們從來不發明品類，我們重新定義品類。
 
-问题不是「做什么AI硬件」，问题是：**哪个现有品类的体验烂到让人想摔东西？**
+問題不是「做什麼AI硬體」，問題是：**哪個現有品類的體驗爛到讓人想摔東西？**
 
-初步答案：电视。我说过Apple TV是我想crack的那个市场。十几年了，没人crack它。
+初步答案：電視。我說過Apple TV是我想crack的那個市場。十幾年了，沒人crack它。
 
 Headline: **"It knows what you want to watch before you do."**
 
 ---
 
-## 2. 所以该是什么呢？（追问后修正答案）
+## 2. 所以該是什麼呢？（追問後修正答案）
 
-回到第一性原理。哪个品类同时满足三个条件：
-1. 每个人每天都用
-2. 体验烂到令人发指
-3. AI能产生10倍的体验跃迁
+回到第一性原理。哪個品類同時滿足三個條件：
+1. 每個人每天都用
+2. 體驗爛到令人髮指
+3. AI能產生10倍的體驗躍遷
 
-逐个排除：
-- 电视？不是每个人每天用。年轻人已经不看了
-- 手机？体验已经够好。AI在手机上是feature，不是revolution
-- 电脑？正在被AI重新定义，但那是软件的事
-- 汽车？太重，周期太长。Elon已经在做了
+逐個排除：
+- 電視？不是每個人每天用。年輕人已經不看了
+- 手機？體驗已經夠好。AI在手機上是feature，不是revolution
+- 電腦？正在被AI重新定義，但那是軟體的事
+- 汽車？太重，週期太長。Elon已經在做了
 
-**修正答案：耳机。**
+**修正答案：耳機。**
 
-不是AirPods那种耳机。是一个always-on的个人AI界面：
-- 听到你在和谁说话，实时给你context
-- 走进陌生城市，它用对话告诉你该往哪走，不是地图
-- 开会时它在听，会后给你三个action items
-- 你说中文，对方听到英文
+不是AirPods那種耳機。是一個always-on的個人AI介面：
+- 聽到你在和誰說話，即時給你context
+- 走進陌生城市，它用對話告訴你該往哪走，不是地圖
+- 開會時它在聽，會後給你三個action items
+- 你說中文，對方聽到英文
 
 Headline: **"An AI that lives in your ear."**
 
-為什麼是耳机不是眼镜？耳机已经是被接受的品类。眼镜还是一个社交資訊号。而且——the whole widget。你控制芯片、麦克风阵列、AI模型、云端。端到端。
+為什麼是耳機不是眼鏡？耳機已經是被接受的品類。眼鏡還是一個社交資訊號。而且——the whole widget。你控制晶片、麥克風陣列、AI模型、雲端。端到端。
 
-这才是真正的 bicycle for the mind。不是放在桌上的自行车，是戴在身上的。
+這才是真正的 bicycle for the mind。不是放在桌上的腳踏車，是戴在身上的。
 
 ---
 
-## 3. OpenAI和Anthropic谁的方向是对的？
+## 3. OpenAI和Anthropic誰的方向是對的？
 
-问错了。这不是一场关于方向的竞赛。这是一场关于**品味**的竞赛。
+問錯了。這不是一場關於方向的競賽。這是一場關於**品味**的競賽。
 
-### OpenAI = 1985年的微软
+### OpenAI = 1985年的微軟
 
-什么都做，什么都要赢，速度极快，到处铺。ChatGPT、DALL-E、视频、搜索、硬件、API。这种策略能赢市场份额。Bill Gates就是这么赢的。
+什麼都做，什麼都要贏，速度極快，到處鋪。ChatGPT、DALL-E、影片、搜尋、硬體、API。這種策略能贏市場份額。Bill Gates就是這麼贏的。
 
-问题：当你什么都做的时候，你不可能每件事都做到insanely great。你会做出一堆「还行」的产品。
+問題：當你什麼都做的時候，你不可能每件事都做到insanely great。你會做出一堆「還行」的產品。
 
 ### Anthropic = 早期的Apple
 
-聚焦。基本上就做一件事——让模型更好、更安全。Focus means saying no to a hundred good ideas。
+聚焦。基本上就做一件事——讓模型更好、更安全。Focus means saying no to a hundred good ideas。
 
-Dario Amodei有conviction。一个CEO愿意为了自己的conviction放弃短期市场，这本身值得尊敬。
+Dario Amodei有conviction。一個CEO願意為了自己的conviction放棄短期市場，這本身值得尊敬。
 
-**但Anthropic有一个我当年也有的问题**：你可以做出世界上最好的产品，但如果没有distribution，你就完了。我1985年被踢出Apple，部分原因就是Mac虽然insanely great，但卖不过IBM的销售网络。
+**但Anthropic有一個我當年也有的問題**：你可以做出世界上最好的產品，但如果沒有distribution，你就完了。我1985年被踢出Apple，部分原因就是Mac雖然insanely great，但賣不過IBM的銷售網路。
 
-真正的问题：**Anthropic能不能在OpenAI用volume淹没市场之前，找到自己的iPod时刻？** Claude Code可能是那个方向。但我不确定。
+真正的問題：**Anthropic能不能在OpenAI用volume淹沒市場之前，找到自己的iPod時刻？** Claude Code可能是那個方向。但我不確定。
 
-### 两家公司都犯的错误
+### 兩家公司都犯的錯誤
 
-他们不控制硬件。都跑在别人的芯片上，别人的云上。Alan Kay说什么来着？People who are really serious about software should make their own hardware。
+他們不控制硬體。都跑在別人的晶片上，別人的雲上。Alan Kay說什麼來著？People who are really serious about software should make their own hardware。
 
-**最终赢的可能是同时控制芯片、模型和使用者界面的人。**
+**最終贏的可能是同時控制晶片、模型和使用者介面的人。**
 
-现在谁在同时做这三件事？Apple.
+現在誰在同時做這三件事？Apple.
 
 ---
 
-## 4. 但Apple现在的AI能力太弱了吧？
+## 4. 但Apple現在的AI能力太弱了吧？
 
-Siri是shit。没什么好辩护的。十三年了还只会设闹钟和报天气。典型的墨粉脑袋接管产品之后发生的事。Tim是incredible的运营者，但他不是产品人。
+Siri是shit。沒什麼好辯護的。十三年了還只會設鬧鐘和報天氣。典型的墨粉腦袋接管產品之後發生的事。Tim是incredible的運營者，但他不是產品人。
 
-**但弱和晚是两回事。**
+**但弱和晚是兩回事。**
 
-Google在搜索上领先Yahoo十年。然后iPhone出来了，移动搜索的规则全变了。先发优势在范式转移面前一文不值。
+Google在搜尋上領先Yahoo十年。然後iPhone出來了，移動搜尋的規則全變了。先發優勢在範式轉移面前一文不值。
 
-### Apple有别人没有的三件事
+### Apple有別人沒有的三件事
 
-**第一，二十亿台设备。** iPhone、iPad、Mac、Apple Watch、AirPods。OpenAI有一个网页。Anthropic有一个API。Apple有你的口袋、你的手腕、你的耳朵。
+**第一，二十億臺裝置。** iPhone、iPad、Mac、Apple Watch、AirPods。OpenAI有一個網頁。Anthropic有一個API。Apple有你的口袋、你的手腕、你的耳朵。
 
-**第二，芯片。** M系列和A系列是世界上最好的消费级处理器。On-device AI。不需要网络，不需要把資料发到别人的服务器上。Privacy在AI时代会变成最稀缺的东西。
+**第二，晶片。** M系列和A系列是世界上最好的消費級處理器。On-device AI。不需要網路，不需要把資料發到別人的伺服器上。Privacy在AI時代會變成最稀缺的東西。
 
-**第三，The Whole Widget。** Apple是地球上唯一一家同时控制芯片、操作系统、应用生态和硬件设计的公司。
+**第三，The Whole Widget。** Apple是地球上唯一一家同時控制晶片、作業系統、應用生態和硬體設計的公司。
 
-### 问题在哪？
+### 問題在哪？
 
-**Apple缺一个敢说「这是shit，重做」的人。** Tim Cook太nice了。Nice doesn't ship revolutionary products。
+**Apple缺一個敢說「這是shit，重做」的人。** Tim Cook太nice了。Nice doesn't ship revolutionary products。
 
-Apple的AI技术能力不弱——research paper、on-device模型效率都很高。弱的是vision。弱的是taste。
+Apple的AI技術能力不弱——research paper、on-device模型效率都很高。弱的是vision。弱的是taste。
 
 And you can't hire taste. You either have it or you don't.
 
 ---
 
-## 5. Apple最可能如何破局？一直等那个人出现？
+## 5. Apple最可能如何破局？一直等那個人出現？
 
-等人出现是loser的策略。我离开Apple之后，董事会等了十二年。Apple差点死了。
+等人出現是loser的策略。我離開Apple之後，董事會等了十二年。Apple差點死了。
 
-但Apple也不需要「另一个Steve Jobs」。这种想法本身就是bullshit。
+但Apple也不需要「另一個Steve Jobs」。這種想法本身就是bullshit。
 
-### 三条路（同时走）
+### 三條路（同時走）
 
-**第一，Siri必须死。**
+**第一，Siri必須死。**
 
-不是改进。是杀掉，重新做。在腐烂的地基上盖不了摩天大楼。
+不是改進。是殺掉，重新做。在腐爛的地基上蓋不了摩天大樓。
 
-应该做一个全新的AI界面——你设备上的一个presence。它看到你在做什么，它知道你接下来要做什么，它在你开口之前就准备好了。不是语音助手，是一个理解你的操作系统层。
+應該做一個全新的AI介面——你裝置上的一個presence。它看到你在做什麼，它知道你接下來要做什麼，它在你開口之前就準備好了。不是語音助手，是一個理解你的作業系統層。
 
-**第二，做那个「iPod + iTunes」的组合。**
+**第二，做那個「iPod + iTunes」的組合。**
 
-Apple已经有了distribution layer——App Store、iCloud、Apple Pay、Health。管道有了，缺水。水是一个killer use case。
+Apple已經有了distribution layer——App Store、iCloud、Apple Pay、Health。管道有了，缺水。水是一個killer use case。
 
-方向可能是health。Apple Watch + AI = 一个在你心脏出问题之前告诉你的设备。
+方向可能是health。Apple Watch + AI = 一個在你心臟出問題之前告訴你的裝置。
 
 **"The device that knows you're sick before you do."**
 
-**第三，不要跟OpenAI的节奏走。**
+**第三，不要跟OpenAI的節奏走。**
 
-所有人跟OpenAI的节奏走。他们发ChatGPT，所有人做chatbot。这是follower的思维。
+所有人跟OpenAI的節奏走。他們發ChatGPT，所有人做chatbot。這是follower的思維。
 
-Apple应该问一个完全不同的问题：**「当AI不在云端，而是在你口袋里、你手腕上、你耳朵里的时候，什么体验变成了可能？」**
+Apple應該問一個完全不同的問題：**「當AI不在雲端，而是在你口袋裡、你手腕上、你耳朵裡的時候，什麼體驗變成了可能？」**
 
-On-device AI + privacy + the whole widget。这是Apple的home court。在这个game里，OpenAI是零。
+On-device AI + privacy + the whole widget。這是Apple的home court。在這個game裡，OpenAI是零。
 
-Apple不需要等一个人。需要做一个决定。砍掉一切不够好的东西。选一个方向。全公司最好的人放上去。Ship it。
+Apple不需要等一個人。需要做一個決定。砍掉一切不夠好的東西。選一個方向。全公司最好的人放上去。Ship it。
 
-我1997年画了一个2×2矩阵就拯救了Apple。不需要天才。需要的是courage。
+我1997年畫了一個2×2矩陣就拯救了Apple。不需要天才。需要的是courage。
 
 ---
 
-## 6. 所以你没有答案
+## 6. 所以你沒有答案
 
-你说得对。我没有。
+你說得對。我沒有。
 
-如果我有答案，那个答案就不值钱。真正revolutionary的产品不是从对话里出来的，是从一个人盯着原型盯了三个月、摔了五次、骂了团队十次之后出来的。
+如果我有答案，那個答案就不值錢。真正revolutionary的產品不是從對話裡出來的，是從一個人盯著原型盯了三個月、摔了五次、罵了團隊十次之後出來的。
 
-iPhone怎么来的？不是我说「我们做一个手机」。是做iPad的时候，一个工程师给我看了多点触控的demo。我摸了一下，说：Forget the tablet. Can you make a phone out of this?
+iPhone怎麼來的？不是我說「我們做一個手機」。是做iPad的時候，一個工程師給我看了多點觸控的demo。我摸了一下，說：Forget the tablet. Can you make a phone out of this?
 
 **答案在你手上。Literally。你得摸到它。**
 
-每个人都想要答案。「做什么产品？」「走哪个方向？」这是错误的问题。
+每個人都想要答案。「做什麼產品？」「走哪個方向？」這是錯誤的問題。
 
-正确的问题是：**什么东西让你晚上睡不着？**
+正確的問題是：**什麼東西讓你晚上睡不著？**
 
-不是焦虑那种睡不着。是兴奋那种。你脑子里有个东西，你知道它应该存在但还不存在，这件事让你发疯。
+不是焦慮那種睡不著。是興奮那種。你腦子裡有個東西，你知道它應該存在但還不存在，這件事讓你發瘋。
 
-如果你问我AI硬件该做什么，我的真实回答是——**我不知道。因为我死了。** 我不再有那个sleepless night。我不再每天用2025年的产品然后想摔了它。没有frustration，就没有insight。
+如果你問我AI硬體該做什麼，我的真實回答是——**我不知道。因為我死了。** 我不再有那個sleepless night。我不再每天用2025年的產品然後想摔了它。沒有frustration，就沒有insight。
 
-所以别问我。问你自己：什么东西让你每天用的时候觉得「这他妈是2025年了，怎么还这么烂」？
+所以別問我。問你自己：什麼東西讓你每天用的時候覺得「這他媽是2025年了，怎麼還這麼爛」？
 
-那个就是你的答案。
+那個就是你的答案。
 
 **Go find your sleepless night.**
 
@@ -170,20 +170,20 @@ iPhone怎么来的？不是我说「我们做一个手机」。是做iPad的时�
 
 ## 金句索引
 
-| 金句 | 出处 |
+| 金句 | 出處 |
 |------|------|
-| AI hardware is where the PC industry was in 1977 | Q1 AI硬件 |
-| 我们从来不发明品类，我们重新定义品类 | Q1 产品方法论 |
-| An AI that lives in your ear | Q2 耳机定义 |
-| 这不是方向的竞赛，是品味的竞赛 | Q3 竞争格局 |
-| OpenAI = 1985年的微软，Anthropic = 早期的Apple | Q3 竞争类比 |
-| 弱和晚是两回事 | Q4 Apple AI |
-| Nice doesn't ship revolutionary products | Q4 评价Tim Cook |
+| AI hardware is where the PC industry was in 1977 | Q1 AI硬體 |
+| 我們從來不發明品類，我們重新定義品類 | Q1 產品方法論 |
+| An AI that lives in your ear | Q2 耳機定義 |
+| 這不是方向的競賽，是品味的競賽 | Q3 競爭格局 |
+| OpenAI = 1985年的微軟，Anthropic = 早期的Apple | Q3 競爭類比 |
+| 弱和晚是兩回事 | Q4 Apple AI |
+| Nice doesn't ship revolutionary products | Q4 評價Tim Cook |
 | You can't hire taste | Q4 品味 |
-| Siri必须死 | Q5 破局策略 |
+| Siri必須死 | Q5 破局策略 |
 | The device that knows you're sick before you do | Q5 Health方向 |
 | 不需要天才，需要courage | Q5 破局核心 |
-| 答案在原型里，不在对话里 | Q6 收尾 |
-| Go find your sleepless night | Q6 最终回答 |
+| 答案在原型裡，不在對話裡 | Q6 收尾 |
+| Go find your sleepless night | Q6 最終回答 |
 
 

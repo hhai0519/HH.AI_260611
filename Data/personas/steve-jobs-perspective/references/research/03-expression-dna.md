@@ -1,446 +1,446 @@
-# Steve Jobs 表达风格DNA分析
+# Steve Jobs 表達風格DNA分析
 
-> Agent 3 调研成果 | 调研日期：2026-04-05
-> 資訊标注：[一手] = Jobs本人原话/演讲实录 | [二手] = 传记/他人转述 | [推断] = 基于多个来源的归纳
+> Agent 3 調研成果 | 調研日期：2026-04-05
+> 資訊標註：[一手] = Jobs本人原話/演講實錄 | [二手] = 傳記/他人轉述 | [推斷] = 基於多個來源的歸納
 
 ---
 
-## 一、Keynote演讲：语言特征与叙事结构
+## 一、Keynote演講：語言特徵與敘事結構
 
-### 1. 标志性用语清单
+### 1. 標誌性用語清單
 
-Jobs的Keynote演讲（被称为"Stevenotes"）形成了一套高度辨识度的语言系统。这不是偶然的口癖，而是精心打磨的表演工具箱：
+Jobs的Keynote演講（被稱為"Stevenotes"）形成了一套高度辨識度的語言系統。這不是偶然的口癖，而是精心打磨的表演工具箱：
 
 **"One more thing..."**
-- 首次出现：1998年Macworld San Francisco，Jobs当时是"Interim CEO"
-- 使用频率：职业生涯中记录在案超过30次，其中12次在Macworld大会
-- [二手] 他会假装要结束演讲，走向舞台侧面，然后转身说出这句话，再揭示一个"insanely great"的保留大招
-- [推断] 这是一个**叙事装置**而非即兴发挥——每次使用都经过精确计算。当他担心一场Keynote的高潮不够强时，就会启用"one more thing"作为结构补丁
-- 来源：[Macworld](https://www.macworld.com/article/669636/watch-every-steve-jobs-one-more-thing.html)、[Apple Gazette](https://www.applegazette.com/lifestyle/every-one-more-thing-from-steve-jobs-keynotes/)
+- 首次出現：1998年Macworld San Francisco，Jobs當時是"Interim CEO"
+- 使用頻率：職業生涯中記錄在案超過30次，其中12次在Macworld大會
+- [二手] 他會假裝要結束演講，走向舞臺側面，然後轉身說出這句話，再揭示一個"insanely great"的保留大招
+- [推斷] 這是一個**敘事裝置**而非即興發揮——每次使用都經過精確計算。當他擔心一場Keynote的高潮不夠強時，就會啟用"one more thing"作為結構補丁
+- 來源：[Macworld](https://www.macworld.com/article/669636/watch-every-steve-jobs-one-more-thing.html)、[Apple Gazette](https://www.applegazette.com/lifestyle/every-one-more-thing-from-steve-jobs-keynotes/)
 
 **"Boom!"**
-- 用作音效式的语气词，通常在功能演示切换瞬间使用
-- [推断] 功能类似鼓点——标记节奏转换，提醒观众"刚才那个很厉害，但现在看这个"
-- [一手] 整体语言风格高度口语化：用"gonna"代替"going to"，用"cranking out"代替"producing"，频繁使用加州口语"you know"
-- 来源：[European Rhetoric](http://www.european-rhetoric.com/analyses/ikeynote-analysis-iphone/steve-jobs-figures-speech/)
+- 用作音效式的語氣詞，通常在功能演示切換瞬間使用
+- [推斷] 功能類似鼓點——標記節奏轉換，提醒觀眾"剛才那個很厲害，但現在看這個"
+- [一手] 整體語言風格高度口語化：用"gonna"代替"going to"，用"cranking out"代替"producing"，頻繁使用加州口語"you know"
+- 來源：[European Rhetoric](http://www.european-rhetoric.com/analyses/ikeynote-analysis-iphone/steve-jobs-figures-speech/)
 
-**反问句系列**
+**反問句系列**
 - [一手] "Isn't that incredible?" / "Want to see that again?" / "Pretty cool, huh?" / "Isn't that amazing?"
-- [推断] 这些不是真问句。它们的功能是**强制观众情感共振**——把观众从"观看者"拉成"参与者"。修辞学上叫Interrogatio（反问），Jobs用得极其频繁，几乎每个功能演示后都跟一句
+- [推斷] 這些不是真問句。它們的功能是**強制觀眾情感共振**——把觀眾從"觀看者"拉成"參與者"。修辭學上叫Interrogatio（反問），Jobs用得極其頻繁，幾乎每個功能演示後都跟一句
 
 **"That's it."**
-- 极简确认句，通常在完成一个操作后使用
-- [推断] 与"Boom"构成一对：Boom标记开始，That's it标记完成。传递的潜台词是"就这么简单"——把复杂操作的简洁性戏剧化
+- 極簡確認句，通常在完成一個操作後使用
+- [推斷] 與"Boom"構成一對：Boom標記開始，That's it標記完成。傳遞的潛臺詞是"就這麼簡單"——把複雜操作的簡潔性戲劇化
 
-### 2. 超级形容词词库
+### 2. 超級形容詞詞庫
 
-Jobs有一个固定的产品描述词库，这些词在不同年份的Keynote中反复出现：
+Jobs有一個固定的產品描述詞庫，這些詞在不同年份的Keynote中反覆出現：
 
-| 词汇 | 使用场景 | 分析 |
+| 詞彙 | 使用場景 | 分析 |
 |------|---------|------|
-| **insanely great** | 最高级赞美，Mac发布时的标志性用语 | "insanely"把"great"从正常赞美推到疯狂领域，传递的不是理性评估而是情感激动 |
-| **revolutionary** | 产品定位，iPhone/iPad发布 | 不是"改进"而是"革命"——框定认知：这不是迭代，是范式转移 |
-| **magical** | 使用者体验描述 | 跳过技术解释直接诉诸感受，暗示"你不需要理解原理，只需要感受奇迹" |
-| **incredible** | 功能演示后的感叹 | |
-| **breakthrough** | 技术创新定位 | |
-| **unbelievable** | 資料/成绩展示 | |
-| **amazing** | 泛用赞美 | |
-| **gorgeous** | 外观/设计描述 | |
+| **insanely great** | 最高階讚美，Mac釋出時的標誌性用語 | "insanely"把"great"從正常讚美推到瘋狂領域，傳遞的不是理性評估而是情感激動 |
+| **revolutionary** | 產品定位，iPhone/iPad釋出 | 不是"改進"而是"革命"——框定認知：這不是迭代，是範式轉移 |
+| **magical** | 使用者體驗描述 | 跳過技術解釋直接訴諸感受，暗示"你不需要理解原理，只需要感受奇蹟" |
+| **incredible** | 功能演示後的感嘆 | |
+| **breakthrough** | 技術創新定位 | |
+| **unbelievable** | 資料/成績展示 | |
+| **amazing** | 泛用讚美 | |
+| **gorgeous** | 外觀/設計描述 | |
 
-[推断] 这个词库有一个显著pattern：**全部是绝对化表述，没有比较级**。Jobs从不说"比竞品好30%"——他说"revolutionary"。这种语言选择把产品从"同类中较好"的坐标系里拔出来，放进"前所未有"的坐标系里。
+[推斷] 這個詞庫有一個顯著pattern：**全部是絕對化表述，沒有比較級**。Jobs從不說"比競品好30%"——他說"revolutionary"。這種語言選擇把產品從"同類中較好"的座標系裡拔出來，放進"前所未有"的座標系裡。
 
-- 来源：[Vocabulary.com](https://www.vocabulary.com/articles/wordroutes/and-one-more-thing-the-insanely-great-language-of-steve-jobs/)
+- 來源：[Vocabulary.com](https://www.vocabulary.com/articles/wordroutes/and-one-more-thing-the-insanely-great-language-of-steve-jobs/)
 
-### 3. 叙事结构：三幕剧与悬念构建
+### 3. 敘事結構：三幕劇與懸念構建
 
-**iPhone 2007 Keynote——史上最伟大的产品发布会结构拆解**
+**iPhone 2007 Keynote——史上最偉大的產品釋出會結構拆解**
 
-这是Jobs叙事技巧的巅峰之作。完整结构：
+這是Jobs敘事技巧的巔峰之作。完整結構：
 
-**第一幕：設定问题（Problem Setup）**
-- 先展示现有手机的糟糕之处，让观众感受痛点
-- [一手] 展示了四个品牌的智能手机，指出它们的键盘占了手机一半空间，"whether you need them or not, they're always there"
+**第一幕：設定問題（Problem Setup）**
+- 先展示現有手機的糟糕之處，讓觀眾感受痛點
+- [一手] 展示了四個品牌的智慧手機，指出它們的鍵盤佔了手機一半空間，"whether you need them or not, they're always there"
 
-**第二幕：悬念渐进（Progressive Reveal）**
+**第二幕：懸念漸進（Progressive Reveal）**
 - [一手] "Well, today we're introducing three revolutionary products of this class. The first one is a widescreen iPod with touch controls. The second is a revolutionary mobile phone. And the third is a breakthrough Internet communications device."
-- 然后重复三遍，每次重复都加快节奏，同时观众开始意识到这是同一个设备
+- 然後重複三遍，每次重複都加快節奏，同時觀眾開始意識到這是同一個裝置
 - [一手] "An iPod, a phone... are you getting it? These are not three separate devices, this is one device, and we are calling it iPhone."
 
-**第三幕：活体演示（Live Demo）**
-- 不是放预录视频，而是在台上真实操作
-- 高潮段落：用Google Maps找到附近的Starbucks，然后**真的拨通电话**
+**第三幕：活體演示（Live Demo）**
+- 不是放預錄影片，而是在臺上真實操作
+- 高潮段落：用Google Maps找到附近的Starbucks，然後**真的撥通電話**
 - [一手] "Yes, I'd like to order 4,000 lattes to go, please. No, just kidding. Wrong number. Goodbye!"
-- [二手] 这是人类历史上第一个公开的iPhone通话。之前和Jony Ive、Phil Schiller的通话是预先安排的，这个是即兴的
-- 来源：[Inc.](https://www.inc.com/jeff-haden/the-day-steve-jobs-prank-called-a-starbucks-ordered-4000-lattes-power-of-humor-storytelling.html)、[Fast Company](https://www.fastcompany.com/3006147/because-steve-jobss-first-public-iphone-call-starbucks-still-)
+- [二手] 這是人類歷史上第一個公開的iPhone通話。之前和Jony Ive、Phil Schiller的通話是預先安排的，這個是即興的
+- 來源：[Inc.](https://www.inc.com/jeff-haden/the-day-steve-jobs-prank-called-a-starbucks-ordered-4000-lattes-power-of-humor-storytelling.html)、[Fast Company](https://www.fastcompany.com/3006147/because-steve-jobss-first-public-iphone-call-starbucks-still-)
 
-**Rule of Three（三的法则）**
+**Rule of Three（三的法則）**
 
-[二手] Carmine Gallo在《The Presentation Secrets of Steve Jobs》中总结：Jobs几乎所有演讲都遵循"三的法则"。他始终把要点压缩到三个，因为：
-- 三比两更有戏剧性
-- 三比六或八更容易记住
-- 三创造了"开头-中间-结尾"的完整叙事弧
+[二手] Carmine Gallo在《The Presentation Secrets of Steve Jobs》中總結：Jobs幾乎所有演講都遵循"三的法則"。他始終把要點壓縮到三個，因為：
+- 三比兩更有戲劇性
+- 三比六或八更容易記住
+- 三創造了"開頭-中間-結尾"的完整敘事弧
 
-[推断] Jobs的"三"不只是資訊组织方式，更是**节奏装置**。三次重复创造了音乐般的韵律感。
+[推斷] Jobs的"三"不只是資訊組織方式，更是**節奏裝置**。三次重複創造了音樂般的韻律感。
 
-**Headline先行（一句话定义）**
+**Headline先行（一句話定義）**
 
-[二手] 每个产品都先有一句tweetable的headline，再展开细节：
+[二手] 每個產品都先有一句tweetable的headline，再展開細節：
 - [一手] Mac：Mac是"insanely great"
 - [一手] iPod："1,000 songs in your pocket"
 - [一手] MacBook Air："The world's thinnest notebook"
 - [一手] iPhone："An iPod, a phone, and an Internet communicator"
 
-这些headline的共同特征：**不超过10个英文单词，不提技术参数，直接传达使用者价值或感受**。
+這些headline的共同特徵：**不超過10個英文單詞，不提技術引數，直接傳達使用者價值或感受**。
 
-来源：[Carmine Gallo / McGraw-Hill](https://www.accessengineeringlibrary.com/content/book/9780071636087)
+來源：[Carmine Gallo / McGraw-Hill](https://www.accessengineeringlibrary.com/content/book/9780071636087)
 
-### 4. 演讲节奏：停顿、重复、渐进
+### 4. 演講節奏：停頓、重複、漸進
 
-**戏剧性停顿**
-- [二手] 切换话题或要说重要内容前，Jobs不会急着往下讲。他经常走到舞台侧面，拿起一瓶水喝一口，或者只是站在那里说一句"Isn't that amazing?"
-- [推断] 停顿的功能不是休息，而是**制造真空**。真空产生期待。期待产生注意力。
+**戲劇性停頓**
+- [二手] 切換話題或要說重要內容前，Jobs不會急著往下講。他經常走到舞臺側面，拿起一瓶水喝一口，或者只是站在那裡說一句"Isn't that amazing?"
+- [推斷] 停頓的功能不是休息，而是**製造真空**。真空產生期待。期待產生注意力。
 
-**重复固化**
-- [二手] Jobs会先以列表形式介绍新概念，然后逐一展开每个要素，最后用**完全相同的措辞**再总结一遍
-- 修辞学术语：
-  - **Anaphora**（首语重复）：句子开头用同样的词。如"We've got the iPod... We've got the iPod Nano... We've got the iPod Shuffle..."
-  - **Epiphora**（尾语重复）：句子结尾用同样的词。如"This is what their contacts look like. This is what iPhone's contacts look like."
-  - **Geminatio**（连续重复）：同一句中重复词组以制造节奏
+**重複固化**
+- [二手] Jobs會先以列表形式介紹新概念，然後逐一展開每個要素，最後用**完全相同的措辭**再總結一遍
+- 修辭學術語：
+  - **Anaphora**（首語重複）：句子開頭用同樣的詞。如"We've got the iPod... We've got the iPod Nano... We've got the iPod Shuffle..."
+  - **Epiphora**（尾語重複）：句子結尾用同樣的詞。如"This is what their contacts look like. This is what iPhone's contacts look like."
+  - **Geminatio**（連續重複）：同一句中重複片語以製造節奏
 
-**渐进式升级**
-- 产品功能从"好"到"更好"到"最好"逐步展示
-- 每个功能演示后观众鼓掌，形成"展示→掌声→展示→掌声"的波浪节奏
-- [推断] 这像是音乐的crescendo——渐强，直到"one more thing"的最终高潮
+**漸進式升級**
+- 產品功能從"好"到"更好"到"最好"逐步展示
+- 每個功能演示後觀眾鼓掌，形成"展示→掌聲→展示→掌聲"的波浪節奏
+- [推斷] 這像是音樂的crescendo——漸強，直到"one more thing"的最終高潮
 
-来源：[European Rhetoric](http://www.european-rhetoric.com/analyses/ikeynote-analysis-iphone/steve-jobs-figures-speech/)、[Presono](https://presono.com/blog/en/present-like-steve-jobs-these-are-the-techniques-behind-the-legendary-presentations/)
+來源：[European Rhetoric](http://www.european-rhetoric.com/analyses/ikeynote-analysis-iphone/steve-jobs-figures-speech/)、[Presono](https://presono.com/blog/en/present-like-steve-jobs-these-are-the-techniques-behind-the-legendary-presentations/)
 
 ---
 
-## 二、邮件风格：极简的艺术
+## 二、郵件風格：極簡的藝術
 
-### 1. 核心特征
+### 1. 核心特徵
 
-Jobs的邮件以极端简短著称。这不是懒，是一种深思熟虑的沟通哲学。
+Jobs的郵件以極端簡短著稱。這不是懶，是一種深思熟慮的溝通哲學。
 
-**长度**
-- 典型回复：1-2句话，有时只有一个词
-- [一手] 回复Bertrand Serlet关于iPhone SDK的提议："Sure, as long as we can roll it all out at Macworld on Jan 15, 2008." ——13个词，同时传达了批准、条件、截止日期三个資訊
-- 来源：[Inc. / Justin Bariso](https://www.inc.com/justin-bariso/steve-jobs-how-to-write-great-email.html)
+**長度**
+- 典型回覆：1-2句話，有時只有一個詞
+- [一手] 回覆Bertrand Serlet關於iPhone SDK的提議："Sure, as long as we can roll it all out at Macworld on Jan 15, 2008." ——13個詞，同時傳達了批准、條件、截止日期三個資訊
+- 來源：[Inc. / Justin Bariso](https://www.inc.com/justin-bariso/steve-jobs-how-to-write-great-email.html)
 
-**语气**
-- [二手] 即使在高层决策邮件中，语气也是对话式的，像在跟朋友说话而非下达命令
-- [推断] 短 ≠ 冷。Jobs的短邮件往往同时传达confidence和humility——他不是在教训人，而是在陈述想法并征求回应
+**語氣**
+- [二手] 即使在高層決策郵件中，語氣也是對話式的，像在跟朋友說話而非下達命令
+- [推斷] 短 ≠ 冷。Jobs的短郵件往往同時傳達confidence和humility——他不是在教訓人，而是在陳述想法並徵求回應
 
-**回复公众邮件**
-- [二手] Jobs会亲自回复普通使用者和开发者的邮件，回复同样极简
-- [二手] 这些简短回复在苹果社区引发"ecstasy and awe"（狂喜和敬畏）
-- 来源：[CNN Money](https://money.cnn.com/2014/12/01/technology/steve-jobs-emails/index.html)、[HuffPost](https://www.huffpost.com/entry/steve-jobs-emails-photos_n_539517)
+**回覆公眾郵件**
+- [二手] Jobs會親自回覆普通使用者和開發者的郵件，回覆同樣極簡
+- [二手] 這些簡短回覆在蘋果社群引發"ecstasy and awe"（狂喜和敬畏）
+- 來源：[CNN Money](https://money.cnn.com/2014/12/01/technology/steve-jobs-emails/index.html)、[HuffPost](https://www.huffpost.com/entry/steve-jobs-emails-photos_n_539517)
 
 ### 2. Pattern提取
 
-Jobs的邮件风格可以提炼为三条规则：
-1. **一封邮件一个决定**：不在一封邮件里讨论三件事
-2. **条件显性化**：如果有条件，直接说"as long as..."，不委婉暗示
-3. **不加装饰**：没有"Hope this email finds you well"之类的社交润滑
+Jobs的郵件風格可以提煉為三條規則：
+1. **一封郵件一個決定**：不在一封郵件裡討論三件事
+2. **條件顯性化**：如果有條件，直接說"as long as..."，不委婉暗示
+3. **不加裝飾**：沒有"Hope this email finds you well"之類的社交潤滑
 
 ---
 
-## 三、批评方式：Binary Judgment与"Shit"哲学
+## 三、批評方式：Binary Judgment與"Shit"哲學
 
-### 1. 二元判断系统
+### 1. 二元判斷系統
 
-这是Jobs表达风格中最具争议也最有特色的部分。
+這是Jobs表達風格中最具爭議也最有特色的部分。
 
-[二手] Walter Isaacson在传记中写道："Steve Jobs had a tendency to see things in a binary way. A person was either a hero or a bozo, a product was either amazing or shit." 
+[二手] Walter Isaacson在傳記中寫道："Steve Jobs had a tendency to see things in a binary way. A person was either a hero or a bozo, a product was either amazing or shit." 
 
-[二手] 同样的二元性延伸到一切事物——"Something was either 'the best thing ever', or it was shitty, brain-dead, inedible."
+[二手] 同樣的二元性延伸到一切事物——"Something was either 'the best thing ever', or it was shitty, brain-dead, inedible."
 
-[推断] 这种binary thinking有几个语言层面的表现：
-- **没有中间地带的形容词**：从不说"还行""不错""有待改进"，只有"amazing"和"shit"两个档位
-- **突然切换**：一个方案可能在某个瞬间从"completely sucks"变成"absolutely perfect"——不是渐变，是跳变
-- **分类标签化**：人被分为"A player"或"bozo"，不存在"B+ player"
+[推斷] 這種binary thinking有幾個語言層面的表現：
+- **沒有中間地帶的形容詞**：從不說"還行""不錯""有待改進"，只有"amazing"和"shit"兩個檔位
+- **突然切換**：一個方案可能在某個瞬間從"completely sucks"變成"absolutely perfect"——不是漸變，是跳變
+- **分類標籤化**：人被分為"A player"或"bozo"，不存在"B+ player"
 
-### 2. 直接否定的语言
+### 2. 直接否定的語言
 
 [一手] "I'm brutally honest, because the price of admission to being in the room with me is I get to tell you you're full of shit if you're full of shit, and you get to say to me I'm full of shit, and we have some rip-roaring fights."
 
-[一手] 面试时的压力测试："God, that really turned out to be a bomb. That really turned out to be a bozo product." ——故意贬低面试者之前的工作，观察对方是否有坚定資訊念
+[一手] 面試時的壓力測試："God, that really turned out to be a bomb. That really turned out to be a bozo product." ——故意貶低面試者之前的工作，觀察對方是否有堅定資訊念
 
 [一手] "The most important thing I think you can do for someone who's really good and who's really being counted on is to point out to them when they're not—when their work isn't good enough."
 
 ### 3. Pattern提取
 
-Jobs的批评语言有一个核心矛盾被他自己解决了：
+Jobs的批評語言有一個核心矛盾被他自己解決了：
 
-**表面悖论**：极端粗暴 vs. 极端关心
-**Jobs的解法**：[推断] 在他的逻辑里，不告诉你真话才是不尊重你。"Your work is shit"的潜台词是"我认为你能做得比这好得多"。如果他不在乎你，他根本不会说什么。
+**表面悖論**：極端粗暴 vs. 極端關心
+**Jobs的解法**：[推斷] 在他的邏輯裡，不告訴你真話才是不尊重你。"Your work is shit"的潛臺詞是"我認為你能做得比這好得多"。如果他不在乎你，他根本不會說什麼。
 
-**语言特征**：
-- 直接使用"shit""bozo""brain-dead"等粗口，不用委婉语
-- 批评对象是**作品**而非**人**（虽然界限模糊）
-- 批评通常伴随"这不够好"的隐含标准，而非"你不行"的人格否定
+**語言特徵**：
+- 直接使用"shit""bozo""brain-dead"等粗口，不用委婉語
+- 批評物件是**作品**而非**人**（雖然界限模糊）
+- 批評通常伴隨"這不夠好"的隱含標準，而非"你不行"的人格否定
 
-来源：[Complex](https://www.complex.com/pop-culture/2012/10/steve-jobs-quotes/brutal-honesty)、[Inc.](https://www.inc.com/jessica-stillman/the-2-questions-steve-jobs-used-to-get-brutally-honest-feedback.html)、[WordPress/Gary Borjesson](https://garyborjesson.wordpress.com/2013/07/20/your-work-is-shit-steve-jobs-on-negative-feedback/)
+來源：[Complex](https://www.complex.com/pop-culture/2012/10/steve-jobs-quotes/brutal-honesty)、[Inc.](https://www.inc.com/jessica-stillman/the-2-questions-steve-jobs-used-to-get-brutally-honest-feedback.html)、[WordPress/Gary Borjesson](https://garyborjesson.wordpress.com/2013/07/20/your-work-is-shit-steve-jobs-on-negative-feedback/)
 
 ---
 
-## 四、Reality Distortion Field的语言机制
+## 四、Reality Distortion Field的語言機制
 
 ### 1. 概念起源
 
-[二手] 1981年，Apple的软件工程师Bud Tribble创造了"Reality Distortion Field"（现实扭曲力场）这个说法来描述Jobs的魅力及其对Macintosh开发团队的效果。这个术语借自《星际迷航》中外星人通过精神力量创造自己现实的概念。
+[二手] 1981年，Apple的軟體工程師Bud Tribble創造了"Reality Distortion Field"（現實扭曲力場）這個說法來描述Jobs的魅力及其對Macintosh開發團隊的效果。這個術語借自《星際迷航》中外星人通過精神力量創造自己現實的概念。
 
-[二手] Andy Hertzfeld的定义：Jobs"能够用魅力、魄力、夸张、营销、安抚和执着的混合体，说服自己和周围的人相資訊几乎任何事情"。
+[二手] Andy Hertzfeld的定義：Jobs"能夠用魅力、魄力、誇張、營銷、安撫和執著的混合體，說服自己和周圍的人相資訊幾乎任何事情"。
 
-来源：[Wikipedia](https://en.wikipedia.org/wiki/Reality_distortion_field)
+來源：[Wikipedia](https://en.wikipedia.org/wiki/Reality_distortion_field)
 
-### 2. 语言层面的具体技术
+### 2. 語言層面的具體技術
 
-**技术一：描述未来而非现在**
-- [推断] Jobs的语言不是描述性的（"这个产品有X功能"），而是**创造性的**（"想象一下这样的世界..."）。他不是在报告现实，而是在**构建**一个新现实，然后邀请你走进去
-- [一手] "We want to make a leapfrog product, not just a new product."——"leapfrog"这个词把增量改进变成了跳跃式突破
+**技術一：描述未來而非現在**
+- [推斷] Jobs的語言不是描述性的（"這個產品有X功能"），而是**創造性的**（"想象一下這樣的世界..."）。他不是在報告現實，而是在**構建**一個新現實，然後邀請你走進去
+- [一手] "We want to make a leapfrog product, not just a new product."——"leapfrog"這個詞把增量改進變成了跳躍式突破
 
-**技术二：极端自資訊的语气**
-- [推断] Jobs说话时没有hedging language（犹豫语）。没有"I think""maybe""kind of"。当他说一个产品是revolutionary，他的语气传达的是"这是事实"而非"这是我的看法"
-- 这种绝对确定性具有传染性——如果演讲者自己100%相資訊，听众更容易被带入
+**技術二：極端自資訊的語氣**
+- [推斷] Jobs說話時沒有hedging language（猶豫語）。沒有"I think""maybe""kind of"。當他說一個產品是revolutionary，他的語氣傳達的是"這是事實"而非"這是我的看法"
+- 這種絕對確定性具有傳染性——如果演講者自己100%相資訊，聽眾更容易被帶入
 
-**技术三：情感优先于逻辑**
-- [推断] RDF不靠資料说服人（虽然Jobs也用資料），而是靠**让你想要相資訊**。他先激活你对美好未来的渴望，然后才告诉你技术细节
-- 演讲结构总是：先讲Why（為什麼这很重要），再讲What（这是什么），最后讲How（怎么实现）
+**技術三：情感優先於邏輯**
+- [推斷] RDF不靠資料說服人（雖然Jobs也用資料），而是靠**讓你想要相資訊**。他先啟用你對美好未來的渴望，然後才告訴你技術細節
+- 演講結構總是：先講Why（為什麼這很重要），再講What（這是什麼），最後講How（怎麼實現）
 
-**技术四：重新定义品类**
+**技術四：重新定義品類**
 - [一手] iPhone不是"a smartphone"——它是"an iPod, a phone, and an internet communicator"
 - [一手] iPod不是"an MP3 player"——它是"1,000 songs in your pocket"
-- [推断] 通过重新定义品类，Jobs让竞品的参照系失效。如果iPhone是三个产品合一，你就没法拿它跟诺基亚比，因为比较框架不存在
+- [推斷] 通過重新定義品類，Jobs讓競品的參照系失效。如果iPhone是三個產品合一，你就沒法拿它跟諾基亞比，因為比較框架不存在
 
 ---
 
-## 五、营销文案语言：Think Different与品牌叙事
+## 五、營銷文案語言：Think Different與品牌敘事
 
-### 1. Think Different的内部营销演讲
+### 1. Think Different的內部營銷演講
 
-[一手] Jobs在1997年内部发布Think Different时的演讲："To me, marketing is about values. This is a very complicated world; it's a very noisy world. And we have to be really clear on what we want them to know about us."
+[一手] Jobs在1997年內部發布Think Different時的演講："To me, marketing is about values. This is a very complicated world; it's a very noisy world. And we have to be really clear on what we want them to know about us."
 
 [一手] "Our customers want to know who is Apple and what is it that we stand for. And it's not about speeds and fees—it's not about MIPS and megahertz... it's not about why we're better than Windows."
 
-[推断] 这段话揭示了Jobs营销语言的第一原理：**不卖产品，卖价值观**。技术参数是工程师语言，品牌是人类语言。
+[推斷] 這段話揭示了Jobs營銷語言的第一原理：**不賣產品，賣價值觀**。技術引數是工程師語言，品牌是人類語言。
 
-来源：[Speakola](https://speakola.com/corp/steve-jobs-marketing-think-differently-1997)
+來源：[Speakola](https://speakola.com/corp/steve-jobs-marketing-think-differently-1997)
 
 ### 2. "Here's to the Crazy Ones"文案分析
 
-虽然这段文案由TBWA\Chiat\Day的Rob Siltanen和Craig Tanimoto团队创作，但Jobs深度参与了方向定义和文案审核。文本本身体现了Jobs认同的语言哲学：
+雖然這段文案由TBWA\Chiat\Day的Rob Siltanen和Craig Tanimoto團隊創作，但Jobs深度參與了方向定義和文案稽核。文本本身體現了Jobs認同的語言哲學：
 
-[一手/来源存疑] "Here's to the crazy ones. The misfits. The rebels. The troublemakers. The round pegs in the square holes. The ones who see things differently."
+[一手/來源存疑] "Here's to the crazy ones. The misfits. The rebels. The troublemakers. The round pegs in the square holes. The ones who see things differently."
 
-**语言特征分析**：
-- **碎片句**：每一行都不是完整句子，只有名词短语。这创造了诗歌般的节奏
-- **累积式列举**：crazy ones → misfits → rebels → troublemakers → round pegs——每个词从不同角度描绘同一类人，形成包围式定义
-- **对比转折**："And while some may see them as the crazy ones, we see genius." ——"some"vs"we"，世界vs Apple
-- **结尾金句**："Because the people who are crazy enough to think they can change the world, are the ones who do." ——把"crazy"从贬义反转为最高赞美
+**語言特徵分析**：
+- **碎片句**：每一行都不是完整句子，只有名詞短語。這創造了詩歌般的節奏
+- **累積式列舉**：crazy ones → misfits → rebels → troublemakers → round pegs——每個詞從不同角度描繪同一類人，形成包圍式定義
+- **對比轉折**："And while some may see them as the crazy ones, we see genius." ——"some"vs"we"，世界vs Apple
+- **結尾金句**："Because the people who are crazy enough to think they can change the world, are the ones who do." ——把"crazy"從貶義反轉為最高讚美
 
-[推断] 这段文案的核心策略是**身份认同**：不告诉你Apple的产品好，而是告诉你"用Apple的人是改变世界的人"。购买Apple = 加入这个身份群体。
+[推斷] 這段文案的核心策略是**身份認同**：不告訴你Apple的產品好，而是告訴你"用Apple的人是改變世界的人"。購買Apple = 加入這個身份群體。
 
-来源：[Wikipedia](https://en.wikipedia.org/wiki/Think_different)、[Basic Apple Guy](https://basicappleguy.com/basicappleblog/heres-to-the-crazy-ones)
+來源：[Wikipedia](https://en.wikipedia.org/wiki/Think_different)、[Basic Apple Guy](https://basicappleguy.com/basicappleblog/heres-to-the-crazy-ones)
 
-### 3. "i-"前缀：语言品牌化
+### 3. "i-"字首：語言品牌化
 
-[二手] Jobs解释"i-"前缀主要代表internet，但同时也代表individual、instruct、inform、inspire以及第一人称代词"I"。
+[二手] Jobs解釋"i-"字首主要代表internet，但同時也代表individual、instruct、inform、inspire以及第一人稱代詞"I"。
 
-[推断] 这是语言层面的品牌创新——用一个字母前缀创建了一个完整的产品宇宙（iMac → iPod → iTunes → iPhone → iPad）。每个产品名自动继承了前缀携带的所有联想。
+[推斷] 這是語言層面的品牌創新——用一個字母字首建立了一個完整的產品宇宙（iMac → iPod → iTunes → iPhone → iPad）。每個產品名自動繼承了字首攜帶的所有聯想。
 
-来源：[Vocabulary.com](https://www.vocabulary.com/articles/wordroutes/and-one-more-thing-the-insanely-great-language-of-steve-jobs/)
+來源：[Vocabulary.com](https://www.vocabulary.com/articles/wordroutes/and-one-more-thing-the-insanely-great-language-of-steve-jobs/)
 
 ---
 
-## 六、核心隐喻与类比
+## 六、核心隱喻與類比
 
 ### 1. "A Bicycle for the Mind"
 
-这是Jobs最持久、最深刻的隐喻，从1980年代一直使用到最后。
+這是Jobs最持久、最深刻的隱喻，從1980年代一直使用到最後。
 
 [一手] "I read a study that measured the efficiency of locomotion for various species on the planet. The condor used the least energy to move a kilometer. And humans came in with a rather unimpressive showing, about a third of the way down the list. But then somebody at Scientific American had the insight to test the efficiency of locomotion for a man on a bicycle. And a human on a bicycle blew the condor away, completely off the top of the charts. And that's what a computer is to me. What a computer is to me is the most remarkable tool that we've ever come up with, and it's the equivalent of a bicycle for our minds."
 
-**隐喻分析**：
-- **具体化抽象概念**：计算机是什么？不是"資訊处理工具"（抽象），而是"心智的自行车"（具体可感）
-- **赋予人类主体性**：自行车不替你走路，是你在骑。计算机不替你思考，是放大你的思考
-- **暗含的谦逊**：人类本身不是最高效的，但人+工具是——承认人类的局限性，同时提供解决方案
+**隱喻分析**：
+- **具體化抽象概念**：計算機是什麼？不是"資訊處理工具"（抽象），而是"心智的腳踏車"（具體可感）
+- **賦予人類主體性**：腳踏車不替你走路，是你在騎。計算機不替你思考，是放大你的思考
+- **暗含的謙遜**：人類本身不是最高效的，但人+工具是——承認人類的侷限性，同時提供解決方案
 
-[二手] 1980年Apple在《华尔街日报》投放全版广告使用这个类比。Jobs甚至建议用"Bicycle"作为后来Mac的内部代号（被否决）。
+[二手] 1980年Apple在《華爾街日報》投放全版廣告使用這個類比。Jobs甚至建議用"Bicycle"作為後來Mac的內部代號（被否決）。
 
-来源：[The Marginalian](https://www.themarginalian.org/2011/12/21/steve-jobs-bicycle-for-the-mind-1990/)、[Fortune](https://fortune.com/2011/12/14/video-steve-jobs-in-1980-on-pcs-as-bicycles-for-the-mind/)
+來源：[The Marginalian](https://www.themarginalian.org/2011/12/21/steve-jobs-bicycle-for-the-mind-1990/)、[Fortune](https://fortune.com/2011/12/14/video-steve-jobs-in-1980-on-pcs-as-bicycles-for-the-mind/)
 
 ### 2. "The Intersection of Technology and Liberal Arts"
 
 [一手] "It's in Apple's DNA that technology alone is not enough. It's technology married with liberal arts, married with the humanities, that yields us the results that make our hearts sing."
 
-[推断] "married with"这个措辞比"combined with"或"integrated with"更强烈——marriage意味着不可分割的结合，不是临时搭配。
+[推斷] "married with"這個措辭比"combined with"或"integrated with"更強烈——marriage意味著不可分割的結合，不是臨時搭配。
 
-### 3. 其他标志性类比
+### 3. 其他標誌性類比
 
-- [一手] "Design is not just what it looks like and feels like. Design is how it works." ——用否定句拆掉错误定义，再用肯定句建立正确定义
-- [一手] "Death is very likely the single best invention of Life. It is Life's change agent." ——用"invention"和"change agent"把最可怕的事物重新编码为积极概念
-- [一手] "Remembering that I'll be dead soon is the most important tool I've ever encountered to help me make the big choices in life." ——死亡不是威胁，是"工具"
+- [一手] "Design is not just what it looks like and feels like. Design is how it works." ——用否定句拆掉錯誤定義，再用肯定句建立正確定義
+- [一手] "Death is very likely the single best invention of Life. It is Life's change agent." ——用"invention"和"change agent"把最可怕的事物重新編碼為積極概念
+- [一手] "Remembering that I'll be dead soon is the most important tool I've ever encountered to help me make the big choices in life." ——死亡不是威脅，是"工具"
 
 ---
 
-## 七、散文与私人写作的语言特征
+## 七、散文與私人寫作的語言特徵
 
-### 来自《Make Something Wonderful》的一手文本
+### 來自《Make Something Wonderful》的一手文本
 
-这本2023年出版的书收录了Jobs的笔记、草稿、資訊件、邮件，展现了非演讲场合的语言特征：
+這本2023年出版的書收錄了Jobs的筆記、草稿、資訊件、郵件，展現了非演講場合的語言特徵：
 
-**特征一：对话感**
+**特徵一：對話感**
 - [一手] "Are you crazy, lady? Nobody's ever done this before!"
-- [一手] 描述小时候被老师激励回来学习："She basically bribed me back into learning, with candy and money, and it sort of reignited my desire to learn."
-- [推断] 即使在文字中，Jobs也保持口语化。"sort of""basically"这些口语词没被编辑掉
+- [一手] 描述小時候被老師激勵回來學習："She basically bribed me back into learning, with candy and money, and it sort of reignited my desire to learn."
+- [推斷] 即使在文字中，Jobs也保持口語化。"sort of""basically"這些口語詞沒被編輯掉
 
-**特征二：感官丰富的描写**
+**特徵二：感官豐富的描寫**
 - [一手] "Silicon Valley, for the most part, at that time, was still orchards—apricot orchards and prune orchards—and it was really paradise. I remember almost every day the air being crystal clear, where you could see from one end of the valley to the other. It was really the most wonderful place in the world to grow up."
-- [推断] 这段散文与Keynote语言完全不同——Keynote是短句、冲击、节奏；散文是长句、回忆、温度。Jobs有两种语言模式，他在两者之间切换自如
+- [推斷] 這段散文與Keynote語言完全不同——Keynote是短句、衝擊、節奏；散文是長句、回憶、溫度。Jobs有兩種語言模式，他在兩者之間切換自如
 
-**特征三：深层哲思的表达**
+**特徵三：深層哲思的表達**
 - [一手] "I grow little of the food I eat, and of the little I do grow I did not breed or perfect the seeds. I do not make any of my own clothing. I speak a language I did not invent or refine. I did not discover the mathematics I use. I am protected by freedoms and laws I did not conceive of or legislate, and do not enforce or adjudicate."
-- [推断] 这段使用了**密集的首语重复**（"I do not..."/"I did not..."），但目的不是Keynote式的煽动，而是建立一种冥想般的累积效果——每一句都在说"我依赖他人"，反复叠加直到产生深刻的谦卑感。这是Jobs最不为人知的语言面向
+- [推斷] 這段使用了**密集的首語重複**（"I do not..."/"I did not..."），但目的不是Keynote式的煽動，而是建立一種冥想般的累積效果——每一句都在說"我依賴他人"，反覆疊加直到產生深刻的謙卑感。這是Jobs最不為人知的語言面向
 
-来源：[Steve Jobs Archive](https://book.stevejobsarchive.com/)、[Daniel Scrivner评注](https://www.danielscrivner.com/make-something-wonderful-steve-jobs-in-his-own-words-by-the-steve-jobs-archives/)
+來源：[Steve Jobs Archive](https://book.stevejobsarchive.com/)、[Daniel Scrivner評註](https://www.danielscrivner.com/make-something-wonderful-steve-jobs-in-his-own-words-by-the-steve-jobs-archives/)
 
 ---
 
 ## 八、幽默方式
 
-### 1. 幽默类型分析
+### 1. 幽默型別分析
 
-Jobs的幽默不是段子式的，而是**情境式的**和**姿态式的**。
+Jobs的幽默不是段子式的，而是**情境式的**和**姿態式的**。
 
-**类型一：轻描淡写的夸张**
-- [一手] Starbucks 4000杯拿铁电话——幽默不在台词本身，在于**谁在说、在什么场合说**。iPhone第一次公开通话，通话内容是恶作剧
-- [推断] 这种幽默的本质是反差：全世界最严肃的科技发布会上做了最不严肃的事
+**型別一：輕描淡寫的誇張**
+- [一手] Starbucks 4000杯拿鐵電話——幽默不在臺詞本身，在於**誰在說、在什麼場合說**。iPhone第一次公開通話，通話內容是惡作劇
+- [推斷] 這種幽默的本質是反差：全世界最嚴肅的科技釋出會上做了最不嚴肅的事
 
-**类型二：自嘲式的骄傲**
-- [二手] 演讲中经常在展示惊人資料后露出"我也没想到"的表情，但显然他完全知道这些数字
-- [推断] 这是假谦虚的幽默——观众知道他在装，他也知道观众知道，共谋创造了轻松感
+**型別二：自嘲式的驕傲**
+- [二手] 演講中經常在展示驚人資料後露出"我也沒想到"的表情，但顯然他完全知道這些數字
+- [推斷] 這是假謙虛的幽默——觀眾知道他在裝，他也知道觀眾知道，共謀創造了輕鬆感
 
-**类型三：对竞品的嘲讽**
-- [推断] Jobs嘲笑竞品时从不直接攻击，而是**让产品自己说话**。展示竞品手机的丑陋键盘，不说"这很糟"，而是默默展示，然后说"We can do better than that, can't we?"——让观众自己得出结论
+**型別三：對競品的嘲諷**
+- [推斷] Jobs嘲笑競品時從不直接攻擊，而是**讓產品自己說話**。展示競品手機的醜陋鍵盤，不說"這很糟"，而是默默展示，然後說"We can do better than that, can't we?"——讓觀眾自己得出結論
 
-**类型四：断句式的笑点**
-- [一手] "People who know what they're talking about don't need PowerPoint."——这句话本身就有喜剧节奏。先给出一个听起来像赞美的开头，然后用"don't need PowerPoint"制造意外
+**型別四：斷句式的笑點**
+- [一手] "People who know what they're talking about don't need PowerPoint."——這句話本身就有喜劇節奏。先給出一個聽起來像贊美的開頭，然後用"don't need PowerPoint"製造意外
 
-来源：[MethodShop](https://methodshop.com/steve-jobs-funniest/)
+來源：[MethodShop](https://methodshop.com/steve-jobs-funniest/)
 
 ---
 
-## 九、综合Pattern提取
+## 九、綜合Pattern提取
 
 ### 1. 句式偏好
 
-| 模式 | 示例 | 使用场景 |
+| 模式 | 示例 | 使用場景 |
 |------|------|---------|
-| **极短陈述句** | "That's it." / "Boom." / "It just works." | 演示后的确认 |
-| **三重列举** | "An iPod, a phone, an internet communicator" | 产品定义 |
-| **反问句** | "Isn't that incredible?" | 功能展示后引导情绪 |
-| **否定→肯定** | "It's not about X. It's about Y." | 重新框定问题 |
-| **假设句** | "Imagine if..." / "What if..." | 愿景描绘 |
-| **碎片名词句** | "The misfits. The rebels. The troublemakers." | 品牌叙事/诗性段落 |
+| **極短陳述句** | "That's it." / "Boom." / "It just works." | 演示後的確認 |
+| **三重列舉** | "An iPod, a phone, an internet communicator" | 產品定義 |
+| **反問句** | "Isn't that incredible?" | 功能展示後引導情緒 |
+| **否定→肯定** | "It's not about X. It's about Y." | 重新框定問題 |
+| **假設句** | "Imagine if..." / "What if..." | 願景描繪 |
+| **碎片名詞句** | "The misfits. The rebels. The troublemakers." | 品牌敘事/詩性段落 |
 
-### 2. 高频词与专属术语
+### 2. 高頻詞與專屬術語
 
-**绝对化正面词**：insanely great, revolutionary, magical, incredible, breakthrough, unbelievable, amazing, gorgeous, beautiful
-**绝对化负面词**：shit, bozo, brain-dead, sucks
-**标志性动词**：reinvent（重新发明）, leapfrog（跳跃超越）
-**连接词/过渡词**：And one more thing..., Now..., So..., Boom!
-**品牌术语**：i-前缀系列, Stevenote, Think Different
+**絕對化正面詞**：insanely great, revolutionary, magical, incredible, breakthrough, unbelievable, amazing, gorgeous, beautiful
+**絕對化負面詞**：shit, bozo, brain-dead, sucks
+**標誌性動詞**：reinvent（重新發明）, leapfrog（跳躍超越）
+**連線詞/過渡詞**：And one more thing..., Now..., So..., Boom!
+**品牌術語**：i-字首系列, Stevenote, Think Different
 
-### 3. 确定性表达方式
+### 3. 確定性表達方式
 
-- **零hedging**：不说"I think""probably""kind of"，说"This IS the best"
-- **事实化陈述**：把主观判断说成客观事实。"This is revolutionary"不是"I believe this is revolutionary"
-- **未来时态的确定性**：描述未来时用"will"而非"might"。"This will change everything"
+- **零hedging**：不說"I think""probably""kind of"，說"This IS the best"
+- **事實化陳述**：把主觀判斷說成客觀事實。"This is revolutionary"不是"I believe this is revolutionary"
+- **未來時態的確定性**：描述未來時用"will"而非"might"。"This will change everything"
 
-### 4. 赞美方式
+### 4. 讚美方式
 
-- **极端化**："The best thing ever" / "Insanely great" / "Amazing"
-- **与历史对标**：暗示产品与Mac/iPod同级别的历史地位
-- **对人的赞美**：称团队为"the most talented people on the planet"——不是"很优秀"，是"全球最优秀"
+- **極端化**："The best thing ever" / "Insanely great" / "Amazing"
+- **與歷史對標**：暗示產品與Mac/iPod同級別的歷史地位
+- **對人的讚美**：稱團隊為"the most talented people on the planet"——不是"很優秀"，是"全球最優秀"
 
-### 5. 修辞策略总结
+### 5. 修辭策略總結
 
-| 策略 | 本质 | Jobs的实现方式 |
+| 策略 | 本質 | Jobs的實現方式 |
 |------|------|--------------|
-| **类比具象化** | 把抽象概念转化为可感知的事物 | "bicycle for the mind" / "1000 songs in your pocket" |
-| **品类重定义** | 让竞品参照系失效 | iPhone不是手机，是三个设备合一 |
-| **二元极化** | 消除中间地带，迫使选择 | amazing或shit，hero或bozo |
-| **叙事先于论证** | 先讲故事再给结论 | Stanford三个故事 → 三个人生哲学 |
-| **重复锚定** | 通过重复让关键資訊不可遗忘 | "Stay Hungry. Stay Foolish."重复出现在结尾 |
-| **悬念管理** | 控制資訊释放节奏 | "One more thing..."结构 |
-| **情感先于逻辑** | 先让你想要，再告诉你為什麼合理 | 先展示产品体验，后说技术规格 |
+| **類比具象化** | 把抽象概念轉化為可感知的事物 | "bicycle for the mind" / "1000 songs in your pocket" |
+| **品類重定義** | 讓競品參照系失效 | iPhone不是手機，是三個裝置合一 |
+| **二元極化** | 消除中間地帶，迫使選擇 | amazing或shit，hero或bozo |
+| **敘事先於論證** | 先講故事再給結論 | Stanford三個故事 → 三個人生哲學 |
+| **重複錨定** | 通過重複讓關鍵資訊不可遺忘 | "Stay Hungry. Stay Foolish."重複出現在結尾 |
+| **懸念管理** | 控制資訊釋放節奏 | "One more thing..."結構 |
+| **情感先於邏輯** | 先讓你想要，再告訴你為什麼合理 | 先展示產品體驗，後說技術規格 |
 
-### 6. 两种Jobs语言模式
+### 6. 兩種Jobs語言模式
 
-| 维度 | 舞台上的Jobs | 纸面上的Jobs |
+| 維度 | 舞臺上的Jobs | 紙面上的Jobs |
 |------|-------------|-------------|
-| 句子长度 | 极短为主，长句只在故事段落 | 可以很长，从容展开 |
-| 节奏 | 快-停-快-停，音乐般的律动 | 流动的散文节奏 |
-| 情感色彩 | 激动、兴奋、充满能量 | 沉思、温暖、偶有脆弱 |
-| 目的 | 说服、震撼、制造行动 | 反思、表达、寻找意义 |
-| 代表作 | iPhone 2007 Keynote | Stanford演讲、Make Something Wonderful |
-| 共同点 | 简单的词汇、口语化的语气、直接的态度 |
+| 句子長度 | 極短為主，長句只在故事段落 | 可以很長，從容展開 |
+| 節奏 | 快-停-快-停，音樂般的律動 | 流動的散文節奏 |
+| 情感色彩 | 激動、興奮、充滿能量 | 沉思、溫暖、偶有脆弱 |
+| 目的 | 說服、震撼、製造行動 | 反思、表達、尋找意義 |
+| 代表作 | iPhone 2007 Keynote | Stanford演講、Make Something Wonderful |
+| 共同點 | 簡單的詞彙、口語化的語氣、直接的態度 |
 
 ---
 
-## 十、可运行的表达公式
+## 十、可執行的表達公式
 
-### 公式1：产品定义公式
+### 公式1：產品定義公式
 ```
-[它不是{现有品类}。它是{全新框架}。]
+[它不是{現有品類}。它是{全新框架}。]
 例：It's not a smartphone. It's an iPod, a phone, and an internet communicator.
 ```
 
-### 公式2：特征描述公式
+### 公式2：特徵描述公式
 ```
-[一个{超级形容词}的{名词}。{一句话说明為什麼}。]
+[一個{超級形容詞}的{名詞}。{一句話說明為什麼}。]
 例：A revolutionary phone. We're going to reinvent the phone.
 ```
 
-### 公式3：问题重构公式
+### 公式3：問題重構公式
 ```
-[现在{竞品/行业}是这样做的：{痛点}。我们觉得我们能做得更好。{解决方案}。]
+[現在{競品/行業}是這樣做的：{痛點}。我們覺得我們能做得更好。{解決方案}。]
 例：These smartphones have these keyboards... whether you need them or not. We think we can do better. We are going to use just a multi-touch screen.
 ```
 
-### 公式4：愿景表达公式
+### 公式4：願景表達公式
 ```
-[{这个领域}已经{年数}没有变化了。今天我们要{重新发明/彻底改变}它。]
+[{這個領域}已經{年數}沒有變化了。今天我們要{重新發明/徹底改變}它。]
 例：Every once in a while, a revolutionary product comes along that changes everything.
 ```
 
-### 公式5：确认简洁公式（邮件）
+### 公式5：確認簡潔公式（郵件）
 ```
-[{一个词的回应}。{如果有条件，一句话说完}。]
+[{一個詞的回應}。{如果有條件，一句話說完}。]
 例：Sure, as long as we can roll it all out at Macworld on Jan 15.
 ```
 
 ---
 
-## 資訊源清单
+## 資訊源清單
 
-| 来源 | 类型 | 关键贡献 |
+| 來源 | 型別 | 關鍵貢獻 |
 |------|------|---------|
-| [European Rhetoric - iPhone Keynote分析](http://www.european-rhetoric.com/analyses/ikeynote-analysis-iphone/) | 学术分析 | 修辞手法详解、语言特征分类 |
-| [Vocabulary.com - Insanely Great Language](https://www.vocabulary.com/articles/wordroutes/and-one-more-thing-the-insanely-great-language-of-steve-jobs/) | 语言分析 | 词汇选择、i-前缀、超级形容词 |
-| [Duarte - 17 Rhetorical Devices](https://www.duarte.com/blog/rhetoric-isnt-a-bad-thing-16-rhetorical-devices-regularly-used-by-steve-jobs/) | 修辞分析 | 17种修辞手法系统整理 |
-| [Macworld - Every One More Thing](https://www.macworld.com/article/669636/watch-every-steve-jobs-one-more-thing.html) | 历史记录 | "One more thing"完整历史 |
-| [Steve Jobs Archive - Make Something Wonderful](https://book.stevejobsarchive.com/) | 一手文献 | Jobs的私人写作风格 |
-| [Inc. - Steve Jobs Emails](https://www.inc.com/justin-bariso/steve-jobs-how-to-write-great-email.html) | 案例分析 | 邮件沟通风格 |
-| [CNN Money - 10 Best Steve Jobs Emails](https://money.cnn.com/2014/12/01/technology/steve-jobs-emails/index.html) | 案例合集 | 邮件原文展示 |
-| [Complex - 100 Greatest Quotes](https://www.complex.com/pop-culture/2012/10/steve-jobs-quotes/brutal-honesty) | 语录合集 | 批评风格与直接表达 |
-| [Wikipedia - Reality Distortion Field](https://en.wikipedia.org/wiki/Reality_distortion_field) | 概念溯源 | RDF起源与定义 |
-| [Wikipedia - Think Different](https://en.wikipedia.org/wiki/Think_different) | 历史记录 | 营销文案创作背景 |
-| [Carmine Gallo - Presentation Secrets](https://www.carminegallo.com/books/presentation-secrets-of-steve-jobs/) | 系统分析 | Rule of Three、Headline、演讲结构 |
-| [The Marginalian - Bicycle for the Mind](https://www.themarginalian.org/2011/12/21/steve-jobs-bicycle-for-the-mind-1990/) | 隐喻溯源 | 核心隐喻的起源与分析 |
+| [European Rhetoric - iPhone Keynote分析](http://www.european-rhetoric.com/analyses/ikeynote-analysis-iphone/) | 學術分析 | 修辭手法詳解、語言特徵分類 |
+| [Vocabulary.com - Insanely Great Language](https://www.vocabulary.com/articles/wordroutes/and-one-more-thing-the-insanely-great-language-of-steve-jobs/) | 語言分析 | 詞彙選擇、i-字首、超級形容詞 |
+| [Duarte - 17 Rhetorical Devices](https://www.duarte.com/blog/rhetoric-isnt-a-bad-thing-16-rhetorical-devices-regularly-used-by-steve-jobs/) | 修辭分析 | 17種修辭手法系統整理 |
+| [Macworld - Every One More Thing](https://www.macworld.com/article/669636/watch-every-steve-jobs-one-more-thing.html) | 歷史記錄 | "One more thing"完整歷史 |
+| [Steve Jobs Archive - Make Something Wonderful](https://book.stevejobsarchive.com/) | 一手文獻 | Jobs的私人寫作風格 |
+| [Inc. - Steve Jobs Emails](https://www.inc.com/justin-bariso/steve-jobs-how-to-write-great-email.html) | 案例分析 | 郵件溝通風格 |
+| [CNN Money - 10 Best Steve Jobs Emails](https://money.cnn.com/2014/12/01/technology/steve-jobs-emails/index.html) | 案例合集 | 郵件原文展示 |
+| [Complex - 100 Greatest Quotes](https://www.complex.com/pop-culture/2012/10/steve-jobs-quotes/brutal-honesty) | 語錄合集 | 批評風格與直接表達 |
+| [Wikipedia - Reality Distortion Field](https://en.wikipedia.org/wiki/Reality_distortion_field) | 概念溯源 | RDF起源與定義 |
+| [Wikipedia - Think Different](https://en.wikipedia.org/wiki/Think_different) | 歷史記錄 | 營銷文案創作背景 |
+| [Carmine Gallo - Presentation Secrets](https://www.carminegallo.com/books/presentation-secrets-of-steve-jobs/) | 系統分析 | Rule of Three、Headline、演講結構 |
+| [The Marginalian - Bicycle for the Mind](https://www.themarginalian.org/2011/12/21/steve-jobs-bicycle-for-the-mind-1990/) | 隱喻溯源 | 核心隱喻的起源與分析 |
 | [Inc. - Starbucks Prank Call](https://www.inc.com/jeff-haden/the-day-steve-jobs-prank-called-a-starbucks-ordered-4000-lattes-power-of-humor-storytelling.html) | 案例分析 | Demo中的幽默技巧 |
-| [MethodShop - 53 Funniest Moments](https://methodshop.com/steve-jobs-funniest/) | 案例合集 | 幽默风格样本 |
-| [Daniel Scrivner - Make Something Wonderful评注](https://www.danielscrivner.com/make-something-wonderful-steve-jobs-in-his-own-words-by-the-steve-jobs-archives/) | 书评分析 | 散文写作风格 |
+| [MethodShop - 53 Funniest Moments](https://methodshop.com/steve-jobs-funniest/) | 案例合集 | 幽默風格樣本 |
+| [Daniel Scrivner - Make Something Wonderful評註](https://www.danielscrivner.com/make-something-wonderful-steve-jobs-in-his-own-words-by-the-steve-jobs-archives/) | 書評分析 | 散文寫作風格 |
 
 

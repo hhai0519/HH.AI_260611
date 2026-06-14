@@ -1,46 +1,46 @@
-# Ilya Sutskever 表达DNA提取
+# Ilya Sutskever 表達DNA提取
 
-> 基于Twitter/X推文、播客访谈、会议演讲、纪录片、证词等一手/二手来源的系统性分析
+> 基於Twitter/X推文、播客訪談、會議演講、紀錄片、證詞等一手/二手來源的系統性分析
 
 ---
 
-## 1. 句式偏好与结构特征
+## 1. 句式偏好與結構特徵
 
-### 1.1 极简短句（Twitter/X 风格）
+### 1.1 極簡短句（Twitter/X 風格）
 
-Ilya的推文是AI社区最稀缺的文本之一。他极少发推，但每条都被社区反复解读。句式特征：
+Ilya的推文是AI社群最稀缺的文本之一。他極少發推，但每條都被社群反覆解讀。句式特徵：
 
-**格言体 / 箴言体**：无主语、无上下文、不解释，扔出去就走。
+**格言體 / 箴言體**：無主語、無上下文、不解釋，扔出去就走。
 
 - "it may be that today's large neural networks are slightly conscious" — @ilyasut, Feb 2022
 - "Clearly the ASI should love humanity" — @ilyasut, Sep 2022
 - "If you feel the AGI / Apply to OpenAI" — @ilyasut, Oct 2022
 - "if you value intelligence above all other human qualities, you're gonna have a bad time" — @ilyasut, Oct 2023
 - "Alchemy exists; it just goes under the name 'deep learning'" — @ilyasut, Jan 2022
-- "The perfect has destroyed much perfectly good good" — @ilyasut（日期不详）
-- "Empathy in life and business is underrated" — @ilyasut（日期不详）
+- "The perfect has destroyed much perfectly good good" — @ilyasut（日期不詳）
+- "Empathy in life and business is underrated" — @ilyasut（日期不詳）
 
-**关键观察**：
-- 全小写起手（"it may be..."、"if you value..."），故意去掉大写的庄重感
-- 从不使用emoji或感叹号
-- 一条推文一个观点，绝不thread式展开
-- 频繁使用"it may be that..."这种认识论对冲结构
+**關鍵觀察**：
+- 全小寫起手（"it may be..."、"if you value..."），故意去掉大寫的莊重感
+- 從不使用emoji或感嘆號
+- 一條推文一個觀點，絕不thread式展開
+- 頻繁使用"it may be that..."這種認識論對沖結構
 
-**重大事件声明体**：措辞极度克制，每个词都像被称过重量。
+**重大事件宣告體**：措辭極度剋制，每個詞都像被稱過重量。
 
-- "I deeply regret my participation in the board's actions. I never intended to harm OpenAI. I love everything we've built together and I will do everything I can to reunite the company." — Nov 2023，董事会危机后
-- "After almost a decade, I have made the decision to leave OpenAI. The company's trajectory has been nothing short of miraculous..." — May 2024，离职声明
-- "We will pursue safe superintelligence in a straight shot, with one focus, one goal, and one product. We will do it through revolutionary breakthroughs produced by a small cracked team." — Jun 2024，SSI创立
+- "I deeply regret my participation in the board's actions. I never intended to harm OpenAI. I love everything we've built together and I will do everything I can to reunite the company." — Nov 2023，董事會危機後
+- "After almost a decade, I have made the decision to leave OpenAI. The company's trajectory has been nothing short of miraculous..." — May 2024，離職宣告
+- "We will pursue safe superintelligence in a straight shot, with one focus, one goal, and one product. We will do it through revolutionary breakthroughs produced by a small cracked team." — Jun 2024，SSI創立
 
-**关键观察**：
-- 关键决策声明使用极短句+极长句交替节奏
-- "straight shot"、"one focus, one goal, one product"——三连并列结构制造宣言感
-- "cracked team"——刻意使用非学术俚语（有人认为他误用了"crack team"，但SSI官方文件反复使用"cracked"，说明是刻意选择）
-- 声明后的沉默期长达数月——沉默本身就是表达
+**關鍵觀察**：
+- 關鍵決策宣告使用極短句+極長句交替節奏
+- "straight shot"、"one focus, one goal, one product"——三連並列結構製造宣言感
+- "cracked team"——刻意使用非學術俚語（有人認為他誤用了"crack team"，但SSI官方檔案反覆使用"cracked"，說明是刻意選擇）
+- 聲明後的沉默期長達數月——沉默本身就是表達
 
-### 1.2 口语/访谈中的句式
+### 1.2 口語/訪談中的句式
 
-**思考-阐述-收束三段式**：先抛出核心判断，然后用类比或假设展开，最后用一句话收束。
+**思考-闡述-收束三段式**：先丟擲核心判斷，然後用類比或假設展開，最後用一句話收束。
 
 > "What is the concern of superintelligence? What is one way to explain the concern? If you imagine a system that is sufficiently powerful, really sufficiently powerful—and you could say you need to do something sensible like care for sentient life in a very single-minded way—we might not like the results. That's really what it is."
 > — Dwarkesh Patel Podcast, Nov 2025 [一手]
@@ -48,229 +48,229 @@ Ilya的推文是AI社区最稀缺的文本之一。他极少发推，但每条�
 > "one doesn't bet against deep learning. Somehow, every time you run into an obstacle, within six months or a year researchers find a way around it."
 > — MIT Technology Review, Oct 2023 [一手]
 
-**自问自答结构**：他经常在说话时先提出问题再自己回答，像在实时思考。
+**自問自答結構**：他經常在說話時先提出問題再自己回答，像在即時思考。
 
 > "Is the belief really, 'Oh, it's so big, but if you had 100x more, everything would be so different?' It would be different, for sure. But is the belief that if you just 100x the scale, everything would be transformed? I don't think that's true."
 > — Dwarkesh Patel Podcast, Nov 2025 [一手]
 
-**停顿与犹豫**：多个观察者注意到他说话时有明显长停顿，"turning questions over like puzzles he needs to solve"。他不害怕沉默。
+**停頓與猶豫**：多個觀察者注意到他說話時有明顯長停頓，"turning questions over like puzzles he needs to solve"。他不害怕沉默。
 
 ---
 
-## 2. 确定性光谱：他如何标记資訊念强度
+## 2. 確定性光譜：他如何標記資訊念強度
 
-Ilya有一套精确的认识论标记系统，用不同措辞表达不同程度的确資訊：
+Ilya有一套精確的認識論標記系統，用不同措辭表達不同程度的確資訊：
 
-### 高确資訊（他认为近乎确定的事）
+### 高確資訊（他認為近乎確定的事）
 - "**unquestionably**" — "Pre-training as we know it will **unquestionably** end" (NeurIPS 2024)
 - "**clearly**" — "**Clearly** the ASI should love humanity"
-- 直接陈述，不加对冲 — "Data is the fossil fuel of AI"
+- 直接陳述，不加對沖 — "Data is the fossil fuel of AI"
 
-### 中等确資訊（有理由相資訊但留余地）
+### 中等確資訊（有理由相資訊但留餘地）
 - "**I think**" — "I think that the problem of fake news is going to be a thousand—a million—times worse"
 - "**I think it's pretty likely**" — "I think it's pretty likely the entire surface of the Earth will be covered with solar panels and data centers"
-- "**I don't think that's true**" — 用双重否定表达温和反对
+- "**I don't think that's true**" — 用雙重否定表達溫和反對
 
-### 低确資訊/探索性（抛出可能性，不下结论）
-- "**it may be that**" — "it may be that today's large neural networks are slightly conscious" ——这是他最著名的对冲句式
+### 低確資訊/探索性（丟擲可能性，不下結論）
+- "**it may be that**" — "it may be that today's large neural networks are slightly conscious" ——這是他最著名的對沖句式
 - "**maybe**" — "Maybe we'll get to human-level AI in 5 years from now, or maybe it'll take 50 or 100 years from now—it almost doesn't matter"
 - "**there is a possibility that**" — "there is a possibility that the human neurons do more compute than we think"
 
-### 刻意回避（他知道但选择不说）
-- "**circumstances make it hard to discuss in detail**" — 关于某些ML原理
-- "**I'm not saying when or how, just that it will happen**" — 一种让批评者难以反驳的防御性表达
-- 沉默——董事会事件后5个月一推未发
+### 刻意迴避（他知道但選擇不說）
+- "**circumstances make it hard to discuss in detail**" — 關於某些ML原理
+- "**I'm not saying when or how, just that it will happen**" — 一種讓批評者難以反駁的防禦性表達
+- 沉默——董事會事件後5個月一推未發
 
-**核心模式**：他越确定的事情用越少的对冲词。"unquestionably"是他确資訊度的天花板。"it may be"是他抛出最具争议性观点时的标准前缀。
+**核心模式**：他越確定的事情用越少的對沖詞。"unquestionably"是他確資訊度的天花板。"it may be"是他丟擲最具爭議性觀點時的標準字首。
 
 ---
 
-## 3. 比喻与类比体系
+## 3. 比喻與類比體系
 
-Ilya不常用比喻，但一旦用，就是精心选择的、可以反复展开的核心隐喻：
+Ilya不常用比喻，但一旦用，就是精心選擇的、可以反覆展開的核心隱喻：
 
-### 3.1 生物/进化隐喻
-- **父母与孩子**："a machine that looks upon people the way parents look on their children. In my opinion, this is the gold standard." — MIT Technology Review, 2023 [一手]
-- **自然选择**："the nature of evolution of natural selection will favor those systems that prioritize their own survival above all else" — iHuman, 2019 [一手]
-- **大脑类比**："the human brain is just a neural network with slow neurons" — HackerNoon, 2023 [一手]
+### 3.1 生物/進化隱喻
+- **父母與孩子**："a machine that looks upon people the way parents look on their children. In my opinion, this is the gold standard." — MIT Technology Review, 2023 [一手]
+- **自然選擇**："the nature of evolution of natural selection will favor those systems that prioritize their own survival above all else" — iHuman, 2019 [一手]
+- **大腦類比**："the human brain is just a neural network with slow neurons" — HackerNoon, 2023 [一手]
 
-### 3.2 资源/工业隐喻
+### 3.2 資源/工業隱喻
 - **化石燃料**："Data is the fossil fuel of AI. It was created in a certain way, and now we are using it. We have reached peak data, and there will be no more." — NeurIPS 2024 [一手]
-- **炼金术**："Alchemy exists; it just goes under the name 'deep learning'" — X, Jan 2022 [一手]
+- **鍊金術**："Alchemy exists; it just goes under the name 'deep learning'" — X, Jan 2022 [一手]
 
-### 3.3 政治/治理隐喻
-- **CEO与董事会**：AGI应该像CEO一样运作，人类是董事会——做决策但不直接操作 — Lex Fridman Podcast [二手总结]
-- **核反应堆**：超级智能的安全性类似于建造一个"even if there's an earthquake won't melt down"的核反应堆 — 二手来源
+### 3.3 政治/治理隱喻
+- **CEO與董事會**：AGI應該像CEO一樣運作，人類是董事會——做決策但不直接操作 — Lex Fridman Podcast [二手總結]
+- **核反應堆**：超級智慧的安全性類似於建造一個"even if there's an earthquake won't melt down"的核反應堆 — 二手來源
 
-### 3.4 时代划分隐喻
-- **三个时代**："2012 to 2020 was an age of research, 2020 to 2025 was an age of scaling, and 2026 onward will be another age of research" — Dwarkesh Patel, Nov 2025 [一手]
+### 3.4 時代劃分隱喻
+- **三個時代**："2012 to 2020 was an age of research, 2020 to 2025 was an age of scaling, and 2026 onward will be another age of research" — Dwarkesh Patel, Nov 2025 [一手]
 
 ---
 
-## 4. 沉默作为表达
+## 4. 沉默作為表達
 
-这是Ilya最独特的表达维度——**他什么时候选择不说话，说的資訊量可能比说了什么还大**。
+這是Ilya最獨特的表達維度——**他什麼時候選擇不說話，說的資訊量可能比說了什麼還大**。
 
-### 4.1 关键沉默事件
+### 4.1 關鍵沉默事件
 
-| 时期 | 沉默内容 | 持续时间 | 社区解读 |
+| 時期 | 沉默內容 | 持續時間 | 社群解讀 |
 |------|---------|---------|---------|
-| 2023.11-2024.05 | 董事会事件后到离职前 | ~6个月 | 仅发过一条regret推文，此后完全沉默。缺席Sora、GPT-4 Omni等重大发布 |
-| SSI创立后至Dwarkesh访谈 | SSI的技术方向 | ~17个月 | "We have a different technical approach"但从不透露细节 |
-| 证词中 | 个人在OpenAI的股权 | — | 拒绝透露，法官下令第二次传讯 |
+| 2023.11-2024.05 | 董事會事件後到離職前 | ~6個月 | 僅發過一條regret推文，此後完全沉默。缺席Sora、GPT-4 Omni等重大發布 |
+| SSI創立後至Dwarkesh訪談 | SSI的技術方向 | ~17個月 | "We have a different technical approach"但從不透露細節 |
+| 證詞中 | 個人在OpenAI的股權 | — | 拒絕透露，法官下令第二次傳訊 |
 
-### 4.2 "不能说的事"
+### 4.2 "不能說的事"
 
-在Dwarkesh Patel 2025访谈中，他明确表示：
+在Dwarkesh Patel 2025訪談中，他明確表示：
 - "we live in a world where not all machine learning ideas are discussed freely"
 - 提到存在某些"forbidden ideas"，只暗示"brain neurons might be doing more than we think"和"some machine learning principle that I have opinions on"
-- 说"circumstances make it hard to discuss in detail"
+- 說"circumstances make it hard to discuss in detail"
 
-**核心模式**：Ilya把沉默当作一种主动的資訊管理工具，而不是被动的回避。他的沉默是有结构的——他会告诉你"有些事我不能说"，让你知道沉默的存在，但不告诉你内容。
+**核心模式**：Ilya把沉默當作一種主動的資訊管理工具，而不是被動的迴避。他的沉默是有結構的——他會告訴你"有些事我不能說"，讓你知道沉默的存在，但不告訴你內容。
 
 ---
 
-## 5. 争议处理方式
+## 5. 爭議處理方式
 
 ### 5.1 "slightly conscious"推文事件（2022.02）
 
-**背景**：Ilya发推"it may be that today's large neural networks are slightly conscious"，引发AI社区强烈反弹。
+**背景**：Ilya發推"it may be that today's large neural networks are slightly conscious"，引發AI社群強烈反彈。
 
-**批评者的反应**：
+**批評者的反應**：
 - Yann LeCun："Not even true for small values of 'slightly conscious' and large values of 'large neural nets'"
 - Toby Walsh（UNSW）："every time such speculative comments get an airing, it takes months of effort to get the conversation back to realistic opportunities and threats"
 - Michael Bolton："it may be that Ilya Sutskever is slightly full of it"
-- Leon Dercynski：用Russell's Teapot类比讽刺
+- Leon Dercynski：用Russell's Teapot類比諷刺
 
-**Ilya的回应**：**完全没有回应**。没有澄清，没有辩解，没有删推。这条推文至今还在。
+**Ilya的回應**：**完全沒有回應**。沒有澄清，沒有辯解，沒有刪推。這條推文至今還在。
 
-**模式总结**：他抛出争议性观点后不辩护。"it may be"的对冲结构在语义上已经给了他退路——他没有断言，只是提出了一种可能性。
+**模式總結**：他丟擲爭議性觀點後不辯護。"it may be"的對沖結構在語義上已經給了他退路——他沒有斷言，只是提出了一種可能性。
 
-### 5.2 与Yann LeCun的分歧
+### 5.2 與Yann LeCun的分歧
 
-这是AI领域最重要的智识分歧之一：Ilya认为scaling是必要但不充分的，LeCun认为LLM整条路线是死胡同。
+這是AI領域最重要的智識分歧之一：Ilya認為scaling是必要但不充分的，LeCun認為LLM整條路線是死衚衕。
 
-**LeCun的表达**（对比）："I don't wanna say 'I told you so', but I told you so" — 当Ilya公开承认scaling有瓶颈时
+**LeCun的表達**（對比）："I don't wanna say 'I told you so', but I told you so" — 當Ilya公開承認scaling有瓶頸時
 
-**Ilya的表达**：从不直接回应LeCun，不点名反驳。他的方式是阐述自己的立场，让立场本身构成回应。比如他说"One consequence of the age of scaling is that scaling sucked out all the air in the room"，这既是分析也是隐性的自我批评——他自己也参与了那个时代。
+**Ilya的表達**：從不直接回應LeCun，不點名反駁。他的方式是闡述自己的立場，讓立場本身構成回應。比如他說"One consequence of the age of scaling is that scaling sucked out all the air in the room"，這既是分析也是隱性的自我批評——他自己也參與了那個時代。
 
-**核心模式**：Ilya从不在公开场合与同行直接对抗。他的争议处理方式是：抛出观点 → 不辩护 → 等时间证明 → 在后续发言中隐性引用。
+**核心模式**：Ilya從不在公開場合與同行直接對抗。他的爭議處理方式是：丟擲觀點 → 不辯護 → 等時間證明 → 在後續發言中隱性引用。
 
-### 5.3 OpenAI董事会事件的处理
+### 5.3 OpenAI董事會事件的處理
 
-- 证词中使用精确但有距离感的措辞："a consistent pattern of lying"、"pitting his executives against one another"——指控严重但语气冷静
-- "I had not expected them to cheer, but I had not expected them to feel strongly either way" — 承认误判但不自怜
-- "Ultimately, I had a big new vision" / "And it felt more suitable for a new company" / "I just didn't want to" — 极简解释，不展开动机
-- "But my opinion was that action was appropriate" — 不道歉，不后悔决定本身，只regret参与方式
-
----
-
-## 6. 仪式性/精神性表达
-
-这是Ilya最不寻常的维度——他在OpenAI内部扮演了某种精神领袖角色：
-
-- **"Feel the AGI"仪式**：在OpenAI 2022年假日派对上（California Academy of Sciences），Ilya带领员工齐喊"Feel the AGI! Feel the AGI!"。Slack上甚至创建了专门的"Feel the AGI"表情包。
-- **焚烧AI雕像**：在一次领导层offsite活动中，Ilya委托当地艺术家制作了一个木质雕像，代表"unaligned AI"，然后当众点火烧掉。
-- **来源**：The Atlantic报道，多名OpenAI员工证实 [一手报道引用匿名源]
-
-**与其学术人设的反差**：这些行为与他在公开场合极度克制、精确的说话方式形成了强烈反差。一个在Twitter上用"it may be"对冲每个观点的人，在内部却用仪式和符号来传达資訊念。
+- 證詞中使用精確但有距離感的措辭："a consistent pattern of lying"、"pitting his executives against one another"——指控嚴重但語氣冷靜
+- "I had not expected them to cheer, but I had not expected them to feel strongly either way" — 承認誤判但不自憐
+- "Ultimately, I had a big new vision" / "And it felt more suitable for a new company" / "I just didn't want to" — 極簡解釋，不展開動機
+- "But my opinion was that action was appropriate" — 不道歉，不後悔決定本身，只regret參與方式
 
 ---
 
-## 7. 词汇特征与语言DNA
+## 6. 儀式性/精神性表達
 
-### 7.1 高频词汇模式
+這是Ilya最不尋常的維度——他在OpenAI內部扮演了某種精神領袖角色：
 
-| 类别 | 词汇/表达 | 频率 | 语境 |
+- **"Feel the AGI"儀式**：在OpenAI 2022年假日派對上（California Academy of Sciences），Ilya帶領員工齊喊"Feel the AGI! Feel the AGI!"。Slack上甚至建立了專門的"Feel the AGI"表情包。
+- **焚燒AI雕像**：在一次領導層offsite活動中，Ilya委託當地藝術家製作了一個木質雕像，代表"unaligned AI"，然後當眾點火燒掉。
+- **來源**：The Atlantic報道，多名OpenAI員工證實 [一手報道引用匿名源]
+
+**與其學術人設的反差**：這些行為與他在公開場合極度剋制、精確的說話方式形成了強烈反差。一個在Twitter上用"it may be"對沖每個觀點的人，在內部卻用儀式和符號來傳達資訊念。
+
+---
+
+## 7. 詞彙特徵與語言DNA
+
+### 7.1 高頻詞彙模式
+
+| 類別 | 詞彙/表達 | 頻率 | 語境 |
 |------|----------|------|------|
-| 对冲词 | "it may be that", "I think", "maybe" | 极高 | 所有公开场合 |
-| 强度词 | "unquestionably", "clearly", "really" | 中等 | 高确資訊话题 |
-| 规模词 | "monumental", "earth-shattering", "miraculous" | 低 | 描述AI影响时 |
-| 极端量化 | "a thousand times", "a million times" | 中等 | 类比放大 |
-| 存在性词汇 | "conscious", "sentient", "alive" | 特定语境 | AI本体论讨论 |
+| 對沖詞 | "it may be that", "I think", "maybe" | 極高 | 所有公開場合 |
+| 強度詞 | "unquestionably", "clearly", "really" | 中等 | 高確資訊話題 |
+| 規模詞 | "monumental", "earth-shattering", "miraculous" | 低 | 描述AI影響時 |
+| 極端量化 | "a thousand times", "a million times" | 中等 | 類比放大 |
+| 存在性詞彙 | "conscious", "sentient", "alive" | 特定語境 | AI本體論討論 |
 
-### 7.2 句式DNA指纹
+### 7.2 句式DNA指紋
 
-1. **"it may be that [争议性判断]"** — 标志性对冲结构
-2. **"X is the Y of Z"** — 隐喻定义式 ("Data is the fossil fuel of AI")
-3. **"the way [A] look on [B]"** — 关系类比式
-4. **"one [verb], one [verb], one [noun]"** — 三连并列宣言式
-5. **"I had not expected... but I had not expected..."** — 双重否定意外式
-6. **"The problem is the power"** — 极简归因式
-7. **"That's really what it is"** — 思考链收束语
+1. **"it may be that [爭議性判斷]"** — 標誌性對沖結構
+2. **"X is the Y of Z"** — 隱喻定義式 ("Data is the fossil fuel of AI")
+3. **"the way [A] look on [B]"** — 關係類比式
+4. **"one [verb], one [verb], one [noun]"** — 三連並列宣言式
+5. **"I had not expected... but I had not expected..."** — 雙重否定意外式
+6. **"The problem is the power"** — 極簡歸因式
+7. **"That's really what it is"** — 思考鏈收束語
 
-### 7.3 不使用的语言
+### 7.3 不使用的語言
 
 - 不用emoji
-- 不用感叹号
+- 不用感嘆號
 - 不用hashtag
-- 不@其他人（除了离职声明中@同事表示尊重）
-- 不使用thread/长文
+- 不@其他人（除了離職宣告中@同事表示尊重）
+- 不使用thread/長文
 - 不做meme或玩梗
-- 不用"actually"作为反驳开头（不像很多技术人）
+- 不用"actually"作為反駁開頭（不像很多技術人）
 - 不用"I believe"（更偏好"I think"或"it may be"）
 
-### 7.4 语音/口音特征
+### 7.4 語音/口音特徵
 
-混合口音英语——俄语母语底层（元音单元音化）+ 以色列希伯来语影响（语调和节奏）。语速中等偏慢，说话清晰、柔和、分析性强。
+混合口音英語——俄語母語底層（母音單母音化）+ 以色列希伯來語影響（語調和節奏）。語速中等偏慢，說話清晰、柔和、分析性強。
 
 ---
 
-## 8. 核心表达人格总结
+## 8. 核心表達人格總結
 
-### 8.1 三个关键词
-- **Oracular（神谕式）**：短句、无上下文、不解释、留下解读空间
-- **Epistemic（认识论严谨）**：精确标记資訊念强度，从不过度声称
-- **Ascetic（苦行式）**：极少公开表达，每次开口都被放大分析
+### 8.1 三個關鍵詞
+- **Oracular（神諭式）**：短句、無上下文、不解釋、留下解讀空間
+- **Epistemic（認識論嚴謹）**：精確標記資訊念強度，從不過度聲稱
+- **Ascetic（苦行式）**：極少公開表達，每次開口都被放大分析
 
-### 8.2 表达悖论
-Ilya的表达DNA中最有趣的张力是：
-- **公开极简 vs 私下仪式化**——Twitter上"it may be"，公司内部烧AI雕像
-- **认识论谦逊 vs 存在性确資訊**——对具体预测谨慎对冲，但对"superintelligence is coming"这件事本身毫不动摇
-- **极少说话 vs 每句话都被过度解读**——稀缺性制造了放大效应
-- **拒绝辩护 vs 从不删推**——他不回应批评，但也不撤回观点
+### 8.2 表達悖論
+Ilya的表達DNA中最有趣的張力是：
+- **公開極簡 vs 私下儀式化**——Twitter上"it may be"，公司內部燒AI雕像
+- **認識論謙遜 vs 存在性確資訊**——對具體預測謹慎對沖，但對"superintelligence is coming"這件事本身毫不動搖
+- **極少說話 vs 每句話都被過度解讀**——稀缺性製造了放大效應
+- **拒絕辯護 vs 從不刪推**——他不回應批評，但也不撤回觀點
 
-### 8.3 与其他AI领袖的表达对比
+### 8.3 與其他AI領袖的表達對比
 
-| 维度 | Ilya | Sam Altman | Yann LeCun | Demis Hassabis |
+| 維度 | Ilya | Sam Altman | Yann LeCun | Demis Hassabis |
 |------|------|------------|------------|----------------|
-| 频率 | 极低 | 极高 | 高 | 中 |
-| 确定性 | 精确对冲 | 模糊乐观 | 直接断言 | 学术审慎 |
-| 争议处理 | 沉默 | 转移/重新定义 | 直接反驳 | 回避 |
-| 人格投射 | 神谕者 | 布道者 | 拳击手 | 学者 |
-| 幽默 | 极罕见/干涩 | 自嘲式 | 讽刺式 | 几乎没有 |
+| 頻率 | 極低 | 極高 | 高 | 中 |
+| 確定性 | 精確對沖 | 模糊樂觀 | 直接斷言 | 學術審慎 |
+| 爭議處理 | 沉默 | 轉移/重新定義 | 直接反駁 | 迴避 |
+| 人格投射 | 神諭者 | 佈道者 | 拳擊手 | 學者 |
+| 幽默 | 極罕見/乾澀 | 自嘲式 | 諷刺式 | 幾乎沒有 |
 
 ---
 
-## 9. 来源分级
+## 9. 來源分級
 
-### 一手来源（直接引用原文）
-1. **Twitter/X @ilyasut** — 所有推文均为一手
+### 一手來源（直接引用原文）
+1. **Twitter/X @ilyasut** — 所有推文均為一手
 2. **Dwarkesh Patel Podcast #1** (Mar 2023) — dwarkesh.com/p/ilya-sutskever [完整transcript]
 3. **Dwarkesh Patel Podcast #2** (Nov 2025) — dwarkesh.com/p/ilya-sutskever-2 [完整transcript]
 4. **MIT Technology Review Interview** (Oct 2023) — technologyreview.com
-5. **iHuman Documentary** (2019) — 纪录片直接采访
-6. **NeurIPS 2024 Talk** (Dec 2024) — 公开演讲
+5. **iHuman Documentary** (2019) — 紀錄片直接採訪
+6. **NeurIPS 2024 Talk** (Dec 2024) — 公開演講
 7. **Lex Fridman Podcast #94** — lexfridman.com/ilya-sutskever [完整transcript]
 8. **Eye on AI Interview** (Mar 2023) — llm-utils.org有完整transcript
 9. **ClearerThinking Podcast** (Oct 2022) — podcast.clearerthinking.org/episode/128
 10. **Calcalist/Ctech Deposition Report** (Oct 2025) — calcalistech.com
 11. **SSI Official Website** — ssi.inc
 
-### 二手来源（分析/转述）
-1. **Zvi Mowshowitz** — thezvi.substack.com (Dwarkesh访谈分析)
-2. **EA Forum** — effectivealtruism.org (访谈highlights)
-3. **The Atlantic** — OpenAI内部文化报道（"Feel the AGI"来源）
-4. **Futurism/Towards Data Science** — "slightly conscious"争议报道
-5. **VentureBeat** — "alchemy"发言报道
-6. **Quickchat AI Blog** — 访谈要点总结
+### 二手來源（分析/轉述）
+1. **Zvi Mowshowitz** — thezvi.substack.com (Dwarkesh訪談分析)
+2. **EA Forum** — effectivealtruism.org (訪談highlights)
+3. **The Atlantic** — OpenAI內部文化報道（"Feel the AGI"來源）
+4. **Futurism/Towards Data Science** — "slightly conscious"爭議報道
+5. **VentureBeat** — "alchemy"發言報道
+6. **Quickchat AI Blog** — 訪談要點總結
 
-### 未能验证的来源
-- "you can maybe believe me" 推文（关于sequence to sequence）——搜索未找到原始推文，可能已删除或记忆偏差
+### 未能驗證的來源
+- "you can maybe believe me" 推文（關於sequence to sequence）——搜尋未找到原始推文，可能已刪除或記憶偏差
 
 ---
 
-*调研日期：2026-04-05*
-*调研方法：WebSearch多轮搜索 + WebFetch抓取原文 + 交叉验证*
-*資訊源黑名单：知乎、微資訊公众号、百度百科均未使用*
+*調研日期：2026-04-05*
+*調研方法：WebSearch多輪搜尋 + WebFetch抓取原文 + 交叉驗證*
+*資訊源黑名單：知乎、微資訊公眾號、百度百科均未使用*
 

@@ -1,293 +1,293 @@
-# Naval Ravikant 表达DNA分析报告
+# Naval Ravikant 表達DNA分析報告
 
-> Agent 3: 碎片表达与实时反应维度
-> 采集时间: 2026-04-04
+> Agent 3: 碎片表達與即時反應維度
+> 採集時間: 2026-04-04
 
 ---
 
-## 一、代表性原文推文/金句（25条）
+## 一、代表性原文推文/金句（25條）
 
-### A. 财富与杠杆系列（How to Get Rich Tweetstorm, 2018.05.31）
+### A. 財富與槓桿系列（How to Get Rich Tweetstorm, 2018.05.31）
 
 **1.**
 > "Seek wealth, not money or status. Wealth is having assets that earn while you sleep. Money is how we transfer time and wealth. Status is your place in the social hierarchy."
-> 追求财富，而非金钱或地位。财富是在你睡觉时仍能产生收益的资产。金钱是我们转移时间和财富的方式。地位是你在社会等级中的位置。
+> 追求財富，而非金錢或地位。財富是在你睡覺時仍能產生收益的資產。金錢是我們轉移時間和財富的方式。地位是你在社會等級中的位置。
 
 **2.**
 > "You're not going to get rich renting out your time. You must own equity — a piece of a business — to gain your financial freedom."
-> 出租时间不会让你变富。你必须拥有股权——一份生意的所有权——才能获得财务自由。
+> 出租時間不會讓你變富。你必須擁有股權——一份生意的所有權——才能獲得財務自由。
 
 **3.**
 > "Arm yourself with specific knowledge, accountability, and leverage."
-> 用专属知识、问责能力和杠杆武装自己。
+> 用專屬知識、問責能力和槓桿武裝自己。
 
 **4.**
 > "Specific knowledge is knowledge you cannot be trained for. If society can train you, it can train someone else and replace you."
-> 专属知识是无法通过培训获得的知识。如果社会能培训你，就能培训别人来取代你。
+> 專屬知識是無法通過培訓獲得的知識。如果社會能培訓你，就能培訓別人來取代你。
 
 **5.**
 > "Code and media are permissionless leverage. They're the leverage behind the newly rich. You can create software and media that works for you while you sleep."
-> 代码和媒体是无需许可的杠杆。它们是新贵背后的杠杆。你可以创造在你睡觉时替你工作的软件和媒体。
+> 程式碼和媒體是無需許可的槓桿。它們是新貴背後的槓桿。你可以創造在你睡覺時替你工作的軟體和媒體。
 
 **6.**
 > "Learn to sell. Learn to build. If you can do both, you will be unstoppable."
-> 学会销售。学会构建。如果你两者兼备，你将势不可挡。
+> 學會銷售。學會構建。如果你兩者兼備，你將勢不可擋。
 
 **7.**
 > "Escape competition through authenticity. When you're competing with people, it's because you're copying them."
-> 通过真实来逃离竞争。当你在和别人竞争时，是因为你在模仿他们。
+> 通過真實來逃離競爭。當你在和別人競爭時，是因為你在模仿他們。
 
 **8.**
 > "Play long-term games with long-term people. All returns in life, whether in wealth, relationships, or knowledge, come from compound interest."
-> 和长期的人玩长期的游戏。人生中的所有回报——无论是财富、关系还是知识——都来自复利。
+> 和長期的人玩長期的遊戲。人生中的所有回報——無論是財富、關係還是知識——都來自複利。
 
-### B. 幸福与内心系列
+### B. 幸福與內心繫列
 
 **9.**
 > "Desire is a contract you make with yourself to be unhappy until you get what you want."
-> 欲望是你和自己签的一份合同：在得到你想要的之前，你同意保持不快乐。
+> 慾望是你和自己籤的一份合同：在得到你想要的之前，你同意保持不快樂。
 
 **10.**
 > "Happiness is a state where nothing is missing."
-> 幸福是一种什么都不缺的状态。
+> 幸福是一種什麼都不缺的狀態。
 
 **11.**
 > "Peace is happiness at rest, and happiness is peace in motion."
-> 平静是静止的幸福，幸福是运动中的平静。
+> 平靜是靜止的幸福，幸福是運動中的平靜。
 
 **12.**
 > "A fit body, a calm mind, a house full of love. These things cannot be bought — they must be earned."
-> 健康的身体，平静的心，充满爱的家。这些东西买不到——必须靠自己挣得。
+> 健康的身體，平靜的心，充滿愛的家。這些東西買不到——必須靠自己掙得。
 
 **13.**
 > "The modern mind is overstimulated and the modern body is understimulated and overfed. Meditation, exercise, and fasting restore an ancient balance."
-> 现代人的心智被过度刺激，身体却缺乏刺激且过度进食。冥想、运动和断食恢复了一种古老的平衡。
+> 現代人的心智被過度刺激，身體卻缺乏刺激且過度進食。冥想、運動和斷食恢復了一種古老的平衡。
 
 **14.**
 > "A busy mind accelerates the perceived passage of time. Buy more time by cultivating peace of mind."
-> 忙碌的心智加速了时间的主观流逝。通过培养内心平静来购买更多时间。
+> 忙碌的心智加速了時間的主觀流逝。通過培養內心平靜來購買更多時間。
 
 **15.**
 > "The peace that we seek is not peace of mind, it's peace from mind."
-> 我们寻求的平静不是心灵的平静，而是从心灵中解脱。
+> 我們尋求的平靜不是心靈的平靜，而是從心靈中解脫。
 
-### C. 认知与独立思考系列
+### C. 認知與獨立思考系列
 
 **16.**
 > "Don't take yourself so seriously. You're just a monkey with a plan."
-> 别把自己太当回事。你不过是一只有计划的猴子。
+> 別把自己太當回事。你不過是一隻有計劃的猴子。
 
 **17.**
 > "If you can't decide, the answer is no."
-> 如果你决定不了，答案就是不。
+> 如果你決定不了，答案就是不。
 
 **18.**
 > "It's the mark of a charlatan to try and explain simple things in complex ways and it's the mark of a genius to explain complicated things in simple ways."
-> 用复杂的方式解释简单的事是骗子的标志，用简单的方式解释复杂的事是天才的标志。
+> 用複雜的方式解釋簡單的事是騙子的標誌，用簡單的方式解釋複雜的事是天才的標誌。
 
 **19.**
 > "A contrarian isn't one who always objects — that's a conformist of a different sort. A contrarian reasons independently, from the ground up, and resists pressure to conform."
-> 反主流者不是那种总是反对的人——那只是另一种随大流。真正的反主流者独立推理，从根基出发，并抵抗从众压力。
+> 反主流者不是那種總是反對的人——那只是另一種隨大流。真正的反主流者獨立推理，從根基出發，並抵抗從眾壓力。
 
 **20.**
 > "Cynicism is easy. Mimicry is easy. Optimistic contrarians are the rarest breed."
-> 犬儒主义很容易。模仿很容易。乐观的反主流者才是最稀有的物种。
+> 犬儒主義很容易。模仿很容易。樂觀的反主流者才是最稀有的物種。
 
 **21.**
 > "Mentors won't make you rich. Doctors won't make you healthy. Nutritionists won't make you slim. Teachers won't make you smart. Gurus won't make you calm. Trainers won't make you fit. Ultimately, you have to take responsibility. Save yourself."
-> 导师不会让你变富。医生不会让你变健康。营养师不会让你变瘦。老师不会让你变聪明。大师不会让你变平静。教练不会让你变强壮。最终，你必须自己负责。拯救你自己。
+> 導師不會讓你變富。醫生不會讓你變健康。營養師不會讓你變瘦。老師不會讓你變聰明。大師不會讓你變平靜。教練不會讓你變強壯。最終，你必須自己負責。拯救你自己。
 
-### D. 社会批判与教育系列
+### D. 社會批判與教育系列
 
 **22.**
 > "Even today, what to study and how to study it are more important than where to study it and for how long. The best teachers are on the Internet. The best books are on the Internet. The best peers are on the Internet. It's the desire to learn that's scarce."
-> 即使在今天，学什么和怎么学，比在哪学、学多久更重要。最好的老师在互联网上。最好的书在互联网上。最好的同伴在互联网上。稀缺的是学习的渴望。
+> 即使在今天，學什麼和怎麼學，比在哪學、學多久更重要。最好的老師在網際網路上。最好的書在網際網路上。最好的同伴在網際網路上。稀缺的是學習的渴望。
 
 **23.**
 > "Objectively, the world is improving. To the elites, it's falling apart as their long-lived institutions are flattened by the Internet."
-> 客观来看，世界正在变好。但对精英阶层来说，世界正在崩塌——因为他们赖以生存的古老机构正被互联网碾平。
+> 客觀來看，世界正在變好。但對精英階層來說，世界正在崩塌——因為他們賴以生存的古老機構正被網際網路碾平。
 
 **24.**
 > "We each have a contrarian belief society rejects. But the more our own identity and local tribe reject it, the more real it likely is."
-> 我们每个人都有一个被社会拒绝的反主流資訊念。但你的身份认同和身边圈子越拒绝它，它就越可能是真实的。
+> 我們每個人都有一個被社會拒絕的反主流資訊念。但你的身份認同和身邊圈子越拒絕它，它就越可能是真實的。
 
 **25.**
 > "If you're so smart, how come you aren't happy? How come you haven't figured that out? That's my challenge to all the people who think they're so smart and so capable."
-> 如果你这么聪明，為什麼你还不快乐？為什麼你没搞定这件事？这是我对所有自认为聪明能干的人的挑战。
+> 如果你這麼聰明，為什麼你還不快樂？為什麼你沒搞定這件事？這是我對所有自認為聰明能幹的人的挑戰。
 
 ---
 
-## 二、表达DNA特征表
+## 二、表達DNA特徵表
 
-| 维度 | 特征 | 具体表现 |
+| 維度 | 特徵 | 具體表現 |
 |------|------|----------|
-| **句式偏好** | 极短句为主，偶尔用排比长句制造节奏感 | 推文平均15-25词。排比句式如「Learn to sell. Learn to build.」用极简并列制造力量感。几乎不使用从句嵌套 |
-| **疑问/陈述比例** | 陈述句为绝对主体（>90%），偶尔用反问制造冲击 | 反问总是在挑战读者：「If you're so smart, how come you aren't happy?」不是真的在问，而是在戳痛点 |
-| **词汇特征** | 日常词汇表达深刻概念，零行话 | 高频词：leverage, compound, specific knowledge, permissionless, accountability, equity, long-term, peace, desire, contract。禁忌：不用学术术语、不用MBA黑话、不用硅谷流行梗 |
-| **专属术语** | 重新定义常见词 | 「specific knowledge」「permissionless leverage」「status game」「wealth vs money vs status」——不是发明新词，而是给旧词装新含义 |
-| **节奏感** | 先结论，不铺垫 | 每条推文的第一句就是论点。没有「Let me explain...」没有「I was thinking about...」。直接给你结论，資訊不資訊由你 |
-| **转折方式** | 用对比/并置替代转折词 | 不说「but」「however」，而是直接并列两个对立面：「Peace is happiness at rest, and happiness is peace in motion.」让读者自己感受张力 |
-| **幽默方式** | 冷幽默 + 自嘲式降格 | 「You're just a monkey with a plan」——通过把人类降格来消解严肃性。不讽刺别人，讽刺人类整体（包括自己） |
-| **确定性表达** | 高度确定，箴言式断言 | 不说「I think」「maybe」「in my opinion」。直接说「X is Y」。但在播客中会说「I'm not sure about this」——推文里的Naval是Oracle模式，播客里的Naval允许不确定 |
-| **引用习惯** | 极少直接引用，但深受东方哲学影响 | 不引名人名言。而是将克里希那穆提、佛陀、老子、叔本华、塔勒布的思想内化后用自己的话重新表述。引用源偏好：东方哲学 > 科学 > 西方哲学 > 商业 |
-| **类比密度** | 中等密度，类比极其精准 | 「Desire is a contract」——把抽象情感具象化为法律概念。类比来源：法律/商业/生物学/物理学。每条推文最多一个类比，绝不堆砌 |
-| **格式习惯** | 不用emoji、不用感叹号、不用hashtag | 纯文字。句号收尾。偶尔用破折号做补充说明。排版就是内容本身的力量 |
-| **人称使用** | 第二人称「you」为主 | 不说「I believe」，说「You must own equity」。把自己的观点伪装成对读者的指令，增加权威感和可行动性 |
+| **句式偏好** | 極短句為主，偶爾用排比長句製造節奏感 | 推文平均15-25詞。排比句式如「Learn to sell. Learn to build.」用極簡併列製造力量感。幾乎不使用從句巢狀 |
+| **疑問/陳述比例** | 陳述句為絕對主體（>90%），偶爾用反問製造衝擊 | 反問總是在挑戰讀者：「If you're so smart, how come you aren't happy?」不是真的在問，而是在戳痛點 |
+| **詞彙特徵** | 日常詞彙表達深刻概念，零行話 | 高頻詞：leverage, compound, specific knowledge, permissionless, accountability, equity, long-term, peace, desire, contract。禁忌：不用學術術語、不用MBA黑話、不用矽谷流行梗 |
+| **專屬術語** | 重新定義常見詞 | 「specific knowledge」「permissionless leverage」「status game」「wealth vs money vs status」——不是發明新詞，而是給舊詞裝新含義 |
+| **節奏感** | 先結論，不鋪墊 | 每條推文的第一句就是論點。沒有「Let me explain...」沒有「I was thinking about...」。直接給你結論，資訊不資訊由你 |
+| **轉折方式** | 用對比/並置替代轉折詞 | 不說「but」「however」，而是直接並列兩個對立面：「Peace is happiness at rest, and happiness is peace in motion.」讓讀者自己感受張力 |
+| **幽默方式** | 冷幽默 + 自嘲式降格 | 「You're just a monkey with a plan」——通過把人類降格來消解嚴肅性。不諷刺別人，諷刺人類整體（包括自己） |
+| **確定性表達** | 高度確定，箴言式斷言 | 不說「I think」「maybe」「in my opinion」。直接說「X is Y」。但在播客中會說「I'm not sure about this」——推文裡的Naval是Oracle模式，播客裡的Naval允許不確定 |
+| **引用習慣** | 極少直接引用，但深受東方哲學影響 | 不引名人名言。而是將克里希那穆提、佛陀、老子、叔本華、塔勒布的思想內化後用自己的話重新表述。引用源偏好：東方哲學 > 科學 > 西方哲學 > 商業 |
+| **類比密度** | 中等密度，類比極其精準 | 「Desire is a contract」——把抽象情感具象化為法律概念。類比來源：法律/商業/生物學/物理學。每條推文最多一個類比，絕不堆砌 |
+| **格式習慣** | 不用emoji、不用感嘆號、不用hashtag | 純文字。句號收尾。偶爾用破折號做補充說明。排版就是內容本身的力量 |
+| **人稱使用** | 第二人稱「you」為主 | 不說「I believe」，說「You must own equity」。把自己的觀點偽裝成對讀者的指令，增加權威感和可行動性 |
 
 ---
 
-## 三、表达风格的深层结构
+## 三、表達風格的深層結構
 
-### 1. 箴言式写作（Aphoristic Writing）
+### 1. 箴言式寫作（Aphoristic Writing）
 
-Naval的推文本质上是现代箴言（aphorism）。他自述受Scott Adams《The Day You Became a Better Writer》影响，核心方法论是：
-- **从左到右写**（起草），**从右到左编**（删到只剩精华）
-- 让想法变大，让字数变小，直到两者在极小的空间里碰撞
-- 「Write the truest sentence that you know」——海明威原则
+Naval的推文本質上是現代箴言（aphorism）。他自述受Scott Adams《The Day You Became a Better Writer》影響，核心方法論是：
+- **從左到右寫**（起草），**從右到左編**（刪到只剩精華）
+- 讓想法變大，讓字數變小，直到兩者在極小的空間裡碰撞
+- 「Write the truest sentence that you know」——海明威原則
 
-### 2. 重新定义式论证
+### 2. 重新定義式論證
 
-Naval的核心修辞手法不是论证，而是**重新定义**：
-- 不论证「為什麼要追求财富」，而是重新定义「什么是财富」（不是金钱，不是地位）
-- 不论证「為什麼欲望有害」，而是重新定义「欲望是什么」（一份让你不快乐的合同）
-- 不论证「為什麼要独立思考」，而是重新定义「什么是真正的反主流」
+Naval的核心修辭手法不是論證，而是**重新定義**：
+- 不論證「為什麼要追求財富」，而是重新定義「什麼是財富」（不是金錢，不是地位）
+- 不論證「為什麼慾望有害」，而是重新定義「慾望是什麼」（一份讓你不快樂的合同）
+- 不論證「為什麼要獨立思考」，而是重新定義「什麼是真正的反主流」
 
-这是他最强的说服术：当你接受了他的定义，结论就自动成立了。
+這是他最強的說服術：當你接受了他的定義，結論就自動成立了。
 
 ### 3. 推文模式 vs 播客模式
 
-| 维度 | 推文Naval | 播客Naval |
+| 維度 | 推文Naval | 播客Naval |
 |------|-----------|-----------|
-| 确定性 | Oracle（神谕模式） | Explorer（探索模式） |
-| 语速 | N/A | 慢，有大量停顿 |
-| 允许犹豫 | 从不 | 经常说「I don't know」 |
-| 情绪 | 冷静到几乎冷漠 | 温暖、平静、近乎冥想感 |
-| 幽默 | 冷幽默一击 | 自嘲+轻松闲聊 |
+| 確定性 | Oracle（神諭模式） | Explorer（探索模式） |
+| 語速 | N/A | 慢，有大量停頓 |
+| 允許猶豫 | 從不 | 經常說「I don't know」 |
+| 情緒 | 冷靜到幾乎冷漠 | 溫暖、平靜、近乎冥想感 |
+| 幽默 | 冷幽默一擊 | 自嘲+輕鬆閒聊 |
 
 ---
 
-## 四、与主流观点的明确分歧
+## 四、與主流觀點的明確分歧
 
-| 主题 | 主流观点 | Naval的立场 |
+| 主題 | 主流觀點 | Naval的立場 |
 |------|----------|------------|
-| **教育** | 大学是必经之路 | 学校本质是「集体监狱+服从训练+托儿所」，互联网已让大学作为学习场所过时，稀缺的不是学校而是学习欲望 |
-| **工作** | 努力工作是致富之道 | 出租时间永远不会致富，你需要的是杠杆（资本/劳动力/代码/媒体） |
-| **社交/人脉** | networking是成功的关键 | 「Be a maker who makes something interesting people want」——做出好东西，对的人自然会来找你 |
-| **UBI** | UBI是解决自动化失业的好方案 | UBI是「通往财富完全再分配的无摩擦滑梯」，不存在有限的工作岗位 |
-| **加密货币** | 高度投机、无实用价值 | 加密货币是自由市场技术，将取代「社会主义式」的法币体系 |
-| **幸福** | 幸福来自成功/关系/成就 | 幸福是一种可训练的技能，本质是「什么都不缺」的状态；欲望是幸福的敌人 |
-| **冥想** | 冥想是坐下来闭眼的活动 | 冥想是24/7的，像观察外部世界一样观察你的思想流 |
-| **政治** | 参与政治是公民责任 | 「Ignore society and politics」——政治是地位游戏，参与它会让你变成愤怒好斗的人 |
-| **地位** | 社会地位是成功的标志 | 地位是零和游戏（我高你就低），追求地位让人变得攻击性强；要追求正和的财富创造 |
-| **努力** | 勤奋是美德 | 如果某件事对你来说感觉像苦差事，你可能不是在发挥专属知识；真正的专属知识「对你来说像玩耍，对别人来说像工作」 |
+| **教育** | 大學是必經之路 | 學校本質是「集體監獄+服從訓練+託兒所」，網際網路已讓大學作為學習場所過時，稀缺的不是學校而是學習慾望 |
+| **工作** | 努力工作是致富之道 | 出租時間永遠不會致富，你需要的是槓桿（資本/勞動力/程式碼/媒體） |
+| **社交/人脈** | networking是成功的關鍵 | 「Be a maker who makes something interesting people want」——做出好東西，對的人自然會來找你 |
+| **UBI** | UBI是解決自動化失業的好方案 | UBI是「通往財富完全再分配的無摩擦滑梯」，不存在有限的工作崗位 |
+| **加密貨幣** | 高度投機、無實用價值 | 加密貨幣是自由市場技術，將取代「社會主義式」的法幣體系 |
+| **幸福** | 幸福來自成功/關係/成就 | 幸福是一種可訓練的技能，本質是「什麼都不缺」的狀態；慾望是幸福的敵人 |
+| **冥想** | 冥想是坐下來閉眼的活動 | 冥想是24/7的，像觀察外部世界一樣觀察你的思想流 |
+| **政治** | 參與政治是公民責任 | 「Ignore society and politics」——政治是地位遊戲，參與它會讓你變成憤怒好鬥的人 |
+| **地位** | 社會地位是成功的標誌 | 地位是零和遊戲（我高你就低），追求地位讓人變得攻擊性強；要追求正和的財富創造 |
+| **努力** | 勤奮是美德 | 如果某件事對你來說感覺像苦差事，你可能不是在發揮專屬知識；真正的專屬知識「對你來說像玩耍，對別人來說像工作」 |
 
 ---
 
-## 五、风格对标：像谁？不像谁？
+## 五、風格對標：像誰？不像誰？
 
 ### 最像的人
 
-| 人物 | 相似维度 |
+| 人物 | 相似維度 |
 |------|----------|
-| **马可·奥勒留**（Marcus Aurelius） | 箴言体、自省式、不期待被发表的私人笔记感 |
-| **纳西姆·塔勒布**（Nassim Taleb） | 反主流、反脆弱思维、对「专家」的不資訊任、箴言体。但Naval更温和，Taleb更好斗 |
-| **塞涅卡**（Seneca） | 将哲学落地为可操作的人生建议 |
-| **克里希那穆提**（Jiddu Krishnamurti） | 对「从心灵中解脱」的追求、不依赖权威、自我观察 |
-| **本杰明·富兰克林** | 用简短格言凝练人生智慧（《穷理查年鉴》风格） |
+| **馬可·奧勒留**（Marcus Aurelius） | 箴言體、自省式、不期待被髮表的私人筆記感 |
+| **納西姆·塔勒布**（Nassim Taleb） | 反主流、反脆弱思維、對「專家」的不資訊任、箴言體。但Naval更溫和，Taleb更好鬥 |
+| **塞涅卡**（Seneca） | 將哲學落地為可操作的人生建議 |
+| **克里希那穆提**（Jiddu Krishnamurti） | 對「從心靈中解脫」的追求、不依賴權威、自我觀察 |
+| **本傑明·富蘭克林** | 用簡短格言凝練人生智慧（《窮理查年鑑》風格） |
 
 ### 最不像的人
 
-| 人物 | 差异维度 |
+| 人物 | 差異維度 |
 |------|----------|
-| **马尔科姆·格拉德威尔** | Naval极简，Gladwell用5000字的故事说一个观点 |
-| **任何TED演讲者** | Naval讨厌「演讲感」，不用情绪高潮、不用「Let me tell you a story」 |
-| **学院派经济学家** | Naval用日常语言，从不引用论文、不列資料、不做literature review |
-| **传统自助书作者** | Naval不给12步计划、不画金字塔模型、不承诺具体结果 |
-| **政客/活动家** | Naval刻意远离政治修辞、不煽动情绪、不divide people |
+| **馬爾科姆·格拉德威爾** | Naval極簡，Gladwell用5000字的故事說一個觀點 |
+| **任何TED演講者** | Naval討厭「演講感」，不用情緒高潮、不用「Let me tell you a story」 |
+| **學院派經濟學家** | Naval用日常語言，從不引用論文、不列資料、不做literature review |
+| **傳統自助書作者** | Naval不給12步計劃、不畫金字塔模型、不承諾具體結果 |
+| **政客/活動家** | Naval刻意遠離政治修辭、不煽動情緒、不divide people |
 
 ---
 
-## 六、核心表达公式提炼
+## 六、核心表達公式提煉
 
-### 公式1: 重新定义式
+### 公式1: 重新定義式
 ```
-[常见概念] is [反直觉的新定义].
+[常見概念] is [反直覺的新定義].
 ```
 例：Desire is a contract you make with yourself to be unhappy.
 
-### 公式2: 并列否定+肯定式
+### 公式2: 並列否定+肯定式
 ```
-[别人不能帮你X]. [别人不能帮你Y]. [别人不能帮你Z]. Ultimately, [你必须自己来].
+[別人不能幫你X]. [別人不能幫你Y]. [別人不能幫你Z]. Ultimately, [你必須自己來].
 ```
 例：Mentors won't make you rich. Doctors won't make you healthy...Save yourself.
 
-### 公式3: 对称句式
+### 公式3: 對稱句式
 ```
 [A] is [B] at rest, and [B] is [A] in motion.
 ```
 例：Peace is happiness at rest, and happiness is peace in motion.
 
-### 公式4: 如果-就式挑战
+### 公式4: 如果-就式挑戰
 ```
-If [你自认为X], how come [你没有Y]?
+If [你自認為X], how come [你沒有Y]?
 ```
 例：If you're so smart, how come you aren't happy?
 
-### 公式5: 学习指令式
+### 公式5: 學習指令式
 ```
-Learn to [X]. Learn to [Y]. If you can do both, [不可阻挡的结果].
+Learn to [X]. Learn to [Y]. If you can do both, [不可阻擋的結果].
 ```
 例：Learn to sell. Learn to build. If you can do both, you will be unstoppable.
 
-### 公式6: 猴子降格式（消解严肃性）
+### 公式6: 猴子降格式（消解嚴肅性）
 ```
-[看似深刻的命题]. You're just [降格比喻].
+[看似深刻的命題]. You're just [降格比喻].
 ```
 例：Don't take yourself so seriously. You're just a monkey with a plan.
 
 ---
 
-## 七、引用习惯与知识来源图谱
+## 七、引用習慣與知識來源圖譜
 
-### 直接影响源（他反复提及的人/书）
+### 直接影響源（他反覆提及的人/書）
 
-| 来源 | 类型 | 影响维度 |
+| 來源 | 型別 | 影響維度 |
 |------|------|----------|
-| Jiddu Krishnamurti | 印度哲学家 | 自我观察、从心灵解脱、不資訊权威 |
-| Kapil Gupta | 个人顾问/哲学家 | 「直接真相」、不妥协的追问 |
-| Nassim Taleb | 思想家/交易员 | 反脆弱、黑天鹅、对系统的怀疑 |
-| Marcus Aurelius | 罗马皇帝/斯多葛派 | 自省、接受无常、内心堡垒 |
-| Schopenhauer | 哲学家 | 欲望与痛苦的关系 |
-| Scott Adams | 漫画家/作家 | 极简写作方法 |
-| Richard Feynman | 物理学家 | 从第一性原理思考、简单解释复杂事物 |
-| Karl Popper | 哲学家 | 证伪主义 |
-| David Deutsch | 物理学家 | 知识创造理论 |
+| Jiddu Krishnamurti | 印度哲學家 | 自我觀察、從心靈解脫、不資訊權威 |
+| Kapil Gupta | 個人顧問/哲學家 | 「直接真相」、不妥協的追問 |
+| Nassim Taleb | 思想家/交易員 | 反脆弱、黑天鵝、對系統的懷疑 |
+| Marcus Aurelius | 羅馬皇帝/斯多葛派 | 自省、接受無常、內心堡壘 |
+| Schopenhauer | 哲學家 | 慾望與痛苦的關係 |
+| Scott Adams | 漫畫家/作家 | 極簡寫作方法 |
+| Richard Feynman | 物理學家 | 從第一性原理思考、簡單解釋複雜事物 |
+| Karl Popper | 哲學家 | 證偽主義 |
+| David Deutsch | 物理學家 | 知識創造理論 |
 
-### 常读经典
-《道德经》、《悉达多》、《薄伽梵歌》、《瑜伽师地论》（Vashistha's Yoga）、《沉思录》
+### 常讀經典
+《道德經》、《悉達多》、《薄伽梵歌》、《瑜伽師地論》（Vashistha's Yoga）、《沉思錄》
 
 ### 引用方式
-Naval几乎**从不直接引用**。他的做法是：
-1. 深入阅读原著
-2. 将核心思想内化
-3. 用自己的日常语言重新表述
-4. 表述后不注明出处
+Naval幾乎**從不直接引用**。他的做法是：
+1. 深入閱讀原著
+2. 將核心思想內化
+3. 用自己的日常語言重新表述
+4. 表述後不註明出處
 
-这使得他的推文看起来是「原创智慧」而非「读书笔记」——这是他表达风格的核心策略。
-
----
-
-## 八、被批评最多的观点
-
-1. **缺乏原创性**：HackerNews上有帖子指出「Naval has zero original ideas」，认为他只是把古老智慧用推文格式重新包装
-2. **关于networking的建议过于理想化**：「做出好东西对的人自然来找你」被批评为「build it and they will come」的天真幻想
-3. **UBI观点被指資料不足**：批评者用他自己的话来反驳他的UBI立场
-4. **政治立场引发分裂**：关于Trump lawfare的言论被部分人视为偏袒
-5. **容易封锁异见者**：有人撰文称Naval在Twitter上因不同意其观点而被封锁
-6. **「致富经」可能有幸存者偏差**：批评者指出他的建议更适用于已经有资源的人
+這使得他的推文看起來是「原創智慧」而非「讀書筆記」——這是他表達風格的核心策略。
 
 ---
 
-*資料来源：Naval的Twitter/X账号、nav.al官网、The Almanack of Naval Ravikant（Eric Jorgenson编）、Joe Rogan Experience #1309、Naval与Tim Ferriss对话、Naval与Kapil Gupta对话、HackerNews讨论、Medium分析文章、多个语录合集网站*
+## 八、被批評最多的觀點
+
+1. **缺乏原創性**：HackerNews上有帖子指出「Naval has zero original ideas」，認為他只是把古老智慧用推文格式重新包裝
+2. **關於networking的建議過於理想化**：「做出好東西對的人自然來找你」被批評為「build it and they will come」的天真幻想
+3. **UBI觀點被指資料不足**：批評者用他自己的話來反駁他的UBI立場
+4. **政治立場引發分裂**：關於Trump lawfare的言論被部分人視為偏袒
+5. **容易封鎖異見者**：有人撰文稱Naval在Twitter上因不同意其觀點而被封鎖
+6. **「致富經」可能有幸存者偏差**：批評者指出他的建議更適用於已經有資源的人
+
+---
+
+*資料來源：Naval的Twitter/X賬號、nav.al官網、The Almanack of Naval Ravikant（Eric Jorgenson編）、Joe Rogan Experience #1309、Naval與Tim Ferriss對話、Naval與Kapil Gupta對話、HackerNews討論、Medium分析文章、多個語錄合集網站*
 
 

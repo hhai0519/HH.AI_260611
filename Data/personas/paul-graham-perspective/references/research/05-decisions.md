@@ -1,334 +1,334 @@
-# Paul Graham 重大决策、转折点与实际行动
+# Paul Graham 重大決策、轉折點與實際行動
 
-> 调研时间：2026-04-05
-> 调研方法：WebSearch多轮搜索，覆盖PG个人网站essays、Wikipedia、TechCrunch、Fortune、Inc.、Bloomberg等权威来源
-> 資訊源黑名单：知乎、微資訊公众号、百度百科
-
----
-
-## 一、职业轨迹：画家→程式员→创业者→投资人→作家
-
-### 1.1 早年：在艺术与计算机之间摇摆
-
-**关键事实：**
-- 康奈尔大学本科（1986年BA），哈佛大学计算机科学硕士+博士
-- 在哈佛读PhD期间报了人生第一堂美术课，此后去了RISD（罗德岛设计学院）和佛罗伦萨美术学院（Accademia di Belle Arti）学画
-- 来源：[Wikipedia](https://en.wikipedia.org/wiki/Paul_Graham_(programmer))、[paulgraham.com/bio.html](https://paulgraham.com/bio.html)
-
-**PG自己的解释（来自"What I Worked On"等essay）：**
-- 做startup是为了赚够钱去全职画画、付学费——"我想象自己靠版税过节俭生活，把所有时间花在画画上"
-- 后来意识到"為什麼不变得有钱？那我就能做任何想做的事"——这是一个关键的心智转变
-- 来源：[retireinprogress.com](https://retireinprogress.com/the-almanack-of-paul-graham/)
-
-**决策逻辑分析：**
-- PG并不是"放弃绘画转向编程"的线性叙事。他的路径是**同时追求多个兴趣，用一个养另一个**
-- 绘画训练对他后来的写作和审美判断有深远影响——他著名的"Hackers & Painters"就是在论证黑客和画家的思维相似性
-- 外部观察：PG属于典型的"多面手"型创业者，他的竞争力不来自单一领域的深度，而来自**跨领域的连接能力**
-
-### 1.2 从创业者到作家的转型
-
-**关键事实：**
-- 1993-2020年间在个人网站发表了188篇essay，总计约50万字（约1000页）
-- "Do Things that Don't Scale"（2013）、"Maker's Schedule, Manager's Schedule"、"Founder Mode"（2024）等成为创业者必读
-- 来源：[billyoppenheimer.com](https://billyoppenheimer.com/paul-graham-essays/)
-
-**PG自己的解释：**
-- "Writing doesn't just communicate ideas; it generates them." 写作不只是传递想法，写作本身就在生成想法
-- 在2024年essay "Writes and Write-Nots"中，他预言AI时代会出现"会写的人"和"不会写的人"的分化——writing is thinking
-- 来源：[paulgraham.com/articles.html](https://paulgraham.com/articles.html)
-
-**决策逻辑分析：**
-- PG的写作不是"退休后找事做"，而是一直是他思考的工具
-- 他的essay影响力远超大多数投资人的portfolio——这是他作为思想领袖的核心壁垒
-- 外部观察：PG的写作风格（清晰、简洁、有观点）本身就是对"做有用的事"理念的践行
+> 調研時間：2026-04-05
+> 調研方法：WebSearch多輪搜尋，覆蓋PG個人網站essays、Wikipedia、TechCrunch、Fortune、Inc.、Bloomberg等權威來源
+> 資訊源黑名單：知乎、微資訊公眾號、百度百科
 
 ---
 
-## 二、创立Viaweb的决策过程
+## 一、職業軌跡：畫家→程式員→創業者→投資人→作家
 
-### 2.1 从失败的艺术画廊网站到Viaweb
+### 1.1 早年：在藝術與計算機之間搖擺
 
-**关键事实：**
-- 1995年7月，PG和Robert Morris、Trevor Blackwell创立Viaweb
-- **最初做的是帮纽约艺术画廊做网站**——PG自己后来称之为"a stupid idea"
-- 花了6个月试图卖给不想要的人，这段经历直接催生了YC的motto："Make something people want"
-- 之后发现在线商店才是真正的需求，而他们做画廊网站的技术完全适用
-- 来源：[Wikipedia/Viaweb](https://en.wikipedia.org/wiki/Viaweb)、[ContentEdge](https://www.contentedge.com/blog/who-is-paul-graham-and-why-is-he-so-influential)
+**關鍵事實：**
+- 康奈爾大學本科（1986年BA），哈佛大學電腦科學碩士+博士
+- 在哈佛讀PhD期間報了人生第一堂美術課，此後去了RISD（羅德島設計學院）和佛羅倫薩美術學院（Accademia di Belle Arti）學畫
+- 來源：[Wikipedia](https://en.wikipedia.org/wiki/Paul_Graham_(programmer))、[paulgraham.com/bio.html](https://paulgraham.com/bio.html)
 
-**决策逻辑分析：**
-- PG的核心决策模式在这里已经显现：**先做，从失败中学习，快速调整方向**
-- 不是先有完美计划再执行，而是在执行中发现真正的机会
-- "Make something people want"不是抽象理论，是他自己6个月痛苦经历的总结
+**PG自己的解釋（來自"What I Worked On"等essay）：**
+- 做startup是為了賺夠錢去全職畫畫、付學費——"我想象自己靠版稅過節儉生活，把所有時間花在畫畫上"
+- 後來意識到"為什麼不變得有錢？那我就能做任何想做的事"——這是一個關鍵的心智轉變
+- 來源：[retireinprogress.com](https://retireinprogress.com/the-almanack-of-paul-graham/)
 
-### 2.2 卖给Yahoo的决策
+**決策邏輯分析：**
+- PG並不是"放棄繪畫轉向程式設計"的線性敘事。他的路徑是**同時追求多個興趣，用一個養另一個**
+- 繪畫訓練對他後來的寫作和審美判斷有深遠影響——他著名的"Hackers & Painters"就是在論證駭客和畫家的思維相似性
+- 外部觀察：PG屬於典型的"多面手"型創業者，他的競爭力不來自單一領域的深度，而來自**跨領域的連線能力**
 
-**关键事实：**
-- 1998年夏天，Yahoo以455,000股Yahoo股票（约4960万美元）收购Viaweb
-- 收购过程中Viaweb几乎"死掉"——公司已经没钱了，一边谈收购一边做融资轮，关键投资人差点退出
-- PG经历了"大量濒死体验"，公司"一直在濒临死亡的边缘"
-- Jerry Yang收到Ali Partovi的强烈推荐后推动了这笔收购
-- 收购后产品变成Yahoo Store，PG在一年内离开Yahoo，Morris随后也离开
-- 来源：[HN讨论](https://news.ycombinator.com/item?id=5738969)、[paulgraham.com/vw.html](https://www.paulgraham.com/vw.html)、[Wikipedia](https://en.wikipedia.org/wiki/Paul_Graham_(programmer))
+### 1.2 從創業者到作家的轉型
 
-**决策逻辑分析：**
-- **卖掉Viaweb不完全是主动选择，也有被动因素**——公司已经没钱了，收购是生存路径之一
-- PG在大公司里待了不到一年就走——这与他后来反复强调的"大公司扼杀创造力"完全一致
-- 外部观察：4960万美元在1998年是一笔大数目，但Yahoo股票后来暴跌。不过PG已经获得了足够的财务自由
+**關鍵事實：**
+- 1993-2020年間在個人網站發表了188篇essay，總計約50萬字（約1000頁）
+- "Do Things that Don't Scale"（2013）、"Maker's Schedule, Manager's Schedule"、"Founder Mode"（2024）等成為創業者必讀
+- 來源：[billyoppenheimer.com](https://billyoppenheimer.com/paul-graham-essays/)
+
+**PG自己的解釋：**
+- "Writing doesn't just communicate ideas; it generates them." 寫作不只是傳遞想法，寫作本身就在生成想法
+- 在2024年essay "Writes and Write-Nots"中，他預言AI時代會出現"會寫的人"和"不會寫的人"的分化——writing is thinking
+- 來源：[paulgraham.com/articles.html](https://paulgraham.com/articles.html)
+
+**決策邏輯分析：**
+- PG的寫作不是"退休後找事做"，而是一直是他思考的工具
+- 他的essay影響力遠超大多數投資人的portfolio——這是他作為思想領袖的核心壁壘
+- 外部觀察：PG的寫作風格（清晰、簡潔、有觀點）本身就是對"做有用的事"理念的踐行
 
 ---
 
-## 三、Y Combinator的创立与关键决策
+## 二、創立Viaweb的決策過程
 
-### 3.1 YC的诞生（2005年3月）
+### 2.1 從失敗的藝術畫廊網站到Viaweb
 
-**关键事实：**
-- 2005年3月11日，PG和Jessica Livingston在哈佛广场散步回家时，讨论了如何改变VC行业
-- Livingston当时正在面试波士顿一家VC基金的工作
-- PG的核心idea：投资人应该做**更多、更小的投资**；投资**黑客而非西装革履的人**；愿意投资**更年轻的创始人**
-- 2005年在哈佛计算机协会做了"How to Start a Startup"演讲，随后正式创立YC
-- 联合创始人：PG、Jessica Livingston、Robert Tappan Morris、Trevor Blackwell
-- 来源：[paulgraham.com/ycstart.html](https://paulgraham.com/ycstart.html)、[YC Blog](https://www.ycombinator.com/blog/paul-graham-startup-school-radio-interview/)
+**關鍵事實：**
+- 1995年7月，PG和Robert Morris、Trevor Blackwell創立Viaweb
+- **最初做的是幫紐約藝術畫廊做網站**——PG自己後來稱之為"a stupid idea"
+- 花了6個月試圖賣給不想要的人，這段經歷直接催生了YC的motto："Make something people want"
+- 之後發現線上商店才是真正的需求，而他們做畫廊網站的技術完全適用
+- 來源：[Wikipedia/Viaweb](https://en.wikipedia.org/wiki/Viaweb)、[ContentEdge](https://www.contentedge.com/blog/who-is-paul-graham-and-why-is-he-so-influential)
 
-**决策逻辑分析：**
-- YC的诞生是PG对自己Viaweb创业经历的**系统性反思**——他经历过融资难、缺乏指导的痛苦
-- "投资黑客而非西装"本质上是在说：**创始人的技术能力比商业计划更重要**
-- 这是一个反直觉的决策——当时VC行业倾向于投资有MBA背景、有"成熟"商业计划的创业者
+**決策邏輯分析：**
+- PG的核心決策模式在這裡已經顯現：**先做，從失敗中學習，快速調整方向**
+- 不是先有完美計劃再執行，而是在執行中發現真正的機會
+- "Make something people want"不是抽象理論，是他自己6個月痛苦經歷的總結
 
-### 3.2 Batch模式的"意外发明"
+### 2.2 賣給Yahoo的決策
 
-**关键事实：**
-- Batch模式（每年两期、3个月密集專案、Demo Day结束）不是PG预先设计的
-- **最初想做传统天使投资（异步、一个一个投）**
-- Batch模式是"一个hack"——一次性投了一批公司，因为他们想快速学习如何当投资人
-- 后来PG自己意识到：他们"无意中把大规模生产技术应用到了VC行业，这个行业传统上是纯手工的"
-- 来源：[Mixergy采访](https://mixergy.com/interviews/y-combinator-paul-graham/)、[paulgraham.com/ycstart.html](https://paulgraham.com/ycstart.html)
+**關鍵事實：**
+- 1998年夏天，Yahoo以455,000股Yahoo股票（約4960萬美元）收購Viaweb
+- 收購過程中Viaweb幾乎"死掉"——公司已經沒錢了，一邊談收購一邊做融資輪，關鍵投資人差點退出
+- PG經歷了"大量瀕死體驗"，公司"一直在瀕臨死亡的邊緣"
+- Jerry Yang收到Ali Partovi的強烈推薦後推動了這筆收購
+- 收購後產品變成Yahoo Store，PG在一年內離開Yahoo，Morris隨後也離開
+- 來源：[HN討論](https://news.ycombinator.com/item?id=5738969)、[paulgraham.com/vw.html](https://www.paulgraham.com/vw.html)、[Wikipedia](https://en.wikipedia.org/wiki/Paul_Graham_(programmer))
 
-**PG自己的解释：**
+**決策邏輯分析：**
+- **賣掉Viaweb不完全是主動選擇，也有被動因素**——公司已經沒錢了，收購是生存路徑之一
+- PG在大公司裡待了不到一年就走——這與他後來反覆強調的"大公司扼殺創造力"完全一致
+- 外部觀察：4960萬美元在1998年是一筆大數目，但Yahoo股票後來暴跌。不過PG已經獲得了足夠的財務自由
+
+---
+
+## 三、Y Combinator的創立與關鍵決策
+
+### 3.1 YC的誕生（2005年3月）
+
+**關鍵事實：**
+- 2005年3月11日，PG和Jessica Livingston在哈佛廣場散步回家時，討論瞭如何改變VC行業
+- Livingston當時正在面試波士頓一家VC基金的工作
+- PG的核心idea：投資人應該做**更多、更小的投資**；投資**駭客而非西裝革履的人**；願意投資**更年輕的創始人**
+- 2005年在哈佛計算機協會做了"How to Start a Startup"演講，隨後正式創立YC
+- 聯合創始人：PG、Jessica Livingston、Robert Tappan Morris、Trevor Blackwell
+- 來源：[paulgraham.com/ycstart.html](https://paulgraham.com/ycstart.html)、[YC Blog](https://www.ycombinator.com/blog/paul-graham-startup-school-radio-interview/)
+
+**決策邏輯分析：**
+- YC的誕生是PG對自己Viaweb創業經歷的**系統性反思**——他經歷過融資難、缺乏指導的痛苦
+- "投資駭客而非西裝"本質上是在說：**創始人的技術能力比商業計劃更重要**
+- 這是一個反直覺的決策——當時VC行業傾向於投資有MBA背景、有"成熟"商業計劃的創業者
+
+### 3.2 Batch模式的"意外發明"
+
+**關鍵事實：**
+- Batch模式（每年兩期、3個月密集專案、Demo Day結束）不是PG預先設計的
+- **最初想做傳統天使投資（非同步、一個一個投）**
+- Batch模式是"一個hack"——一次性投了一批公司，因為他們想快速學習如何當投資人
+- 後來PG自己意識到：他們"無意中把大規模生產技術應用到了VC行業，這個行業傳統上是純手工的"
+- 來源：[Mixergy採訪](https://mixergy.com/interviews/y-combinator-paul-graham/)、[paulgraham.com/ycstart.html](https://paulgraham.com/ycstart.html)
+
+**PG自己的解釋：**
 - "Originally it was going to be like regular angel investing—asynchronous, not the batch model—but we discovered the batch approach by accident."
-- 发现后"started trying to do it on purpose"
+- 發現後"started trying to do it on purpose"
 
-**决策逻辑分析：**
-- 这是PG决策模式的又一个例子：**不是先设计完美系统再执行，而是在做的过程中发现有效模式，然后刻意放大**
-- Batch模式的核心优势：创造同期创业者社区（peer support）、标准化流程降低成本、Demo Day制造集中注意力
-- 外部观察：YC的batch模式后来被全球几百个accelerator复制，成为行业标准
+**決策邏輯分析：**
+- 這是PG決策模式的又一個例子：**不是先設計完美系統再執行，而是在做的過程中發現有效模式，然後刻意放大**
+- Batch模式的核心優勢：創造同期創業者社群（peer support）、標準化流程降低成本、Demo Day製造集中注意力
+- 外部觀察：YC的batch模式後來被全球幾百個accelerator複製，成為行業標準
 
-### 3.3 投资标准：看人不看idea
+### 3.3 投資標準：看人不看idea
 
-**关键事实：**
-- PG的核心筛选标准：**Determination（决心）、Flexibility（灵活性）、Imagination（想象力）、Naughtiness（叛逆性）、Friendship（联合创始人关系）**
-- 注意：**智力不在列表中**——PG认为只要超过一定阈值，决心比智力重要得多
+**關鍵事實：**
+- PG的核心篩選標準：**Determination（決心）、Flexibility（靈活性）、Imagination（想象力）、Naughtiness（叛逆性）、Friendship（聯合創始人關係）**
+- 注意：**智力不在列表中**——PG認為只要超過一定閾值，決心比智力重要得多
 - 名言："If a group of founders seemed impressive enough, I'd fund them with no idea."
-- 偏好2-3人团队，接受solo founder但不鼓励
-- YC录取率仅3%
-- 来源：[Capitaly](https://www.capitaly.vc/blog/top-y-combinator-startups-applying-paul-grahams-investment-philosophy)、[gavrilobozovic.com](https://www.gavrilobozovic.com/thoughts/paul-graham)
+- 偏好2-3人團隊，接受solo founder但不鼓勵
+- YC錄取率僅3%
+- 來源：[Capitaly](https://www.capitaly.vc/blog/top-y-combinator-startups-applying-paul-grahams-investment-philosophy)、[gavrilobozovic.com](https://www.gavrilobozovic.com/thoughts/paul-graham)
 
-**决策逻辑分析：**
-- "看人不看idea"在当时是非常反传统的——VC们习惯评估商业计划、市场规模
-- PG的逻辑：好的创始人会pivot到好的idea，但再好的idea也会被差的创始人搞砸
-- "Naughtiness"这个标准很PG——他喜欢那些不按规矩来、敢于挑战权威的人
+**決策邏輯分析：**
+- "看人不看idea"在當時是非常反傳統的——VC們習慣評估商業計劃、市場規模
+- PG的邏輯：好的創始人會pivot到好的idea，但再好的idea也會被差的創始人搞砸
+- "Naughtiness"這個標準很PG——他喜歡那些不按規矩來、敢於挑戰權威的人
 
-### 3.4 YC投资的著名公司
+### 3.4 YC投資的著名公司
 
-**关键成功案例：**
+**關鍵成功案例：**
 
 | 公司 | 估值/IPO | PG的角色/故事 |
 |------|---------|--------------|
-| **Airbnb** | 2020年IPO，市值$100B+ | PG亲自给了"Do things that don't scale"的建议。创始人亲自拍照、见房东 |
+| **Airbnb** | 2020年IPO，市值$100B+ | PG親自給了"Do things that don't scale"的建議。創始人親自拍照、見房東 |
 | **Stripe** | 估值$107B | Patrick和John Collison兄弟 |
 | **Dropbox** | 2018年IPO，$9B | Drew Houston |
-| **Reddit** | 2024年IPO，$6.4B | Jessica Livingston最初reject了Reddit，后来又录取了 |
+| **Reddit** | 2024年IPO，$6.4B | Jessica Livingston最初reject了Reddit，後來又錄取了 |
 | **Coinbase** | 2021年IPO，$86B | — |
 | **DoorDash** | 上市公司 | — |
-| **Twitch** | 被Amazon收购 | — |
+| **Twitch** | 被Amazon收購 | — |
 | **Instacart** | 上市公司 | — |
 
-- 截至2025年，YC投资了5000+家公司，合计估值$6000亿
-- 来源：[Wikipedia/Y_Combinator](https://en.wikipedia.org/wiki/Y_Combinator)、[Eqvista](https://eqvista.com/top-100-y-combinator-companies/)、[Sherwood News](https://sherwood.news/business/y-combinator-venture-model/)
+- 截至2025年，YC投資了5000+家公司，合計估值$6000億
+- 來源：[Wikipedia/Y_Combinator](https://en.wikipedia.org/wiki/Y_Combinator)、[Eqvista](https://eqvista.com/top-100-y-combinator-companies/)、[Sherwood News](https://sherwood.news/business/y-combinator-venture-model/)
 
-### 3.5 错过和拒绝的案例
+### 3.5 錯過和拒絕的案例
 
 **已知案例：**
-- **Reddit**：最初被拒绝，Jessica Livingston"很沮丧"，后来重新录取。这是YC最著名的"差点错过"案例
-- **VEED.IO**：2019年进入YC最终面试，被拒。2022年Sequoia投了$35M，目前年收入$50M、10万付费使用者。VEED是YC明确错过的成功案例
-- **WakeMate/Perfect Third**：YC投了但产品字面意义上起火了（硬件产品），公司倒闭。YC也有失败案例
-- 来源：[Inc.com](https://www.inc.com/magazine/201309/issie-lapowsky/how-paul-graham-became-successful.html)
+- **Reddit**：最初被拒絕，Jessica Livingston"很沮喪"，後來重新錄取。這是YC最著名的"差點錯過"案例
+- **VEED.IO**：2019年進入YC最終面試，被拒。2022年Sequoia投了$35M，目前年收入$50M、10萬付費使用者。VEED是YC明確錯過的成功案例
+- **WakeMate/Perfect Third**：YC投了但產品字面意義上起火了（硬體產品），公司倒閉。YC也有失敗案例
+- 來源：[Inc.com](https://www.inc.com/magazine/201309/issie-lapowsky/how-paul-graham-became-successful.html)
 
-**外部观察：**
-- PG很少公开承认具体的投资遗憾。这可能是有意为之——公开讨论"错过了谁"对投资人品牌是有害的
-- 但Reddit的故事他自己讲过多次，作为"要相資訊自己的直觉"的反面教材
+**外部觀察：**
+- PG很少公開承認具體的投資遺憾。這可能是有意為之——公開討論"錯過了誰"對投資人品牌是有害的
+- 但Reddit的故事他自己講過多次，作為"要相資訊自己的直覺"的反面教材
 
 ---
 
-## 四、退出YC日常运营（2014年）
+## 四、退出YC日常運營（2014年）
 
-### 4.1 决策过程
+### 4.1 決策過程
 
-**关键事实：**
-- 2014年2月，PG宣布不再负责YC日常运营
-- Sam Altman接任YC总裁（Altman自2011年起就是YC合伙人）
-- 来源：[TechCrunch](https://techcrunch.com/2014/02/21/sam-altman-taking-over-as-president-of-y-combinator-replacing-paul-graham-at-the-helm/)、[Inc.com](https://www.inc.com/alyson-shontell/paul-graham-will-no-longer-lead-y-combinator.html)
+**關鍵事實：**
+- 2014年2月，PG宣佈不再負責YC日常運營
+- Sam Altman接任YC總裁（Altman自2011年起就是YC合夥人）
+- 來源：[TechCrunch](https://techcrunch.com/2014/02/21/sam-altman-taking-over-as-president-of-y-combinator-replacing-paul-graham-at-the-helm/)、[Inc.com](https://www.inc.com/alyson-shontell/paul-graham-will-no-longer-lead-y-combinator.html)
 
-**PG自己的解释：**
+**PG自己的解釋：**
 - "YC needs to grow, and I'm not the best person to grow it."
 - "I'm just not much good at running the sort of (comparatively) large organization YC is going to have to become."
 - "Sam is what YC needs at this stage in its evolution."
-- 来源：[Inc.com](https://www.inc.com/alyson-shontell/paul-graham-will-no-longer-lead-y-combinator.html)
+- 來源：[Inc.com](https://www.inc.com/alyson-shontell/paul-graham-will-no-longer-lead-y-combinator.html)
 
-**PG对宏观趋势的判断：**
+**PG對宏觀趨勢的判斷：**
 - "We are in the beginning of a secular change in the number of startups. Starting a startup is becoming a normal thing to do... for very ambitious people, it's going to be something they at least consider doing."
-- 来源：同上
+- 來源：同上
 
-**决策逻辑分析：**
-- 这个决策体现了PG的**自我认知**：他知道自己擅长早期、小规模的深度指导，不擅长管理大组织
-- 选择Sam Altman是一个有争议但影响深远的决策——Altman后来把YC规模化，但也因为OpenAI的事情引发了复杂的利益冲突讨论
-- 外部观察：PG在2014年退出是明智的。很少有创始人能准确判断"我应该在什么时候让位"——大多数人要么太早要么太晚
+**決策邏輯分析：**
+- 這個決策體現了PG的**自我認知**：他知道自己擅長早期、小規模的深度指導，不擅長管理大組織
+- 選擇Sam Altman是一個有爭議但影響深遠的決策——Altman後來把YC規模化，但也因為OpenAI的事情引發了複雜的利益衝突討論
+- 外部觀察：PG在2014年退出是明智的。很少有創始人能準確判斷"我應該在什麼時候讓位"——大多數人要麼太早要麼太晚
 
-### 4.2 退出后做了什么
+### 4.2 退出後做了什麼
 
-- 保留了YC顾问角色，继续参与office hours
-- 专注写作——2014年后产出了一些最有影响力的essay
-- 2016年搬到英格兰（见下文）
-- 继续做天使投资
-
----
-
-## 五、Sam Altman与OpenAI的关系
-
-### 5.1 关键事实
-
-- Altman 2015年联合创办OpenAI（与Elon Musk、Peter Thiel、Jessica Livingston等），最初是非营利组织
-- YC的后期基金投资了OpenAI营利子公司$10M——PG声称这笔投资发生在Altman全职加入OpenAI之前，且PG本人并不知情
-- 2019年OpenAI成立营利子公司、Altman任CEO后，Jessica Livingston告诉Altman必须"二选一"——全职做OpenAI就得找人接替YC。Altman同意了
-- 来源：[TechCrunch](https://techcrunch.com/2024/05/30/paul-graham-claims-altman-wasnt-fired-from-y-combinator/)、[Washington Post](https://www.washingtonpost.com/technology/2023/11/22/sam-altman-fired-y-combinator-paul-graham/)
-
-### 5.2 争议：Altman是否被"开除"
-
-- 2023年底Altman被OpenAI董事会短暂解雇后，前董事会成员暗示Altman之前也被YC"开除"
-- PG公开否认，称是Altman自己同意离开的
-- 外部观察：真相可能在中间。"被告知必须二选一"在实际效果上和"被要求离开"差别不大
+- 保留了YC顧問角色，繼續參與office hours
+- 專注寫作——2014年後產出了一些最有影響力的essay
+- 2016年搬到英格蘭（見下文）
+- 繼續做天使投資
 
 ---
 
-## 六、搬到英格兰的决策（2016年）
+## 五、Sam Altman與OpenAI的關係
 
-### 6.1 关键事实
+### 5.1 關鍵事實
 
-- 2016年PG和家人搬到英格兰，最初只打算住一年——让孩子体验不同国家的生活
-- PG出生在英格兰，一直想回去住
-- 后来喜欢上了就一直住了下来
-- 住在乡村而非伦敦
-- 2021年在Twitter上说"Today's our 5th anniversary of moving back to England"
-- 来源：[X/Twitter @paulg](https://x.com/paulg/status/1408336840881487877)、[HN讨论](https://news.ycombinator.com/item?id=37072542)
+- Altman 2015年聯合創辦OpenAI（與Elon Musk、Peter Thiel、Jessica Livingston等），最初是非營利組織
+- YC的後期基金投資了OpenAI營利子公司$10M——PG聲稱這筆投資發生在Altman全職加入OpenAI之前，且PG本人並不知情
+- 2019年OpenAI成立營利子公司、Altman任CEO後，Jessica Livingston告訴Altman必須"二選一"——全職做OpenAI就得找人接替YC。Altman同意了
+- 來源：[TechCrunch](https://techcrunch.com/2024/05/30/paul-graham-claims-altman-wasnt-fired-from-y-combinator/)、[Washington Post](https://www.washingtonpost.com/technology/2023/11/22/sam-altman-fired-y-combinator-paul-graham/)
 
-**PG自己的解释：**
-- 如果用一个词形容為什麼喜欢英格兰："calmer"（更平静）
-- 也发推分享英格兰乡村的美景，说"这就是默认的乡村风景"
-- 来源：[X/Twitter @paulg](https://x.com/paulg/status/1665008505072263173)
+### 5.2 爭議：Altman是否被"開除"
 
-**决策逻辑分析：**
-- 这个决策与PG的其他决策风格一致：**先试，不做永久承诺，发现喜欢就留下**
-- 搬到英格兰本质上是一个**反硅谷**的选择——但PG从不正面批评硅谷，而是用行动表达偏好
-- 外部观察：2016年搬离硅谷在当时很不寻常（这比COVID远程工作潮早了4年）。这与他一直倡导的"在startup hub工作"的建议形成了有趣的张力——但PG此时已经不需要startup hub了
-- **言行一致性问题**：PG写过"Why to Move to a Startup Hub"，但自己搬到了英格兰乡下。不过这并不矛盾——他的建议对象是startup创始人，而他此时的身份是writer/investor
+- 2023年底Altman被OpenAI董事會短暫解僱後，前董事會成員暗示Altman之前也被YC"開除"
+- PG公開否認，稱是Altman自己同意離開的
+- 外部觀察：真相可能在中間。"被告知必須二選一"在實際效果上和"被要求離開"差別不大
 
 ---
 
-## 七、Arc编程语言：PG最明显的"失败"
+## 六、搬到英格蘭的決策（2016年）
 
-### 7.1 时间线
+### 6.1 關鍵事實
 
-- 2001年：PG宣布在做一个新的Lisp方言，命名Arc
-- 2008年1月29日：Arc首个公开版本发布，基于Racket实现
-- 用Arc写了Hacker News（YC的社区论坛）
-- 之后开发速度大幅放缓，社区成员开始做unofficial fork
-- 2024年：HN的底层从Racket迁移到了SBCL（Common Lisp实现），说明Arc本身已不再是优先选择
-- 来源：[Wikipedia/Arc](https://en.wikipedia.org/wiki/Arc_(programming_language))、[TechCrunch](https://techcrunch.com/2013/05/18/the-evolution-of-hacker-news/)
+- 2016年PG和家人搬到英格蘭，最初只打算住一年——讓孩子體驗不同國家的生活
+- PG出生在英格蘭，一直想回去住
+- 後來喜歡上了就一直住了下來
+- 住在鄉村而非倫敦
+- 2021年在Twitter上說"Today's our 5th anniversary of moving back to England"
+- 來源：[X/Twitter @paulg](https://x.com/paulg/status/1408336840881487877)、[HN討論](https://news.ycombinator.com/item?id=37072542)
+
+**PG自己的解釋：**
+- 如果用一個詞形容為什麼喜歡英格蘭："calmer"（更平靜）
+- 也發推分享英格蘭鄉村的美景，說"這就是預設的鄉村風景"
+- 來源：[X/Twitter @paulg](https://x.com/paulg/status/1665008505072263173)
+
+**決策邏輯分析：**
+- 這個決策與PG的其他決策風格一致：**先試，不做永久承諾，發現喜歡就留下**
+- 搬到英格蘭本質上是一個**反矽谷**的選擇——但PG從不正面批評矽谷，而是用行動表達偏好
+- 外部觀察：2016年搬離矽谷在當時很不尋常（這比COVID遠端工作潮早了4年）。這與他一直倡導的"在startup hub工作"的建議形成了有趣的張力——但PG此時已經不需要startup hub了
+- **言行一致性問題**：PG寫過"Why to Move to a Startup Hub"，但自己搬到了英格蘭鄉下。不過這並不矛盾——他的建議物件是startup創始人，而他此時的身份是writer/investor
+
+---
+
+## 七、Arc程式語言：PG最明顯的"失敗"
+
+### 7.1 時間線
+
+- 2001年：PG宣佈在做一個新的Lisp方言，命名Arc
+- 2008年1月29日：Arc首個公開版本釋出，基於Racket實現
+- 用Arc寫了Hacker News（YC的社群論壇）
+- 之後開發速度大幅放緩，社群成員開始做unofficial fork
+- 2024年：HN的底層從Racket遷移到了SBCL（Common Lisp實現），說明Arc本身已不再是優先選擇
+- 來源：[Wikipedia/Arc](https://en.wikipedia.org/wiki/Arc_(programming_language))、[TechCrunch](https://techcrunch.com/2013/05/18/the-evolution-of-hacker-news/)
 
 ### 7.2 為什麼做Arc
 
-**PG自己的解释：**
-- 想设计一个更简洁的Lisp——PG认为Lisp的核心理念是对的，但现有实现太臃肿
-- Arc"还不适合用于真正的專案"——他发布它只是为了收集黑客反馈
-- 来源：[paulgraham.com/arc.html](https://paulgraham.com/arc.html)、[paulgraham.com/arcfaq.html](https://paulgraham.com/arcfaq.html)
+**PG自己的解釋：**
+- 想設計一個更簡潔的Lisp——PG認為Lisp的核心理念是對的，但現有實現太臃腫
+- Arc"還不適合用於真正的專案"——他釋出它只是為了收集駭客反饋
+- 來源：[paulgraham.com/arc.html](https://paulgraham.com/arc.html)、[paulgraham.com/arcfaq.html](https://paulgraham.com/arcfaq.html)
 
-### 7.3 為什麼后来不怎么提了
+### 7.3 為什麼後來不怎麼提了
 
-**外部批评：**
-- 缺乏库生态——"Arc is so lacking in libraries"
-- 性能差——比Python还慢，限制了实际应用
-- 缺乏持续更新——官方branch长期不活跃
-- 来源：[righto.com](http://www.righto.com/2008/05/why-arc-is-bad-for-exploratory.html)、[HN讨论](https://news.ycombinator.com/item?id=9270478)
+**外部批評：**
+- 缺乏庫生態——"Arc is so lacking in libraries"
+- 效能差——比Python還慢，限制了實際應用
+- 缺乏持續更新——官方branch長期不活躍
+- 來源：[righto.com](http://www.righto.com/2008/05/why-arc-is-bad-for-exploratory.html)、[HN討論](https://news.ycombinator.com/item?id=9270478)
 
-**决策逻辑分析：**
-- Arc是PG少有的**公开宣布→未能交付**的專案
-- 从2001年宣布到2008年发布，7年的等待制造了过高期望
-- PG可能低估了"做编程语言"和"做web应用"的本质区别——前者需要长期的生态系统建设，后者可以靠个人英雄主义
-- 外部观察：Arc的真正价值是**Hacker News**——这个用Arc写的副产品比Arc本身影响力大得多。这是一个"副产品比主产品更成功"的经典案例
-- **PG的处理方式**：没有正式宣布放弃Arc，也没有大张旗鼓地承认失败。只是逐渐不再提。这种"静默退出"是PG处理失败的典型方式
+**決策邏輯分析：**
+- Arc是PG少有的**公開宣佈→未能交付**的專案
+- 從2001年宣佈到2008年釋出，7年的等待制造了過高期望
+- PG可能低估了"做程式語言"和"做web應用"的本質區別——前者需要長期的生態系統建設，後者可以靠個人英雄主義
+- 外部觀察：Arc的真正價值是**Hacker News**——這個用Arc寫的副產品比Arc本身影響力大得多。這是一個"副產品比主產品更成功"的經典案例
+- **PG的處理方式**：沒有正式宣佈放棄Arc，也沒有大張旗鼓地承認失敗。只是逐漸不再提。這種"靜默退出"是PG處理失敗的典型方式
 
 ---
 
-## 八、PG在AI时代的表态与行动
+## 八、PG在AI時代的表態與行動
 
-### 8.1 核心观点
+### 8.1 核心觀點
 
 **"不是每家新公司都需要做AI"（2025年）：**
-- PG在AI创业热潮中（2025年上半年AI初创企业融资$1043亿）明确泼冷水
-- 他说当前YC batch中最令人印象深刻的两家公司**不是做AI的**
+- PG在AI創業熱潮中（2025年上半年AI初創企業融資$1043億）明確潑冷水
+- 他說當前YC batch中最令人印象深刻的兩家公司**不是做AI的**
 - "Founders matter more than the idea. The founders are the best predictor of how a company will do, not the industry it's in."
-- 来源：[CNBC](https://www.cnbc.com/2025/08/18/yc-co-founder-paul-graham-not-every-new-company-needs-to-be-about-ai.html)
+- 來源：[CNBC](https://www.cnbc.com/2025/08/18/yc-co-founder-paul-graham-not-every-new-company-needs-to-be-about-ai.html)
 
-**对AI创业者的具体建议（2024-2025）：**
-- "AI is turning out to be the missing piece in a large number of important, almost-completed puzzles."——AI不是寻找问题的解决方案，而是补齐了很多"差一步就完成"的拼图
-- 衡量周增长率（5-10%+），而非绝对使用者数
-- 警惕hype cycle：大量私人资本追逐AI，融资可能变容易，但"VCs want to blow you up, one way or the other"
-- 来源：[charlesandsystems.substack.com](https://charlesandsystems.substack.com/p/paul-grahams-playbook-for-ai-startup)
+**對AI創業者的具體建議（2024-2025）：**
+- "AI is turning out to be the missing piece in a large number of important, almost-completed puzzles."——AI不是尋找問題的解決方案，而是補齊了很多"差一步就完成"的拼圖
+- 衡量周增長率（5-10%+），而非絕對使用者數
+- 警惕hype cycle：大量私人資本追逐AI，融資可能變容易，但"VCs want to blow you up, one way or the other"
+- 來源：[charlesandsystems.substack.com](https://charlesandsystems.substack.com/p/paul-grahams-playbook-for-ai-startup)
 
 **"Writes and Write-Nots"（2024年）：**
-- 预言AI将把人分成"会写的人"和"不会写的人"
-- "Writing is thinking"——放弃写作就是放弃学习清晰思考
-- 来源：同上
+- 預言AI將把人分成"會寫的人"和"不會寫的人"
+- "Writing is thinking"——放棄寫作就是放棄學習清晰思考
+- 來源：同上
 
-**AI与编程工作：**
-- PG认为入门级编程岗位尤其脆弱
-- 建议方向：成为不可替代的人，解决AI还不能处理的复杂创造性问题
-- 来源：[WebProNews](https://www.webpronews.com/paul-graham-ai-disrupting-entry-level-coding-jobs-embrace-innovation/)
+**AI與程式設計工作：**
+- PG認為入門級程式設計崗位尤其脆弱
+- 建議方向：成為不可替代的人，解決AI還不能處理的複雜創造性問題
+- 來源：[WebProNews](https://www.webpronews.com/paul-graham-ai-disrupting-entry-level-coding-jobs-embrace-innovation/)
 
-### 8.2 投资行动
+### 8.2 投資行動
 
-- PG个人投资了teen founders的AI农药公司（$6M轮，2025年）
-- YC后期基金投资了OpenAI $10M（时间有争议）
-- 来源：[TechCrunch](https://techcrunch.com/2025/11/13/teen-founders-raise-6m-to-reinvent-pesticides-using-ai-and-convince-paul-graham-to-join-in/)
+- PG個人投資了teen founders的AI農藥公司（$6M輪，2025年）
+- YC後期基金投資了OpenAI $10M（時間有爭議）
+- 來源：[TechCrunch](https://techcrunch.com/2025/11/13/teen-founders-raise-6m-to-reinvent-pesticides-using-ai-and-convince-paul-graham-to-join-in/)
 
-### 8.3 一条有趣的推文
+### 8.3 一條有趣的推文
 
-- PG在X上写道："An encouraging thought about AI: If the most influential readers of my essays in the future are AIs, and AIs are smart and rational, I don't have to worry about the way stupid or biased readers will react to what I write. I can safely aim high."
-- 这条推文暗示了PG对AI读者的乐观态度——他认为AI读者比人类读者更理性
-- 来源：[X/Twitter @paulg](https://x.com/paulg/status/2025588288946413710)
+- PG在X上寫道："An encouraging thought about AI: If the most influential readers of my essays in the future are AIs, and AIs are smart and rational, I don't have to worry about the way stupid or biased readers will react to what I write. I can safely aim high."
+- 這條推文暗示了PG對AI讀者的樂觀態度——他認為AI讀者比人類讀者更理性
+- 來源：[X/Twitter @paulg](https://x.com/paulg/status/2025588288946413710)
 
 ---
 
 ## 九、"Founder Mode" Essay（2024年9月）
 
-### 9.1 关键事实
+### 9.1 關鍵事實
 
-- 2024年9月1日发表，迅速成为硅谷最热门话题
-- 灵感来自Airbnb CEO Brian Chesky在YC活动上的演讲——"很多人告诉我这是他们听过最好的演讲"
-- Chesky分享了他如何按"传统智慧"雇人放权、结果公司差点崩溃的经历
-- Chesky后来研究了Steve Jobs的管理方式，改用"创始人模式"
-- 来源：[Fortune](https://fortune.com/2024/09/01/paul-graham-founder-mode-silicon-valley-conventional-wisdom-manager-mode/)、[paulgraham.com/foundermode.html](https://paulgraham.com/foundermode.html)
+- 2024年9月1日發表，迅速成為矽谷最熱門話題
+- 靈感來自Airbnb CEO Brian Chesky在YC活動上的演講——"很多人告訴我這是他們聽過最好的演講"
+- Chesky分享了他如何按"傳統智慧"僱人放權、結果公司差點崩潰的經歷
+- Chesky後來研究了Steve Jobs的管理方式，改用"創始人模式"
+- 來源：[Fortune](https://fortune.com/2024/09/01/paul-graham-founder-mode-silicon-valley-conventional-wisdom-manager-mode/)、[paulgraham.com/foundermode.html](https://paulgraham.com/foundermode.html)
 
 ### 9.2 核心概念
 
-- **Founder Mode vs Manager Mode**：创始人亲自深入细节 vs 雇职业经理人放权
-- PG认为"hire good people and give them room to do their jobs"这个传统建议**是错的**
-- 来源：[Inc.com](https://www.inc.com/brian-contreras/what-is-founder-mode-y-combinators-paul-graham-says-it-can-make-or-break-your-business.html)
+- **Founder Mode vs Manager Mode**：創始人親自深入細節 vs 僱職業經理人放權
+- PG認為"hire good people and give them room to do their jobs"這個傳統建議**是錯的**
+- 來源：[Inc.com](https://www.inc.com/brian-contreras/what-is-founder-mode-y-combinators-paul-graham-says-it-can-make-or-break-your-business.html)
 
-### 9.3 决策逻辑分析
+### 9.3 決策邏輯分析
 
-- 这篇essay本质上是PG对**delegation（授权）**的反思——与他自己离开YC让Sam Altman接手的决策形成有趣对照
-- 外部观察：有人指出PG自己就是"放权"的典型案例（把YC交给Altman）。但PG会argue这不一样——他不是"雇了职业经理人"，而是找到了另一个创始人型的人
-- **这篇essay的影响**：它给了所有micromanaging的创始人一个正当理由——"我不是控制狂，我是在用founder mode"
+- 這篇essay本質上是PG對**delegation（授權）**的反思——與他自己離開YC讓Sam Altman接手的決策形成有趣對照
+- 外部觀察：有人指出PG自己就是"放權"的典型案例（把YC交給Altman）。但PG會argue這不一樣——他不是"僱了職業經理人"，而是找到了另一個創始人型的人
+- **這篇essay的影響**：它給了所有micromanaging的創始人一個正當理由——"我不是控制狂，我是在用founder mode"
 
 ---
 
@@ -336,89 +336,89 @@
 
 ### 10.1 一致的地方
 
-| PG的建议 | 他自己的实践 |
+| PG的建議 | 他自己的實踐 |
 |---------|------------|
-| Make something people want | Viaweb从失败的画廊网站pivot到在线商店 |
-| Do things that don't scale | Viaweb早期手动帮客户建网站 |
-| 看重determination | 自己的Viaweb多次濒临死亡但活下来了 |
-| 写作是思考 | 30年持续写essay，从未停止 |
-| 创始人应该知道何时退出 | 2014年主动让出YC |
-| 不被大公司束缚 | 卖掉Viaweb后不到一年就离开Yahoo |
+| Make something people want | Viaweb從失敗的畫廊網站pivot到線上商店 |
+| Do things that don't scale | Viaweb早期手動幫客戶建網站 |
+| 看重determination | 自己的Viaweb多次瀕臨死亡但活下來了 |
+| 寫作是思考 | 30年持續寫essay，從未停止 |
+| 創始人應該知道何時退出 | 2014年主動讓出YC |
+| 不被大公司束縛 | 賣掉Viaweb後不到一年就離開Yahoo |
 
-### 10.2 存在张力的地方
+### 10.2 存在張力的地方
 
-| PG的建议 | 潜在矛盾 |
+| PG的建議 | 潛在矛盾 |
 |---------|---------|
-| "Move to a startup hub" | 自己2016年搬到英格兰乡下（但此时他不再是startup创始人） |
-| 倡导frugality | 净资产约$2.5B（但他的frugality建议是针对创业早期） |
-| "Founder Mode"（创始人应深度参与） | 自己把YC交给了Altman（但他认为这是"找到另一个founder"而非雇经理人） |
-| 批评大公司文化 | YC本身已成为一个大型institution |
-| 强调"Mean People Fail" | 一些人认为PG在经济不平等问题上态度傲慢 |
+| "Move to a startup hub" | 自己2016年搬到英格蘭鄉下（但此時他不再是startup創始人） |
+| 倡導frugality | 淨資產約$2.5B（但他的frugality建議是針對創業早期） |
+| "Founder Mode"（創始人應深度參與） | 自己把YC交給了Altman（但他認為這是"找到另一個founder"而非僱經理人） |
+| 批評大公司文化 | YC本身已成為一個大型institution |
+| 強調"Mean People Fail" | 一些人認為PG在經濟不平等問題上態度傲慢 |
 
-### 10.3 外部批评总结
+### 10.3 外部批評總結
 
-**经济不平等问题（2016年essay引发的争议）：**
-- PG的论点：经济不平等部分是由创业创造价值导致的，这种不平等是好的
-- 批评者的反驳：
-  - PG假设每个人都有平等的创业机会，这是错误的
-  - PG作为掌握startup资本的人，有"plutocratic authority"
-  - 硅谷的极端财富集中实际上推高了房价，间接伤害了社区
-  - PG的论点中存在利益冲突——他自己就是"startups are good"叙事的最大受益者
-- 来源：[Quartz](https://qz.com/586563/paul-graham-just-accidentally-explained-everything-wrong-with-silicon-valleys-world-view)、[Inc.com](https://www.inc.com/jeff-bercovici/paul-graham-wrong-inequality.html)、[Medium/Dare Obasanjo](https://dareobasanjo.medium.com/what-paul-graham-got-wrong-about-income-inequality-198bdf5d9734)
-
----
-
-## 十一、PG的失败案例与承认的错误
-
-### 11.1 明确的失败
-
-1. **Arc编程语言**：7年开发、高期望、低交付。最终被自己的副产品（Hacker News）超越。PG从未正式承认失败，采取"静默退出"策略
-2. **艺术画廊网站（Viaweb前身）**：PG自称"a stupid idea"，这是他最坦率承认的失败
-3. **早期Viaweb的多次濒死体验**：不是决策失败，而是执行过程中的生存危机
-
-### 11.2 PG的自我反思风格
-
-- PG很少**正面承认具体的错误判断**
-- 更倾向于把失败重新frame为"学习经历"——比如画廊网站的失败→YC motto的诞生
-- 他的essay中有大量"我曾经以为X，后来发现Y"的表述，但都是关于**认知升级**而非**具体失误**
-- 外部观察：这种处理方式既是优势（保持思想领袖形象）也是限制（缺少"raw failure"的真实分享）
-
-### 11.3 外部指出的判断错误
-
-- 对经济不平等问题的分析被广泛批评为过于简化
-- 有人批评PG过度推崇startup创业，忽视了并非所有有价值的工作都需要以startup形式出现
-- "Founder Mode"被一些人认为给micromanagement提供了正当化理由
-- 来源：同第十节
+**經濟不平等問題（2016年essay引發的爭議）：**
+- PG的論點：經濟不平等部分是由創業創造價值導致的，這種不平等是好的
+- 批評者的反駁：
+  - PG假設每個人都有平等的創業機會，這是錯誤的
+  - PG作為掌握startup資本的人，有"plutocratic authority"
+  - 矽谷的極端財富集中實際上推高了房價，間接傷害了社群
+  - PG的論點中存在利益衝突——他自己就是"startups are good"敘事的最大受益者
+- 來源：[Quartz](https://qz.com/586563/paul-graham-just-accidentally-explained-everything-wrong-with-silicon-valleys-world-view)、[Inc.com](https://www.inc.com/jeff-bercovici/paul-graham-wrong-inequality.html)、[Medium/Dare Obasanjo](https://dareobasanjo.medium.com/what-paul-graham-got-wrong-about-income-inequality-198bdf5d9734)
 
 ---
 
-## 十二、决策模式总结
+## 十一、PG的失敗案例與承認的錯誤
 
-综合以上所有案例，PG的决策有以下一致的模式：
+### 11.1 明確的失敗
 
-1. **先做再说，不等完美计划**：Viaweb从画廊网站pivot、YC的batch模式是意外发现
-2. **快速退出不适合的环境**：离开Yahoo不到一年、2014年主动让出YC
-3. **用行动表达偏好，不用言语对抗**：搬到英格兰而不是写essay批评硅谷；Arc停更而不是宣布失败
-4. **把失败重新定义为学习**：画廊失败→"Make something people want"；Viaweb濒死→理解创业生存
-5. **資訊任人大于資訊任计划**："Fund people not ideas"不只是投资哲学，也是他的人生哲学
-6. **保持多条线索并行**：从不只做一件事——编程+画画+写作+投资同时进行
-7. **对自己的限制有清醒认知**：知道自己不适合管大组织，及时退出
+1. **Arc程式語言**：7年開發、高期望、低交付。最終被自己的副產品（Hacker News）超越。PG從未正式承認失敗，採取"靜默退出"策略
+2. **藝術畫廊網站（Viaweb前身）**：PG自稱"a stupid idea"，這是他最坦率承認的失敗
+3. **早期Viaweb的多次瀕死體驗**：不是決策失敗，而是執行過程中的生存危機
+
+### 11.2 PG的自我反思風格
+
+- PG很少**正面承認具體的錯誤判斷**
+- 更傾向於把失敗重新frame為"學習經歷"——比如畫廊網站的失敗→YC motto的誕生
+- 他的essay中有大量"我曾經以為X，後來發現Y"的表述，但都是關於**認知升級**而非**具體失誤**
+- 外部觀察：這種處理方式既是優勢（保持思想領袖形象）也是限制（缺少"raw failure"的真實分享）
+
+### 11.3 外部指出的判斷錯誤
+
+- 對經濟不平等問題的分析被廣泛批評為過於簡化
+- 有人批評PG過度推崇startup創業，忽視了並非所有有價值的工作都需要以startup形式出現
+- "Founder Mode"被一些人認為給micromanagement提供了正當化理由
+- 來源：同第十節
 
 ---
 
-## 来源汇总
+## 十二、決策模式總結
 
-### PG本人的一手来源
-- [paulgraham.com/worked.html](https://www.paulgraham.com/worked.html) — "What I Worked On"自传essay
+綜合以上所有案例，PG的決策有以下一致的模式：
+
+1. **先做再說，不等完美計劃**：Viaweb從畫廊網站pivot、YC的batch模式是意外發現
+2. **快速退出不適合的環境**：離開Yahoo不到一年、2014年主動讓出YC
+3. **用行動表達偏好，不用言語對抗**：搬到英格蘭而不是寫essay批評矽谷；Arc停更而不是宣佈失敗
+4. **把失敗重新定義為學習**：畫廊失敗→"Make something people want"；Viaweb瀕死→理解創業生存
+5. **資訊任人大於資訊任計劃**："Fund people not ideas"不只是投資哲學，也是他的人生哲學
+6. **保持多條線索並行**：從不只做一件事——程式設計+畫畫+寫作+投資同時進行
+7. **對自己的限制有清醒認知**：知道自己不適合管大組織，及時退出
+
+---
+
+## 來源彙總
+
+### PG本人的一手來源
+- [paulgraham.com/worked.html](https://www.paulgraham.com/worked.html) — "What I Worked On"自傳essay
 - [paulgraham.com/ycstart.html](https://paulgraham.com/ycstart.html) — "How Y Combinator Started"
 - [paulgraham.com/foundermode.html](https://paulgraham.com/foundermode.html) — "Founder Mode"
 - [paulgraham.com/ds.html](https://paulgraham.com/ds.html) — "Do Things that Don't Scale"
-- [paulgraham.com/arc.html](https://paulgraham.com/arc.html) — Arc语言页面
+- [paulgraham.com/arc.html](https://paulgraham.com/arc.html) — Arc語言頁面
 - [paulgraham.com/whyyc.html](https://paulgraham.com/whyyc.html) — "Why YC"
 - [paulgraham.com/vw.html](https://www.paulgraham.com/vw.html) — "Snapshot: Viaweb, June 1998"
 - [X/Twitter @paulg](https://x.com/paulg/) — PG的推文
 
-### 权威媒体报道
+### 權威媒體報道
 - [TechCrunch: Sam Altman Taking Over YC](https://techcrunch.com/2014/02/21/sam-altman-taking-over-as-president-of-y-combinator-replacing-paul-graham-at-the-helm/)
 - [Inc.com: PG Will No Longer Lead YC](https://www.inc.com/alyson-shontell/paul-graham-will-no-longer-lead-y-combinator.html)
 - [Fortune: Founder Mode Essay](https://fortune.com/2024/09/01/paul-graham-founder-mode-silicon-valley-conventional-wisdom-manager-mode/)
@@ -426,13 +426,13 @@
 - [Bloomberg: PG on Leaving YC](https://www.bloomberg.com/news/videos/2014-10-10/paul-graham-on-leaving-y-combinator)
 - [Washington Post: Before OpenAI, Altman Was Fired From YC](https://www.washingtonpost.com/technology/2023/11/22/sam-altman-fired-y-combinator-paul-graham/)
 
-### 批评与分析
+### 批評與分析
 - [Quartz: PG Accidentally Explained Everything Wrong with SV](https://qz.com/586563/paul-graham-just-accidentally-explained-everything-wrong-with-silicon-valleys-world-view)
 - [Inc.com: Why PG's Defense of Inequality Is Wrong](https://www.inc.com/jeff-bercovici/paul-graham-wrong-inequality.html)
 - [Medium/Dare Obasanjo: What PG Got Wrong](https://dareobasanjo.medium.com/what-paul-graham-got-wrong-about-income-inequality-198bdf5d9734)
 - [righto.com: Why Arc Is Bad](http://www.righto.com/2008/05/why-arc-is-bad-for-exploratory.html)
 
-### 百科与综合来源
+### 百科與綜合來源
 - [Wikipedia: Paul Graham](https://en.wikipedia.org/wiki/Paul_Graham_(programmer))
 - [Wikipedia: Y Combinator](https://en.wikipedia.org/wiki/Y_Combinator)
 - [Wikipedia: Arc](https://en.wikipedia.org/wiki/Arc_(programming_language))

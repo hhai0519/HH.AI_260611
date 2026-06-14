@@ -1,13 +1,13 @@
-我来梳理特朗普的重大决策记录。先确认目标文件夹是否存在。
+我來梳理特朗普的重大決策記錄。先確認目標資料夾是否存在。
 
 ---
 
-[搜索结果]
+[搜尋結果]
 (Bash completed with no output)
 
 ---
 
-[搜索结果]
+[搜尋結果]
 CONFIGURATION.md
 README.md
 andrej-karpathy-perspective
@@ -61,31 +61,31 @@ zhangxuefeng-perspective
 
 ---
 
-[搜索结果]
+[搜尋結果]
 references
 
 ---
 
-[搜索结果]
+[搜尋結果]
 research
 sources
 
 ---
 
-[搜索结果]
+[搜尋結果]
 (Bash completed with no output)
 
 ---
 
-好，research目录存在但为空。现在开始大规模搜索。我会并行搜索多个主题。
+好，research目錄存在但為空。現在開始大規模搜尋。我會並行搜尋多個主題。
 
 ---
 
-开始并行搜索特朗普的重大决策记录。
+開始並行搜尋特朗普的重大決策記錄。
 
 ---
 
-[搜索结果]
+[搜尋結果]
 Web search results for query: "Trump University fraud settlement decision making 2016"
 
 Links: [{"title":"Judge finalizes $25 million settlement for 'victims of Donald Trump's fraudulent university' - ABC News","url":"https://abcnews.com/US/judge-finalizes-25-million-settlement-victims-donald-trumps/story?id=54347237"},{"title":"Trump University Trial | Law | Research Starters | EBSCO Research","url":"https://www.ebsco.com/research-starters/law/trump-university-trial"},{"title":"Trump University - Wikipedia","url":"https://en.wikipedia.org/wiki/Trump_University"},{"title":"Federal court approves $25 million Trump University settlement","url":"https://www.nbcnews.com/politics/white-house/federal-court-approves-25-million-trump-university-settlement-n845181"},{"title":"Judge finalizes $25 million settlement for 'victims of Donald ...","url":"https://www.congress.gov/119/meeting/house/118342/documents/HHRG-119-JU05-20250604-SD020-U20.pdf"},{"title":"Low v. Trump Univ., LLC","url":"https://cdn.ca9.uscourts.gov/datastore/opinions/2018/02/06/17-55635.pdf"},{"title":"A judge has finalized a $25 million settlement for students who claim they were defrauded by Trump University | CNN Politics","url":"https://www.cnn.com/2018/04/10/politics/trump-university-settlement-finalized-trnd"},{"title":"Trump University lawsuits, 2016 - Ballotpedia","url":"https://ballotpedia.org/Trump_University_lawsuits,_2016"},{"title":"Trump agrees to $25 million settlement in Trump University fraud cases - The Washington Post","url":"https://www.washingtonpost.com/politics/source-trump-nearing-settlement-in-trump-university-fraud-cases/2016/11/18/8dc047c0-ada0-11e6-a31b-4b6397e625d0_story.html"},{"title":"A.G. Schneiderman Statement On Final Trump University Settlement","url":"https://ag.ny.gov/press-release/2018/ag-schneiderman-statement-final-trump-university-settlement"}]
@@ -111,7 +111,7 @@ REMINDER: You MUST include the sources above in your response to the user using 
 
 ---
 
-[搜索结果]
+[搜尋結果]
 Web search results for query: "Trump Deutsche Bank loan relationship why banks kept lending despite defaults"
 
 Links: [{"title":"Trump and Deutsche Bank: It’s Complicated | Trump, Inc. | WNYC Studios","url":"https://www.wnycstudios.org/podcasts/trumpinc/episodes/trump-inc-trump-deutsche-bank-its-complicated"},{"title":"Why Did Deutsche Bank Keep Lending to Donald Trump? — “Trump, Inc.” Podcast","url":"https://www.propublica.org/article/trump-inc-podcast-deutsche-bank-donald-trump"},{"title":"Deutsche Bank loaned Trump $2bn despite multiple red flags, new report claims | World Finance","url":"https://www.worldfinance.com/strategy/deutsche-bank-loaned-trump-2bn-despite-multiple-red-flags-new-report-claims"},{"title":"Trump And Deutsche Bank, A Long Affair : Planet Money : NPR","url":"https://www.npr.org/transcripts/725893104"},{"title":"What role did Deutsche Bank play in Trump's Russian fi...","url":"https://factually.co/fact-checks/finance/deutsche-bank-trump-russian-financial-connections-6592ca"},{"title":"Deutsche Bank official says large changes to net worth like Trump’s isn’t unusual | CNN Politics","url":"https://www.cnn.com/2023/11/28/politics/deutsche-bank-trump-fraud-trial-testimony/index.html"},{"title":"Banker involved in big loans to Trump Organization testifies in civil fraud trial | PBS News","url":"https://www.pbs.org/newshour/politics/banker-involved-in-big-loans-to-trump-organization-testifies-in-civil-fraud-trial"},{"title":"How Deutsche Bank Became A Mainstay Of Trump's Business Empire : NPR","url":"https://www.npr.org/2019/05/29/727817948/how-deutsche-bank-became-a-mainstay-of-trumps-business-empire"},{"title":"'Dark Towers' Goes Inside Deutsche Bank, The Company That Holds Trump's Secrets : NPR","url":"https://www.npr.org/2020/02/19/807191309/dark-towers-exposes-chaos-and-corruption-at-the-bank-that-holds-trump-s-secrets"},{"title":"Ex-Deutsche Bank Risk Manager Says It Made Loans on Trump Inflated Finances - Bloomberg","url":"https://www.bloomberg.com/news/articles/2023-10-11/ex-deutsche-bank-risk-manager-says-lender-relied-on-trump-claims"}]
@@ -141,7 +141,7 @@ REMINDER: You MUST include the sources above in your response to the user using 
 
 ---
 
-[搜索结果]
+[搜尋結果]
 Web search results for query: "Trump Atlantic City casino bankruptcies decision history analysis"
 
 Links: [{"title":"1 How Trump’s Casino Bankruptcies Screwed His Workers out of","url":"https://docs.house.gov/meetings/JU/JU00/20200929/111078/HMKP-116-JU00-20200929-SD003.pdf"},{"title":"Donald Trump Owned Several Atlantic City Casinos That Went Bankrupt — Despite This, He Said, 'Atlantic City Fueled A Lot Of Growth For Me'","url":"https://finance.yahoo.com/news/donald-trump-owned-several-atlantic-181258334.html"},{"title":"1 How Donald Trump Bankrupted His Atlantic City Casinos, but Still","url":"https://www.congress.gov/116/meeting/house/111078/documents/HMKP-116-JU00-20200929-SD002.pdf"},{"title":"Trump Entertainment Resorts - Wikipedia","url":"https://en.wikipedia.org/wiki/Trump_Entertainment_Resorts"},{"title":"Fact Check: Has Trump declared bankruptcy four or six times? - The Washington Post","url":"https://www.washingtonpost.com/politics/2016/live-updates/general-election/real-time-fact-checking-and-analysis-of-the-first-presidential-debate/fact-check-has-trump-declared-bankruptcy-four-or-six-times/"},{"title":"Bankruptcy expert studies Trump casinos | Temple Now","url":"https://now.temple.edu/news/2016-10-25/bankruptcy-expert-studies-trump-casinos"},{"title":"Which specific Trump-owned casino entities filed for b...","url":"https://factually.co/fact-checks/business/trump-owned-casinos-bankruptcy-which-entities-creditors-impacted-b37d04"},{"title":"How Donald Trump Bankrupted His Casinos, Left Contractors Unpaid, Ruined Investors & Made Millions | Democracy Now!","url":"https://www.democracynow.org/2016/6/16/how_donald_trump_bankrupted_his_casinos"},{"title":"Has Donald Trump Filed for Bankruptcy Six Times? | Frego & Associates","url":"https://www.fregolaw.com/fact-check-donald-trump-filed-bankruptcy-six-times/"},{"title":"PolitiFact | Fact-checking claims about Donald Trump's four bankruptcies","url":"https://www.politifact.com/factchecks/2015/sep/21/carly-fiorina/trumps-four-bankruptcies/"}]
@@ -183,7 +183,7 @@ REMINDER: You MUST include the sources above in your response to the user using 
 
 ---
 
-[搜索结果]
+[搜尋結果]
 Web search results for query: "Trump withdrawing from TPP Paris Agreement Iran Deal 2017 decision logic analysis"
 
 Links: [{"title":"Wrecking Ball-In-Chief: Trump’s Withdrawals from International Commitments","url":"https://www.e-ir.info/2019/07/17/wrecking-ball-in-chief-trumps-withdrawals-from-international-commitments/"},{"title":"United States withdrawal from the Iran nuclear deal - Wikipedia","url":"https://en.wikipedia.org/wiki/United_States_withdrawal_from_the_Joint_Comprehensive_Plan_of_Action"},{"title":"Trump Quits Iran Nuclear Deal - Atlantic Council","url":"https://www.atlanticcouncil.org/blogs/new-atlanticist/trump-quits-iran-nuclear-deal/"},{"title":"Withdrawal from International Agreements: Legal Framework, the Paris Agreement, and the Iran Nuclear Agreement | Congress.gov | Library of Congress","url":"https://www.congress.gov/crs-product/R44761"},{"title":"Trump's top five withdrawals from international agreements - TRT World","url":"https://www.trtworld.com/americas/trump-s-top-five-withdrawals-from-international-agreements-18543"},{"title":"Analysis | Ditching deals has become Trump’s main foreign policy","url":"https://www.washingtonpost.com/news/worldviews/wp/2017/10/13/ditching-deals-has-become-trumps-main-foreign-policy/"},{"title":"On the U.S. Withdrawal from the Paris Agreement - United States Department of State","url":"https://2017-2021.state.gov/on-the-u-s-withdrawal-from-the-paris-agreement/"},{"title":"A worthless withdrawal: Two years since President Trump abandoned the JCPOA - Center for Arms Control and Non-Proliferation","url":"https://armscontrolcenter.org/a-worthless-withdrawal-two-years-since-president-trump-abandoned-the-jcpoa/"},{"title":"Withdrawal from the Iran Nuclear Deal: Legal Authorities and Implications | Congress.gov | Library of Congress","url":"https://www.congress.gov/crs-product/LSB10134"},{"title":"Trump’s Withdrawal from the Iran Nuclear Deal: Security or Economics? | Al Jazeera Centre for Studies","url":"https://studies.aljazeera.net/en/reports/2018/05/trumps-withdrawal-iran-nuclear-deal-security-economics-180510123910355.html"}]
@@ -209,7 +209,7 @@ REMINDER: You MUST include the sources above in your response to the user using 
 
 ---
 
-[搜索结果]
+[搜尋結果]
 Web search results for query: "Trump China trade war tariffs 2018 2019 timeline decision escalation"
 
 Links: [{"title":"China–United States trade war - Wikipedia","url":"https://en.wikipedia.org/wiki/China%E2%80%93United_States_trade_war"},{"title":"Tariffs in the first Trump administration - Wikipedia","url":"https://en.wikipedia.org/wiki/Tariffs_in_the_first_Trump_administration"},{"title":"Tariff Tracker: 2026 Trump Tariffs & Trade War by the Numbers","url":"https://taxfoundation.org/research/all/federal/trump-tariffs-trade-war/"},{"title":"Tariffs in the second Trump administration - Wikipedia","url":"https://en.wikipedia.org/wiki/Tariffs_in_the_second_Trump_administration"},{"title":"U.S. China–Trade War | Background, Tariffs, Trump, & Facts | Britannica Money","url":"https://www.britannica.com/money/US-China-trade-war"},{"title":"USTR Finalizes Tariffs on $200 Billion of Chinese Imports in Response to China’s Unfair Trade Practices | United States Trade Representative","url":"https://ustr.gov/about-us/policy-offices/press-office/press-releases/2018/september/ustr-finalizes-tariffs-200"},{"title":"Timeline of the U.S.–China Trade Dispute and Tariffs on Cotton and Textile Trade | CAES Field Report","url":"https://secure.caes.uga.edu/extension/publications/files/pdf/C%201259_1.PDF"},{"title":"Trump Tariffs: Tracking the Economic Impact of the Trump Trade War - WITA","url":"https://www.wita.org/atp-research/tracking-impact-trump-tariffs/"},{"title":"Timeline of the United States–China Trade Dispute","url":"https://fieldreport.caes.uga.edu/wp-content/uploads/2025/08/C-1259_1.pdf"},{"title":"US-China Trade War Tariffs: An Up-to-Date Chart | PIIE","url":"https://www.piie.com/research/piie-charts/2019/us-china-trade-war-tariffs-date-chart"}]
@@ -250,7 +250,7 @@ REMINDER: You MUST include the sources above in your response to the user using 
 
 ---
 
-[搜索结果]
+[搜尋結果]
 Web search results for query: "Trump brand licensing business model how it works Trump properties"
 
 Links: [{"title":"How Trump has made millions by selling his name - Washington Post","url":"https://www.washingtonpost.com/graphics/world/trump-worldwide-licensing/"},{"title":"How have Trump’s licensing deals and brand royalties p...","url":"https://factually.co/fact-checks/business/trump-licensing-deals-brand-royalties-vs-failed-ventures-performance-971092"},{"title":"The Trump Organization - Wikipedia","url":"https://en.wikipedia.org/wiki/The_Trump_Organization"},{"title":"Trump capital: Built on real estate, brand and politics | Simple","url":"https://andsimple.co/cases/trump-capital-family-office-built-on-real-estate-brand-politics/"},{"title":"Donald Trump's Real Estate Empire Explained","url":"https://api.collegepressbox.com/news/donald-trumps-real-estate-empire-1761251961026"},{"title":"How does President Trump make his money? Real estate, hospitality and his name | Georgia Public Broadcasting","url":"https://www.gpb.org/news/2025/06/26/how-does-president-trump-make-his-money-real-estate-hospitality-and-his-name"},{"title":"How ‘The Donald’ Does Intellectual Property - IPWatchdog.com | Patents & Intellectual Property Law","url":"https://ipwatchdog.com/2017/03/09/how-the-donald-does-intellectual-property/"},{"title":"Trump opened a new golf course in Scotland. It's not his only new venture as president","url":"https://www.npr.org/2025/06/26/nx-s1-5446114/trump-wealth-business-crypto-brand-golf-course"},{"title":"The Trump Brand Returns to Licensing - Licensing International","url":"https://licensinginternational.org/news/the-trump-brand-returns-to-licensing/"},{"title":"Trump's Trademark Registrations Reveal Breadth of His ...","url":"https://www.hunton.com/media/publication/3221_Trump-trademark-registrations.pdf"}]
@@ -288,7 +288,7 @@ REMINDER: You MUST include the sources above in your response to the user using 
 
 ---
 
-[搜索结果]
+[搜尋結果]
 Web search results for query: "Trump January 6 Capitol attack decision chain what did Trump do that day timeline"
 
 Links: [{"title":"January 6 United States Capitol attack - Wikipedia","url":"https://en.wikipedia.org/wiki/January_6_United_States_Capitol_attack"},{"title":"A timeline of the Jan. 6 Capitol attack — including when and how Trump responded","url":"https://www.npr.org/2022/01/05/1069977469/a-timeline-of-how-the-jan-6-attack-unfolded-including-who-said-what-and-when"},{"title":"January 6 U.S. Capitol Attack | Background, Events, Criminal Charges, & Facts | Britannica","url":"https://www.britannica.com/event/January-6-U-S-Capitol-attack"},{"title":"Timeline of the January 6 United States Capitol attack - Wikipedia","url":"https://en.wikipedia.org/wiki/Timeline_of_the_January_6_United_States_Capitol_attack"},{"title":"A timeline of the Jan. 6 Capitol attack — including when and how Trump responded - capradio.org","url":"https://www.capradio.org/news/npr/story?storyid=1069977469"},{"title":"The January 6 Attack on the U.S. Capitol - American Oversight","url":"https://americanoversight.org/investigation/the-january-6-attack-on-the-u-s-capitol/"},{"title":"Transcript Of Trump's Speech At Rally Before Capitol Riot : NPR","url":"https://www.npr.org/2021/02/10/966396848/read-trumps-jan-6-speech-a-key-part-of-impeachment-trial"},{"title":"Point #7: Evidence That During the Attack, Trump Ignored Requests to Speak Out and Failed to Act Quickly | Lawfare","url":"https://www.lawfaremedia.org/article/point-7-evidence-during-attack-trump-ignored-requests-speak-out-and-failed-act-quickly"},{"title":"FINAL REPORT of the Select Commitee to Investigate the January 6th Attack on the United States Capitol","url":"https://www.govinfo.gov/content/pkg/GPO-J6-REPORT/html-submitted/ch7.html"},{"title":"The January 6 insurrection: Minute-by-minute | CNN Politics","url":"https://www.cnn.com/2022/07/10/politics/jan-6-us-capitol-riot-timeline"}]
@@ -324,7 +324,7 @@ REMINDER: You MUST include the sources above in your response to the user using 
 
 ---
 
-[搜索结果]
+[搜尋結果]
 Web search results for query: "Trump COVID-19 early response decision timeline January February 2020 downplaying"
 
 Links: [{"title":"The Trump Administration and the COVID‐19 crisis: Exploring the warning‐response problems and missed opportunities of a public health emergency - PMC","url":"https://pmc.ncbi.nlm.nih.gov/articles/PMC9115435/"},{"title":"Timeline of Trump's COVID-19 Comments - FactCheck.org","url":"https://www.factcheck.org/2020/10/timeline-of-trumps-covid-19-comments/"},{"title":"Communication of the Trump administration during the COVID-19 pandemic - Wikipedia","url":"https://en.wikipedia.org/wiki/Communication_of_the_Trump_administration_during_the_COVID-19_pandemic"},{"title":"U.S. federal government response to the COVID-19 pandemic - Wikipedia","url":"https://en.wikipedia.org/wiki/Donald_Trump_and_the_Covid-19_pandemic"},{"title":"Timeline: How Trump Has Downplayed The Coronavirus Pandemic","url":"https://www.npr.org/sections/latest-updates-trump-covid-19-results/2020/10/02/919432383/how-trump-has-downplayed-the-coronavirus-pandemic"},{"title":"Timeline of the Coronavirus Pandemic and U.S. Response","url":"https://www.justsecurity.org/69650/timeline-of-the-coronavirus-pandemic-and-u-s-response/"},{"title":"President Trump’s Historic Coronavirus Response – The White House","url":"https://trumpwhitehouse.archives.gov/briefings-statements/president-trumps-historic-coronavirus-response/"},{"title":"Coronavirus timeline shows politicians', media's changing rhetoric on risk of pandemic | Fox News","url":"https://www.foxnews.com/politics/from-new-york-to-canada-to-the-white-house-initial-coronavirus-responses-havent-aged-well"},{"title":"The Trump Administration’s Response to Coronavirus - American Oversight","url":"https://americanoversight.org/investigation/the-trump-administrations-response-to-coronavirus/"},{"title":"Trump Received Intelligence Briefings On Coronavirus Twice In January : Coronavirus Updates : NPR","url":"https://www.npr.org/sections/coronavirus-live-updates/2020/05/02/849619486/trump-received-intelligence-briefings-on-coronavirus-twice-in-january"}]
@@ -354,7 +354,7 @@ REMINDER: You MUST include the sources above in your response to the user using 
 
 ---
 
-[搜索结果]
+[搜尋結果]
 Web search results for query: "Trump 2025 tariffs policy April "Liberation Day" decision making economic impact"
 
 Links: [{"title":"Liberation Day tariffs - Wikipedia","url":"https://en.wikipedia.org/wiki/Liberation_Day_tariffs"},{"title":"How Trump's \"Liberation Day\" tariffs affected the economy 1 year later","url":"https://www.marketplace.org/story/2026/04/02/how-liberation-day-tariffs-have-affected-the-economy-in-a-year"},{"title":"Have Trump's tariffs worked? This is where things stand a year after 'Liberation Day'","url":"https://www.npr.org/2026/04/02/nx-s1-5766424/trump-tariffs-inflation-economy"},{"title":"A Year After ‘Liberation Day,’ Experts Review the Costs of Trump’s Tariffs | Council on Foreign Relations","url":"https://www.cfr.org/articles/a-year-after-liberation-day-experts-review-the-costs-of-trumps-tariffs"},{"title":"Liberation Day Tariffs: President Trump Tariffs & Trade Policy","url":"https://taxfoundation.org/blog/liberation-day-trump-tariffs/"},{"title":"Trump's \"Liberation Day\" tariffs: The impact is still being felt","url":"https://www.axios.com/2026/04/02/trump-trade-tariffs-liberation-day"},{"title":"“Liberation Day” Tariffs Explained | CSIS","url":"https://www.csis.org/analysis/liberation-day-tariffs-explained"},{"title":"Trump Tariffs Economic Impact Shakes US Economy","url":"https://www.parriva.com/trump-tariffs-economic-impact/"},{"title":"Making America great again? The economic impacts of Liberation Day tariffs - ScienceDirect","url":"https://www.sciencedirect.com/science/article/pii/S0022199625000959"},{"title":"FLASHBACK: Trump’s ‘Liberation Day’ tariffs hit one-year mark as economists split on fallout","url":"https://www.foxnews.com/politics/flashback-trumps-liberation-day-tariffs-hit-one-year-mark-economists-split-fallout"}]
@@ -396,7 +396,7 @@ REMINDER: You MUST include the sources above in your response to the user using 
 
 ---
 
-[搜索结果]
+[搜尋結果]
 Web search results for query: "Trump Ukraine ceasefire negotiation 2025 decision strategy Zelensky"
 
 Links: [{"title":"Trump says Russia and Ukraine are 'maybe very close' to peace deal after Zelenskyy meeting - ABC News","url":"https://abcnews.go.com/Politics/volodymyr-zelenskyy-arrives-mar-lago-peace-talks-president/story?id=128736611"},{"title":"The U.S. offers Ukraine a 15-year security guarantee for now, Zelenskyy says","url":"https://www.npr.org/2025/12/29/g-s1-103906/ukraine-russia-trump-zelenskyy-security"},{"title":"Trump says Ukraine and Russia 'closer than ever' to peace after talks with Zelenskyy","url":"https://www.npr.org/2025/12/28/nx-s1-5659700/zelenskyy-meets-trump-efforts-end-russia-ukraine-war-elusive"},{"title":"Trump and Zelenskyy project optimism about prospects for a Ukraine-Russia peace deal despite 'thorny issues'","url":"https://www.nbcnews.com/politics/donald-trump/trump-meet-zelenskyy-mar-lago-peace-talks-ukraine-russia-rcna251009"},{"title":"Trump pressures Ukraine to accept peace deal: Early analysis from Chatham House experts | Chatham House – International Affairs Think Tank","url":"https://www.chathamhouse.org/2025/11/trump-pressures-ukraine-accept-peace-deal-early-analysis-chatham-house-experts"},{"title":"Trump meets with Zelenskyy in push for Ukraine peace plan","url":"https://www.cnbc.com/2025/12/28/trump-zelenskyy-ukraine.html"},{"title":"Trump and Zelensky to meet Sunday, try to close out peace plan","url":"https://www.axios.com/2025/12/26/zelensky-trump-meet-ukraine-peace-plan"},{"title":"Trump says Russia, Ukraine peace \"closer than ever\" after Zelensky meeting","url":"https://www.axios.com/2025/12/28/trump-putin-zelensky-ukraine-russia-peace"},{"title":"Trump, Zelenskyy hail progress towards Russia-Ukraine peace deal | Russia-Ukraine war News | Al Jazeera","url":"https://www.aljazeera.com/news/2025/12/28/trump-welcomes-zelenskyy-claims-russia-ukraine-truce-in-final-stages"},{"title":"Trump administration's 28-point Ukraine-Russia peace plan presented to Zelenskyy - ABC News","url":"https://abcnews.go.com/International/trump-administrations-28-point-ukraine-russia-peace-plan/story?id=127735249"}]
@@ -428,7 +428,7 @@ REMINDER: You MUST include the sources above in your response to the user using 
 
 ---
 
-[搜索结果]
+[搜尋結果]
 Web search results for query: "Trump reframes failure as winning "I win" psychology how Trump defines victory losses"
 
 Links: [{"title":"Why Donald Trump Can't Stop: The Psychology Behind the Brand","url":"https://9takes.com/personality-analysis/Donald-Trump"},{"title":"Donald Trump is fighting an unwinnable war to prove he's not a loser. And he's losing.","url":"https://www.thefarce.org/the-man-who-cannot-lose-is-losing-he-still-cant-stop/"},{"title":"Trump is a Weak President","url":"https://www.theframelab.org/strongman-weak-president/"},{"title":"Trump's Appeal: What Psychology Tells Us | Scientific American","url":"https://www.scientificamerican.com/article/trump-rsquo-s-appeal-what-psychology-tells-us/"},{"title":"Amazon.com: Tired of Winning: Donald Trump and the End of the Grand Old Party: 9780593473986: Karl, Jonathan: Books","url":"https://www.amazon.com/Tired-Winning-Donald-Trump-Grand/dp/0593473981"},{"title":"Donald Trump on Failure | Psychology Today","url":"https://www.psychologytoday.com/us/blog/brainstorm/200905/donald-trump-failure"},{"title":"‘The Strange Case of Donald J. Trump: A Psychological Reckoning’ - Northwestern Now","url":"https://news.northwestern.edu/stories/2020/03/the-strange-case-of-donald-j-trump-a-psychological-reckoning"},{"title":"Trump’s Denial of Defeat","url":"https://time.com/7377361/trump-denial-of-defeat-harvard/"},{"title":"The Trump surprise, again: psychology’s fantasy of prediction | BPS","url":"https://www.bps.org.uk/psychologist/trump-surprise-again-psychologys-fantasy-prediction"},{"title":"The Mass Psychology of Trumpism - New Lines Magazine","url":"https://newlinesmag.com/argument/the-mass-psychology-of-trumpism/"}]
@@ -456,7 +456,7 @@ REMINDER: You MUST include the sources above in your response to the user using 
 
 ---
 
-[搜索结果]
+[搜尋結果]
 Web search results for query: "Trump negotiation tactics when does he cave vs hold firm analysis pattern"
 
 Links: [{"title":"Smolinski | Expert Perspectives on Trump’s Tariff Negotiations | Negotiation and Conflict Management Research","url":"https://ncmr.lps.library.cmu.edu/article/id/1001/"},{"title":"Trump’s unconventional negotiation strategy - Dr. Sebastian Moritz","url":"https://www.imd.org/ibyimd/strategy/shaping-the-game-understanding-trumps-unconventional-negotiation-strategy/"},{"title":"Mastering Negotiation the Trump Way:Strength,Tactics,Uncertainty | The CEO Project","url":"https://theceoproject.com/mastering-negotiation-the-trump-waystrengthtacticsuncertainty/"},{"title":"It’s Time to Abandon Trump’s Flawed Negotiation Playbook by Michele Gelfand - Project Syndicate","url":"https://www.project-syndicate.org/commentary/why-trump-tariffs-and-negotiating-style-are-backfiring-spectacularly-by-michelle-gelfand-2025-04"},{"title":"Trump’s Negotiating Style as President-Elect - PON - Program on Negotiation at Harvard Law School","url":"https://www.pon.harvard.edu/daily/dealmaking-daily/dealmaking-presidents-opening-moves-nb/"},{"title":"Transactional Man: Teaching Negotiation Strategy in the Age of Trump | Negotiation Journal | MIT Press","url":"https://direct.mit.edu/ngtn/article/35/1/31/121416/Transactional-Man-Teaching-Negotiation-Strategy-in"},{"title":"Negotiating Like Trump: Power, Pressure, and Unpredictability","url":"https://www.inc.com/jim-schleckser/negotiating-like-trump-power-pressure-and-unpredictability/91155929"},{"title":"Trump's Negotiation Strategy | Supply Chain Resource Cooperative","url":"https://scm.ncsu.edu/scm-articles/article/trumps-negotiation-strategy"},{"title":"A Broken Record: Trump's negotiation strategies have had limited success in the past, but now they are perceived by counterparties as a familiar script with well-known vulnerabilities","url":"https://re-russia.net/en/analytics/0263/"},{"title":"Trump’s Presidential Negotiation Moves: An Expert’s Assessment • Expert Negotiator","url":"https://www.expertnegotiator.com/tip/trumps-presidential-negotiation-moves-an-experts-assessment/"}]
@@ -496,7 +496,7 @@ REMINDER: You MUST include the sources above in your response to the user using 
 
 ---
 
-[搜索结果]
+[搜尋結果]
 Web search results for query: "Trump Tower construction 1983 decision financing negotiation how it was built"
 
 Links: [{"title":"Trump Tower - Wikipedia","url":"https://en.wikipedia.org/wiki/Trump_Tower"},{"title":"Trump Tower: The Imperial Architectural Symbol Designed by Der Scutt","url":"https://parametric-architecture.com/trump-towerdesigned-by-der-scutt/"},{"title":"Celebrating 40 Years of Trump Tower, A New York City Icon | The Trump Organization | Luxury Real Estate Portfolio","url":"https://www.trump.com/media/celebrating-40-years-of-trump-tower-a-new-york-city-icon"},{"title":"The Trump Organization - Wikipedia","url":"https://en.wikipedia.org/wiki/The_Trump_Organization"},{"title":"What Domus said about Trump Tower in 1983, when it was still under construction - Domus","url":"https://www.domusweb.it/en/from-the-archive/2024/11/06/trump-tower-project-1983.html"},{"title":"Trump Towers","url":"https://old.skyscraper.org/EXHIBITIONS/SKY_HIGH/nw_10.php"},{"title":"How Donald Trump built his business empire | The Week","url":"https://theweek.com/articles/644820/how-donald-trump-built-business-empire"},{"title":"Trump Tower: History, Architecture, and Facts","url":"https://buildingsdb.com/NY/new-york/trump-tower/"},{"title":"Trump Tower | Skyscraper Wiki | Fandom","url":"https://skyscrapers.fandom.com/wiki/Trump_Tower"},{"title":"Trump Tower, New York","url":"https://aviewoncities.com/new-york/trump-tower"}]
@@ -528,7 +528,7 @@ REMINDER: You MUST include the sources above in your response to the user using 
 
 ---
 
-[搜索结果]
+[搜尋結果]
 Web search results for query: "Trump tariffs 2025 performative vs real economic leverage China 90 day pause reversal"
 
 Links: [{"title":"Tracking the Economic Impact of the Trump Tariffs","url":"https://taxfoundation.org/research/all/federal/trump-tariffs-trade-war/"},{"title":"Trump says he will pause tariff hikes for 90 days, but not for China","url":"https://www.npr.org/2025/04/09/nx-s1-5357645/trump-tariffs-paused"},{"title":"Trump announces 90-day pause on ‘reciprocal’ tariffs with exception of China | CNN Business","url":"https://www.cnn.com/2025/04/09/business/reciprocal-tariff-pause-trump/index.html"},{"title":"Trump, tariffs, and ‘TACO’: Why markets stopped reacting","url":"https://www.washingtonexaminer.com/news/white-house/4502303/trump-tariffs-taco-markets-reaction/"},{"title":"Tariffs in the second Trump administration - Wikipedia","url":"https://en.wikipedia.org/wiki/Tariffs_in_the_second_Trump_administration"},{"title":"Presidential 2025 Tariff Actions: Timeline and Status | Congress.gov | Library of Congress","url":"https://www.congress.gov/crs-product/R48549"},{"title":"Trump pauses reciprocal tariffs for 90 days for everyone but China","url":"https://www.axios.com/2025/04/09/trump-tariffs-pause-china-stocks-recession"},{"title":"Stocks surge after 90-day pause announced for most countries","url":"https://www.nbcnews.com/politics/trump-administration/live-blog/trump-administration-live-updates-global-tariffs-china-rcna200346"},{"title":"Trump extends China tariff deadline for the second time. What does it mean? | Donald Trump News | Al Jazeera","url":"https://www.aljazeera.com/economy/2025/8/12/trump-extends-china-tariff-deadline-for-the-second-time-what-does-it-mean"},{"title":"Tracking tariffs: Key moments in the US-China trade dispute | World Economic Forum","url":"https://www.weforum.org/stories/2025/06/trumps-us-china-trade-tariffs-timeline/"}]
@@ -556,7 +556,7 @@ REMINDER: You MUST include the sources above in your response to the user using 
 
 ---
 
-[搜索结果]
+[搜尋結果]
 Web search results for query: "Trump immigration policy 2025 executive orders deportation decisions second term"
 
 Links: [{"title":"Immigration policy of the second Trump administration - Wikipedia","url":"https://en.wikipedia.org/wiki/Immigration_policy_of_the_second_Trump_administration"},{"title":"Unleashing Power in New Ways: Immigration in the First Year of Trump 2.0","url":"https://www.migrationpolicy.org/article/trump-2-immigration-1st-year"},{"title":"Congress","url":"https://www.congress.gov/crs_external_products/LSB/HTML/LSB11300.web.html"},{"title":"The Trump Administration's 2025 Changes to Immigration Law (Updated 10/10/25) | New York City Bar Association","url":"https://www.nycbar.org/reports/the-trump-administrations-early-2025-changes-to-immigration-law/"},{"title":"Trump 2.0’s year one: reshaping US legal immigration","url":"https://www.realinstitutoelcano.org/en/analyses/trump-2-0s-year-one-reshaping-us-legal-immigration/"},{"title":"Recent White House Actions on Immigration | Congress.gov | Library of Congress","url":"https://www.congress.gov/crs-product/LSB11265"},{"title":"Donald Trump's executive orders on immigration, 2025-2026 - Ballotpedia","url":"https://ballotpedia.org/Donald_Trump's_executive_orders_on_immigration,_2025"},{"title":"Trump Immigration Policy Changes","url":"https://usahello.org/2025-immigration-policies/"},{"title":"Executive and Regulatory Actions Under the Second Trump Administration | NAFSA","url":"https://www.nafsa.org/executive-and-regulatory-actions-trump2admin"},{"title":"Leading with Cruelty: Eight Impacts of Trump’s First Day Executive Orders - National Immigrant Justice Center","url":"https://immigrantjustice.org/blog/leading-with-cruelty-eight-impacts-of-trumps-first-day-executive-orders/"}]
@@ -596,7 +596,7 @@ REMINDER: You MUST include the sources above in your response to the user using 
 
 ---
 
-[搜索结果]
+[搜尋結果]
 Web search results for query: "Trump "Art of the Deal" actual decisions vs book strategy contradictions examples"
 
 Links: [{"title":"Why has Trump's 'Art of the Deal' failed in the case of Iran?","url":"https://news.futunn.com/en/post/71080059/why-has-trump-s-art-of-the-deal-failed-in"},{"title":"Trump’s ‘Art of the Deal’ Is Losing Friends and Alienating Allies | Opinion - Newsweek","url":"https://www.newsweek.com/trumps-art-of-the-deal-is-losing-friends-and-alienating-allies-opinion-11770811"},{"title":"[PDF] The Art of the Deal Summary - Donald J. Trump","url":"https://www.shortform.com/pdf/the-art-of-the-deal-pdf-donald-trump"},{"title":"Trump Warns In 'Art Of The Deal': 'Deliver The Goods' Or Lose In A 'Landslide' : NPR","url":"https://www.npr.org/2017/03/24/521435773/trump-warns-in-art-of-the-deal-deliver-the-goods-or-lose-in-a-landslide"},{"title":"The dangerous side to the art of the deal | Brookings","url":"https://www.brookings.edu/articles/the-dangerous-side-to-the-art-of-the-deal/"},{"title":"Trump's 'Art of the Deal' Politics Undermine America's Future","url":"https://aier.org/article/trumps-art-of-the-deal-politics-undermine-americas-future/"},{"title":"Opinion: 'The Artifice of the Deal'","url":"https://ctmirror.org/2025/05/23/the-artifice-of-the-deal/"},{"title":"Trump’s 'Art of the Deal' Politics Undermine America’s Future | The Daily Economy","url":"https://thedailyeconomy.org/article/trumps-art-of-the-deal-politics-undermines-americas-future/"},{"title":"The Art of the Deal - Wikipedia","url":"https://en.wikipedia.org/wiki/The_Art_of_the_Deal"},{"title":"Trump's Art of the Deal Is Lost in the Fog of War - The Wire","url":"https://m.thewire.in/article/world/trumps-art-of-the-deal-is-lost-in-the-fog-of-war"}]
@@ -628,7 +628,7 @@ REMINDER: You MUST include the sources above in your response to the user using 
 
 ---
 
-[搜索结果]
+[搜尋結果]
 Web search results for query: "Trump phase one trade deal China January 2020 what did he actually get concessions analysis"
 
 Links: [{"title":"Phase One | United States Trade Representative","url":"https://ustr.gov/phase-one"},{"title":"The U.S.-China “Phase One” Deal: A Backgrounder","url":"https://www.uscc.gov/sites/default/files/2020-02/U.S.-China%20Trade%20Deal%20Issue%20Brief.pdf"},{"title":"Section 301 and China: The U.S.-China Phase One Trade Deal | Congress.gov | Library of Congress","url":"https://www.congress.gov/crs-product/IF12125"},{"title":"Trump's phase one trade deal with China and the US election | PIIE","url":"https://www.piie.com/blogs/trade-and-investment-policy-watch/trumps-phase-one-trade-deal-china-and-us-election"},{"title":"China bought none of the extra $200 billion of US exports in Trump's trade deal | PIIE","url":"https://www.piie.com/blogs/realtime-economics/2022/china-bought-none-extra-200-billion-us-exports-trumps-trade-deal"},{"title":"U.S.-China 'Phase One' Trade Deal","url":"https://scholarship.law.nd.edu/cgi/viewcontent.cgi?article=1162&context=ndjicl"},{"title":"Trump gets his trade deal, China gets the win | Brookings","url":"https://www.brookings.edu/articles/trump-gets-his-trade-deal-china-gets-the-win/"},{"title":"The U.S.-China “Phase One” Deal: A Backgrounder | U.S.- CHINA | ECONOMIC and SECURITY REVIEW COMMISSION","url":"https://www.uscc.gov/research/us-china-phase-one-deal-backgrounder"},{"title":"Read the full U.S.-China 'Phase 1' trade agreement | PBS News","url":"https://www.pbs.org/newshour/economy/read-the-full-u-s-china-phase-1-trade-agreement"},{"title":"The US–China trade war and Phase One agreement - ScienceDirect","url":"https://www.sciencedirect.com/science/article/abs/pii/S0161893821000363"}]
@@ -665,30 +665,30 @@ REMINDER: You MUST include the sources above in your response to the user using 
 
 ---
 
-现在我有足够的材料，开始写入文件。
+現在我有足夠的材料，開始寫入檔案。
 
 ---
 
-[搜索结果]
+[搜尋結果]
 Permission to use Bash has been denied. IMPORTANT: You *may* attempt to accomplish this action using other tools that might naturally be used to accomplish this goal, e.g. using head instead of cat. But you *should not* attempt to work around this denial in malicious ways, e.g. do not use your ability to run tests to execute non-test actions. You should only try to work around this restriction in reasonable ways that do not attempt to bypass the intent behind this denial. If you believe this capability is essential to complete the user's request, STOP and explain to the user what you were trying to do and why you need this permission. Let the user decide how to proceed.
 
 ---
 
-[搜索结果]
+[搜尋結果]
 Permission to use Write has been denied. IMPORTANT: You *may* attempt to accomplish this action using other tools that might naturally be used to accomplish this goal, e.g. using head instead of cat. But you *should not* attempt to work around this denial in malicious ways, e.g. do not use your ability to run tests to execute non-test actions. You should only try to work around this restriction in reasonable ways that do not attempt to bypass the intent behind this denial. If you believe this capability is essential to complete the user's request, STOP and explain to the user what you were trying to do and why you need this permission. Let the user decide how to proceed.
 
 ---
 
-需要你授权文件写入权限。我尝试将完整的调研文档写入：
+需要你授權檔案寫入許可權。我嘗試將完整的調研文件寫入：
 
-`/Users/alchain/Documents/写作/.claude/skills/trump-perspective/references/research/05-decisions.md`
+`/Users/alchain/Documents/寫作/.claude/skills/trump-perspective/references/research/05-decisions.md`
 
-这个文件不存在，需要新建。请在弹出的权限请求中授权「Write」操作，我就可以完成写入。
+這個檔案不存在，需要新建。請在彈出的許可權請求中授權「Write」操作，我就可以完成寫入。
 
-或者你也可以直接在终端里运行：
+或者你也可以直接在終端裡執行：
 
 ```bash
-touch /Users/alchain/Documents/写作/.claude/skills/trump-perspective/references/research/05-decisions.md
+touch /Users/alchain/Documents/寫作/.claude/skills/trump-perspective/references/research/05-decisions.md
 ```
 
-然后告诉我，我再写入内容。
+然後告訴我，我再寫入內容。

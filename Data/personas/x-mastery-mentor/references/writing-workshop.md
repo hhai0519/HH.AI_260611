@@ -1,110 +1,110 @@
-# 写作工坊
+# 寫作工坊
 
-> 按需加载：场景A（写推文/Thread）、场景B（选题）、场景C（审阅内容）时读取。
-
----
-
-## 短推文写法
-
-**适用场景**：验证想法、日常互动、观点输出
-
-**格式选择**：
-- 观点陈述：一个鲜明立场（「大多数人X做错了...」）
-- 金句：可截图传播的一句话
-- 提问：引发回复（记住Reply=27x Like）
-- 个人重定义：「X不是Y，X是Z」
-
-**Dickie Bush的配比**：75%广度内容（viral-friendly，谁写都能传播）+ 25%深度内容（个人故事/独特视角，建立辨识度）
+> 按需載入：場景A（寫推文/Thread）、場景B（選題）、場景C（審閱內容）時讀取。
 
 ---
 
-## Hook改进示例（Before → After）
+## 短推文寫法
 
-**示例1：AI工具推广**
+**適用場景**：驗證想法、日常互動、觀點輸出
+
+**格式選擇**：
+- 觀點陳述：一個鮮明立場（「大多數人X做錯了...」）
+- 金句：可截圖傳播的一句話
+- 提問：引發回覆（記住Reply=27x Like）
+- 個人重定義：「X不是Y，X是Z」
+
+**Dickie Bush的配比**：75%廣度內容（viral-friendly，誰寫都能傳播）+ 25%深度內容（個人故事/獨特視角，建立辨識度）
+
+---
+
+## Hook改進示例（Before → After）
+
+**示例1：AI工具推廣**
 - Before: `I tested 5 AI coding tools. Here's what I found.`
-- 问题：无好奇缺口、无可資訊度锚点、无具体收益
+- 問題：無好奇缺口、無可資訊度錨點、無具體收益
 - After: `I mass-tested 5 AI coding tools on the same project (a full-stack app in 48 hours). One saved me 12 hours. The others were useless. A thread:`
-- 改了什么：加了具体场景(full-stack app)、时间锚点(48h)、悬念(哪个？)、可資訊度(实测資料)
+- 改了什麼：加了具體場景(full-stack app)、時間錨點(48h)、懸念(哪個？)、可資訊度(實測資料)
 
 **示例2：Build in Public**
 - Before: `Just launched my new app. Check it out!`
-- 问题：零好奇缺口、自说自话、没回答「為什麼我要看」
+- 問題：零好奇缺口、自說自話、沒回答「為什麼我要看」
 - After: `I built an iOS app with zero coding experience using only AI tools. It hit #1 Paid on the App Store in 3 days. Here's exactly how (and what almost killed it):`
-- 改了什么：加了身份反差(零经验)、结果锚点(#1 Paid)、时间框架(3天)、悬念(almost killed it)
+- 改了什麼：加了身份反差(零經驗)、結果錨點(#1 Paid)、時間框架(3天)、懸念(almost killed it)
 
-**示例3：争议观点**
+**示例3：爭議觀點**
 - Before: `AI coding tools are overrated.`
-- 问题：观点太模糊、没有stake in the ground
+- 問題：觀點太模糊、沒有stake in the ground
 - After: `Unpopular opinion: 90% of "AI coding tools" reviews on X are from people who never shipped a real product. I've shipped 3 apps. Here's what actually works vs what's just demo-ware:`
-- 改了什么：加了具体資料(90%)、可資訊度(shipped 3 apps)、对立面(demo-ware)、承诺交付(what works)
+- 改了什麼：加了具體資料(90%)、可資訊度(shipped 3 apps)、對立面(demo-ware)、承諾交付(what works)
 
 ---
 
-## Thread写法
+## Thread寫法
 
-**四段结构**（Cole/Bush）：
+**四段結構**（Cole/Bush）：
 
-**1. Hook（开头）**
-必须回答：给谁看？讲什么？為什麼資訊你？能得到什么？
+**1. Hook（開頭）**
+必須回答：給誰看？講什麼？為什麼資訊你？能得到什麼？
 
 Hook公式：
-- 可資訊度元素（「我研究了1000个...」「作为X年的Y...」）
-- 场景锚点（「In 2024...」「上周...」）
+- 可資訊度元素（「我研究了1000個...」「作為X年的Y...」）
+- 場景錨點（「In 2024...」「上週...」）
 - 核心收益（「How to...」「Why...」）
-- 具体交付（「10 bullets on...」「A thread:」）
+- 具體交付（「10 bullets on...」「A thread:」）
 
 **2. Main Points（正文）**
-- 每条tweet第一句当小标题
-- 1/3/1节奏
-- 每条能独立成文
-- Sweet spot: 8-12条
+- 每條tweet第一句當小標題
+- 1/3/1節奏
+- 每條能獨立成文
+- Sweet spot: 8-12條
 
 **3. TL;DR**
-- 先写TL;DR当大纲
-- 只列要点标题
+- 先寫TL;DR當大綱
+- 只列要點標題
 
-**4. CTA（行动召唤）**
-- 总结核心收获
-- 明确下一步（Follow/Bookmark/Newsletter）
+**4. CTA（行動召喚）**
+- 總結核心收穫
+- 明確下一步（Follow/Bookmark/Newsletter）
 
-**Cole的7种模板**：
+**Cole的7種模板**：
 1. **Framework**：To solve X, I do Y, To achieve Z
-2. **Story**：先给结局→再给开头→读者为找「中间」读完
-3. **Actionable**：清单式可执行建议
-4. **Curation**：「我读完了{人名}所有内容，这是最好的N条」
-5. **Lessons**：从个人经历提取教训
+2. **Story**：先給結局→再給開頭→讀者為找「中間」讀完
+3. **Actionable**：清單式可執行建議
+4. **Curation**：「我讀完了{人名}所有內容，這是最好的N條」
+5. **Lessons**：從個人經歷提取教訓
 6. **Mistakes**：「X mistakes I made doing Y」
-7. **Contrarian**：挑战常见认知
+7. **Contrarian**：挑戰常見認知
 
 ---
 
-## AI赛道特有Thread类型
+## AI賽道特有Thread型別
 
-1. 「我测了X，结果令人惊讶」——新模型/工具实测
-2. 「从0到$XK MRR的N个教训」——Build in Public总结
-3. 「这篇论文改变了我的认知」——论文解读
-4. 「X vs Y：深度对比」——工具/模型横评
-5. 「我用AI做了X，省了N小时」——实战案例
+1. 「我測了X，結果令人驚訝」——新模型/工具實測
+2. 「從0到$XK MRR的N個教訓」——Build in Public總結
+3. 「這篇論文改變了我的認知」——論文解讀
+4. 「X vs Y：深度對比」——工具/模型橫評
+5. 「我用AI做了X，省了N小時」——實戰案例
 
 ---
 
-## 选题系统
+## 選題系統
 
-**Endless Idea Generator**（Cole/Bush，30分钟100+选题）：
+**Endless Idea Generator**（Cole/Bush，30分鐘100+選題）：
 
 **Step 1: 2-Year Test**
-问自己：过去两年我解决了什么问题？学了什么？列出3-5个主题桶。
+問自己：過去兩年我解決了什麼問題？學了什麼？列出3-5個主題桶。
 
 **Step 2: 加限定**
-给主题加具体限定直到「不舒服地具体」。目标读者 = 两年前的你自己。
+給主題加具體限定直到「不舒服地具體」。目標讀者 = 兩年前的你自己。
 
-**Step 3: 4A × 话题 = 矩阵**
-一个话题 × 4角度(Actionable/Analytical/Aspirational/Anthropological) × 多种格式 = 数百篇内容。
+**Step 3: 4A × 話題 = 矩陣**
+一個話題 × 4角度(Actionable/Analytical/Aspirational/Anthropological) × 多種格式 = 數百篇內容。
 
-**Step 4: 选3个最让你兴奋的，开写**
+**Step 4: 選3個最讓你興奮的，開寫**
 
-**Bush的大小问题策略**：
-- 大问题（how to be happier）= 大受众但浅 → 拉新
-- 小问题（how to grow podcast from 2K to 10K）= 小受众但深 → 留人
+**Bush的大小問題策略**：
+- 大問題（how to be happier）= 大受眾但淺 → 拉新
+- 小問題（how to grow podcast from 2K to 10K）= 小受眾但深 → 留人
 
 

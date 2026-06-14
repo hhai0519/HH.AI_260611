@@ -1,187 +1,187 @@
-# 外部视角：别人眼中的 Andrej Karpathy
+# 外部視角：別人眼中的 Andrej Karpathy
 
-> 调研日期：2026-04-05
-> 資訊范围：截至 2026 年 4 月的公开资料
-> 来源可資訊度标注：★★★（高）/ ★★（中）/ ★（低/推断）
+> 調研日期：2026-04-05
+> 資訊範圍：截至 2026 年 4 月的公開資料
+> 來源可資訊度標註：★★★（高）/ ★★（中）/ ★（低/推斷）
 
 ---
 
-## 一、同行与同事的评价
+## 一、同行與同事的評價
 
 ### Sam Altman
 
-- Karpathy 第二次回归 OpenAI（2023年2月）时，Altman 在 X 上发推「@karpathy welcome back!」。★★★
-- **核心分歧**：Altman 预测 AI 将在 2030 年前超越任何专业领域的人类智能；Karpathy 则称自己的 AGI 时间线「比主流预测悲观 5 到 10 倍」。Karpathy 曾在公开场合直接反驳 Altman、Dario Amodei、Jensen Huang 的乐观预测，称他们「夸大了 AI 的能力」。★★★（Fortune 报道，2025年10月）
+- Karpathy 第二次迴歸 OpenAI（2023年2月）時，Altman 在 X 上發推「@karpathy welcome back!」。★★★
+- **核心分歧**：Altman 預測 AI 將在 2030 年前超越任何專業領域的人類智慧；Karpathy 則稱自己的 AGI 時間線「比主流預測悲觀 5 到 10 倍」。Karpathy 曾在公開場合直接反駁 Altman、Dario Amodei、Jensen Huang 的樂觀預測，稱他們「誇大了 AI 的能力」。★★★（Fortune 報道，2025年10月）
 
 ### Ilya Sutskever
 
-- 两人几乎同时离开 OpenAI（Karpathy 2024年2月，Sutskever 2024年6月），但原因和走向完全不同。
-- Sutskever 参与了 2023年11月推翻 Altman 的董事会政变；Karpathy 自始至终与 OpenAI 保持友好关系，与 Sutskever 路径明显分叉。
-- 外部观察者：「两人分别代表 AI 将成为你的导师（Karpathy）和 AI 将成为你的神明（Sutskever）这两种根本不同的愿景。」★★
+- 兩人幾乎同時離開 OpenAI（Karpathy 2024年2月，Sutskever 2024年6月），但原因和走向完全不同。
+- Sutskever 參與了 2023年11月推翻 Altman 的董事會政變；Karpathy 自始至終與 OpenAI 保持友好關係，與 Sutskever 路徑明顯分叉。
+- 外部觀察者：「兩人分別代表 AI 將成為你的導師（Karpathy）和 AI 將成為你的神明（Sutskever）這兩種根本不同的願景。」★★
 
 ### Andrew Ng
 
-两人均是深度学习教育领域的核心人物，但在「vibe coding」概念上有正面交锋。
+兩人均是深度學習教育領域的核心人物，但在「vibe coding」概念上有正面交鋒。
 
-Ng 在 2025年6月 LangChain Interrupt 活动中发言：「很遗憾这个东西叫 vibe coding，这个名字会误导人们以为工程师只是随便感觉一下。实际上，引导 AI 写出有用的软件是一项深度智识工作。我用 AI 辅助编程工作一整天，坦率地说，结束时我精疲力竭。」★★★
+Ng 在 2025年6月 LangChain Interrupt 活動中發言：「很遺憾這個東西叫 vibe coding，這個名字會誤導人們以為工程師只是隨便感覺一下。實際上，引導 AI 寫出有用的軟體是一項深度智識工作。我用 AI 輔助程式設計工作一整天，坦率地說，結束時我精疲力竭。」★★★
 
-Ng 并非否定 AI 辅助编程本身，而是认为 Karpathy 的命名方式造成了认知误导。
+Ng 並非否定 AI 輔助程式設計本身，而是認為 Karpathy 的命名方式造成了認知誤導。
 
-### Richard Sutton（RL 领域奠基人）
+### Richard Sutton（RL 領域奠基人）
 
-Karpathy 与 Sutton 之间有实质性的学术路线分歧。Karpathy 提出「我们在 summoning ghosts（召唤鬼魂）」，反驳 Sutton 的「我们在 building animals（培育动物）」框架。
+Karpathy 與 Sutton 之間有實質性的學術路線分歧。Karpathy 提出「我們在 summoning ghosts（召喚鬼魂）」，反駁 Sutton 的「我們在 building animals（培育動物）」框架。
 
-Sutton 认为 LLM 是「dead end（死胡同）」，强调 RL 和 continual learning 才是正途；Karpathy 不认同 RL 作为主路线，称其为「用吸管吮吸监督資訊号」（sucking supervision through a straw），存在根本性的噪声问题。★★★
+Sutton 認為 LLM 是「dead end（死衚衕）」，強調 RL 和 continual learning 才是正途；Karpathy 不認同 RL 作為主路線，稱其為「用吸管吮吸監督資訊號」（sucking supervision through a straw），存在根本性的噪聲問題。★★★
 
-### Fei-Fei Li（博士导师）
+### Fei-Fei Li（博士導師）
 
-两人共同开设 Stanford CS231n，课程从 2015年的 150 人增长到 2017年的 750 人，侧面印证了外界对这门课的高度认可。没有找到 Fei-Fei Li 公开评价 Karpathy 的直接声明。★★（间接证据）
-
----
-
-## 二、离职事件的行业反应
-
-### 离开 Tesla（2022年7月）
-
-行业反应较为震惊。Fortune 标题：「谁是 Andrej Karpathy？Tesla AI 主管突然辞职，这对 Elon Musk 意味着麻烦。」★★★
-
-外部分析（Medium）：离职的「真实原因」可能是 Musk 对 FSD 过于乐观的公开承诺与 Karpathy 实际工程认知之间的长期张力——Karpathy 从不公开夸大进度。★（推测性分析，可資訊度有限）
-
-### 离开 OpenAI（2024年2月）
-
-Karpathy 本人的表述：「什么都没发生，不是任何事件或戏剧的结果。」TechCrunch 标题：「Andrej Karpathy 再次离开 OpenAI——但他说没有任何戏剧性事件。」★★★
-
-与 Sutskever 同时期离职形成对比，外部媒体普遍将两者捆绑报道，但实际原因截然不同：Karpathy 是主动选择，Sutskever 是政治失败后的出走。
+兩人共同開設 Stanford CS231n，課程從 2015年的 150 人增長到 2017年的 750 人，側面印證了外界對這門課的高度認可。沒有找到 Fei-Fei Li 公開評價 Karpathy 的直接宣告。★★（間接證據）
 
 ---
 
-## 三、「Vibe Coding」概念引发的争议
+## 二、離職事件的行業反應
 
-### 原始定义
+### 離開 Tesla（2022年7月）
 
-「有一种新的编程方式，我称之为 vibe coding——你完全沉浸于 vibes 中，拥抱指数增长，忘记代码甚至存在。」★★★
+行業反應較為震驚。Fortune 標題：「誰是 Andrej Karpathy？Tesla AI 主管突然辭職，這對 Elon Musk 意味著麻煩。」★★★
 
-### 支持者的论点
+外部分析（Medium）：離職的「真實原因」可能是 Musk 對 FSD 過於樂觀的公開承諾與 Karpathy 實際工程認知之間的長期張力——Karpathy 從不公開誇大進度。★（推測性分析，可資訊度有限）
 
-Simon Willison（Django 联合创始人）：高度赞赏 Karpathy 的原始定义，认为「精准且有趣」，因为 Karpathy 是顶级程式员，他用这个词描述的是一种具体的探索模式，而非主张放弃理解。★★★
+### 離開 OpenAI（2024年2月）
 
-### 批评者的论点
+Karpathy 本人的表述：「什麼都沒發生，不是任何事件或戲劇的結果。」TechCrunch 標題：「Andrej Karpathy 再次離開 OpenAI——但他說沒有任何戲劇性事件。」★★★
 
-1. **Andrew Ng 的命名批评**：术语本身具有误导性，让人以为工程是「随便感觉」，实际上 AI 辅助编程是繁重的智识工作。★★★
-2. **安全漏洞风险**：CodeRabbit 2025年12月分析发现，AI 协作代码比人类代码安全漏洞率高 2.74 倍。★★★
-3. **可维护性问题**：Fast Company 报道「vibe coding 宿醉」——senior 工程师描述接手 AI 生成代码库后陷入「开发地狱」。★★★
-4. **初学者技能退化**：批评者担心 vibe coding 消灭了新手编程所需的入门级任务，破坏技能梯队。★★
-
-### 2026 年的反转
-
-Karpathy 自己宣布 vibe coding「已经过时」，他的新偏好词是「agentic engineering」：「默认情况下，你 99% 的时间不是在直接写代码，而是在编排 agents 并担任监督者角色。」★★★
+與 Sutskever 同時期離職形成對比，外部媒體普遍將兩者捆綁報道，但實際原因截然不同：Karpathy 是主動選擇，Sutskever 是政治失敗後的出走。
 
 ---
 
-## 四、「Job Risk Map」删除事件（2026年3月）
+## 三、「Vibe Coding」概念引發的爭議
 
-### 事件经过
+### 原始定義
 
-Karpathy 用两小时「vibe coded」了一个交互式图表，对 342 个 BLS 职业进行 AI 暴露度评分（0-10 分）。图表显示白领职业评分最高，体力劳动职业评分最低。Elon Musk 转发并评论「所有工作都将是可选的」，图表迅速病毒式传播。
+「有一種新的程式設計方式，我稱之為 vibe coding——你完全沉浸於 vibes 中，擁抱指數增長，忘記程式碼甚至存在。」★★★
 
-数小时内，Karpathy 删除了 GitHub 仓库。他的解释：「'暴露度'是 LLM 根据工作数字化程度打分的。这与这些职业实际会发生什么无关。人们在歪曲这个可视化工具，把话塞进我嘴里。」★★★
+### 支持者的論點
 
-### 社区批评
+Simon Willison（Django 聯合創始人）：高度讚賞 Karpathy 的原始定義，認為「精準且有趣」，因為 Karpathy 是頂級程式員，他用這個詞描述的是一種具體的探索模式，而非主張放棄理解。★★★
 
-- **方法论缺陷**：用 LLM 打分作为劳动市场替代指标，在方法上过于粗糙。
-- 这一事件被部分观察者解读为 Karpathy「公开试验文化」的代价：他愿意公开半成品想法，但当这些想法被媒体放大时，选择退缩而非承担辩论。★★
+### 批評者的論點
+
+1. **Andrew Ng 的命名批評**：術語本身具有誤導性，讓人以為工程是「隨便感覺」，實際上 AI 輔助程式設計是繁重的智識工作。★★★
+2. **安全漏洞風險**：CodeRabbit 2025年12月分析發現，AI 協作程式碼比人類程式碼安全漏洞率高 2.74 倍。★★★
+3. **可維護性問題**：Fast Company 報道「vibe coding 宿醉」——senior 工程師描述接手 AI 生成程式碼庫後陷入「開發地獄」。★★★
+4. **初學者技能退化**：批評者擔心 vibe coding 消滅了新手程式設計所需的入門級任務，破壞技能梯隊。★★
+
+### 2026 年的反轉
+
+Karpathy 自己宣佈 vibe coding「已經過時」，他的新偏好詞是「agentic engineering」：「預設情況下，你 99% 的時間不是在直接寫程式碼，而是在編排 agents 並擔任監督者角色。」★★★
 
 ---
 
-## 五、Eureka Labs 的外部评价
+## 四、「Job Risk Map」刪除事件（2026年3月）
+
+### 事件經過
+
+Karpathy 用兩小時「vibe coded」了一個互動式圖表，對 342 個 BLS 職業進行 AI 暴露度評分（0-10 分）。圖表顯示白領職業評分最高，體力勞動職業評分最低。Elon Musk 轉發並評論「所有工作都將是可選的」，圖表迅速病毒式傳播。
+
+數小時內，Karpathy 刪除了 GitHub 倉庫。他的解釋：「'暴露度'是 LLM 根據工作數字化程度打分的。這與這些職業實際會發生什麼無關。人們在歪曲這個視覺化工具，把話塞進我嘴裡。」★★★
+
+### 社群批評
+
+- **方法論缺陷**：用 LLM 打分作為勞動市場替代指標，在方法上過於粗糙。
+- 這一事件被部分觀察者解讀為 Karpathy「公開試驗文化」的代價：他願意公開半成品想法，但當這些想法被媒體放大時，選擇退縮而非承擔辯論。★★
+
+---
+
+## 五、Eureka Labs 的外部評價
 
 ### 期待
 
-TechCrunch 报道基调正面，将其视为自然延伸：从斯坦福 CS231n 到 YouTube 教学视频，再到正式创业。★★★
+TechCrunch 報道基調正面，將其視為自然延伸：從斯坦福 CS231n 到 YouTube 教學影片，再到正式創業。★★★
 
-### 质疑与批评（Dan Meyer，数学教育者）
+### 質疑與批評（Dan Meyer，數學教育者）
 
-Dan Meyer 在 Substack 撰文《Andrej Karpathy Is in Trouble》，是迄今最有分量的公开批评：
+Dan Meyer 在 Substack 撰文《Andrej Karpathy Is in Trouble》，是迄今最有分量的公開批評：
 
-- **前人失败先例**：Sebastian Thrun 的 Udacity、Andrew Ng 的 Coursera，均是技术精英在线教育领域的先行者，但都未能实现宏大的教育转型目标。
-- **核心矛盾**：「很少有设计教育软件的人有成功管理课堂或学校的经验。」Karpathy 帮助构建了世界上最先进的计算技术，但他需要将全部创造力投入「帮助人们学习」这一更难的任务。
-- **学习规模化的历史失败**：「每一种承诺规模化学习的技术都辜负了其宣传。」★★★
-
----
-
-## 六、AI 学习者社区的评价
-
-### 高度正面的评价（主流声音）
-
-- Google Scholar 显示超过 78,000 次引用（截至调研时）。★★★
-- 「Zero to Hero」课程被广泛认为是深度学习领域最好的入门课程之一。DeepLearning.AI 将其列为「Heroes of Deep Learning」。★★★
-- 教学风格被高度评价为「真实」：强调「不要抽象掉任何东西」，实时编码并展示错误修复。
-
-### 细微的批评（少数声音）
-
-- 少数学习者认为课程假设学习者已有相当基础，「zero to hero」名称有些夸张。
-- Hacker News 上对 Eureka Labs 的讨论：部分人期待，部分人持「证明给我看」的观望态度。
+- **前人失敗先例**：Sebastian Thrun 的 Udacity、Andrew Ng 的 Coursera，均是技術精英線上教育領域的先行者，但都未能實現宏大的教育轉型目標。
+- **核心矛盾**：「很少有設計教育軟體的人有成功管理課堂或學校的經驗。」Karpathy 幫助構建了世界上最先進的計算技術，但他需要將全部創造力投入「幫助人們學習」這一更難的任務。
+- **學習規模化的歷史失敗**：「每一種承諾規模化學習的技術都辜負了其宣傳。」★★★
 
 ---
 
-## 七、学术影响力与同代人对比
+## 六、AI 學習者社群的評價
 
-| 维度 | Karpathy | LeCun / Bengio / Hinton |
+### 高度正面的評價（主流聲音）
+
+- Google Scholar 顯示超過 78,000 次引用（截至調研時）。★★★
+- 「Zero to Hero」課程被廣泛認為是深度學習領域最好的入門課程之一。DeepLearning.AI 將其列為「Heroes of Deep Learning」。★★★
+- 教學風格被高度評價為「真實」：強調「不要抽象掉任何東西」，即時編碼並展示錯誤修復。
+
+### 細微的批評（少數聲音）
+
+- 少數學習者認為課程假設學習者已有相當基礎，「zero to hero」名稱有些誇張。
+- Hacker News 上對 Eureka Labs 的討論：部分人期待，部分人持「證明給我看」的觀望態度。
+
+---
+
+## 七、學術影響力與同代人對比
+
+| 維度 | Karpathy | LeCun / Bengio / Hinton |
 |------|----------|------------------------|
-| 学术引用 | ~78,000（Google Scholar） | 数十万（图灵奖得主级别） |
-| 研究贡献 | CS231n、ImageNet 人类基准、RNN博文 | 深度学习理论奠基 |
-| 影响力路径 | 工程实践 + 大众教育 | 学术体系 + 机构影响力 |
-| 公众知名度 | 远超多数学术同行 | 圈内知名，圈外有限 |
+| 學術引用 | ~78,000（Google Scholar） | 數十萬（圖靈獎得主級別） |
+| 研究貢獻 | CS231n、ImageNet 人類基準、RNN博文 | 深度學習理論奠基 |
+| 影響力路徑 | 工程實踐 + 大眾教育 | 學術體系 + 機構影響力 |
+| 公眾知名度 | 遠超多數學術同行 | 圈內知名，圈外有限 |
 
-外部评价的核心共识：Karpathy 是罕见的「顶级研究者 + 顶级沟通者」组合。他在科普和工程实践层面的影响力可能超过任何同代研究者。★★★
-
----
-
-## 八、外部观察到的行为模式
-
-### 1. 公开试验文化，但有时收场仓促
-job risk map 事件是典型案例：发布半成品 → 病毒式传播 → 删除澄清。先做再想，但当社会后果超出预期时，选择退缩而非辩论。★★★
-
-### 2. 敢于反对行业共识
-在 AGI 泡沫时期，他是少数愿意公开说「models are not there」「产品是 slop」的顶级人物。TradeFox CEO：「如果这个 Karpathy 采访不能戳破 AI 泡沫，没有什么能了。」★★★（Fortune，2025年10月）
-
-### 3. 说话速度快，思维领先于表达
-Karpathy 自己承认：「我知道，我说话太快了。这对我不利，因为有时我的说话线程执行速度超过了我的思考。」★★★
-
-### 4. 与 Elon Musk 的关系耐人寻味
-Musk 转发了他的 job risk map，两人似乎保持联系，但 Karpathy 从未公开表态支持 Musk 的政治行动。他离开 Tesla 被分析为与 Musk「过度乐观的公开承诺」文化存在底层张力。★（推测性，无直接证据）
-
-### 5. 低调的个人生活，高调的技术观点
-没有找到任何关于他私人生活的可資訊报道。他的公开形象与私下形象几乎完全重合——技术博文、课程视频、X 上的技术评论。
+外部評價的核心共識：Karpathy 是罕見的「頂級研究者 + 頂級溝通者」組合。他在科普和工程實踐層面的影響力可能超過任何同代研究者。★★★
 
 ---
 
-## 九、有根据的批评汇总
+## 八、外部觀察到的行為模式
 
-| 批评 | 来源 | 可資訊度 | 是否有根据 |
+### 1. 公開試驗文化，但有時收場倉促
+job risk map 事件是典型案例：釋出半成品 → 病毒式傳播 → 刪除澄清。先做再想，但當社會後果超出預期時，選擇退縮而非辯論。★★★
+
+### 2. 敢於反對行業共識
+在 AGI 泡沫時期，他是少數願意公開說「models are not there」「產品是 slop」的頂級人物。TradeFox CEO：「如果這個 Karpathy 採訪不能戳破 AI 泡沫，沒有什麼能了。」★★★（Fortune，2025年10月）
+
+### 3. 說話速度快，思維領先於表達
+Karpathy 自己承認：「我知道，我說話太快了。這對我不利，因為有時我的說話執行緒執行速度超過了我的思考。」★★★
+
+### 4. 與 Elon Musk 的關係耐人尋味
+Musk 轉發了他的 job risk map，兩人似乎保持聯絡，但 Karpathy 從未公開表態支援 Musk 的政治行動。他離開 Tesla 被分析為與 Musk「過度樂觀的公開承諾」文化存在底層張力。★（推測性，無直接證據）
+
+### 5. 低調的個人生活，高調的技術觀點
+沒有找到任何關於他私人生活的可資訊報道。他的公開形象與私下形象幾乎完全重合——技術博文、課程影片、X 上的技術評論。
+
+---
+
+## 九、有根據的批評彙總
+
+| 批評 | 來源 | 可資訊度 | 是否有根據 |
 |------|------|--------|-----------| 
-| vibe coding 命名误导了行业 | Andrew Ng，2025-06 | ★★★ | 有根据：AI 辅助编程的严肃性被低估 |
-| 教育行业经验不足，Eureka Labs 面临历史先例挑战 | Dan Meyer，2024 | ★★★ | 有根据：Udacity/Coursera 前车之鉴真实存在 |
-| 发布半成品分析（job risk map）引发不必要的社会恐慌 | 综合报道，2026-03 | ★★★ | 部分有根据：方法论确实不足，但他主动删除 |
-| 有时表述不够严谨，说话速度超过思考 | Karpathy 自述 + 外界观察 | ★★★ | 他自己承认 |
-| 学术引用量不及「Godfathers」级别 | Google Scholar 資料 | ★★★ | 事实，但他的影响力路径本就不同 |
-| vibe coding 产生安全漏洞 | CodeRabbit 研究，2025-12 | ★★★ | 有根据，但这是技术趋势的代价，非 Karpathy 个人责任 |
+| vibe coding 命名誤導了行業 | Andrew Ng，2025-06 | ★★★ | 有根據：AI 輔助程式設計的嚴肅性被低估 |
+| 教育行業經驗不足，Eureka Labs 面臨歷史先例挑戰 | Dan Meyer，2024 | ★★★ | 有根據：Udacity/Coursera 前車之鑑真實存在 |
+| 釋出半成品分析（job risk map）引發不必要的社會恐慌 | 綜合報道，2026-03 | ★★★ | 部分有根據：方法論確實不足，但他主動刪除 |
+| 有時表述不夠嚴謹，說話速度超過思考 | Karpathy 自述 + 外界觀察 | ★★★ | 他自己承認 |
+| 學術引用量不及「Godfathers」級別 | Google Scholar 資料 | ★★★ | 事實，但他的影響力路徑本就不同 |
+| vibe coding 產生安全漏洞 | CodeRabbit 研究，2025-12 | ★★★ | 有根據，但這是技術趨勢的代價，非 Karpathy 個人責任 |
 
 ---
 
-## 十、核心差异化特征（外部观察）
+## 十、核心差異化特徵（外部觀察）
 
-与同代 AI 领袖相比，外部观察者普遍注意到以下独特之处：
+與同代 AI 領袖相比，外部觀察者普遍注意到以下獨特之處：
 
-1. **双重稀缺性**：他既是顶级工程师，又是顶级沟通者。LeCun 能研究但沟通曲高和寡；很多科普者能讲但缺乏工程深度。
-2. **机构独立性**：他在斯坦福、Tesla、OpenAI、Eureka Labs 之间流动，不依附于单一机构，这使他的公开表态更可資訊。
-3. **建设性批评者**：他批评 AI hype，但不否定 AI 价值——与 Gary Marcus 等人的「反 AI」立场形成鲜明对比。
-4. **概念生产力**：「Software 2.0」（2017）、「vibe coding」（2025）、「summoning ghosts」（2025）、「agentic engineering」（2026）——他定期贡献能在行业内流通的概念词汇。
-5. **公开脆弱性**：他愿意公开说「我从未感觉作为程式员落后得这么厉害」（2025年），承认自己说话太快等——这在顶级 AI 领袖中罕见。
+1. **雙重稀缺性**：他既是頂級工程師，又是頂級溝通者。LeCun 能研究但溝通曲高和寡；很多科普者能講但缺乏工程深度。
+2. **機構獨立性**：他在斯坦福、Tesla、OpenAI、Eureka Labs 之間流動，不依附於單一機構，這使他的公開表態更可資訊。
+3. **建設性批評者**：他批評 AI hype，但不否定 AI 價值——與 Gary Marcus 等人的「反 AI」立場形成鮮明對比。
+4. **概念生產力**：「Software 2.0」（2017）、「vibe coding」（2025）、「summoning ghosts」（2025）、「agentic engineering」（2026）——他定期貢獻能在行業內流通的概念詞彙。
+5. **公開脆弱性**：他願意公開說「我從未感覺作為程式員落後得這麼厲害」（2025年），承認自己說話太快等——這在頂級 AI 領袖中罕見。
 
 ---
 
-*来源：Fortune、TechCrunch、The New Stack、Dwarkesh Podcast、simonwillison.net、danmeyer.substack.com、SC Media UK、Hacker News、Futurism、Google Scholar*
+*來源：Fortune、TechCrunch、The New Stack、Dwarkesh Podcast、simonwillison.net、danmeyer.substack.com、SC Media UK、Hacker News、Futurism、Google Scholar*
 
 
 
