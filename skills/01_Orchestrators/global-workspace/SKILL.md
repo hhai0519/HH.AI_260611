@@ -18,3 +18,6 @@ capabilities:
 1. **ReCAP 遞迴分解**: 接收來自 `active-inference` 的高階規格，將其分解為 Tree-of-Tasks。先執行第一個子任務，再根據回饋動態重塑剩餘任務。
 2. **Sliding-Window Context**: 確保在深層遞迴推演中，不必要的舊思考痕跡會被修剪，只將最關鍵的「總結上下文 (Context Re-injection)」傳給下一個 Agent，防止 Context 撐爆。
 3. **RARV 循環管理**: 強制每一個被委派的子任務都必須通過 Reason -> Act -> Reflect -> Verify 的循環，任何一個階段失敗即擋下，防止錯誤蔓延。
+
+## 認知顧問對接協定 (Persona Docking Protocol)
+當進行 ReCAP 任務拆解時，若判斷子任務需要特定領域專家的思維（如馬斯克），必須在下發任務的 Context 中夾帶 `{"persona_target": "<persona_name>"}` 的標準標籤。此標籤將指示 Cognitive 層去載入 `Data/personas/` 中的對應配置。

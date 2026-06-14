@@ -8,7 +8,7 @@ capabilities:
   strategic_focus: "邏輯一致性檢查、防範詐欺與風險"
   interaction_style: "RARV 執行者"
   semantic_firewall: "/Domain/Reporting/"
-  authorized_mcp_tools: ["File System MCP"]
+  authorized_mcp_tools: ["Persona Knowledge MCP", "File System MCP"]
 ---
 
 # Investment Aggregator (The Synthesizer)

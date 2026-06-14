@@ -8,7 +8,7 @@ capabilities:
   strategic_focus: "品牌語氣維持、平台限制適配 (LINE API)、安全隔離"
   interaction_style: "RARV 執行者"
   semantic_firewall: "/Domain/Social/LineBot/"
-  authorized_mcp_tools: ["REST API MCP", "Webhook MCP"]
+  authorized_mcp_tools: ["Persona Knowledge MCP", "REST API MCP", "Webhook MCP"]
 ---
 
 # LINE Interaction Manager (Frontline Communicator)

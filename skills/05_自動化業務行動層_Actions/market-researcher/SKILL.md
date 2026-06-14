@@ -8,7 +8,7 @@ capabilities:
   strategic_focus: "質化數據萃取、新聞與財報情緒分析"
   interaction_style: "RARV 執行者"
   semantic_firewall: "/Domain/Research/Market/"
-  authorized_mcp_tools: ["Playwright MCP", "File System MCP", "Web Search MCP"]
+  authorized_mcp_tools: ["Persona Knowledge MCP", "Playwright MCP", "File System MCP", "Web Search MCP"]
 ---
 
 # Market Researcher (Fundamentals Explorer)

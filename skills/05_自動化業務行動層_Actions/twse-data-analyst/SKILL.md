@@ -8,7 +8,7 @@ capabilities:
   strategic_focus: "確保量化數據正確性、遵循 TWSE 估值模型"
   interaction_style: "RARV 執行者"
   semantic_firewall: "/Domain/Finance/TWSE/"
-  authorized_mcp_tools: ["Postgres MCP", "Data Analysis MCP"]
+  authorized_mcp_tools: ["Persona Knowledge MCP", "Postgres MCP", "Data Analysis MCP"]
 ---
 
 # TWSE Data Analyst (Quant Executor)
