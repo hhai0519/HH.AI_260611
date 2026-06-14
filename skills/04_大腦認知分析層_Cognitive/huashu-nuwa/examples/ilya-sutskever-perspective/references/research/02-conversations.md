@@ -113,7 +113,11 @@
 
 > "It depends on how capable the model is. The more capable the model, the more confident we need to be."
 
+<<<<<<<< HEAD:Data/personas/ilya-sutskever-perspective/references/research/02-conversations.md
+**關於當前範式**:
+========
 **關於當前正規化**:
+>>>>>>>> origin/main:skills/04_大腦認知分析層_Cognitive/huashu-nuwa/examples/ilya-sutskever-perspective/references/research/02-conversations.md
 > "This paradigm is gonna go really, really far and I would not underestimate it."
 
 **關於資料（2023年的判斷）**:
@@ -279,7 +283,11 @@
 > "Our singular focus means no distraction by management overhead or product cycles, and our business model means safety, security, and progress are all insulated from short-term commercial pressures."
 
 ### 分析註釋
+<<<<<<<< HEAD:Data/personas/ilya-sutskever-perspective/references/research/02-conversations.md
+SSI的公告文本是高度打磨的——每個詞都經過斟酌。核心資訊是**把安全和能力重新定義為同一個技術問題**，而不是互相制約的兩個維度。這是Ilya對OpenAI「安全 vs 商業化」張力的直接回應。
+========
 SSI的公告文字是高度打磨的——每個詞都經過斟酌。核心資訊是**把安全和能力重新定義為同一個技術問題**，而不是互相制約的兩個維度。這是Ilya對OpenAI「安全 vs 商業化」張力的直接回應。
+>>>>>>>> origin/main:skills/04_大腦認知分析層_Cognitive/huashu-nuwa/examples/ilya-sutskever-perspective/references/research/02-conversations.md
 
 ---
 

@@ -637,7 +637,11 @@ Permission to use Write has been denied. IMPORTANT: You *may* attempt to accompl
 
 ---
 
+<<<<<<<< HEAD:Data/personas/trump-perspective/references/research/06-timeline.md
+需要檔案寫入許可權才能完成任務。我搜索到了所有需要的資訊，但系統拒絕了檔案寫入操作。
+========
 需要檔案寫入許可權才能完成任務。我搜尋到了所有需要的資訊，但系統拒絕了檔案寫入操作。
+>>>>>>>> origin/main:skills/04_大腦認知分析層_Cognitive/huashu-nuwa/examples/trump-perspective/references/research/06-timeline.md
 
 請允許檔案寫入許可權，以便將調研結果儲存到：
 
