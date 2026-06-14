@@ -21,3 +21,9 @@ capabilities:
 
 ## 認知顧問對接協定 (Persona Docking Protocol)
 當進行 ReCAP 任務拆解時，若判斷子任務需要特定領域專家的思維（如馬斯克），必須在下發任務的 Context 中夾帶 `{"persona_target": "<persona_name>"}` 的標準標籤。此標籤將指示 Cognitive 層去載入 `Data/personas/` 中的對應配置。
+
+## 專家自主蒸餾分發 (Automatic Distillation Routing)
+若使用者下達了「建立新的專家顧問」、「學習某某人的思維」或「蒸餾某個未收錄的專家」等指令，總管必須停止一般業務邏輯的拆解，啟動 `Expert Distillation Workflow`：
+1. 將意圖與對象轉換為具體的命令。
+2. 呼叫 `skills/02_Cognitive/persona-distiller`，並將目標專家的名稱與相關指令下放給它。
+3. 待 `persona-distiller` 完成蒸餾並將 Markdown 檔案存入 `Data/personas/` 後，向使用者回報新專家已成功註冊，並可在下一秒被所有代理人自由調閱。

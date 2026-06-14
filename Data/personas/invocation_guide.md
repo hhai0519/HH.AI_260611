@@ -33,6 +33,14 @@
 
 所有的 `05_Actions` 技能（如 `investment-aggregator`、`market-researcher`），在它們的 `SKILL.md` 配置中，必須宣告具備 `"Persona Knowledge MCP"` 的授權，才能合法接收被編譯的顧問知識。
 
+## 5. 自主蒸餾與學習引擎 (Autonomous Distillation)
+
+這套系統具備**自我擴展能力**。當使用者需要系統中尚未存在的專家時：
+1. **呼叫與分發**：使用者向 `global-workspace` 總管提出要求（例如：「幫我蒸餾黃仁勳的思維」）。
+2. **Cognitive Distiller 接手**：總管會啟動 `skills/02_Cognitive/persona-distiller`。它會透過 Child Workflows 平行收集該人物的著作、對話與他者評價。
+3. **品質閘門 (SMARt Validation)**：收集完畢後，系統會利用 Reflection 與 Debate 模式進行自我批判與多方評審。只有在多個 Agent 達成共識 (`disagree = 0`) 時，才會認定心智模型提煉成功。
+4. **熱加載上線**：蒸餾器會自動將格式化好的 Markdown 寫入本目錄 `Data/personas/[name]-perspective/`。下一秒，全網所有 Agent 皆可立即透過 `persona_target` 調閱，無需重新啟動系統。
+
 ---
 > [!NOTE]  
 > 只要遵循這套 Universal Docking Protocol，整個系統就能自由切換大腦，擁有頂尖專家的思考維度！
