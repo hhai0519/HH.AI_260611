@@ -45,7 +45,7 @@ AGENT_LABEL = "[{AI模型名}] {使用者自訂名稱或預設名稱}"
 
 ```powershell
 // 注意最後一個引數必須是 true (代表強行接管)
-node C:\Users\HH.AI_260611\Desktop\HH.AI_260611\line-bot-project\start_line.js <AGENT_ID> "<AGENT_LABEL>" true
+node line-bot-project/start_line.js <AGENT_ID> "<AGENT_LABEL>" true
 ```
 
 ### 步驟 3：根據回傳結果在 IDE 對話方塊中報告
