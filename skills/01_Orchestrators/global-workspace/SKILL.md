@@ -19,6 +19,12 @@ capabilities:
 2. **Sliding-Window Context**: 確保在深層遞迴推演中，不必要的舊思考痕跡會被修剪，只將最關鍵的「總結上下文 (Context Re-injection)」傳給下一個 Agent，防止 Context 撐爆。
 3. **RARV 循環管理**: 強制每一個被委派的子任務都必須通過 Reason -> Act -> Reflect -> Verify 的循環，任何一個階段失敗即擋下，防止錯誤蔓延。
 
+## 零欺瞞架構協定 (Anti-Deception Protocol)
+為徹底根除「模擬執行 (Dry-run)」與「幻覺回報」，本總管受 **SMARt (Self-Managing Autonomous Reasoning)** 框架最嚴格之監管：
+1. **MCP 追蹤強制性 (Trace-Gated Execution)**：當總管宣告外部工具（如 NotebookLM、網頁搜尋）執行完畢時，必須出示相對應的 OpenTelemetry `openinference-instrumentation-mcp` 伺服器端追蹤紀錄。
+2. **輸出權限剝奪 (Structural Output Gating)**：若工具呼叫沒有真實網路封包紀錄，`epistemic-state-governor` 將觸發 `invalid = 1`。總管的 **Stable (S)** 狀態權杖將被瞬間強制撤銷，剝奪其向使用者宣告「任務完成」的發言權，並強制關入 **Meta-cognitive (M)** 反思狀態。
+3. **LLM-as-a-Judge 軌跡稽核**：總管發出的所有子任務派發軌跡，皆在背景受「軌跡評審代理人」監控。若偵測到原地打轉的無效迴圈，強制觸發 Code Eval 收斂懲罰，防止「假裝忙碌」。
+
 ## 認知顧問對接協定 (Persona Docking Protocol)
 當進行 ReCAP 任務拆解時，若判斷子任務需要特定領域專家的思維（如馬斯克），必須在下發任務的 Context 中夾帶 `{"persona_target": "<persona_name>"}` 的標準標籤。此標籤將指示 Cognitive 層去載入 `Data/personas/` 中的對應配置。
 

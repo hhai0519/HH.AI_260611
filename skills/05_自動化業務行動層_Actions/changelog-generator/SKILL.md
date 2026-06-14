@@ -8,6 +8,7 @@ capabilities:
   tool_category: "DevOps/CI"
   execution_env: "Git/Node.js"
   io_format: "Markdown"
+  authorized_mcp_tools: ["Persona Knowledge MCP"]
 ---
 
 # 版本日誌生成器 (Changelog Generator)

@@ -8,6 +8,7 @@ capabilities:
   logic_depth: "股權分散與籌碼穩固度"
   strategic_focus: "機構建倉與 CI_INDEX"
   interaction_style: "資料驅動且嚴謹"
+  authorized_mcp_tools: ["Persona Knowledge MCP"]
 ---
 # 籌碼叢集追蹤 (Ownership Clustering)
 

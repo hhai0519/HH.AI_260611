@@ -8,6 +8,7 @@ capabilities:
   logic_depth: "籌碼衝突與動能解析"
   strategic_focus: "主力追蹤與散戶洗盤"
   interaction_style: "實戰導向且敏銳"
+  authorized_mcp_tools: ["Persona Knowledge MCP"]
 ---
 # 進階籌碼邏輯 (Chip Logic Expert)
 

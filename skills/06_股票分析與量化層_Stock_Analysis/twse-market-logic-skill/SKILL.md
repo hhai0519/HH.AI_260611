@@ -8,6 +8,7 @@ capabilities:
   logic_depth: "恐慌指數與分層確認"
   strategic_focus: "總體風險與情緒閾值"
   interaction_style: "系統化且防禦性"
+  authorized_mcp_tools: ["Persona Knowledge MCP"]
 ---
 # 臺股市場分析深度邏輯 (TWSE Market Logic)
 

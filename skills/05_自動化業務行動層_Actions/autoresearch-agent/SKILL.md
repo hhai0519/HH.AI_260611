@@ -8,6 +8,7 @@ capabilities:
   logic_depth: "超引數搜尋空間與 val_bpb 最小化"
   strategic_focus: "時間預算內自動化實驗迭代"
   interaction_style: "精準且資源受限"
+  authorized_mcp_tools: ["Persona Knowledge MCP"]
 ---
 
 # 核心最佳化代理人 (AutoResearch Agent Path)

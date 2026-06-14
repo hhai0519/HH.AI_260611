@@ -8,6 +8,7 @@ capabilities:
   logic_depth: "多技能協作任務拆解與開發迴圈"
   strategic_focus: "計畫→實作→驗證→迭代四階段"
   interaction_style: "結構化且步驟嚴謹"
+  authorized_mcp_tools: ["Persona Knowledge MCP"]
 ---
 
 # 臺股分析網站開發 SOP

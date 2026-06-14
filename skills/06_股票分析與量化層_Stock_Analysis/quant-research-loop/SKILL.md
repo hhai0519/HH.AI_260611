@@ -8,6 +8,7 @@ capabilities:
   logic_depth: "量化策略假設→回測→引數最佳化迴圈"
   strategic_focus: "VQS 模型與 Sharpe/勝率評估"
   interaction_style: "系統化且迭代驅動"
+  authorized_mcp_tools: ["Persona Knowledge MCP"]
 ---
 
 # 量化研究迴圈 (Quant Research Loop)

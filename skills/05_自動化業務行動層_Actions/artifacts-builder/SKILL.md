@@ -8,6 +8,7 @@ capabilities:
   tool_category: "UI Builder"
   execution_env: "Browser/React"
   io_format: "HTML/JSX"
+  authorized_mcp_tools: ["Persona Knowledge MCP"]
 ---
 
 # Artifacts 原型建構 (Artifacts Builder)

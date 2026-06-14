@@ -8,6 +8,7 @@ capabilities:
   tool_category: "Finance Visualization"
   execution_env: "Browser/D3.js"
   io_format: "SVG/JSON"
+  authorized_mcp_tools: ["Persona Knowledge MCP"]
 ---
 
 # PE 河流圖分析 (PE River Map)

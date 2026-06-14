@@ -8,6 +8,7 @@ capabilities:
   tool_category: "Testing"
   execution_env: "Node.js/Playwright"
   io_format: "HTML/Screenshot"
+  authorized_mcp_tools: ["Persona Knowledge MCP"]
 ---
 
 # Web 應用快速測試 (WebApp Testing)

@@ -4,6 +4,9 @@ import time
 import subprocess
 import json
 import re
+import sys
+
+sys.stdout.reconfigure(encoding='utf-8')
 
 # ---------------------------------------------------------
 # SMARt Autonomous Distillation Runner

@@ -8,6 +8,7 @@ capabilities:
   tool_category: "Skill Generation"
   execution_env: "Agent Native"
   io_format: "Markdown"
+  authorized_mcp_tools: ["Persona Knowledge MCP"]
 ---
 
 # 技能設計大師 (Skill Creator)

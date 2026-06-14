@@ -8,6 +8,7 @@ capabilities:
   logic_depth: "價格形態與量能結構"
   strategic_focus: "趨勢指標與反轉訊號"
   interaction_style: "客觀且紀律嚴明"
+  authorized_mcp_tools: ["Persona Knowledge MCP"]
 ---
 # 技術分析引擎 (Technical Analyzer)
 

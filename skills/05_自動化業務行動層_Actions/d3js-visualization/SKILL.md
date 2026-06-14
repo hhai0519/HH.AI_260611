@@ -8,6 +8,7 @@ capabilities:
   tool_category: "Data Visualization"
   execution_env: "Browser/D3.js"
   io_format: "SVG/HTML"
+  authorized_mcp_tools: ["Persona Knowledge MCP"]
 ---
 
 # D3.js 互動視覺化 (D3.js Visualization)

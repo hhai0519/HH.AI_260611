@@ -8,6 +8,7 @@ capabilities:
   logic_depth: "遞迴深化研究路徑與子方向識別"
   strategic_focus: "配額管理與深度研究產出"
   interaction_style: "廣度→深度且自主收斂"
+  authorized_mcp_tools: ["Persona Knowledge MCP"]
 ---
 
 # 遞迴研究自動化路徑 (Recursive Research Automation Path)

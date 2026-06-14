@@ -21,6 +21,12 @@ capabilities:
 ## DLP 宣告 (Data Loss Prevention)
 本技能涉及全域性協調與核心狀態管理，嚴禁將敏感配置、基礎架構憑證或機密對話紀錄外洩或上傳至未授權之外部日誌系統。
 
+## 零欺瞞架構協定 (Anti-Deception Protocol)
+為徹底根除「模擬執行 (Dry-run)」與「幻覺回報」，本總管受 **SMARt (Self-Managing Autonomous Reasoning)** 框架最嚴格之監管：
+1. **MCP 追蹤強制性 (Trace-Gated Execution)**：當總管宣告外部工具（如 NotebookLM、網頁搜尋）執行完畢時，必須出示相對應的 OpenTelemetry `openinference-instrumentation-mcp` 伺服器端追蹤紀錄。
+2. **輸出權限剝奪 (Structural Output Gating)**：若工具呼叫沒有真實網路封包紀錄，`epistemic-state-governor` 將觸發 `invalid = 1`。總管的 **Stable (S)** 狀態權杖將被瞬間強制撤銷，剝奪其向使用者宣告「任務完成」的發言權，並強制關入 **Meta-cognitive (M)** 反思狀態。
+3. **LLM-as-a-Judge 軌跡稽核**：總管發出的所有子任務派發軌跡，皆在背景受「軌跡評審代理人」監控。若偵測到原地打轉的無效迴圈，強制觸發 Code Eval 收斂懲罰，防止「假裝忙碌」。
+
 ## 核心工作流：4-Phase State Machine
 
 你必須強制任務依序經過以下四個階段，除非使用者明確跳過：
@@ -98,3 +104,9 @@ capabilities:
 > 1. 當任務指示「透過 NotebookLM 進行研究/查詢」時，必須嚴格呼叫 `notebooklm` 相關 MCP 工具。
 > 2. 若遇到無法連線、憑證過期 (`auth_status: stale` 或 `Authentication expired`) 等錯誤時，**絕對禁止**未經同意自行改用常規網路搜尋 (Web Search) 或其他工具替代。
 > 3. 遇到錯誤時，請**立刻中斷動作並主動告知使用者**，請使用者協助登入或修復連線後，再繼續研究任務。
+
+
+## 🎭 角色指派協定 (Persona Delegation Protocol)
+- **總管強制職責**: 當使用者或任務需求指定了特定人物視角 (例如「請用芒格的觀點分析」)，總管必須在指派任務給下游專家 (如 inancial-analyst, investment-researcher) 時，將 persona_target: "<人物名稱>" 打包進入 Dynamic Payload。
+- **範例**: [SYSTEM-CALL: financial-analyst | PAYLOAD: { objective: "分析台積電毛利率", persona_target: "munger" }]
+- **目的**: 確保底層專家具備該大師的知識庫授權。
