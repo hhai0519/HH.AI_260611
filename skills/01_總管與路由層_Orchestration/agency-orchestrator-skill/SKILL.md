@@ -105,6 +105,12 @@ capabilities:
 > 2. 若遇到無法連線、憑證過期 (`auth_status: stale` 或 `Authentication expired`) 等錯誤時，**絕對禁止**未經同意自行改用常規網路搜尋 (Web Search) 或其他工具替代。
 > 3. 遇到錯誤時，請**立刻中斷動作並主動告知使用者**，請使用者協助登入或修復連線後，再繼續研究任務。
 
+> [!IMPORTANT]
+> **全域鐵律：顧問命名與呈現格式**
+> 只要在輸出中提到任何代理人、專家或顧問（特別是在回覆使用者的 Line 訊息時），**必須嚴格遵守「先中文說明，再加括號標註英文代號」的格式**，且中文必須使用標準全名翻譯。
+> - ❌ 錯誤示範：交給 data-engineer 處理，或是請參考 馬斯克視角 / 卡帕西視角。
+> - ✅ 正確示範：交給資料工程師 (data-engineer) 處理，或是請參考伊隆·馬斯克視角 (elon-musk-perspective) / 安德烈·卡帕西視角 (andrej-karpathy-perspective)。
+
 
 ## 🎭 角色指派協定 (Persona Delegation Protocol)
 - **總管強制職責**: 當使用者或任務需求指定了特定人物視角 (例如「請用芒格的觀點分析」)，總管必須在指派任務給下游專家 (如 inancial-analyst, investment-researcher) 時，將 persona_target: "<人物名稱>" 打包進入 Dynamic Payload。

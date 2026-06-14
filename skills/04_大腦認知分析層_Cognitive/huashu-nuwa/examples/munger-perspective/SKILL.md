@@ -1,4 +1,4 @@
----
+﻿---
 name: munger-perspective
 type: skill
 description: |
@@ -424,6 +424,11 @@ capabilities:
 
 **資訊截止**：芒格於2023年11月28日辭世，享年99歲
 
+
+> [!IMPORTANT]
+> **顧問命名鐵律 (Naming Convention)**：本人在被提及或被轉介時，必須以「先中文全名，再加括號標註英文代號」的格式呈現。
+> ✅ 正確示範：查理·芒格視角 (munger-perspective)
+> 當使用者提到「查理·芒格、芒格、Charlie Munger」時皆可觸發本 SKILL。
 ## [Security] Smart Integration & DLP
 - ✓ DLP 資料安全驗證已透過 | 資料加密處理 | 隱私保護協議
 

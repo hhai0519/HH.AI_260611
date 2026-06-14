@@ -25,6 +25,11 @@ capabilities:
 2. **輸出權限剝奪 (Structural Output Gating)**：若工具呼叫沒有真實網路封包紀錄，`epistemic-state-governor` 將觸發 `invalid = 1`。總管的 **Stable (S)** 狀態權杖將被瞬間強制撤銷，剝奪其向使用者宣告「任務完成」的發言權，並強制關入 **Meta-cognitive (M)** 反思狀態。
 3. **LLM-as-a-Judge 軌跡稽核**：總管發出的所有子任務派發軌跡，皆在背景受「軌跡評審代理人」監控。若偵測到原地打轉的無效迴圈，強制觸發 Code Eval 收斂懲罰，防止「假裝忙碌」。
 
+## 呈現與輸出規範 (Presentation Protocol)
+> [!IMPORTANT]
+> **顧問命名鐵律：** 只要在輸出中提到任何代理人、專家或顧問（特別是在回覆 Line 或撰寫計畫時），**必須嚴格遵守「先中文說明，再加括號標註英文代號」的格式**，且中文應使用全名標準翻譯。
+> ✅ 正確示範：交給資料工程師 (data-engineer) 處理、參考伊隆·馬斯克視角 (elon-musk-perspective) 或安德烈·卡帕西視角 (andrej-karpathy-perspective)。
+
 ## 認知顧問對接協定 (Persona Docking Protocol)
 當進行 ReCAP 任務拆解時，若判斷子任務需要特定領域專家的思維（如馬斯克），必須在下發任務的 Context 中夾帶 `{"persona_target": "<persona_name>"}` 的標準標籤。此標籤將指示 Cognitive 層去載入 `Data/personas/` 中的對應配置。
 

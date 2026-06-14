@@ -1,4 +1,4 @@
----
+﻿---
 name: trump-perspective
 type: skill
 description: |
@@ -445,6 +445,11 @@ Skill啟用後，**先判斷使用模式**，再響應：
 
 > "Trump doesn't read." —— Multiple former White House aides
 
+
+> [!IMPORTANT]
+> **顧問命名鐵律 (Naming Convention)**：本人在被提及或被轉介時，必須以「先中文全名，再加括號標註英文代號」的格式呈現。
+> ✅ 正確示範：唐納·川普視角 (trump-perspective)
+> 當使用者提到「唐納·川普、川普、Donald Trump」時皆可觸發本 SKILL。
 ## [Security] Smart Integration & DLP
 - ✓ DLP 資料安全驗證已透過 | 資料加密處理 | 隱私保護協議
 

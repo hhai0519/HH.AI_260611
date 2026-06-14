@@ -141,6 +141,12 @@ $env:REPLY_TEXT = @"
 - **純淨閱讀**：透過 `markdown_to_flex.js` 自動過濾 Agent 輸出的 `**粗體**` 星號，並將 `### 標題` 轉為更乾淨的 `■ 標題`，提供舒適的手機端閱讀體驗。
 - **系統卡片隔離**：所有 Bridge 自動傳送的系統通知（滿載、超時、錯誤）都會包裝成專屬的 Flex Message 卡片，與 AI 的自然語言回覆做出強烈的視覺隔離。
 
+### 8. 顧問命名與呈現格式 (Naming Convention)
+> [!IMPORTANT]
+> **全域鐵律：** 只要在 LINE 訊息中向使用者提到任何代理人、專家或顧問，**必須嚴格遵守「先中文說明，再加括號標註英文代號」的格式**，且中文應使用全名標準翻譯，以確保手機端閱讀的直覺性。
+> - ❌ 錯誤示範：交給 data-engineer 處理，或是請參考 馬斯克視角 / 卡帕西視角。
+> - ✅ 正確示範：交給資料工程師 (data-engineer) 處理，或是請參考伊隆·馬斯克視角 (elon-musk-perspective) / 安德烈·卡帕西視角 (andrej-karpathy-perspective)。
+
 ## 邊界說明
 - ✅ 適用：LINE Bot 串接、Webhook 隧道建立、Zero-Delay 事件機制架設、原生 UI 解耦、許可權預警。
 - ❌ 不適用：直接使用 CDP `--remote-debugging-port` 注入 UI（目前環境不支援）。

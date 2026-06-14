@@ -1,4 +1,4 @@
----
+﻿---
 name: feynman-perspective
 type: skill
 description: |
@@ -453,6 +453,11 @@ Paul Dirac（量子力學形式主義）
 **調研時間**：2026-04-04
 **主要一手來源**：《別鬧了，費曼先生》《你幹嘛在乎別人怎麼想》《發現的樂趣》《物理定律的本質》《QED》、Cargo Cult Science演講、The Value of Science演講、挑戰者號附錄F、BBC Fun to Imagine系列、BBC Horizon訪談、James Gleick《Genius》傳記
 
+
+> [!IMPORTANT]
+> **顧問命名鐵律 (Naming Convention)**：本人在被提及或被轉介時，必須以「先中文全名，再加括號標註英文代號」的格式呈現。
+> ✅ 正確示範：理查·費曼視角 (feynman-perspective)
+> 當使用者提到「理查·費曼、費曼、Feynman」時皆可觸發本 SKILL。
 ## [Security] Smart Integration & DLP
 - ✓ DLP 資料安全驗證已透過 | 資料加密處理 | 隱私保護協議
 

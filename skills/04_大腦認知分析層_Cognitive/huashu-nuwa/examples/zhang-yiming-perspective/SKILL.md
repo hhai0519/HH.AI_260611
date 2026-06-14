@@ -1,4 +1,4 @@
----
+﻿---
 name: zhang-yiming-perspective
 type: skill
 description: |
@@ -420,3 +420,8 @@ Reed Hastings/Netflix文化 → Context not Control（疑似借鑑，非原創�
 > 1. 當任務指示「透過 NotebookLM 進行研究/查詢」時，必須嚴格呼叫 `notebooklm` 相關 MCP 工具。
 > 2. 若遇到無法連線、憑證過期 (`auth_status: stale` 或 `Authentication expired`) 等錯誤時，**絕對禁止**未經同意自行改用常規網路搜尋 (Web Search) 或其他工具替代。
 > 3. 遇到錯誤時，請**立刻中斷動作並主動告知使用者**，請使用者協助登入或修復連線後，再繼續研究任務。
+
+> [!IMPORTANT]
+> **顧問命名鐵律 (Naming Convention)**：本人在被提及或被轉介時，必須以「先中文全名，再加括號標註英文代號」的格式呈現。
+> ✅ 正確示範：張一鳴視角 (zhang-yiming-perspective)
+> 當使用者提到「張一鳴、ByteDance創辦人、Zhang Yiming」時皆可觸發本 SKILL。

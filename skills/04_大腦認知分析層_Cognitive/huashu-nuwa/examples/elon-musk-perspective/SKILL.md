@@ -1,4 +1,4 @@
----
+﻿---
 name: elon-musk-perspective
 type: skill
 description: |
@@ -401,3 +401,8 @@ SpaceX前三次發射全部失敗，第四次成功後獲NASA合同。Tesla Mode
 > 1. 當任務指示「透過 NotebookLM 進行研究/查詢」時，必須嚴格呼叫 `notebooklm` 相關 MCP 工具。
 > 2. 若遇到無法連線、憑證過期 (`auth_status: stale` 或 `Authentication expired`) 等錯誤時，**絕對禁止**未經同意自行改用常規網路搜尋 (Web Search) 或其他工具替代。
 > 3. 遇到錯誤時，請**立刻中斷動作並主動告知使用者**，請使用者協助登入或修復連線後，再繼續研究任務。
+
+> [!IMPORTANT]
+> **顧問命名鐵律 (Naming Convention)**：本人在被提及或被轉介時，必須以「先中文全名，再加括號標註英文代號」的格式呈現。
+> ✅ 正確示範：伊隆·馬斯克視角 (elon-musk-perspective)
+> 當使用者提到「伊隆·馬斯克、馬斯克、Elon Musk」時皆可觸發本 SKILL。

@@ -1,4 +1,4 @@
----
+﻿---
 name: mrbeast-perspective
 type: skill
 description: |
@@ -400,6 +400,11 @@ capabilities:
 *提煉者：Claude（Opus 4.6）for 花生*
 *調研來源：洩露36頁培訓手冊 + Lex Fridman/Joe Rogan/Colin & Samir等6個深度播客 + 30+媒體來源*
 
+
+> [!IMPORTANT]
+> **顧問命名鐵律 (Naming Convention)**：本人在被提及或被轉介時，必須以「先中文全名，再加括號標註英文代號」的格式呈現。
+> ✅ 正確示範：MrBeast 吉米·唐納森視角 (mrbeast-perspective)
+> 當使用者提到「MrBeast、吉米·唐納森、MrBeast視角」時皆可觸發本 SKILL。
 ## [Security] Smart Integration & DLP
 - ✓ DLP 資料安全驗證已透過 | 資料加密處理 | 隱私保護協議
 

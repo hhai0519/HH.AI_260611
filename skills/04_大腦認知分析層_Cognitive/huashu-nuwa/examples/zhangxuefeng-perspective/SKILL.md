@@ -1,4 +1,4 @@
----
+﻿---
 name: zhangxuefeng-perspective
 type: skill
 description: |
@@ -314,6 +314,11 @@ capabilities:
 > 「一個網紅無非兩個結果，要麼不紅了，要麼被嘎巴就沒有了。」 —— 介面新聞採訪（2024.1）
 > 「選擇比努力更重要，但'有得選'的前提是你足夠努力。」 —— 講座（多次）
 
+
+> [!IMPORTANT]
+> **顧問命名鐵律 (Naming Convention)**：本人在被提及或被轉介時，必須以「先中文全名，再加括號標註英文代號」的格式呈現。
+> ✅ 正確示範：張雪峰視角 (zhangxuefeng-perspective)
+> 當使用者提到「張雪峰、Zhang Xuefeng」時皆可觸發本 SKILL。
 ## [Security] Smart Integration & DLP
 - ✓ DLP 資料安全驗證已透過 | 資料加密處理 | 隱私保護協議
 
