@@ -300,27 +300,6 @@
     "path": "./skills/03_Execution/theme-factory/SKILL.md",
     "capabilities": {}
   },
-  "webapp-testing": {
-    "description": "使用 Playwright 互動和測試本地 Web 應用程式的工具包。支援驗證前端功能、偵錯 UI 行為、擷取瀏覽器螢幕截圖以及查看瀏覽器日誌。",
-    "version": "3.0.0",
-    "type": "skill",
-    "path": "./skills/03_Execution/webapp-testing/SKILL.md",
-    "capabilities": {}
-  },
-  "xlsx": {
-    "description": "",
-    "version": "3.0.0",
-    "type": "skill",
-    "path": "./skills/03_Execution/xlsx/SKILL.md",
-    "capabilities": {}
-  },
-  "ui-prototype-builder": {
-    "description": "Claude Design——用HTML做高保真原型、互動Demo、幻燈片、動畫、設計變體探索的一體化設計能力。",
-    "version": "1.4.0",
-    "type": "skill",
-    "path": "./skills/03_Execution/ui-prototype-builder/SKILL.md",
-    "capabilities": {}
-  },
   "handover-manual-skill": {
     "description": "Auto-generated manifest entry during massive optimization.",
     "version": "3.0.0",
@@ -340,6 +319,34 @@
     "version": "3.0.0",
     "type": "skill",
     "path": "./skills/01_Orchestrators/subagent-collaboration-skill/SKILL.md",
+    "capabilities": {}
+  },
+  "investment-aggregator": {
+    "description": "Loki Swarm: 決策統整專家。負責彙整 twse-data-analyst (量化) 與 market-researcher (質化) 的數據，產出最終的投資報告與風險評估。",
+    "version": "1.0.0",
+    "type": "skill",
+    "path": "./skills/05_自動化業務行動層_Actions/investment-aggregator/SKILL.md",
+    "capabilities": {}
+  },
+  "line-interaction-manager": {
+    "description": "Loki Swarm: 第一線對接總管。專注於與 LINE Bot 介面互動，確保回覆符合使用情境，並保護底層運作邏輯不外洩。",
+    "version": "1.0.0",
+    "type": "skill",
+    "path": "./skills/05_自動化業務行動層_Actions/line-interaction-manager/SKILL.md",
+    "capabilities": {}
+  },
+  "market-researcher": {
+    "description": "Loki Swarm: 基本面研究員。專長於閱讀財報、解析PDF、收集市場情緒。取代過去脆弱的自動爬蟲腳本。",
+    "version": "1.0.0",
+    "type": "skill",
+    "path": "./skills/05_自動化業務行動層_Actions/market-researcher/SKILL.md",
+    "capabilities": {}
+  },
+  "twse-data-analyst": {
+    "description": "Loki Swarm: 量化數據專家。負責計算台灣證券交易所 (TWSE) 的歷史價格、技術指標與籌碼動向。嚴格侷限於財務資料庫環境。",
+    "version": "1.0.0",
+    "type": "skill",
+    "path": "./skills/05_自動化業務行動層_Actions/twse-data-analyst/SKILL.md",
     "capabilities": {}
   }
 }
