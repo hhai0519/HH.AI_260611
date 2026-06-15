@@ -1,29 +1,5 @@
-commit	val_bpb	status	description
-0237d85	15.281531	discard	experiment: increase depth to 3
-local	999.000000	discard	experiment: DEPTH=2, LR=3.00e-04
-local	999.000000	discard	experiment: DEPTH=2, LR=5.00e-04
-local	999.000000	discard	experiment: DEPTH=2, LR=3.00e-04
-local	999.000000	discard	experiment: DEPTH=2, LR=3.00e-04
-local	999.000000	discard	experiment: DEPTH=2, LR=5.00e-04
-local	999.000000	discard	experiment: DEPTH=2, LR=3.00e-04
-local	999.000000	discard	experiment: DEPTH=2, LR=5.00e-04
-local	999.000000	discard	experiment: DEPTH=3, LR=3.00e-04
-local	999.000000	discard	experiment: DEPTH=2, LR=5.00e-04
-local	999.000000	discard	experiment: DEPTH=3, LR=3.00e-04
-local	999.000000	discard	experiment: DEPTH=3, LR=5.00e-04
-local	999.000000	discard	experiment: DEPTH=3, LR=3.00e-04
-local	999.000000	discard	experiment: DEPTH=3, LR=5.00e-04
-local	999.000000	discard	experiment: DEPTH=4, LR=3.00e-04
-local	999.000000	discard	experiment: DEPTH=3, LR=5.00e-04
-local	999.000000	discard	experiment: DEPTH=4, LR=3.00e-04
-local	999.000000	discard	experiment: DEPTH=4, LR=3.00e-04
-local	10.557062	keep	experiment: DEPTH=2, LR=3.00e-04
-local	10.476966	keep	experiment: DEPTH=2, LR=5.00e-04
-local	12.193720	discard	experiment: DEPTH=3, LR=3.00e-04
-local	10.877182	discard	experiment: DEPTH=3, LR=5.00e-04
-local	11.365015	discard	experiment: DEPTH=4, LR=3.00e-04
-local	12.201633	keep	experiment: DEPTH=2, LR=3.00e-04
-local	10.662274	keep	experiment: DEPTH=2, LR=5.00e-04
-local	11.774606	discard	experiment: DEPTH=3, LR=3.00e-04
-local	10.302328	keep	experiment: DEPTH=3, LR=5.00e-04
-local	11.363632	discard	experiment: DEPTH=4, LR=3.00e-04
+ac9a1de	8.380767	discard	DEPTH=4, LR=1e-3
+ac9a1de	N/A	crash	DEPTH=3, LR=3e-3
+ac9a1de	N/A	crash	DEPTH=4, LR=5e-4
+ac9a1de	N/A	crash	DEPTH=3, LR=1e-4
+ac9a1de	N/A	crash	DEPTH=2, LR=1e-3

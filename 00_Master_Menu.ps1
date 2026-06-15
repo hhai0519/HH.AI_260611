@@ -1,5 +1,5 @@
 param(
-    [string]$Workspace = "<USER_HOME>\Desktop\AI Test_260503"
+    [string]$Workspace = "<USER_HOME>\Desktop\HH.AI_260611"
 )
 
 Set-Location $Workspace
@@ -140,7 +140,7 @@ while ($true) {
     $skillsCount = $global:cachedSkillsCount
 
     Write-Host "===================================================================" -ForegroundColor Cyan
-    Write-Host "             自動化與軟體工程工作站 (AI Test_260503)               " -ForegroundColor Cyan
+    Write-Host "             自動化與軟體工程工作站 (HH.AI_260611)               " -ForegroundColor Cyan
     Write-Host "===================================================================" -ForegroundColor Cyan
     Write-Host ""
     Write-Host " [ 系統健康度 ]" -ForegroundColor Yellow
