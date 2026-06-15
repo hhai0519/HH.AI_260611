@@ -1,0 +1,40 @@
+---
+name: "global-workspace"
+description: "動態工作流引擎。取代靜態的協作腳本與研究迴圈。實作 ReCAP (Recursive Context-Aware Planning) 引擎，負責遞迴式任務拆解、滑動視窗上下文廣播 (Context Broadcasting)，並透過 A2A Gateway 指揮 Loki Swarm。"
+version: "1.0.0"
+type: "orchestrator"
+capabilities:
+  logic_depth: "ReCAP 引擎、Global Workspace 理論"
+  strategic_focus: "動態任務派發、防範上下文衰退 (Context Decay)"
+  interaction_style: "任務排程與狀態廣播"
+---
+
+# Global Workspace
+
+## 功能概述
+本技能負責打破資訊孤島，確保所有 Agent 都「活在同一個現實」，並負責將龐大的任務拆解為可被獨立執行的子節點。
+
+## 實作邏輯 (Implementation Logic)
+1. **ReCAP 遞迴分解**: 接收來自 `active-inference` 的高階規格，將其分解為 Tree-of-Tasks。先執行第一個子任務，再根據回饋動態重塑剩餘任務。
+2. **Sliding-Window Context**: 確保在深層遞迴推演中，不必要的舊思考痕跡會被修剪，只將最關鍵的「總結上下文 (Context Re-injection)」傳給下一個 Agent，防止 Context 撐爆。
+3. **RARV 循環管理**: 強制每一個被委派的子任務都必須通過 Reason -> Act -> Reflect -> Verify 的循環，任何一個階段失敗即擋下，防止錯誤蔓延。
+
+## 零欺瞞架構協定 (Anti-Deception Protocol)
+為徹底根除「模擬執行 (Dry-run)」與「幻覺回報」，本總管受 **SMARt (Self-Managing Autonomous Reasoning)** 框架最嚴格之監管：
+1. **MCP 追蹤強制性 (Trace-Gated Execution)**：當總管宣告外部工具（如 NotebookLM、網頁搜尋）執行完畢時，必須出示相對應的 OpenTelemetry `openinference-instrumentation-mcp` 伺服器端追蹤紀錄。
+2. **輸出權限剝奪 (Structural Output Gating)**：若工具呼叫沒有真實網路封包紀錄，`epistemic-state-governor` 將觸發 `invalid = 1`。總管的 **Stable (S)** 狀態權杖將被瞬間強制撤銷，剝奪其向使用者宣告「任務完成」的發言權，並強制關入 **Meta-cognitive (M)** 反思狀態。
+3. **LLM-as-a-Judge 軌跡稽核**：總管發出的所有子任務派發軌跡，皆在背景受「軌跡評審代理人」監控。若偵測到原地打轉的無效迴圈，強制觸發 Code Eval 收斂懲罰，防止「假裝忙碌」。
+
+## 呈現與輸出規範 (Presentation Protocol)
+> [!IMPORTANT]
+> **顧問命名鐵律：** 只要在輸出中提到任何代理人、專家或顧問（特別是在回覆 Line 或撰寫計畫時），**必須嚴格遵守「先中文說明，再加括號標註英文代號」的格式**，且中文應使用全名標準翻譯。
+> ✅ 正確示範：交給資料工程師 (data-engineer) 處理、參考伊隆·馬斯克視角 (elon-musk-perspective) 或安德烈·卡帕西視角 (andrej-karpathy-perspective)。
+
+## 認知顧問對接協定 (Persona Docking Protocol)
+當進行 ReCAP 任務拆解時，若判斷子任務需要特定領域專家的思維（如馬斯克），必須在下發任務的 Context 中夾帶 `{"persona_target": "<persona_name>"}` 的標準標籤。此標籤將指示 Cognitive 層去載入 `Data/personas/` 中的對應配置。
+
+## 專家自主蒸餾分發 (Automatic Distillation Routing)
+若使用者下達了「建立新的專家顧問」、「學習某某人的思維」或「蒸餾某個未收錄的專家」等指令，總管必須停止一般業務邏輯的拆解，啟動 `Expert Distillation Workflow`：
+1. 將意圖與對象轉換為具體的命令。
+2. 呼叫 `skills/02_Cognitive/persona-distiller`，並將目標專家的名稱與相關指令下放給它。
+3. 待 `persona-distiller` 完成蒸餾並將 Markdown 檔案存入 `Data/personas/` 後，向使用者回報新專家已成功註冊，並可在下一秒被所有代理人自由調閱。
