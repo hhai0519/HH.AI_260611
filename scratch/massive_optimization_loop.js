@@ -42,7 +42,7 @@ function processSkillFile(fullPath, layer, id) {
     // Clean BOM
     content = content.replace(/^\uFEFF+/, '');
     
-    let type = layer === '05_自動化業務行動層_Actions' ? 'execution' : layer === '04_大腦認知分析層_Cognitive' ? 'cognitive' : 'orchestrator';
+    let type = layer === '03_Execution' ? 'execution' : layer === '02_Cognitive' ? 'cognitive' : 'orchestrator';
 
     // 1. Check/Inject Type
     if (!content.match(/^type:\s*".*"/m)) {

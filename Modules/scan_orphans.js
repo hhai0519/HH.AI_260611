@@ -1,7 +1,7 @@
 // [LOW-02] V3.2.0 修復：移除已廢棄的 finance-*/sys-* 前綴目錄名，
 // 改為與 SKILL.md name: 欄位 1:1 對齊的實際目錄名稱。
 const fs = require('fs'), path = require('path');
-const base = './skills/01_總管與路由層_Orchestration';
+const base = './skills/01_Orchestrators';
 const dirs = [
   'quant-research-loop',
   'twse-dev-sop-skill',

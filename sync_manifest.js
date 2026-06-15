@@ -32,7 +32,7 @@ function getSkillData(skillPath) {
 }
 
 const manifest = {};
-const layers = ['01_總管與路由層_Orchestration', '04_大腦認知分析層_Cognitive', '05_自動化業務行動層_Actions'];
+const layers = ['01_Orchestrators', '02_Cognitive', '03_Execution'];
 
 layers.forEach(layer => {
   const layerPath = path.join(SKILLS_DIR, layer);
