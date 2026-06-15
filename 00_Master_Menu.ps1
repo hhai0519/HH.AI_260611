@@ -1,5 +1,5 @@
 param(
-    [string]$Workspace = "<USER_HOME>\Desktop\HH.AI_260611"
+    [string]$Workspace = $PSScriptRoot
 )
 
 Set-Location $Workspace
@@ -138,6 +138,18 @@ while ($true) {
     $pendingCount = Get-PendingCount
     $sops = $global:cachedSops
     $skillsCount = $global:cachedSkillsCount
+
+    $envFile = Join-Path $Workspace ".env.local"
+    if (Test-Path $envFile) {
+        $envContent = Get-Content $envFile -Raw
+        if ($envContent -match "<PASSWORD>" -or $envContent -match "<YOUR_") {
+            Write-Host "===================================================================" -ForegroundColor Red
+            Write-Host " [溫馨提醒] 您的 .env.local 中仍有未填寫的機密金鑰 (如 DATABASE_URL 等)！" -ForegroundColor Yellow
+            Write-Host " 若需使用資料庫或 MCP 外部連線功能，請記得補足這些金鑰以恢復正常運作。" -ForegroundColor Yellow
+            Write-Host "===================================================================" -ForegroundColor Red
+            Write-Host ""
+        }
+    }
 
     Write-Host "===================================================================" -ForegroundColor Cyan
     Write-Host "             自動化與軟體工程工作站 (HH.AI_260611)               " -ForegroundColor Cyan
