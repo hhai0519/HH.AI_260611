@@ -629,6 +629,178 @@
         "HTML演示",
         "設計變體"
       ]
+    },
+    {
+      "name": "active-inference",
+      "folder_path": "01_Orchestrators/active-inference",
+      "layer": "01_Orchestrators",
+      "aliases": [
+        "主動推斷",
+        "ActiveInference"
+      ]
+    },
+    {
+      "name": "cost-benefit-router",
+      "folder_path": "01_Orchestrators/cost-benefit-router",
+      "layer": "01_Orchestrators",
+      "aliases": [
+        "成本效益路由",
+        "任務路由器"
+      ]
+    },
+    {
+      "name": "episodic-consolidation",
+      "folder_path": "01_Orchestrators/episodic-consolidation",
+      "layer": "01_Orchestrators",
+      "aliases": [
+        "情節記憶固化",
+        "記憶整合"
+      ]
+    },
+    {
+      "name": "global-workspace",
+      "folder_path": "01_Orchestrators/global-workspace",
+      "layer": "01_Orchestrators",
+      "aliases": [
+        "全域工作空間",
+        "全局廣播"
+      ]
+    },
+    {
+      "name": "self-improvement",
+      "folder_path": "01_Orchestrators/self-improvement",
+      "layer": "01_Orchestrators",
+      "aliases": [
+        "自我改進",
+        "自進化"
+      ]
+    },
+    {
+      "name": "stock-orchestrator-skill",
+      "folder_path": "01_Orchestrators/stock-orchestrator-skill",
+      "layer": "01_Orchestrators",
+      "aliases": [
+        "台股分析總管",
+        "stock-orchestrator"
+      ]
+    },
+    {
+      "name": "declarative-visual-intent-generator",
+      "folder_path": "02_Cognitive/declarative-visual-intent-generator",
+      "layer": "02_Cognitive",
+      "aliases": [
+        "聲明式視覺意圖",
+        "視覺規格生成"
+      ]
+    },
+    {
+      "name": "dynamic-tool-synthesizer",
+      "folder_path": "02_Cognitive/dynamic-tool-synthesizer",
+      "layer": "02_Cognitive",
+      "aliases": [
+        "動態工具合成器",
+        "工具組合器"
+      ]
+    },
+    {
+      "name": "epistemic-state-governor",
+      "folder_path": "02_Cognitive/epistemic-state-governor",
+      "layer": "02_Cognitive",
+      "aliases": [
+        "認識論狀態管理",
+        "知識邊界管理"
+      ]
+    },
+    {
+      "name": "real-time-stream-orchestrator",
+      "folder_path": "02_Cognitive/real-time-stream-orchestrator",
+      "layer": "02_Cognitive",
+      "aliases": [
+        "即時串流協調器",
+        "資料流管理"
+      ]
+    },
+    {
+      "name": "investment-aggregator",
+      "folder_path": "02_Cognitive/investment-aggregator",
+      "layer": "02_Cognitive",
+      "aliases": [
+        "投資聚合器",
+        "投資訊號整合"
+      ]
+    },
+    {
+      "name": "json-to-flex-renderer",
+      "folder_path": "02_Cognitive/json-to-flex-renderer",
+      "layer": "02_Cognitive",
+      "aliases": [
+        "JSON轉Flex",
+        "Flex渲染器",
+        "flex-renderer"
+      ]
+    },
+    {
+      "name": "line-communication-style",
+      "folder_path": "02_Cognitive/line-communication-style",
+      "layer": "02_Cognitive",
+      "aliases": [
+        "LINE溝通風格",
+        "LINE語氣優化"
+      ]
+    },
+    {
+      "name": "market-researcher",
+      "folder_path": "02_Cognitive/market-researcher",
+      "layer": "02_Cognitive",
+      "aliases": [
+        "市場研究員",
+        "市場調查"
+      ]
+    },
+    {
+      "name": "twse-data-analyst",
+      "folder_path": "02_Cognitive/twse-data-analyst",
+      "layer": "02_Cognitive",
+      "aliases": [
+        "台股資料分析師",
+        "TWSE分析師"
+      ]
+    },
+    {
+      "name": "mcp-gateway",
+      "folder_path": "03_Execution/mcp-gateway",
+      "layer": "03_Execution",
+      "aliases": [
+        "MCP閘道",
+        "MCP網關"
+      ]
+    },
+    {
+      "name": "tool-executor",
+      "folder_path": "03_Execution/tool-executor",
+      "layer": "03_Execution",
+      "aliases": [
+        "通用工具執行器",
+        "工具執行器"
+      ]
+    },
+    {
+      "name": "line-bot-zero-delay",
+      "folder_path": "03_Execution/line-bot-zero-delay",
+      "layer": "03_Execution",
+      "aliases": [
+        "LINE零延遲",
+        "line-bot-zero-delay-skill"
+      ]
+    },
+    {
+      "name": "line-interaction-manager",
+      "folder_path": "03_Execution/line-interaction-manager",
+      "layer": "03_Execution",
+      "aliases": [
+        "LINE互動管理",
+        "LINE對話管理器"
+      ]
     }
   ]
 }

@@ -341,5 +341,138 @@
     "type": "skill",
     "path": "./skills/01_Orchestrators/subagent-collaboration-skill/SKILL.md",
     "capabilities": {}
+  },
+  "active-inference": {
+    "description": "系統的 System 2 大腦。負責將使用者的自然語言意圖轉化為決定論的狀態機 (SDLC/EARS 語法)，並執行主動推論 (Active Inference) 來預測並最小化專案失敗的風險 (Surprise)。",
+    "version": "3.0.0",
+    "type": "skill",
+    "path": "./skills/01_Orchestrators/active-inference/SKILL.md",
+    "capabilities": {}
+  },
+  "cost-benefit-router": {
+    "description": "智慧成本效益路由器。取代舊有的配額監控技能。攔截 A2A Envelope 進行預算分析，並根據任務難度演算法 (AdCo/UCB) 動態決定將任務派發給便宜的本地模型或昂貴的頂尖雲端模型。",
+    "version": "3.0.0",
+    "type": "skill",
+    "path": "./skills/01_Orchestrators/cost-benefit-router/SKILL.md",
+    "capabilities": {}
+  },
+  "episodic-consolidation": {
+    "description": "長期記憶生命週期管理者。取代人工的交接手冊與靜態 SOP。負責將完成的任務或重大的失敗經驗，壓縮並歸檔至 4-Layer Hybrid Memory (情境/語意/程序記憶) 中，供 MCP 伺服器未來精準檢索。",
+    "version": "3.0.0",
+    "type": "skill",
+    "path": "./skills/01_Orchestrators/episodic-consolidation/SKILL.md",
+    "capabilities": {}
+  },
+  "global-workspace": {
+    "description": "動態工作流引擎。取代靜態的協作腳本與研究迴圈。實作 ReCAP (Recursive Context-Aware Planning) 引擎，負責遞迴式任務拆解、滑動視窗上下文廣播 (Context Broadcasting)，並透過 A2A Gateway 指揮 Loki Swarm。",
+    "version": "3.0.0",
+    "type": "skill",
+    "path": "./skills/01_Orchestrators/global-workspace/SKILL.md",
+    "capabilities": {}
+  },
+  "self-improvement": {
+    "description": "系統的自我進化與修復協議。取代靜態的技能治理。定期掃描 AUDIT_LOG 與失敗的 RARV 紀錄，找出流程瓶頸，並自動覆寫底層的程式碼與 procedural memory (技能規範)，讓系統愈用愈聰明。",
+    "version": "3.0.0",
+    "type": "skill",
+    "path": "./skills/01_Orchestrators/self-improvement/SKILL.md",
+    "capabilities": {}
+  },
+  "stock-orchestrator-skill": {
+    "description": "",
+    "version": "3.0.0",
+    "type": "skill",
+    "path": "./skills/01_Orchestrators/stock-orchestrator-skill/SKILL.md",
+    "capabilities": {}
+  },
+  "declarative-visual-intent-generator": {
+    "description": "宣告式視覺意圖生成器。取代前端開發與特定 UI 渲染技能。透過 A2UI 協定，將 Agent 的複雜推演結果轉換成結構化的宣告式 UI 意圖 (Intent)，而非生硬的 HTML/CSS。具備 Generative UI 能力，能根據使用者需求動態呼叫圖片或圖表生成工具來組合混合式介面。",
+    "version": "3.0.0",
+    "type": "skill",
+    "path": "./skills/02_Cognitive/declarative-visual-intent-generator/SKILL.md",
+    "capabilities": {}
+  },
+  "dynamic-tool-synthesizer": {
+    "description": "動態工具合成器。取代傳統的後端、資料工程與軟體架構師。具備知識編譯 (Knowledge Compilation) 能力，當發現現有工具或 API 整合不足時，能自主生成程式碼、測試並進行熱部署 (Hot-deploy) 以擴展系統能力。",
+    "version": "3.0.0",
+    "type": "skill",
+    "path": "./skills/02_Cognitive/dynamic-tool-synthesizer/SKILL.md",
+    "capabilities": {}
+  },
+  "epistemic-state-governor": {
+    "description": "認知狀態管制官。取代 DevOps，負責監控整個 Swarm 的推演健康度。實作 SMARt 模型，作為系統的自主性控制閥。能動態撤銷 Agent 的外部輸出權限，強制系統進行內部反思或尋求人類協助，徹底防堵幻覺擴散。",
+    "version": "3.0.0",
+    "type": "skill",
+    "path": "./skills/02_Cognitive/epistemic-state-governor/SKILL.md",
+    "capabilities": {}
+  },
+  "real-time-stream-orchestrator": {
+    "description": "即時串流總指揮。取代傳統的話術腳本與溝通風格包裝。實作 Interactive ReAct 架構，支援非同步的「邊想邊說、邊聽邊想」，並透過 AG-UI 協定將推演過程即時投影至前端介面。",
+    "version": "3.0.0",
+    "type": "skill",
+    "path": "./skills/02_Cognitive/real-time-stream-orchestrator/SKILL.md",
+    "capabilities": {}
+  },
+  "investment-aggregator": {
+    "description": "Loki Swarm: 決策統整專家。負責彙整 twse-data-analyst (量化) 與 market-researcher (質化) 的數據，產出最終的投資報告與風險評估。",
+    "version": "3.0.0",
+    "type": "skill",
+    "path": "./skills/02_Cognitive/investment-aggregator/SKILL.md",
+    "capabilities": {}
+  },
+  "json-to-flex-renderer": {
+    "description": "純程式化 (Template-based) 將 JSON 分析報告轉換為 LINE Flex Message 結構的渲染引擎。",
+    "version": "3.0.0",
+    "type": "skill",
+    "path": "./skills/02_Cognitive/json-to-flex-renderer/SKILL.md",
+    "capabilities": {}
+  },
+  "line-communication-style": {
+    "description": "",
+    "version": "3.0.0",
+    "type": "skill",
+    "path": "./skills/02_Cognitive/line-communication-style/SKILL.md",
+    "capabilities": {}
+  },
+  "market-researcher": {
+    "description": "Loki Swarm: 基本面研究員。專職閱讀財報、解析 PDF、收集市場新聞情緒。取代了舊版脆弱的自動爬蟲腳本。",
+    "version": "3.0.0",
+    "type": "skill",
+    "path": "./skills/02_Cognitive/market-researcher/SKILL.md",
+    "capabilities": {}
+  },
+  "twse-data-analyst": {
+    "description": "Loki Swarm: 量化運算專家。專責處理台灣證券交易所 (TWSE) 的歷史資料、技術指標與量化運算。嚴格受限於財務資料庫環境。",
+    "version": "3.0.0",
+    "type": "skill",
+    "path": "./skills/02_Cognitive/twse-data-analyst/SKILL.md",
+    "capabilities": {}
+  },
+  "mcp-gateway": {
+    "description": "Zero-Trust 萬用執行閘道器。負責啟動並連接所有的 MCP (Model Context Protocol) 伺服器，管理安全白名單 (mcp_config.json)，並訂閱外部資料的即時更新 (Server-Sent Events 推播)。",
+    "version": "3.0.0",
+    "type": "skill",
+    "path": "./skills/03_Execution/mcp-gateway/SKILL.md",
+    "capabilities": {}
+  },
+  "tool-executor": {
+    "description": "萬用工具執行器。作為大腦層 (System 2) 與外部環境之間的唯一橋樑。將自然語言意圖轉換為嚴謹的 JSON-RPC 工具呼叫，並提供完整的 Audit Log 追蹤。",
+    "version": "3.0.0",
+    "type": "skill",
+    "path": "./skills/03_Execution/tool-executor/SKILL.md",
+    "capabilities": {}
+  },
+  "line-bot-zero-delay": {
+    "description": "當需要設定、修復或啟動 LINE Bot 與 Antigravity IDE 之間的「光速直連」時觸發。具備零延遲檔案驅動架構與 Cloudflare 隧道能力。",
+    "version": "3.0.0",
+    "type": "skill",
+    "path": "./skills/03_Execution/line-bot-zero-delay/SKILL.md",
+    "capabilities": {}
+  },
+  "line-interaction-manager": {
+    "description": "Loki Swarm: 第一線溝通總管。專門處理 LINE Bot 介面互動，確保回覆符合品牌語氣，並保護底層金融邏輯不外洩。",
+    "version": "3.0.0",
+    "type": "skill",
+    "path": "./skills/03_Execution/line-interaction-manager/SKILL.md",
+    "capabilities": {}
   }
 }
