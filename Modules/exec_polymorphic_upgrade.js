@@ -1,6 +1,6 @@
 /**
  * exec_polymorphic_upgrade.js
- * V2.0.0 Polymorphic Labeling Migration for 03_Execution tier skills
+ * V2.0.0 Polymorphic Labeling Migration for 05_自動化業務行動層_Actions tier skills
  * SOP Compliance: SOP_00_Skill_Lifecycle_Management.md §二§三
  * BOM Regex: /^\uFEFF+/ (精準，僅消除檔案最前端 BOM，無 g flag 配合 \s+)
  */
@@ -9,7 +9,7 @@ const fs = require('fs');
 const path = require('path');
 
 const BASE = path.resolve(__dirname, '..');
-const EXECUTION_DIR = path.join(BASE, 'skills', '03_Execution');
+const EXECUTION_DIR = path.join(BASE, 'skills', '05_自動化業務行動層_Actions');
 const MANIFEST_PATH = path.join(BASE, 'Data', '00_Skill_Manifest.json');
 
 // ── 多態標籤對照表 (Polymorphic Label Registry) ──────────────────────────────

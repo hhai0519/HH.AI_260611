@@ -14,11 +14,11 @@ const traversal = [
   '../../Modules/db_state_manager',
   '../../../Windows/System32/cmd',
   '02_Cognitive/..%2f..%2f',
-  '02_Cognitive/\\\\0', 
+  '02_Cognitive/\\0', 
   '02_COGNITIVE/case_test', 
   '03_Execution/skill.js', 
   '/absolute/path/test',
-  'C:\\\\Windows\\\\System32',
+  'C:\\Windows\\System32',
   '02_Cognitive/skill; rm -rf /',
   '03_Execution/skill&ping 127.0.0.1'
 ];
