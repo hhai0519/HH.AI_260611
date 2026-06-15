@@ -474,5 +474,12 @@
     "type": "skill",
     "path": "./skills/03_Execution/line-interaction-manager/SKILL.md",
     "capabilities": {}
+  },
+  "workspace-migration-recovery": {
+    "description": "偵測並修復工作站架構違規。掃描 skills/ 目錄結構異常、Manifest 路徑失效、歷史硬編碼路徑（AI Test_260*）與廢棄腳本引用。",
+    "version": "1.0.0",
+    "type": "skill",
+    "path": "./skills/03_Execution/workspace-migration-recovery/SKILL.md",
+    "capabilities": {}
   }
 }

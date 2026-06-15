@@ -7,7 +7,7 @@ dependencies: ["SOP_00_Skill_Lifecycle_Management.md", "Data/00_Skill_Manifest.j
 
 # 本協作系統 Skills 技能庫維護與視覺化管理標準作業程序 (SOP)
 
-**版本**：3.1.3 ｜ **更新日期**：2026-05-04（遷移自 AI Test_260413 → AI Test_260503）
+**版本**：3.1.3 ｜ **更新日期**：2026-05-04（更新於 2026-05-04）
 **通訊語言**：台灣正體中文（強制規定）
 
 本文件規範 本協作系統 技能庫的新增、更新、審查與同步作業，確保系統技能保持高品質且可持續演進，同時與 AI 自動化工作流程無縫整合。
@@ -37,11 +37,11 @@ dependencies: ["SOP_00_Skill_Lifecycle_Management.md", "Data/00_Skill_Manifest.j
 ### 2.1 本協作系統 官方技能庫路徑（頂層來源）
 ```
 技能庫路徑：<USER_HOME>\.gemini\本協作系統\skills\
-更新腳本：  <USER_HOME>\.gemini\本協作系統\skills\scripts\refresh_skills.js
+更新方式：直接修改 `Data/00_Skill_Manifest.json` 並執行 `node scratch/update_manifest.js` 驗證
 翻譯索引：  <USER_HOME>\.gemini\本協作系統\skills\scripts\skill_translations.json
 ```
 
-### 2.2 專案本地技能目錄路徑（AI Test_260503）
+### 2.2 專案本地技能目錄路徑
 ```
 技能目錄：<工作站路徑>\skills\
 文件目錄：<工作站路徑>\docs\
@@ -140,7 +140,7 @@ version: "1.0.0"
 3. 更新 `SKILL_TW.md`（確保技能的正體中文說明完整）
 
 > [!NOTE]
-> `scripts/refresh_skills.js` 與 `.agent/scripts/` 路徑已於 V3.1.3 正式廢除，不再適用。
+> `scripts/refresh_skills.js` 與 `.agent/scripts/` 路徑已於 V3.1.3 正式廢除。現行唯一真理來源：`Data/00_Skill_Manifest.json`。
 
 ### 預期成功輸出
 ```
@@ -166,13 +166,13 @@ Get-ChildItem -Path "<USER_HOME>\.gemini\本協作系統\skills" -Recurse -Name 
 ### 步驟 3：觸發儀表板更新
 ```powershell
 # @EXECUTE
-node "<USER_HOME>\.gemini\本協作系統\skills\scripts\refresh_skills.js"
+# 已廢除（V3.1.3）— 請直接更新 Data/00_Skill_Manifest.json
 ```
 
 ### 步驟 4：驗證儀表板大小（確認更新成功）
 ```powershell
 # @EXECUTE
-(Get-Item "skills_dashboard.html").Length / 1KB
+# 儀表板已廢棄（V3.1.3），技能資訊請查詢 Data/00_Skill_Manifest.json
 ```
 
 ### 步驟 5：同步部署至本地專案目錄
@@ -192,5 +192,5 @@ Get-ChildItem $src -Recurse -Filter "SKILL_TW.md" | ForEach-Object {
 
 ---
 
-*本 SOP 建立於 2026-04-15 ｜ v3.1.3 更新於 2026-05-04（遷移自 AI Test_260413 → AI Test_260503，整合技能翻譯管理與儀表板視覺更新機制）*
+*本 SOP 建立於 2026-04-15 ｜ v3.1.3 更新於 2026-05-04（更新於 2026-05-04，整合技能翻譯管理）*
 *翻譯索引與 UI 系統已全面更新，確保 本協作系統 技能庫視覺一致性並符合正體中文規範*

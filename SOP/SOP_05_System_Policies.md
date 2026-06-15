@@ -99,3 +99,30 @@ dependencies: ["SOP_00_Skill_Lifecycle_Management.md", "Modules/db_state_manager
 - **常態性版控**：工作區內的所有原始碼、設定檔及 SOP 文件，必須全面納入 Git 版本控制，並定期執行 `git commit`。
 - **單一真實來源**：所有變更應定期推送 (Push) 至指定的 GitLab 專案（如 `hh.ai.20260519-project`），確保系統環境、知識庫及架構資產具備異地備援與可溯源性。
 - **執行要求**：進行系統更新或大規模架構重構前，必須強制執行備份推送至遠端，並確認提交流程順利（無卡在 `COMMIT_EDITMSG` 等中斷狀態）。
+
+---
+
+## 7. 技能不刪除原則 (No-Delete Policy) [HIGHEST_PERMISSION]
+
+> [!CAUTION]
+> **系統最高優先原則**：任何技能目錄或 SKILL.md 的直接刪除操作，均須使用者進行 **2 次明確確認**方可執行。違反此原則將導致 Agent 能力不可逆的喪失。
+
+### 7.1 允許的技能狀態調整
+- ✅ **重新分類**：修改 `Data/skill_translations.json` 中的分類欄位
+- ✅ **標記 Legacy**：在 SKILL.md `description` 加注 `[Legacy]`，技能卡片保留
+- ✅ **歸檔至 Archive**：`Move-Item` 至 `skills/Archive/`（保留實體，僅移出活躍區）
+- ❌ **直接刪除 SKILL.md 檔案**
+- ❌ **直接刪除技能資料夾**
+
+### 7.2 雙重確認流程
+
+當使用者主動要求刪除技能時，Agent 必須嚴格執行以下流程：
+
+1. **第一次確認**：Agent 詢問「您確定要刪除 `[技能名稱]`？此操作不可逆，建議改為歸檔至 Archive/。」
+2. **使用者確認**後，Agent 詢問「請再次輸入技能名稱以確認刪除（輸入：`[技能名稱]`）」
+3. 使用者輸入**完全一致**後方可執行
+4. 執行前強制執行 `git commit` 備份
+
+> [!NOTE]
+> 本原則取代所有分散在個別技能文件中的 No-Delete Policy 說明。各技能文件如有相關段落，應改為「詳見 `SOP_05_System_Policies.md §7`」。
+

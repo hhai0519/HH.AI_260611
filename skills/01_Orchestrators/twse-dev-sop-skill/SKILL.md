@@ -250,7 +250,7 @@ Task 阻塞 (BLOCKED / 錯誤無法解)
 ## 🏗️ 臺股網站標準目錄結構
 
 ```
-AI Test_260413/
+<WORKSPACE_ROOT>/
 ├── index.html              # 首頁（大盤概況）
 ├── stock.html              # 個股 K 線圖頁面
 ├── sector.html             # 類股熱力圖頁面

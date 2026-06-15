@@ -801,6 +801,18 @@
         "LINE互動管理",
         "LINE對話管理器"
       ]
+    },
+    {
+      "name": "workspace-migration-recovery",
+      "folder_path": "03_Execution/workspace-migration-recovery",
+      "layer": "03_Execution",
+      "aliases": [
+        "架構違規偵測",
+        "環境遷移修復",
+        "路徑掃描",
+        "健康檢查",
+        "migration-recovery"
+      ]
     }
   ]
 }

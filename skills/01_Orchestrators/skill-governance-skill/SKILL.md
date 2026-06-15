@@ -86,16 +86,16 @@ capabilities:
 
 ---
 
-## ⚙️ 儀錶板維護 SOP
+## ⚙️ 技能同步 SOP
 
 ```powershell
-# 每次修改技能後必須執行
-node "<USER_HOME>\Desktop\HH.AI_260611\.agent\scripts\refresh_skills.js"
+# 每次新增或修改技能後必須執行
+node scratch/update_manifest.js   # 驗證 Manifest 路徑 100% 有效
 ```
 
 確認輸出包含：
-- `[✅ DLP]` 對每個技能
-- 無 `[❌ No DLP]` 錯誤
+- `[全數驗證通過]` 所有 N 個技能路徑均存在
+- 無 `[INVALID]` 錯誤
 
 ---
 
@@ -103,7 +103,7 @@ node "<USER_HOME>\Desktop\HH.AI_260611\.agent\scripts\refresh_skills.js"
 
 | 指標 | 說明 |
 |---|---|
-| **總技能數** | 53+ |
+| **總技能數** | 動態維護於 `Data/00_Skill_Manifest.json`（現為 68 條） |
 | **DLP 合規率** | 目標 100% |
 | **分類覆蓋** | 6 大分類 |
 | **未登記技能** | 需補入 skill_translations.json |

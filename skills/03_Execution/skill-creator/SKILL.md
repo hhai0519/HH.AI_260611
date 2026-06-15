@@ -24,7 +24,7 @@ capabilities:
 1. **單一職責 (Single Responsibility)**：每個技能只解決一類問題，不要把多個功能塞進同一個技能。
 2. **可觸發性 (Triggerable)**：技能的觸發條件必須清晰，讓 Agent 在正確時機自動調用。
 3. **有邊界 (Bounded)**：技能應明確說明「適用範圍」與「不適用範圍」，避免濫用。
-4. **不刪除原則 (No-Delete Policy)**：**嚴禁**移除任何現有技能，如需調整應透過分類重組或合併，並保留原卡片。
+4. **不刪除原則 (No-Delete Policy)**：**嚴禁**移除任何現有技能，如需調整應透過分類重組、Legacy 標記或歸檔至 `Archive/`，並保留原卡片。詳見 `SOP_05_System_Policies.md §7`。
 
 ---
 

@@ -10,7 +10,7 @@ dependencies: ["SOP_00_Skill_Lifecycle_Management.md"]
 **文件編號**：SOP-CLEANUP-001
 **版本**：3.1.3
 **建立日期**：2026-04-19
-**更新日期**：2026-05-04（遷移自 AI Test_260413 → AI Test_260503）
+**更新日期**：2026-05-04（更新於 2026-05-04）
 **適用範圍**：所有 本協作系統 工作站與相關專案目錄的資料管理
 
 ---
@@ -28,7 +28,7 @@ dependencies: ["SOP_00_Skill_Lifecycle_Management.md"]
 
 | 名稱 | 路徑 | 說明 |
 |------|------|------|
-| Skills 官方技能庫 | `<USER_HOME>\.gemini\本協作系統\skills\` | 本協作系統 核心技能（共 57 項），禁止直接刪除 |
+| Skills 官方技能庫 | `<USER_HOME>\.gemini\本協作系統\skills\` | 本協作系統 核心技能（數量見 `Data/00_Skill_Manifest.json`），禁止直接刪除 |
 | Skills 本地目錄 | `<工作站路徑>\skills\` | 本地擴充技能目錄 |
 | Skills Dashboard | `taiwan-stock\skills_dashboard.html` | 技能總覽視覺化介面 |
 | 儀表板更新腳本 | `scripts\refresh_skills.js` | 技能庫同步與儀表板自動更新腳本 |
@@ -65,7 +65,7 @@ dependencies: ["SOP_00_Skill_Lifecycle_Management.md"]
 # 搜尋所有腳本中的舊路徑引用（排除 node_modules 與 .next）
 Get-ChildItem -Recurse -Include "*.py","*.ps1","*.bat","*.js","*.html","*.json" |
   Where-Object { $_.FullName -notmatch "node_modules|\.next" } |
-  Select-String -Pattern "舊路徑|Desktop\\AI Test_260413"
+  Select-String -Pattern "舊路徑|Desktop\\<WORKSPACE_ROOT>"
 ```
 確認後，將引用了舊路徑的腳本逐一更新至新路徑。
 
@@ -81,7 +81,7 @@ Get-ChildItem "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup"
 ```powershell
 # @EXECUTE
 # 確認是否有佔用舊路徑的背景程序
-Get-Process | Where-Object { $_.Path -like "*AI Test_260413*" }
+Get-Process | Where-Object { $_.Path -like "*<WORKSPACE_ROOT>*" }
 ```
 若有殘留程序在執行，先行終止再繼續清理。
 
@@ -114,12 +114,12 @@ Invoke-WebRequest http://localhost:8888 -UseBasicParsing | Select StatusCode
 ## 四、工作站目錄結構（標準化範本）
 
 ```
-AI Test_260503/                  ← 主要工作站目錄（v260503）
+<WORKSPACE_ROOT>/              ← 主要工作站目錄
 ├── README.md                    ← 工作站說明與快速啟動指南
 ├── Summary_History.md           ← 舊版工作站歷史記錄彙整
-├── skills/                      ← 本地擴充技能目錄（共 57 項）
+├── skills/                      ← 本地技能目錄（數量見 Manifest）
 │   ├── andrej-karpathy-perspective/
-│   ├── ... （共 57 項技能）
+│   ├── ... （數量見 Data/00_Skill_Manifest.json）
 │   └── zhangxuefeng-perspective/
 ├── autoresearch-cpu/            ← ML 訓練實驗目錄
 │   └── SOP_09_AutoResearch_CPU.md
@@ -178,4 +178,4 @@ AI Test_260503/                  ← 主要工作站目錄（v260503）
 
 ---
 
-*本 SOP 建立於 2026-04-19 ｜ v3.1.3 更新於 2026-05-04（遷移自 AI Test_260413 → AI Test_260503）*
+*本 SOP 建立於 2026-04-19 ｜ v3.1.3 更新於 2026-05-04（更新於 2026-05-04）*

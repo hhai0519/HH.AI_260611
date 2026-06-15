@@ -12,7 +12,7 @@ dependencies: []
 
 系統架構與交接文件 ARCHITECTURE_OPERATIONS_DOC
 
-版本控制：v260503 (2026-05-03) 遷移至 AI Test_260413
+版本控制：v260611 (2026-06-11)
 
 **語言限制**：繁體中文強制遵循 (Traditional Chinese)
 
@@ -198,5 +198,5 @@ npm run build     # 構建生產環境應用
 
 系統管理者: 本協作系統 AI Agent // TACTICAL_AUTONOMOUS_ENTITY
 版本控制: v260507 (2026-05-07) // PATH_GENERALIZATION_BUILD
-遷移紀錄: AI Test_260503 -> Agnet SOP & Skills_260507
+維護記錄: 架構清洗 (2026-06-15) → V3.2.0 升級
 變更概要: 移除所有絕對路徑 (<USER_HOME>\...)，改為相對路徑或佔位符 (<USER_HOME>) 以支援環境遷移。

@@ -81,14 +81,15 @@ capabilities:
 
 ## 8. 重要聯絡與資源
 
-- **儀錶板**：`AI Test_260406/skills_dashboard.html`
-- **腳本目錄**：`.agent/scripts/`
-- **技能目錄**：`~/.gemini/本協作系統/skills/`
+- **Skills Manifest**：`Data/00_Skill_Manifest.json`（技能唯一真理來源，現有 68 條）
+- **技能目錄**：`<WORKSPACE_ROOT>/skills/`（三層：01_Orchestrators / 02_Cognitive / 03_Execution）
+- **系統架構圖**：`00_System_Architecture_Map.md`
+- **Not-Delete Policy**：見 `SOP_05_System_Policies.md §7`
 
 ## 9. 下一個 Session 的首要任務
 
-1. 執行 `node refresh_skills.js` 確認儀錶板正常
-2. 執行 `node detect_dlp_flood.js` 確認零感染
+1. 執行 `node scratch/update_manifest.js` 驗證 Manifest 路徑 100% 有效
+2. 執行 `node Modules/db_state_manager.js`（或呼叫 Watchdog）確認 Neon DB 連線正常
 3. 接續完成 [In Progress] 中的任務
 ```
 
@@ -100,20 +101,18 @@ capabilities:
 
 ```json
 {
-  "session_id": "ac9b20f5-c322-4e9b-b2ac-0d10ed072676",
-  "project": "本協作系統 Skill Ecosystem",
-  "checkpoint": 6,
-  "last_action": "全面重建 18 個 FAIR 技能",
-  "current_priority": "品質驗證 + 儀錶板更新",
+  "session_id": "（每次新 Session 自動生成）",
+  "project": "本協作系統 Argus v6.0",
+  "architecture": "V3.2.0 — 三層 68 技能",
   "critical_rules": [
-    "No-Delete Policy: 刪除技能需 2 次確認",
+    "No-Delete Policy: 刪除技能需 2 次確認（見 SOP_05 §7）",
     "禁止使用 fix_dlp.js / patch_missing_dlp.js",
-    "每次修改後執行 refresh_skills.js"
+    "Manifest 必須與實體目錄 100% 同步"
   ],
   "files_to_watch": [
-    "skills_dashboard.html",
-    "skill_translations.json",
-    ".agent/scripts/refresh_skills.js"
+    "Data/00_Skill_Manifest.json",
+    "Data/skill_translations.json",
+    "SOP/SOP_05_System_Policies.md"
   ]
 }
 ```

@@ -1,93 +1,123 @@
-# hh.ai.20260519-project
+# 本協作系統 工作區 HH.AI_260611
 
+> **版本**：Argus v6.0 ｜ **架構版本**：V3.2.0 ｜ **更新**：2026-06-16
 
+---
 
-## Getting started
+## 專案定位
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+本工作區是一個以 **AI 代理人驅動** 的高強度智慧決策系統，結合了：
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+- **AI 決策引擎**：基於 Google Gemini 提供多層次智慧邏輯運算
+- **台股分析平台**：D3.js 高階資料視覺化、本益比河流圖、籌碼集中度分析
+- **LINE Bot 服務**：零延遲非同步回覆架構（`line-bot-project/`）
+- **技能生態系統**：69 個可插拔技能模組，三層架構管理
 
-## Add your files
+---
 
-* [Create](https://docs.gitlab.com/user/project/repository/web_editor/#create-a-file) or [upload](https://docs.gitlab.com/user/project/repository/web_editor/#upload-a-file) files
-* [Add files using the command line](https://docs.gitlab.com/topics/git/add_files/#add-files-to-a-git-repository) or push an existing Git repository with the following command:
+## 技術棧
+
+| 層級 | 技術 |
+|------|------|
+| **前端** | Next.js 15.2+ (App Router) / React 19 |
+| **後端 / API** | Node.js / Next.js API Routes |
+| **資料庫** | Neon DB (PostgreSQL，分散式狀態管理) |
+| **即時通訊** | LINE Messaging API |
+| **版本控制** | GitLab (`hh.ai.20260519-project`) |
+| **AI 核心** | Google Gemini Flash / Gemma 4 |
+| **隧道工具** | Cloudflared |
+
+---
+
+## 快速啟動
+
+```powershell
+# 1. 環境變數設定
+Copy-Item .env.example .env.local
+# 填寫 .env.local 中的 API Key（見下方「環境變數」章節）
+
+# 2. 安裝依賴
+npm install
+
+# 3. 啟動系統
+.\啟動系統.bat
+# 或手動：
+npm run dev               # 前端服務 (port 3000)
+node line-bot-project\start_line.js  # LINE Bot 服務
+```
+
+---
+
+## 系統架構
+
+詳細架構說明請見 [`00_System_Architecture_Map.md`](./00_System_Architecture_Map.md)。
 
 ```
-cd existing_repo
-git remote add origin https://gitlab.com/hh.ai.20260519-group/hh.ai.20260519-project.git
-git branch -M main
-git push -uf origin main
+HH.AI_260611/
+├── SOP/              ← 標準作業程序（15 份）
+├── skills/           ← 技能庫（69 個技能，三層架構）
+│   ├── 01_Orchestrators/  (18 個) — 調度與流程控制
+│   ├── 02_Cognitive/      (24 個) — 認知與分析引擎
+│   ├── 03_Execution/      (27 個) — 執行與自動化工具
+│   └── Archive/           — 已歸檔的歷史技能
+├── Modules/          ← 核心 JS 模組（Neon DB 狀態管理等）
+├── Data/             ← 資料層（Manifest、翻譯表、Persona）
+├── line-bot-project/ ← LINE Bot 服務
+└── Templates/        ← 技能模板
 ```
 
-## Integrate with your tools
+---
 
-* [Set up project integrations](https://gitlab.com/hh.ai.20260519-group/hh.ai.20260519-project/-/settings/integrations)
+## Skills 技能架構
 
-## Collaborate with your team
+| 分層 | 數量 | 定位 |
+|------|------|------|
+| `01_Orchestrators` | 18 個 | 任務調度、流程控制、遞迴研究 |
+| `02_Cognitive` | 24 個 | 台股分析、財務模型、思維框架 |
+| `03_Execution` | 27 個 | 工具串接、自動化、環境管理 |
 
-* [Invite team members and collaborators](https://docs.gitlab.com/user/project/members/)
-* [Create a new merge request](https://docs.gitlab.com/user/project/merge_requests/creating_merge_requests/)
-* [Automatically close issues from merge requests](https://docs.gitlab.com/user/project/issues/managing_issues/#closing-issues-automatically)
-* [Enable merge request approvals](https://docs.gitlab.com/user/project/merge_requests/approvals/)
-* [Set auto-merge](https://docs.gitlab.com/user/project/merge_requests/auto_merge/)
+技能完整清單見 [`Data/00_Skill_Manifest.json`](./Data/00_Skill_Manifest.json)。
 
-## Test and Deploy
+---
 
-Use the built-in continuous integration in GitLab.
+## 環境變數 (.env.local)
 
-* [Get started with GitLab CI/CD](https://docs.gitlab.com/ci/quick_start/)
-* [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/user/application_security/sast/)
-* [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/topics/autodevops/requirements/)
-* [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/user/clusters/agent/)
-* [Set up protected environments](https://docs.gitlab.com/ci/environments/protected_environments/)
+| 變數名稱 | 說明 | 必填 |
+|---------|------|------|
+| `GEMINI_API_KEY` | Google AI Studio API Key | ✅ |
+| `LINE_CHANNEL_SECRET` | LINE Bot 頻道密鑰 | ✅ |
+| `LINE_CHANNEL_ACCESS_TOKEN` | LINE Bot 存取令牌 | ✅ |
+| `DATABASE_URL` | Neon DB PostgreSQL 連線字串 | ✅ |
+| `LANGSMITH_API_KEY` | LangSmith 追蹤 API Key | 選填 |
 
-***
+---
 
-# Editing this README
+## 核心政策
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
+- **語言**：所有 Agent 輸出、報告、SOP 均使用**台灣正體中文**（見 `SOP_05 §2.1`）
+- **技術棧**：強制 Next.js 15.2+ / React 19 / GitLab（見 `SOP_06`）
+- **技能管理**：禁止直接刪除技能，改用歸檔政策（見 `SOP_05 §7`）
+- **路徑規範**：零硬編碼原則，使用 `<WORKSPACE_ROOT>` 語意佔位符
+- **備份政策**：重大變更前強制 `git commit` + 推送至 GitLab
 
-## Suggestions for a good README
+---
 
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+## 維護指令
 
-## Name
-Choose a self-explaining name for your project.
+```powershell
+# 健康檢查（建議每次啟動執行）
+node scratch/update_manifest.js
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+# 系統維護
+node Modules/maintenance_worker.js
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+# 配額監控
+node Modules/quota_manager.js
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+# 孤兒技能掃描
+node Modules/scan_orphans.js
+```
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+---
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+*本文件由 Antigravity 總管自動維護 ｜ 嚴格遵守 SOP_05 系統核心治理政策*
