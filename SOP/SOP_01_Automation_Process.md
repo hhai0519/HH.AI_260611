@@ -82,7 +82,7 @@ UPDATE session_quota_state
    ```powershell
    # @EXECUTE
    # 啟動前確認：執行 本協作系統 配額監控
-   python "<USER_HOME>\Desktop\AI Test_260413\scripts\quota_monitor.py"
+   python "<USER_HOME>\Desktop\HH.AI_260611\scripts\quota_monitor.py"
    ```
 5. 確認研究方向與關鍵問題清單。
 6. **GitLab 分支建立**：針對該任務建立對應的 GitLab Feature Branch，準備後續作業。

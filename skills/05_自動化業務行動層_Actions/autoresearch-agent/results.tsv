@@ -1,0 +1,5 @@
+ac9a1de	8.380767	discard	DEPTH=4, LR=1e-3
+ac9a1de	N/A	crash	DEPTH=3, LR=3e-3
+ac9a1de	N/A	crash	DEPTH=4, LR=5e-4
+ac9a1de	N/A	crash	DEPTH=3, LR=1e-4
+ac9a1de	N/A	crash	DEPTH=2, LR=1e-3
