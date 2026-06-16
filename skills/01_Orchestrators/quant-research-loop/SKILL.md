@@ -1,7 +1,7 @@
 ---
 name: quant-research-loop
 type: orchestrator
-description: "Autonomous financial experimentation and strategy validation loop. 僅在指令包含「$$自動化$$」時啟用。符合 SOP §2.4 強制授權協議。"
+description: "Autonomous financial experimentation and strategy validation loop. 僅在指令包含「$$自動化_量化實驗$$」時啟用。符合 SOP §2.4 強制授權協議。"
 version: "3.0.0"
 type: "orchestrator"
 capabilities:

@@ -1,7 +1,7 @@
 ---
 name: autoresearch-agent
 type: orchestrator
-description: "微型 AI 模型超參數自動化優化代理人。僅在指令包含「$$自動化$$」且涉及模型優化時啟用。符合 SOP §2.4 強制授權協議。"
+description: "微型 AI 模型超參數自動化優化代理人。僅在指令包含「$$自動化_微型模型$$」且涉及模型優化時啟用。符合 SOP §2.4 強制授權協議。"
 version: "3.0.0"
 type: "orchestrator"
 capabilities:
@@ -18,7 +18,7 @@ capabilities:
 ## 功能概述
 本技能定義了微型模型 (LLM) 在受限運算資源 (CPU) 下的自動化優化流程。它基於 Andrej Karpathy 的 `autoresearch` 改編，目標是在 60 秒的固定時間預算內，透過調整超參數（如深度、學習率、激活函數等）來最小化 `val_bpb` 指標。
 
-- 指令必須明確包含「$$自動化$$」。
+- 指令必須明確包含「$$自動化_微型模型$$」。
 - 需要進行自動化模型超參數優化循環。
 - 啟動受控的實驗循環 sequence。
 
