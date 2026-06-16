@@ -1,5 +1,5 @@
 # 系統架構總覽 (System Architecture Map)
-> **版本**：V3.3.0 | **更新日期**：2026-06-16 | **技能總數**：69 個
+> **版本**：V4.0.0 | **更新日期**：2026-06-16 | **技能總數**：64 個
 
 此文件為自動化工作站的「大腦地圖」，定義了所有 Skills 的相互呼叫關係與核心執行目的。為確保系統穩定與代理人邏輯清晰，所有技能均歸類於三大核心維度：調度與流程控制、認知與角色框架、執行與自動化工具。
 
@@ -33,9 +33,8 @@ graph TD
     end
 
     %% 第二層次：認知大腦 (Cognitive Models)
-    subgraph 02_Cognitive ["👁️ 02_Cognitive (認知與角色框架) — 24 個技能"]
+    subgraph 02_Cognitive ["👁️ 02_Cognitive (認知與角色框架) — 19 個技能"]
         TWSELogic(twse-market-logic-skill)
-        ChipLogic(chip-logic-expert)
         TechAna(tech-analyzer)
         SentScout(sentiment-scout)
         FinAna(financial-analyst)
@@ -64,19 +63,17 @@ graph TD
     DevSOP --> D3Viz
 
     ResLoop --> TechAna
-    ResLoop --> ChipLogic
     ResLoop --> Postgres
 
     AutoRes --> SubCollab
     AutoRes --> LangSmith
 
     StockOrch --> TWSELogic
-    StockOrch --> ChipLogic
     StockOrch --> FinAna
 
     %% 賦予顏色
     class SysGov,DevSOP,ResLoop,SubCollab,AutoRes,StockOrch orchestrator;
-    class TWSELogic,ChipLogic,TechAna,SentScout,FinAna cognitive;
+    class TWSELogic,TechAna,SentScout,FinAna cognitive;
     class WebTest,D3Viz,SysDebug,MCPSetup,Postgres,LangSmith,SkillCreator execution;
 ```
 
@@ -111,17 +108,14 @@ graph TD
 
 ---
 
-### 👁️ 02_Cognitive (認知與角色框架) — 24 個技能
+### 👁️ 02_Cognitive (認知與角色框架) — 19 個技能
 負責特定領域分析、思維推論與角色扮演的認知引擎。
 
 | 技能目錄 | 核心目的摘要 (存在意義與輸入/輸出) |
 | :--- | :--- |
 | **twse-market-logic-skill** | **台股市場深度邏輯**：恐慌指數、分層確認、MSTL 預測。輸入市場數據，輸出情緒與方向判斷。 |
-| **chip-logic-expert** | **籌碼分析邏輯**：分析借券、融資維持率與大戶動向。輸入籌碼數據，輸出衝突與動能分析。 |
 | **tech-analyzer** | **技術分析專家**：價格形態與量能結構分析。輸入 K 線與量價資料，輸出趨勢指標與反轉訊號。 |
 | **financial-analyst** | **財務分析師**：估值建模、比率分析與財務風險評估。 |
-| **macro-linkage** | **跨市場相關性**：分析台美股 ADR 聯動。輸入總體經濟數據，輸出市場傳導路徑。 |
-| **ownership-cluster** | **籌碼集中度**：機構持股與 CI_INDEX 解析。輸入股權分散資料，輸出集中度評估。 |
 | **sentiment-scout** | **情緒偵察**：新聞與論壇情緒解讀。輸入文本資料，輸出市場情緒分數與關鍵敘事。 |
 | **investment-researcher** | **投資研究員**：台股產業研究、個股基本面與量化趨勢分析。 |
 | **evidence-collector** | **證據收集官**：為所有決策提供事實支撐、鏈接與原始數據。 |
@@ -130,14 +124,12 @@ graph TD
 | **devops-engineer** | **運維工程師**：環境配置、CI/CD、部署策略與系統監控。 |
 | **frontend-developer** | **前端開發工程師**：UI/UX 邏輯、組件實作與互動設計。 |
 | **software-architect** | **軟體架構師**：系統高層設計、模式定義與技術選型。 |
-| **huashu-nuwa** | **女媧人物蒸餾引擎**：自動深度調研並提煉思維框架，生成可執行的角色技能。 |
 | **declarative-visual-intent-generator** | **聲明式視覺意圖生成器**：從高層需求生成結構化的視覺呈現規格。 |
 | **dynamic-tool-synthesizer** | **動態工具合成器**：根據任務需求動態組合最優工具集的推理引擎。 |
 | **epistemic-state-governor** | **認識論狀態管理器**：追蹤系統的知識邊界與不確定性狀態。 |
 | **real-time-stream-orchestrator** | **即時串流協調器**：管理多資料源的即時資料流整合與分發。 |
 | **investment-aggregator** | **投資聚合器**：彙整多維度投資訊號並生成綜合評分。 |
 | **json-to-flex-renderer** | **JSON to Flex 渲染器**：將結構化 JSON 資料轉換為 LINE Flex Message。 |
-| **line-communication-style** | **LINE 溝通風格**：優化 LINE Bot 回覆的語氣、格式與互動體驗。 |
 | **market-researcher** | **市場研究員**：深度市場調查、競品分析與產業趨勢洞察。 |
 | **twse-data-analyst** | **台股資料分析師**：處理 TWSE/FinMind API 數據的清洗、統計與視覺化。 |
 
@@ -183,7 +175,7 @@ graph TD
 
 | 資料檔案 | 說明 | 重要性 |
 | :--- | :--- | :--- |
-| `Data/00_Skill_Manifest.json` | 技能索引（68條，唯一真實來源） | 🔴 CRITICAL |
+| `Data/00_Skill_Manifest.json` | 技能索引（64條，唯一真實來源） | 🔴 CRITICAL |
 | `Data/skill_translations.json` | 技能中文名稱與別名對照 | 🟠 HIGH |
 | `Data/personas/` | 15 個人物思維框架目錄 | 🟡 MEDIUM |
 | `Modules/db_state_manager.js` | Neon DB 狀態管理（Watchdog 寫入） | 🔴 CRITICAL |
@@ -191,4 +183,4 @@ graph TD
 
 ---
 
-*本文件由 Antigravity 總管於 2026-06-16 更新至 V3.3.0，完成 V3 優化計畫：新增 security-auditor、mcp-engineer，移除冗餘節點，架構地圖與 69 技能 Manifest 完全同步。*
+*本文件由 Antigravity 總管於 2026-06-16 更新至 V4.0.0，完成 V4 Patch 優化計畫：封存幽靈與冗餘節點，架構地圖與 64 技能 Manifest 完全同步。*

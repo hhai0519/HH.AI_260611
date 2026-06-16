@@ -7,7 +7,7 @@
     "capabilities": {}
   },
   "autoresearch-agent": {
-    "description": "微型 AI 模型超參數自動化優化代理人。僅在指令包含「$$自動化$$」且涉及模型優化時啟用。符合 SOP §2.4 強制授權協議。",
+    "description": "微型 AI 模型超參數自動化優化代理人。僅在指令包含「$$自動化$$」且涉及模型優化時啟用。符合 SOP §2.4 強制授權協議。 [精準觸發詞：$$自動化_微型模型$$]",
     "version": "3.0.0",
     "type": "skill",
     "path": "./skills/01_Orchestrators/autoresearch-agent/SKILL.md",
@@ -21,7 +21,7 @@
     "capabilities": {}
   },
   "quant-research-loop": {
-    "description": "Autonomous financial experimentation and strategy validation loop. 僅在指令包含「$$自動化$$」時啟用。符合 SOP §2.4 強制授權協議。",
+    "description": "Autonomous financial experimentation and strategy validation loop. 僅在指令包含「$$自動化$$」時啟用。符合 SOP §2.4 強制授權協議。 [精準觸發詞：$$自動化_量化實驗$$]",
     "version": "3.0.0",
     "type": "skill",
     "path": "./skills/01_Orchestrators/quant-research-loop/SKILL.md",
@@ -42,7 +42,7 @@
     "capabilities": {}
   },
   "recursive-research-automation": {
-    "description": "通用的遞迴研究自動化框架。僅在指令包含「$$自動化$$」時啟用。符合 SOP §2.4 強制授權協議。",
+    "description": "通用的遞迴研究自動化框架。僅在指令包含「$$自動化$$」時啟用。符合 SOP §2.4 強制授權協議。 [精準觸發詞：$$自動化_通用研究$$]",
     "version": "3.0.0",
     "type": "skill",
     "path": "./skills/01_Orchestrators/recursive-research-automation/SKILL.md",
@@ -67,13 +67,6 @@
     "version": "3.0.0",
     "type": "skill",
     "path": "./skills/02_Cognitive/backend-architect/SKILL.md",
-    "capabilities": {}
-  },
-  "chip-logic-expert": {
-    "description": "[備援深度節點 - 主入口為 twse-market-logic-skill] 進階台股籌碼分析邏輯，包含券商借券、融資維持率以及大戶籌碼衝突分析。",
-    "version": "3.0.0",
-    "type": "skill",
-    "path": "./skills/02_Cognitive/chip-logic-expert/SKILL.md",
     "capabilities": {}
   },
   "data-engineer": {
@@ -111,32 +104,11 @@
     "path": "./skills/02_Cognitive/frontend-developer/SKILL.md",
     "capabilities": {}
   },
-  "huashu-nuwa": {
-    "description": "|",
-    "version": "3.0.0",
-    "type": "skill",
-    "path": "./skills/02_Cognitive/huashu-nuwa/SKILL.md",
-    "capabilities": {}
-  },
   "investment-researcher": {
     "description": "投資研究員，負責台股產業研究、個股基本面與量化趨勢分析。",
     "version": "3.0.0",
     "type": "skill",
     "path": "./skills/02_Cognitive/investment-researcher/SKILL.md",
-    "capabilities": {}
-  },
-  "macro-linkage": {
-    "description": "|",
-    "version": "3.0.0",
-    "type": "skill",
-    "path": "./skills/02_Cognitive/macro-linkage/SKILL.md",
-    "capabilities": {}
-  },
-  "ownership-cluster": {
-    "description": "[備援深度節點 - 主入口為 twse-market-logic-skill] 機構持股與籌碼集中度指數（CI_INDEX）分析。",
-    "version": "3.0.0",
-    "type": "skill",
-    "path": "./skills/02_Cognitive/ownership-cluster/SKILL.md",
     "capabilities": {}
   },
   "sentiment-scout": {
@@ -161,7 +133,7 @@
     "capabilities": {}
   },
   "twse-market-logic-skill": {
-    "description": "臺股市場分析深度邏輯。包含恐慌指數 (VIX/VIXTWN) 閾值、分層確認模型 (Hierarchical Confirmation)、MSTL 網絡預測、以及籌碼面分析 (法人、融資維持率、大戶持股)。用於規劃分析功能、設定警報閾值、以及開發投資決策支援系統。Triggers on: '恐慌指數', 'Panic Index', '市場邏輯', '籌碼分析', '融資維持率', '千張大戶', '八大行庫'.",
+    "description": "臺股市場分析深度邏輯。包含恐慌指數 (VIX/VIXTWN) 閾值、分層確認模型 (Hierarchical Confirmation)、MSTL 網絡預測、以及籌碼面分析 (法人、融資維持率、大戶持股)。用於規劃分析功能、設定警報閾值、以及開發投資決策支援系統。Triggers on: '恐慌指數', 'Panic Index', '市場邏輯', '籌碼分析', '融資維持率', '千張大戶', '八大行庫'. 「深度籌碼分析請直接向本技能請求；歷史邏輯備援存於 skills/Archive/chip-logic-expert 與 skills/Archive/ownership-cluster」",
     "version": "3.0.0",
     "type": "skill",
     "path": "./skills/02_Cognitive/twse-market-logic-skill/SKILL.md",
@@ -410,13 +382,6 @@
     "version": "3.0.0",
     "type": "skill",
     "path": "./skills/02_Cognitive/json-to-flex-renderer/SKILL.md",
-    "capabilities": {}
-  },
-  "line-communication-style": {
-    "description": "",
-    "version": "3.0.0",
-    "type": "skill",
-    "path": "./skills/02_Cognitive/line-communication-style/SKILL.md",
     "capabilities": {}
   },
   "market-researcher": {
