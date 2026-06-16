@@ -813,6 +813,34 @@
         "健康檢查",
         "migration-recovery"
       ]
+    },
+    {
+      "name": "mcp-engineer",
+      "folder_path": "03_Execution/mcp-engineer",
+      "layer": "03_Execution",
+      "aliases": [
+        "MCP工程師",
+        "MCP開發",
+        "MCP配置",
+        "MCP環境",
+        "mcp-builder",
+        "mcp-setup"
+      ]
+    },
+    {
+      "name": "security-auditor",
+      "folder_path": "01_Orchestrators/security-auditor",
+      "layer": "01_Orchestrators",
+      "aliases": [
+        "安全審計",
+        "資安審計",
+        "安全掃描",
+        "弱點掃描",
+        "漏洞檢查",
+        "密碼外洩",
+        "SQL注入",
+        "XSS"
+      ]
     }
   ]
 }

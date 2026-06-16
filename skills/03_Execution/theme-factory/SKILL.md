@@ -2,6 +2,7 @@
 name: theme-factory
 type: execution
 description: 為成品設定主題風格的工具包。成品可以是投影片、文件、報告、HTML 登陸頁面等。包含 10 個預設的主題色彩/字體可供套用，或即時生成新主題。
+legacy_notice: "[LEGACY - 請改用 ui-prototype-builder]"
 version: "3.0.0"
 type: "execution"
 capabilities:

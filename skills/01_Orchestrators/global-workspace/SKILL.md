@@ -1,6 +1,7 @@
 ---
 name: "global-workspace"
 description: "動態工作流引擎。取代靜態的協作腳本與研究迴圈。實作 ReCAP (Recursive Context-Aware Planning) 引擎，負責遞迴式任務拆解、滑動視窗上下文廣播 (Context Broadcasting)，並透過 A2A Gateway 指揮 Loki Swarm。"
+legacy_notice: "[LEGACY - 職責已由 agency-orchestrator-skill 涵蓋]"
 version: "1.0.0"
 type: "orchestrator"
 capabilities:

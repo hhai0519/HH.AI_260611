@@ -2,6 +2,7 @@
 name: canvas-design
 type: execution
 description: 使用設計哲學在 .png 和 .pdf 文件中建立美觀的視覺藝術。當使用者要求建立海報、藝術品、設計或其他靜態視覺作品時使用。
+legacy_notice: "[LEGACY - 請改用 ui-prototype-builder]"
 version: "3.0.0"
 type: "execution"
 capabilities:

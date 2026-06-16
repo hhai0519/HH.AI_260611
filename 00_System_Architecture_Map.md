@@ -1,5 +1,5 @@
 # 系統架構總覽 (System Architecture Map)
-> **版本**：V3.2.0 | **更新日期**：2026-06-15 | **技能總數**：68 個
+> **版本**：V3.3.0 | **更新日期**：2026-06-16 | **技能總數**：69 個
 
 此文件為自動化工作站的「大腦地圖」，定義了所有 Skills 的相互呼叫關係與核心執行目的。為確保系統穩定與代理人邏輯清晰，所有技能均歸類於三大核心維度：調度與流程控制、認知與角色框架、執行與自動化工具。
 
@@ -23,7 +23,7 @@ graph TD
     Root((Master Menu)):::system
 
     %% 第一層次：調度中心 (Orchestrators)
-    subgraph 01_Orchestrators ["🧠 01_Orchestrators (調度與流程控制) — 18 個技能"]
+    subgraph 01_Orchestrators ["🧠 01_Orchestrators (調度與流程控制) — 19 個技能"]
         SysGov(skill-governance-skill)
         DevSOP(twse-dev-sop-skill)
         ResLoop(quant-research-loop)
@@ -84,7 +84,7 @@ graph TD
 
 ## 多維度檢索目錄 (Multi-dimensional Index)
 
-### 🧠 01_Orchestrators (調度與流程控制) — 18 個技能
+### 🧠 01_Orchestrators (調度與流程控制) — 19 個技能
 負責分配任務、管理全域狀態與自動化迴圈的總控 SOP。
 
 | 技能目錄 | 核心目的摘要 (存在意義與輸入/輸出) |
@@ -107,6 +107,7 @@ graph TD
 | **episodic-consolidation** | **情節記憶固化**：將短期情境記憶轉化為長期知識的整合引擎。 |
 | **global-workspace** | **全域工作空間**：管理跨技能的共享上下文與全局狀態廣播。 |
 | **self-improvement** | **自我改進**：分析執行歷史並生成系統優化建議的自進化引擎。 |
+| **security-auditor** | **資安審計官** [NEW]：程式碼合併/API 串接前的安全防火牆。掃描 SQL Injection、XSS、API 密鑰外洩。 |
 
 ---
 
@@ -142,7 +143,7 @@ graph TD
 
 ---
 
-### ⚙️ 03_Execution (執行與自動化工具) — 26 個技能
+### ⚙️ 03_Execution (執行與自動化工具) — 27 個技能
 負責具體程式碼運作、檔案操作、外部 API 串接或環境配置的實體技能。
 
 | 技能目錄 | 核心目的摘要 (存在意義與輸入/輸出) |
@@ -173,6 +174,8 @@ graph TD
 | **line-bot-zero-delay** | **LINE Bot 零延遲服務**：優化 LINE Bot 的回覆速度與非同步處理架構。 |
 | **line-interaction-manager** | **LINE 互動管理器**：管理 LINE Bot 的對話狀態、選單與用戶互動流程。 |
 | **ui-prototype-builder** | **UI 原型建構器**：用 HTML 製作高保真原型、互動 Demo 與動畫設計。 |
+| **mcp-engineer** | **MCP 工程師** [NEW]：整合原 mcp-builder + mcp-setup，覆蓋 MCP 工具完整生命週期。 |
+| **workspace-migration-recovery** | **工作站遷移復原** [防禦技能]：系統環境遷移後的路徑修復與架構完整性驗證。 |
 
 ---
 
@@ -188,4 +191,4 @@ graph TD
 
 ---
 
-*本文件由 Antigravity 總管於 2026-06-15 全面重建，移除舊版前綴並與現行 68 技能 Manifest 完全同步。*
+*本文件由 Antigravity 總管於 2026-06-16 更新至 V3.3.0，完成 V3 優化計畫：新增 security-auditor、mcp-engineer，移除冗餘節點，架構地圖與 69 技能 Manifest 完全同步。*

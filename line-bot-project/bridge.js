@@ -4,7 +4,7 @@
  * 特色：0輪詢、光速傳遞、不受限於 CDP 防火牆
  */
 
-require('dotenv').config();
+require('dotenv').config({ path: require('path').resolve(__dirname, '../.env.local') });
 const express = require('express');
 const line = require('@line/bot-sdk');
 const fs = require('fs');
@@ -55,7 +55,7 @@ fetchBotInfo();
 // ─── 記憶體狀態與持久化 ────────────────────────────────────────────────────────
 const STATE_FILE = path.join(__dirname, 'bridge_state.json');
 let messageQueue = []; // { userId, sourceId, text, timestamp, processing, processingStartTime }
-const MAX_QUEUE_SIZE = 5;
+const MAX_QUEUE_SIZE = parseInt(process.env.MAX_QUEUE_SIZE || '10');
 
 let activeAgentToken = null;
 let activeAgentLabel = null;
@@ -506,6 +506,11 @@ app.post('/webhook', express.raw({type: 'application/json'}), (req, res, next) =
         // 轉換為文字指令給 Agent
         const text = `[系統通知] 使用者傳送了一張圖片，已自動下載至本機路徑：${imagePath}\n請幫我分析或根據上下文處理這張圖片。`;
         await handleCommand(userId, sourceId, text, replyToken);
+
+        // 圖片處理後非同步清理（避免累積孤兒檔案）
+        fs.unlink(imagePath, (err) => {
+          if (!err) console.log(`[IMAGE] 已清理臨時圖片：${imagePath}`);
+        });
       } catch (e) {
         console.error('[IMAGE ERROR]', e);
         try { await pushToLine(sourceId, `❌ 圖片下載失敗：${e.message}`); } catch {}
@@ -526,7 +531,7 @@ app.use((err, req, res, next) => {
 // ─── 管理 API ────────────────────────────────────────────────────────────────
 app.post('/internal/reset-lock', express.json(), (req, res) => {
   const secret = req.headers['x-internal-secret'];
-  if (secret !== 'antigravity-internal-2026') return res.status(403).json({ error: 'Forbidden' });
+  if (secret !== process.env.INTERNAL_GATEWAY_TOKEN) return res.status(403).json({ error: 'Forbidden' });
   
   if (req.body && req.body.clearQueue) {
     const dropped = messageQueue.length;

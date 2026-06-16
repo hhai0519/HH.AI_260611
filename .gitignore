@@ -11,3 +11,4 @@ line-bot-project/node_modules/
 *.log
 *_log.txt
 *.exe
+Data/Pending_Optimization.json

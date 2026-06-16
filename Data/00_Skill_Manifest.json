@@ -70,7 +70,7 @@
     "capabilities": {}
   },
   "chip-logic-expert": {
-    "description": "進階台股籌碼分析邏輯，包含券商借券、融資維持率以及大戶籌碼衝突分析。",
+    "description": "[備援深度節點 - 主入口為 twse-market-logic-skill] 進階台股籌碼分析邏輯，包含券商借券、融資維持率以及大戶籌碼衝突分析。",
     "version": "3.0.0",
     "type": "skill",
     "path": "./skills/02_Cognitive/chip-logic-expert/SKILL.md",
@@ -133,7 +133,7 @@
     "capabilities": {}
   },
   "ownership-cluster": {
-    "description": "機構持股與籌碼集中度指數（CI_INDEX）分析。",
+    "description": "[備援深度節點 - 主入口為 twse-market-logic-skill] 機構持股與籌碼集中度指數（CI_INDEX）分析。",
     "version": "3.0.0",
     "type": "skill",
     "path": "./skills/02_Cognitive/ownership-cluster/SKILL.md",
@@ -175,7 +175,7 @@
     "capabilities": {}
   },
   "canvas-design": {
-    "description": "使用設計哲學在 .png 和 .pdf 文件中建立美觀的視覺藝術。當使用者要求建立海報、藝術品、設計或其他靜態視覺作品時使用。",
+    "description": "[LEGACY - 請改用 ui-prototype-builder] 使用設計哲學在 .png 和 .pdf 文件中建立美觀的視覺藝術。當使用者要求建立海報、藝術品、設計或其他靜態視覺作品時使用。",
     "version": "3.0.0",
     "type": "skill",
     "path": "./skills/03_Execution/canvas-design/SKILL.md",
@@ -230,20 +230,6 @@
     "path": "./skills/03_Execution/langsmith-fetch/SKILL.md",
     "capabilities": {}
   },
-  "mcp-builder": {
-    "description": "建立高品質 MCP (Model Context Protocol) 伺服器的指南，使 LLM 能夠透過設計良好的工具與外部服務進行互動。",
-    "version": "3.0.0",
-    "type": "skill",
-    "path": "./skills/03_Execution/mcp-builder/SKILL.md",
-    "capabilities": {}
-  },
-  "mcp-setup": {
-    "description": "",
-    "version": "3.0.0",
-    "type": "skill",
-    "path": "./skills/03_Execution/mcp-setup/SKILL.md",
-    "capabilities": {}
-  },
   "notebooklm-mcp": {
     "description": "",
     "version": "3.0.0",
@@ -266,7 +252,7 @@
     "capabilities": {}
   },
   "playwright-automation": {
-    "description": "使用 Playwright 進行完整的瀏覽器自動化。自動偵測開發伺服器，編寫乾淨的測試指令碼。測試頁面、填寫表單、截取螢幕截圖、檢查響應式設計、驗證 UX、測試登入流程、檢查連結，並自動化任何瀏覽器任務。",
+    "description": "[觸發場景：通用自動化腳本、非測試的瀏覽器操作] 使用 Playwright 進行完整的瀏覽器自動化。自動偵測開發伺服器，編寫乾淨的測試指令碼。測試頁面、填寫表單、截取螢幕截圖、檢查響應式設計、驗證 UX、測試登入流程、檢查連結，並自動化任何瀏覽器任務。",
     "version": "3.0.0",
     "type": "skill",
     "path": "./skills/03_Execution/playwright-automation/SKILL.md",
@@ -294,14 +280,14 @@
     "capabilities": {}
   },
   "theme-factory": {
-    "description": "為成品設定主題風格的工具包。成品可以是投影片、文件、報告、HTML 登陸頁面等。包含 10 個預設的主題色彩/字體可供套用，或即時生成新主題。",
+    "description": "[LEGACY - 請改用 ui-prototype-builder] 為成品設定主題風格的工具包。成品可以是投影片、文件、報告、HTML 登陸頁面等。包含 10 個預設的主題色彩/字體可供套用，或即時生成新主題。",
     "version": "3.0.0",
     "type": "skill",
     "path": "./skills/03_Execution/theme-factory/SKILL.md",
     "capabilities": {}
   },
   "webapp-testing": {
-    "description": "使用 Playwright 互動和測試本地 Web 應用程式的工具包。支援驗證前端功能、偵錯 UI 行為、擷取瀏覽器螢幕截圖以及查看瀏覽器日誌。",
+    "description": "[觸發場景：Web 應用功能測試、截圖驗證、Playwright 測試套件] 使用 Playwright 互動和測試本地 Web 應用程式的工具包。支援驗證前端功能、偵錯 UI 行為、擷取瀏覽器螢幕截圖以及查看瀏覽器日誌。",
     "version": "3.0.0",
     "type": "skill",
     "path": "./skills/03_Execution/webapp-testing/SKILL.md",
@@ -364,7 +350,7 @@
     "capabilities": {}
   },
   "global-workspace": {
-    "description": "動態工作流引擎。取代靜態的協作腳本與研究迴圈。實作 ReCAP (Recursive Context-Aware Planning) 引擎，負責遞迴式任務拆解、滑動視窗上下文廣播 (Context Broadcasting)，並透過 A2A Gateway 指揮 Loki Swarm。",
+    "description": "[LEGACY - 職責已由 agency-orchestrator-skill 涵蓋] 動態工作流引擎。取代靜態的協作腳本與研究迴圈。實作 ReCAP (Recursive Context-Aware Planning) 引擎，負責遞迴式任務拆解、滑動視窗上下文廣播 (Context Broadcasting)，並透過 A2A Gateway 指揮 Loki Swarm。",
     "version": "3.0.0",
     "type": "skill",
     "path": "./skills/01_Orchestrators/global-workspace/SKILL.md",
@@ -481,5 +467,27 @@
     "type": "skill",
     "path": "./skills/03_Execution/workspace-migration-recovery/SKILL.md",
     "capabilities": {}
+  },
+  "mcp-engineer": {
+    "description": "MCP 開發與環境配置完整生命週期工程師。整合原 mcp-builder 與 mcp-setup，覆蓋 MCP 工具的完整生命週期（開發、配置、排錯）。",
+    "version": "1.0.0",
+    "type": "execution",
+    "path": "./skills/03_Execution/mcp-engineer/SKILL.md",
+    "capabilities": {
+      "tool_category": "MCP/Protocol",
+      "execution_env": "Node.js/TypeScript",
+      "io_format": "JSON/SSE/Config"
+    }
+  },
+  "security-auditor": {
+    "description": "資訊安全與弱點掃描總監。在程式碼合併、API 串接或外部資料處理前，自動執行安全審查。掃描 SQL Injection、XSS、API 密鑰外洩、路徑穿越等高危漏洞。",
+    "version": "1.0.0",
+    "type": "orchestrator",
+    "path": "./skills/01_Orchestrators/security-auditor/SKILL.md",
+    "capabilities": {
+      "logic_depth": "攻擊者視角的主動威脅建模",
+      "strategic_focus": "零容忍漏洞防線，pre-merge 攔截",
+      "interaction_style": "嚴格、明確、提供可執行修復方案"
+    }
   }
 }
