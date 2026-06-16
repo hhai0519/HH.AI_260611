@@ -37,13 +37,13 @@ const MAX_RETRY_COUNT  = 4;      // 達此次數後標記 FAILED（第 5 次失�
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 // ══════════════════════════════════════════════════════════════════════════════
-// § 1  Mock 任務處理（未來替換為實際 sys-reflection-module 調用）
+// § 1  Mock 任務處理（未來替換為實際 reflection-module 調用）
 // ══════════════════════════════════════════════════════════════════════════════
 
 /**
  * processTask(row)
  * 目前為 Mock 實作，構建標準化 Payload 並印出日誌。
- * 未來接駁：替換為 MCP invoke 或 HTTP call 至 sys-reflection-module。
+ * 未來接駁：替換為 MCP invoke 或 HTTP call 至 reflection-module。
  *
  * @param {Object} row - watchdog_pending_optimizations 資料列
  */
@@ -51,7 +51,7 @@ async function processTask(row) {
   const payload = {
     dispatch_id  : `maint-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`,
     source       : 'maintenance_worker@v3.2.0',
-    target_skill : 'sys-reflection-module',
+    target_skill : 'reflection-module',
     dispatched_at: new Date().toISOString(),
     anomaly      : {
       db_id      : row.id,
@@ -70,7 +70,7 @@ async function processTask(row) {
   // Mock：印出結構化 Payload（未來替換為實際調用）
   if (process.env.DEBUG === 'true') {
     console.log(
-      `[maintenance_worker] 📤 [MOCK] 派發至 sys-reflection-module：\n` +
+      `[maintenance_worker] 📤 [MOCK] 派發至 reflection-module：\n` +
       JSON.stringify(payload, null, 2)
     );
   }

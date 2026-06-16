@@ -1,6 +1,6 @@
 # 代理人反思長期記憶庫 (Agent Long-Term Memory / AGENTS.md)
 
-> 此檔案由 `sys-reflection-module` 自動維護，作為系統的分層式長期記憶庫 (Tiered Memory System)。在制定計畫 (Planning Mode) 前，代理人**必須**優先讀取此檔，從歷史教訓中進行前瞻性預判 (Prospective Reflection)，避免重蹈覆轍。
+> 此檔案由 `reflection-module` 自動維護，作為系統的分層式長期記憶庫 (Tiered Memory System)。在制定計畫 (Planning Mode) 前，代理人**必須**優先讀取此檔，從歷史教訓中進行前瞻性預判 (Prospective Reflection)，避免重蹈覆轍。
 
 ---
 

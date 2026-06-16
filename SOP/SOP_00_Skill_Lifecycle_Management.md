@@ -118,7 +118,7 @@ dependencies: ["Data/00_Skill_Manifest.json", "Templates/Template_00_Universal_S
 ### 5.1 巡檢觸發時機
 
 Agent 在以下情況**必須**自動觸發背景巡檢：
-- **(a)** 啟動跨技能協作（呼叫 Recipe Mixer 或 `sys-subagent-collaboration`）之前
+- **(a)** 啟動跨技能協作（呼叫 Recipe Mixer 或 `subagent-collaboration-skill`）之前
 - **(b)** 掃描技能目錄（`skills/`）或讀取 Manifest 時
 - **(c)** 執行任何 Manifest Sync / Manifest Inject 操作時
 
@@ -254,7 +254,7 @@ Buffer 寫入完成後，Agent **僅能**在對話**結尾**以一行警示通�
 | `03_Execution` (Tool) | URL、DOM Selector、SQL Query、JSON Schema、檔案路徑 | 認知參數、語氣描述、角色設定、情緒變數 |
 
 **執行規則**：
-1. `sys-subagent-collaboration` 作為 Payload 淨化的責任方，在組裝 Dynamic Payload 前必須識別目標層級。
+1. `subagent-collaboration-skill` 作為 Payload 淨化的責任方，在組裝 Dynamic Payload 前必須識別目標層級。
 2. 發送給 Cognitive 層前，過濾掉所有技術型參數。
 3. 發送給 Execution 層前，過濾掉所有認知型參數，只保留純技術指令。
 4. 任何 Orchestrator 直接將自然語言報告傳遞給 Execution 工具（如直接傳文字給 D3 工具），視為違規。

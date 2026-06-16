@@ -2,13 +2,13 @@
 title: "Task Reflection Protocol"
 version: "3.1.3"
 tags: [SOP, Orchestration, Reflection, Multi-Agent]
-dependencies: ["sys-reflection-module"]
+dependencies: ["reflection-module"]
 ---
 # 任務反思標準作業程序 (Task Reflection Protocol V2.0.0)
 
 **核心準則**：凡執行必留痕，凡錯誤必反思。防範於未然 (Prospective) 優先於事後補救 (Retrospective)。
 
-本 SOP 規範了所有 AI 代理人在面對高風險決策前，或執行複雜任務結束後的標準自我優化與修正流程。透過強制調用 `sys-reflection-module`，系統將啟動 Multi-Agent Generator-Critic 架構，建立具備前瞻性與分層記憶的學習迴圈。
+本 SOP 規範了所有 AI 代理人在面對高風險決策前，或執行複雜任務結束後的標準自我優化與修正流程。透過強制調用 `reflection-module`，系統將啟動 Multi-Agent Generator-Critic 架構，建立具備前瞻性與分層記憶的學習迴圈。
 
 ## 1. 觸發時機 (When to Reflect)
 
@@ -23,7 +23,7 @@ dependencies: ["sys-reflection-module"]
 
 ## 2. 5 步執行程序 (The 5-Step Reflexion Loop)
 
-一旦觸發，代理人必須中斷常規思考，載入 `sys-reflection-module` 並依序執行以下 5 個步驟：
+一旦觸發，代理人必須中斷常規思考，載入 `reflection-module` 並依序執行以下 5 個步驟：
 
 1. **初始生成 (Initial Draft)**：
    - Actor 角色基於上下文或歷史記憶提出初版計畫、動作或程式碼。
