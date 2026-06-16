@@ -5,6 +5,7 @@
  */
 
 require('dotenv').config({ path: require('path').resolve(__dirname, '../.env.local') });
+require('dotenv').config();
 const express = require('express');
 const line = require('@line/bot-sdk');
 const fs = require('fs');
