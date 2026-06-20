@@ -1,7 +1,8 @@
 {
   "agency-orchestrator-skill": {
-    "description": "Agency-Agents 最高總管，負責通用意圖解析與全局任務拆解，並執行 4-Phase 狀態機工作流。",
-    "version": "3.1.3",
+    "display_name": "萬能總管模式",
+    "description": "萬能總管模式（Agency-Agents 最高總管），負責通用意圖解析與全局任務拆解，並執行 4-Phase 狀態機工作流。",
+    "version": "3.1.4",
     "type": "skill",
     "path": "./skills/01_Orchestrators/agency-orchestrator-skill/SKILL.md",
     "capabilities": {}
