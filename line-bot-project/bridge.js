@@ -488,7 +488,12 @@ app.post('/webhook', express.raw({type: 'application/json'}), (req, res, next) =
       const messageId = event.message.id;
       console.log(`[LINE→] 來自 ${userId} (群組/對話框: ${sourceId}) 傳送了圖片: ${messageId}`);
       try {
-        const imagePath = path.join(__dirname, `image_${messageId}.jpg`);
+        // ✅ 修復：圖片永久存至 public/ 目錄，讓 Agent 可用 view_file 讀取後自行清理
+        const publicDir = path.join(__dirname, 'public');
+        if (!fs.existsSync(publicDir)) fs.mkdirSync(publicDir, { recursive: true });
+        const imageFileName = `image_${messageId}.jpg`;
+        const imagePath = path.join(publicDir, imageFileName);
+
         const response = await axios({
           method: 'GET',
           url: `https://api-data.line.me/v2/bot/message/${messageId}/content`,
@@ -504,14 +509,12 @@ app.post('/webhook', express.raw({type: 'application/json'}), (req, res, next) =
           writer.on('error', reject);
         });
 
-        // 轉換為文字指令給 Agent
-        const text = `[系統通知] 使用者傳送了一張圖片，已自動下載至本機路徑：${imagePath}\n請幫我分析或根據上下文處理這張圖片。`;
-        await handleCommand(userId, sourceId, text, replyToken);
+        console.log(`[IMAGE] 圖片已儲存至: ${imagePath}`);
 
-        // 圖片處理後非同步清理（避免累積孤兒檔案）
-        fs.unlink(imagePath, (err) => {
-          if (!err) console.log(`[IMAGE] 已清理臨時圖片：${imagePath}`);
-        });
+        // ✅ 傳給 Agent [IMAGE:本機絕對路徑] 標記，讓 Agent 用 view_file 讀取
+        const text = `[IMAGE:${imagePath}]\n使用者傳送了一張圖片，請分析圖片內容並根據上下文提供回應。`;
+        await handleCommand(userId, sourceId, text, replyToken);
+        // 注意：圖片由 Agent 處理完後自行清理，Bridge 不再自動刪除
       } catch (e) {
         console.error('[IMAGE ERROR]', e);
         try { await pushToLine(sourceId, `❌ 圖片下載失敗：${e.message}`); } catch {}
@@ -550,49 +553,73 @@ app.get('/internal/status', (req, res) => {
 });
 
 // ─── Auto-Healing Webhook Updater ──────────────────────────────────────────────
+// 修復說明：原版讀取 PM2 日誌（使用者未使用 PM2，故永遠失效）。
+// 修正版改讀專案根目錄的 cloudflared_log.txt，由 start_line.ps1 負責寫入此檔。
+// 支援 Quick Tunnel（trycloudflare.com）與 Named Tunnel（兩種模式皆可）。
 async function autoUpdateWebhook() {
   try {
-    const logPath = path.join(process.env.USERPROFILE || process.env.HOME, '.pm2', 'logs', 'cloudflare-tunnel-error.log');
-    if (!fs.existsSync(logPath)) return;
-    
-    const logContent = fs.readFileSync(logPath, 'utf8');
-    const matches = logContent.match(/https:\/\/[a-z0-9-]+\.trycloudflare\.com/g);
+    // ① 優先讀本地 cloudflared_log.txt（由啟動腳本將 cloudflared 輸出重導至此）
+    const localLogPath = path.resolve(__dirname, '..', 'cloudflared_log.txt');
+    // ② 備援：PM2 日誌（若改用 PM2 管理則自動切換）
+    const pm2LogPath = path.join(process.env.USERPROFILE || process.env.HOME, '.pm2', 'logs', 'cloudflare-tunnel-error.log');
+
+    let logContent = '';
+    if (fs.existsSync(localLogPath)) {
+      logContent = fs.readFileSync(localLogPath, 'utf8');
+    } else if (fs.existsSync(pm2LogPath)) {
+      logContent = fs.readFileSync(pm2LogPath, 'utf8');
+    } else {
+      return; // 兩個日誌都不存在，靜默跳過
+    }
+
+    // 同時匹配 Quick Tunnel (trycloudflare.com) 與 Named Tunnel (.cloudflare.com)
+    const matches = logContent.match(/https:\/\/[a-z0-9-]+\.(?:trycloudflare\.com|cloudflare\.com)/g);
     if (!matches || matches.length === 0) return;
-    
+
     const latestTunnelUrl = matches[matches.length - 1];
     const newWebhookEndpoint = `${latestTunnelUrl}/webhook`;
 
     const res = await axios.get('https://api.line.me/v2/bot/channel/webhook/endpoint', {
       headers: { 'Authorization': `Bearer ${lineConfig.channelAccessToken}` }
     });
-    
+
     const currentEndpoint = res.data.endpoint;
-    
+
     if (currentEndpoint !== newWebhookEndpoint) {
-      console.log(`[Auto-Heal] 偵測到網址變更！舊: ${currentEndpoint} -> 新: ${newWebhookEndpoint}`);
-      
+      console.log(`[Auto-Heal] 偵測到網址變更！`);
+      console.log(`  舊: ${currentEndpoint}`);
+      console.log(`  新: ${newWebhookEndpoint}`);
+
       await axios.put('https://api.line.me/v2/bot/channel/webhook/endpoint', {
         endpoint: newWebhookEndpoint
       }, {
-        headers: { 
+        headers: {
           'Authorization': `Bearer ${lineConfig.channelAccessToken}`,
           'Content-Type': 'application/json'
         }
       });
-      
-      console.log('[Auto-Heal] LINE Webhook 網址自動更新成功！');
-      
+
+      console.log('[Auto-Heal] ✅ LINE Webhook 網址自動更新成功！');
+
       if (ALLOWED_USER_ID) {
-        await pushToLine(ALLOWED_USER_ID, `🟢 **系統重啟自動修復成功**\n\n偵測到全新的隧道網址，已自動為您更新至 LINE 後台！\n\n新網址:\n\`${newWebhookEndpoint}\``);
+        await pushToLine(ALLOWED_USER_ID,
+          `🟢 **系統重啟自動修復成功**\n\n` +
+          `偵測到全新的隧道網址，已自動為您更新至 LINE 後台！\n\n` +
+          `新網址：\`${newWebhookEndpoint}\``
+        );
       }
+    } else {
+      console.log(`[Auto-Heal] Webhook 網址無變化，無需更新。`);
     }
   } catch (e) {
     console.error('[Auto-Heal] 自動更新 Webhook 失敗:', e.response ? JSON.stringify(e.response.data) : e.message);
   }
 }
 
+// cloudflared 啟動需要幾秒才能建立隧道並輸出 URL，故首次偵測延遲 8 秒
+// 之後每 30 秒重新檢查（應對網路中斷後重連的情況）
+setTimeout(autoUpdateWebhook, 8000);
 setInterval(autoUpdateWebhook, 30000);
-setTimeout(autoUpdateWebhook, 5000);
 
 // ─── 啟動 ─────────────────────────────────────────────────────────────────────
 app.listen(PORT, () => {
