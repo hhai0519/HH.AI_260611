@@ -10,6 +10,9 @@ if (!agentId) {
   process.exit(1);
 }
 
+const dbState = require('../db_state_manager');
+const useDb = !dbState.isPlaceholderDb() && dbState.pool !== null;
+
 const req = http.request({
   hostname: 'localhost',
   port: process.env.PORT || 3000,
@@ -28,6 +31,11 @@ const req = http.request({
       
       // 因為 force 永遠為 true，只會回傳 acquired 或 transferred
       console.log(`[LINE_CONTROLLER_MESSAGE] ✅ LINE 控制權已成功取得！\n🤖 目前控制 Agent：${agentLabel}\n隨時待命接收您的 LINE 訊息。`);
+      
+      if (useDb) {
+        console.log(`[LINE_CONTROLLER] 💓 資料庫模式：啟動鎖心跳續命機制 (60s TTL)`);
+        dbState.startLockHeartbeat('line_bridge_lock', agentId, 60);
+      }
       
       // 在前景執行 poll_inbox.js，讓 IDE 能夠追蹤生命週期並喚醒 Agent
       require('./poll_inbox.js');

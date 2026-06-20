@@ -1,5 +1,5 @@
 # 待辦事項 (TODO)
-> **最後更新**：2026-06-18 | 由 Antigravity 總管整理
+> **最後更新**：2026-06-20 | 由 Antigravity 總管整理
 
 ---
 
@@ -10,20 +10,22 @@
 - [x] V4 Patch：封存籌碼備援層（chip-logic-expert / ownership-cluster）
 - [x] V4 Patch：`$$自動化$$` 路由碰撞解除，植入三選一選單攔截機制
 - [x] V4 Patch：Manifest 同步至 64 個技能，00_System_Architecture_Map.md 更新至 V4.0.0
+- [x] 臨時腳本清理：`line-bot-project/reply_all.js`、`process_queue.js`、`test_bridge.js` 等已移至 `scratch/` 歸檔或刪除，符合零散落原則
+- [x] 目錄零散落淨化：根目錄散落檔案已移入 `Modules/`、`SOP/`、`Data/` 或 `scratch/`，全站完全符合 SOP_00B 規範
+- [x] .gitignore 保護確認：已確認根目錄 `.gitignore` 排除所有 `.env*` 檔案，且從 Git 快取中移除，防止敏感金鑰洩漏
+- [x] MCP 認證與防禦：已建立認證狀態監控器 `Modules/nlm_auth_watchdog.ps1`，實作 NotebookLM 認證過期預警與防禦機制
 
 ---
 
 ## 🔴 緊急 — LINE 服務維運
 - [ ] **LINE Webhook URL 固定化**：Cloudflare free tunnel 每次重啟 URL 都會改變，必須至 LINE Developers Console 手動更新 Webhook URL，或改用具名隧道（Named Tunnel）解決此問題。
 - [ ] **Cloudflare Tunnel 穩定性優化**：目前使用 quick tunnel，日誌出現 DNS `i/o timeout`，建議改為建立具名 Cloudflare Tunnel（需登入帳號），確保公開 URL 永久固定、不受重啟影響。
-- [ ] **臨時腳本清理**：`line-bot-project/reply_all.js`、`process_queue.js`、`test_bridge.js` 為臨時調試腳本，應移至 `Data/` 歸檔或直接刪除，符合零散落原則。
 
 ---
 
 ## 🟠 系統架構合規性優化
 > 📄 **參考計畫文件：** [Architecture_Compliance_Plan_20260618.md](file:///c:/Users/HH.AI_260611/Desktop/HH.AI_260611/Data/Execution_Plans/Architecture_Compliance_Plan_20260618.md)
 
-- [ ] **目錄零散落淨化**：將根目錄下不符合 SOP_00B 的散落檔案（如 `.js`、`.py`、`LINE_Bridge_Improvement_Report.md` 等）移入對應的 `Modules/`、`SOP/` 或 `Data/` 目錄。
 - [ ] **LINE Bridge 狀態管理升級**：重構 `line-bot-project/bridge.js` 與 `start_line.js`，廢除本地 `bridge_state.json`，改用 `Modules/db_state_manager.js` 實作資料庫層級之分散式悲觀鎖（SOP_10）。
 - [ ] **架構位置決策**：決定 `line-bot-project/` 專案目錄是否需搬移至 `Modules/`，以及是否將 Message Queue 一併遷入 Neon DB。
 
@@ -31,10 +33,8 @@
 
 ## 🟡 安全與維運任務
 - [ ] **更新金鑰**：定期輪換所有在 `.env.local` 中的 API 金鑰（LINE、GitHub、NotebookLM 等）。
-- [ ] **`.gitignore` 保護確認**：確認根目錄 `.gitignore` 已將 `.env.local` 及所有 `.env*` 加入排除，避免機密金鑰被推送至 Git 版控。
 - [ ] **GitHub 同步機制優化**：優化 Git 推送流程，確保大型重構前必定執行備份 Commit，並確認沒有卡在 `COMMIT_EDITMSG` 中斷狀態（SOP_05）。
 - [ ] **資安管理複查**：針對目前所有 API 整合（LINE、NotebookLM、GitHub、FinMind）執行一次完整的資安審計，確認最小權限原則與憑證管理符合 SOP_02。
-- [ ] **MCP 認證與防禦**：將 NotebookLM MCP 認證修復 SOP 實作「自動預判過期」與備援切換機制，加入主系統行為（源自 Agent_Reflections）。
 
 ---
 

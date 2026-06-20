@@ -9,7 +9,7 @@ module.exports = {
     },
     {
       name: "cloudflare-tunnel",
-      script: "..\\cloudflared.exe",
+      script: "..\\..\\cloudflared.exe",
       args: "tunnel --url http://localhost:3000",
       autorestart: true,
     }

@@ -4,9 +4,8 @@ import time
 from pathlib import Path
 
 # Configuration
-BASE_DIR = Path('<USER_HOME>/Desktop/AI Test_260413/autoresearch-cpu')
-SKILL_MD = Path('<USER_HOME>/.gemini/本協作系統/skills/optimization-status/SKILL.md')
-DASHBOARD_SCRIPT = Path('<USER_HOME>/Desktop/AI Test_260413/scripts/refresh_skills.js')
+BASE_DIR = Path(__file__).parent.resolve()
+SKILL_MD = Path(__file__).parent.parent / 'optimization-status' / 'SKILL.md'
 RESULTS_TSV = BASE_DIR / 'results.tsv'
 TARGET_BPB = 4.0
 
@@ -44,9 +43,8 @@ description: 🤖 背景自動優化狀態監控器。目前正在針對 TinySto
 ---
 *上次同步時間：{time.strftime('%Y-%m-%d %H:%M:%S')}*
 """
+    SKILL_MD.parent.mkdir(parents=True, exist_ok=True)
     SKILL_MD.write_text(status_content, encoding='utf-8')
-    # Trigger dashboard refresh
-    subprocess.run(['node', str(DASHBOARD_SCRIPT)], cwd=DASHBOARD_SCRIPT.parent, capture_output=True)
 
 def run_experiment(depth, lr):
     env = os.environ.copy()
@@ -73,9 +71,31 @@ def extract_bpb(output):
                 pass
     return 999.0
 
+def get_best_bpb_from_tsv():
+    default_best = 15.281531
+    if not RESULTS_TSV.exists():
+        return default_best
+    try:
+        best = default_best
+        lines = RESULTS_TSV.read_text(encoding='utf-8').splitlines()
+        for line in lines[1:]: # Skip header
+            parts = line.split('\t')
+            if len(parts) >= 3 and parts[2] == 'keep':
+                try:
+                    bpb = float(parts[1])
+                    if bpb < best:
+                        best = bpb
+                except ValueError:
+                    pass
+        return best
+    except Exception as e:
+        print(f"Error reading results.tsv: {e}")
+        return default_best
+
 def main():
     print("Starting Auto-Optimization Controller...")
-    best_bpb = 15.281531 # Starting baseline from results.tsv
+    best_bpb = get_best_bpb_from_tsv()
+    print(f"Loaded current best val_bpb baseline: {best_bpb:.6f}")
     
     for i, params in enumerate(SEARCH_SPACE):
         depth = params['DEPTH']

@@ -5,6 +5,21 @@
  */
 
 require('dotenv').config({ path: require('path').resolve(__dirname, '../.env.local') });
+const dbState = require('../db_state_manager');
+const useDb = !dbState.isPlaceholderDb() && dbState.pool !== null;
+
+if (useDb) {
+  dbState.initDB().then(async () => {
+    try {
+      await dbState.pool.query(`ALTER TABLE agent_distributed_locks ADD COLUMN IF NOT EXISTS agent_label VARCHAR(255);`);
+      console.log('[DB] 確保 agent_distributed_locks 表有 agent_label 欄位成功。');
+    } catch (e) {
+      console.error('[DB] 欄位擴充失敗：', e.message);
+    }
+  }).catch(err => {
+    console.error('[DB] 初始化失敗：', err.message);
+  });
+}
 require('dotenv').config();
 const express = require('express');
 const line = require('@line/bot-sdk');
@@ -81,129 +96,341 @@ function saveState() {
   }, 1000);
 }
 
+async function getActiveLock() {
+  if (!useDb) {
+    return { token: activeAgentToken, label: activeAgentLabel };
+  }
+  try {
+    const res = await dbState.pool.query(
+      `SELECT locked_by, agent_label FROM agent_distributed_locks WHERE resource_id = 'line_bridge_lock' AND expires_at > NOW()`
+    );
+    if (res.rowCount > 0) {
+      return { token: res.rows[0].locked_by, label: res.rows[0].agent_label };
+    }
+  } catch (e) {
+    console.error('[DB] getActiveLock error:', e.message);
+  }
+  return { token: null, label: null };
+}
+
+async function getQueueSize() {
+  if (!useDb) return messageQueue.length;
+  try {
+    const res = await dbState.pool.query('SELECT COUNT(*) FROM line_message_queue');
+    return parseInt(res.rows[0].count);
+  } catch (e) {
+    console.error('[DB] getQueueSize error:', e.message);
+    return 0;
+  }
+}
+
 // ─── HTTP Long Polling API 端點 ─────────────────────────────────────────────
 const pendingPolls = []; // { res, token }
 
-function processPendingPolls() {
-  if (messageQueue.length === 0 || pendingPolls.length === 0) return;
-  const pendingMsg = messageQueue.find(m => !m.processing);
-  if (!pendingMsg) return;
+async function processPendingPolls() {
+  if (pendingPolls.length === 0) return;
+  
+  const activeLock = await getActiveLock();
+  if (!activeLock.token) return; // 沒有 active agent
+  
+  if (useDb) {
+    try {
+      // 嘗試獲取一條未處理訊息並標記
+      const query = `
+        UPDATE line_message_queue
+        SET processing = TRUE,
+            processing_start_time = $1
+        WHERE msg_id = (
+          SELECT msg_id
+          FROM line_message_queue
+          WHERE processing = FALSE
+          ORDER BY msg_id ASC
+          LIMIT 1
+          FOR UPDATE SKIP LOCKED
+        )
+        RETURNING msg_id, user_id AS "userId", source_id AS "sourceId", text, timestamp, processing, trace_id AS "traceId", retry_count AS "retryCount", notified;
+      `;
+      const res = await dbState.pool.query(query, [Date.now()]);
+      if (res.rowCount > 0) {
+        const pendingMsg = res.rows[0];
+        // 配對 pendingPolls
+        while (pendingPolls.length > 0) {
+          const poll = pendingPolls.shift();
+          if (poll.token === activeLock.token) {
+            console.log(`[Queue-DB] 訊息出列處理中`);
+            poll.res.json({ message: pendingMsg });
+            return;
+          } else {
+            poll.res.status(403).json({ error: 'Forbidden', message: 'AGENT_TRANSFER' });
+          }
+        }
+        // 如果配對不到合適的 (例如 token 不匹配且沒有 active lock)，則把訊息回退
+        await dbState.pool.query(
+          'UPDATE line_message_queue SET processing = FALSE, processing_start_time = NULL WHERE msg_id = $1',
+          [pendingMsg.msg_id]
+        );
+      }
+    } catch (e) {
+      console.error('[DB] processPendingPolls error:', e.message);
+    }
+  } else {
+    // 原本的本地記憶體邏輯
+    const pendingMsg = messageQueue.find(m => !m.processing);
+    if (!pendingMsg) return;
 
-  while (pendingPolls.length > 0) {
-    const poll = pendingPolls.shift();
-    if (poll.token === activeAgentToken) {
-      pendingMsg.processing = true;
-      pendingMsg.processingStartTime = Date.now();
-      saveState();
-      console.log(`[Queue] 訊息出列處理中，剩餘 ${messageQueue.length} 則`);
-      poll.res.json({ message: pendingMsg });
-      break;
-    } else {
-      poll.res.status(403).json({ error: 'Forbidden', message: 'AGENT_TRANSFER' });
+    while (pendingPolls.length > 0) {
+      const poll = pendingPolls.shift();
+      if (poll.token === activeAgentToken) {
+        pendingMsg.processing = true;
+        pendingMsg.processingStartTime = Date.now();
+        saveState();
+        console.log(`[Queue] 訊息出列處理中，剩餘 ${messageQueue.length} 則`);
+        poll.res.json({ message: pendingMsg });
+        break;
+      } else {
+        poll.res.status(403).json({ error: 'Forbidden', message: 'AGENT_TRANSFER' });
+      }
     }
   }
 }
 
 // 處理超時與 UX 安撫 (每 5 秒檢查一次)
-setInterval(() => {
-  let changed = false;
+setInterval(async () => {
   const now = Date.now();
   
-  // 反向迭代以便在迴圈中安全地移除陣列元素
-  for (let i = messageQueue.length - 1; i >= 0; i--) {
-    const m = messageQueue[i];
-    if (m.processing) {
-      const elapsed = now - m.processingStartTime;
-      
-      // UX 主動安撫 (處理超過 60 秒)
-      if (elapsed > 60000 && !m.notified) {
-        m.notified = true;
-        changed = true;
-        pushToLine(m.sourceId, createSystemFlexMessage(`⏳ AI 正在為您深度思考或執行任務中，請稍候片刻...`, '#f2a900', '進度提示')).catch(()=>{});
-        console.log(`[UX] 針對 TraceID: ${m.traceId} 發送超時安撫訊息`);
+  if (useDb) {
+    try {
+      // 1. 處理超過 3 分鐘 (180,000ms) 的 UX 安撫
+      const notifyRes = await dbState.pool.query(
+        `UPDATE line_message_queue
+         SET notified = TRUE
+         WHERE processing = TRUE
+           AND ($1 - processing_start_time) > 180000
+           AND notified = FALSE
+         RETURNING source_id AS "sourceId", trace_id AS "traceId"`,
+        [now]
+      );
+      for (const row of notifyRes.rows) {
+        pushToLine(row.sourceId, createSystemFlexMessage(`⏳ AI 正在為您深度思考或執行任務中，請稍候片刻...`, '#f2a900', '進度提示')).catch(()=>{});
+        console.log(`[UX-DB] 針對 TraceID: ${row.traceId} 發送超時安撫訊息`);
       }
-      
-      // Two-Phase Ack 超時退回佇列或進入 DLQ (超過 120 秒)
-      if (elapsed > 120000) {
-        m.retryCount = (m.retryCount || 0) + 1;
-        if (m.retryCount >= 3) {
-          console.error(`[DLQ] 毒藥訊息超過重試上限 (3次)，移入死信佇列！TraceID: ${m.traceId}`);
-          // 寫入 DLQ
-          const dlqPath = path.join(__dirname, 'dead_letter.json');
-          let dlq = [];
-          if (fs.existsSync(dlqPath)) {
-            try { dlq = JSON.parse(fs.readFileSync(dlqPath, 'utf8')); } catch(e){}
-          }
-          dlq.push({ ...m, failedAt: now });
-          fs.writeFileSync(dlqPath, JSON.stringify(dlq, null, 2));
-          
-          // 通知用戶並移除
-          pushToLine(m.sourceId, createSystemFlexMessage(`❌ 抱歉，處理此訊息時發生持續性系統錯誤，已為您取消該任務。`, '#ff334b', '系統錯誤')).catch(()=>{});
-          messageQueue.splice(i, 1);
-        } else {
-          console.log(`[Queue] 訊息處理超時 (120s)，重新退回等待狀態 (第 ${m.retryCount} 次重試)`);
-          m.processing = false;
-          m.notified = false; // 重設安撫旗標
+
+      // 2. 處理超過 5 分鐘 (300,000ms) 的 Two-Phase Ack 超時
+      const timeoutRes = await dbState.pool.query(
+        `SELECT msg_id, user_id AS "userId", source_id AS "sourceId", text, timestamp, trace_id AS "traceId", retry_count AS "retryCount"
+         FROM line_message_queue
+         WHERE processing = TRUE
+           AND ($1 - processing_start_time) > 300000`,
+         [now]
+       );
+       
+       for (const m of timeoutRes.rows) {
+         const newRetry = m.retryCount + 1;
+         if (newRetry >= 3) {
+           console.error(`[DLQ-DB] 毒藥訊息超過重試上限 (3次)，移入死信佇列！TraceID: ${m.traceId}`);
+           const dlqPath = path.join(__dirname, 'dead_letter.json');
+           let dlq = [];
+           if (fs.existsSync(dlqPath)) {
+             try { dlq = JSON.parse(fs.readFileSync(dlqPath, 'utf8')); } catch(e){}
+           }
+           dlq.push({ ...m, failedAt: now, retryCount: newRetry });
+           fs.writeFileSync(dlqPath, JSON.stringify(dlq, null, 2));
+           
+           pushToLine(m.sourceId, createSystemFlexMessage(`❌ 抱歉，處理此訊息時發生持續性系統錯誤，已為您取消該任務。`, '#ff334b', '系統錯誤')).catch(()=>{});
+           await dbState.pool.query('DELETE FROM line_message_queue WHERE msg_id = $1', [m.msg_id]);
+         } else {
+           console.log(`[Queue-DB] 訊息處理超時 (300s)，重新退回等待狀態 (第 ${newRetry} 次重試)`);
+           await dbState.pool.query(
+             `UPDATE line_message_queue
+              SET processing = FALSE,
+                  notified = FALSE,
+                  retry_count = $1,
+                  processing_start_time = NULL
+              WHERE msg_id = $2`,
+             [newRetry, m.msg_id]
+           );
+         }
+       }
+       
+       if (timeoutRes.rowCount > 0) {
+         await processPendingPolls();
+       }
+     } catch (e) {
+       console.error('[DB] Timeout interval check error:', e.message);
+     }
+  } else {
+    // 降級模式：原本的本地記憶體邏輯
+    let changed = false;
+    for (let i = messageQueue.length - 1; i >= 0; i--) {
+      const m = messageQueue[i];
+      if (m.processing) {
+        const elapsed = now - m.processingStartTime;
+        
+        // UX 主動安撫 (處理超過 3 分鐘)
+        if (elapsed > 180000 && !m.notified) {
+          m.notified = true;
+          changed = true;
+          pushToLine(m.sourceId, createSystemFlexMessage(`⏳ AI 正在為您深度思考或執行任務中，請稍候片刻...`, '#f2a900', '進度提示')).catch(()=>{});
+          console.log(`[UX] 針對 TraceID: ${m.traceId} 發送超時安撫訊息`);
         }
-        changed = true;
+        
+        // Two-Phase Ack 超時退回佇列或進入 DLQ (超過 5 分鐘)
+        if (elapsed > 300000) {
+          m.retryCount = (m.retryCount || 0) + 1;
+          if (m.retryCount >= 3) {
+            console.error(`[DLQ] 毒藥訊息超過重試上限 (3次)，移入死信佇列！TraceID: ${m.traceId}`);
+            // 寫入 DLQ
+            const dlqPath = path.join(__dirname, 'dead_letter.json');
+            let dlq = [];
+            if (fs.existsSync(dlqPath)) {
+              try { dlq = JSON.parse(fs.readFileSync(dlqPath, 'utf8')); } catch(e){}
+            }
+            dlq.push({ ...m, failedAt: now });
+            fs.writeFileSync(dlqPath, JSON.stringify(dlq, null, 2));
+            
+            // 通知用戶並移除
+            pushToLine(m.sourceId, createSystemFlexMessage(`❌ 抱歉，處理此訊息時發生持續性系統錯誤，已為您取消該任務。`, '#ff334b', '系統錯誤')).catch(()=>{});
+            messageQueue.splice(i, 1);
+          } else {
+            console.log(`[Queue] 訊息處理超時 (300s)，重新退回等待狀態 (第 ${m.retryCount} 次重試)`);
+            m.processing = false;
+            m.notified = false; // 重設安撫旗標
+          }
+          changed = true;
+        }
       }
     }
-  }
-  
-  if (changed) {
-    saveState();
-    processPendingPolls();
+    
+    if (changed) {
+      saveState();
+      await processPendingPolls();
+    }
   }
 }, 5000);
 
 // 1. Agent 取得/切換控制權
-app.post('/api/lock/acquire', express.json(), (req, res) => {
+app.post('/api/lock/acquire', express.json(), async (req, res) => {
   const { agentId, agentLabel, force } = req.body;
-  if (!activeAgentToken || force || activeAgentToken === agentId) {
-    activeAgentToken = agentId;
-    activeAgentLabel = agentLabel;
-    saveState();
-    
-    // 如果有舊 Agent 的 pending poll，立刻踢除
-    while (pendingPolls.length > 0) {
-      const poll = pendingPolls.shift();
-      poll.res.status(403).json({ error: 'Forbidden', message: 'AGENT_TRANSFER' });
-    }
+  
+  if (useDb) {
+    try {
+      let acquired = false;
+      if (force) {
+        const query = `
+          INSERT INTO agent_distributed_locks (resource_id, locked_by, agent_label, expires_at)
+          VALUES ('line_bridge_lock', $1, $2, NOW() + ('60 seconds')::INTERVAL)
+          ON CONFLICT (resource_id) DO UPDATE
+            SET locked_by = EXCLUDED.locked_by,
+                agent_label = EXCLUDED.agent_label,
+                locked_at = NOW(),
+                expires_at = EXCLUDED.expires_at
+          RETURNING resource_id;
+        `;
+        const dbRes = await dbState.pool.query(query, [agentId, agentLabel]);
+        acquired = dbRes.rowCount > 0;
+      } else {
+        const query = `
+          INSERT INTO agent_distributed_locks (resource_id, locked_by, agent_label, expires_at)
+          VALUES ('line_bridge_lock', $1, $2, NOW() + ('60 seconds')::INTERVAL)
+          ON CONFLICT (resource_id) DO UPDATE
+            SET locked_by = EXCLUDED.locked_by,
+                agent_label = EXCLUDED.agent_label,
+                locked_at = NOW(),
+                expires_at = EXCLUDED.expires_at
+            WHERE agent_distributed_locks.expires_at < NOW() OR agent_distributed_locks.locked_by = EXCLUDED.locked_by
+          RETURNING resource_id;
+        `;
+        const dbRes = await dbState.pool.query(query, [agentId, agentLabel]);
+        acquired = dbRes.rowCount > 0;
+      }
 
-    console.log(`[Lock] 控制權已轉移至: ${agentLabel}`);
-    res.json({ success: true, action: force ? 'transferred' : 'acquired' });
+      if (acquired) {
+        while (pendingPolls.length > 0) {
+          const poll = pendingPolls.shift();
+          poll.res.status(403).json({ error: 'Forbidden', message: 'AGENT_TRANSFER' });
+        }
+        console.log(`[Lock-DB] 控制權已轉移至: ${agentLabel} (Agent ID: ${agentId})`);
+        res.json({ success: true, action: force ? 'transferred' : 'acquired' });
+      } else {
+        const currentLock = await getActiveLock();
+        res.json({ success: false, action: 'pending', currentOwner: currentLock.label || 'Unknown' });
+      }
+    } catch (e) {
+      console.error('[DB] acquire lock error:', e.message);
+      res.status(500).json({ error: 'Database error', message: e.message });
+    }
   } else {
-    res.json({ success: false, action: 'pending', currentOwner: activeAgentLabel });
+    if (!activeAgentToken || force || activeAgentToken === agentId) {
+      activeAgentToken = agentId;
+      activeAgentLabel = agentLabel;
+      saveState();
+      
+      while (pendingPolls.length > 0) {
+        const poll = pendingPolls.shift();
+        poll.res.status(403).json({ error: 'Forbidden', message: 'AGENT_TRANSFER' });
+      }
+
+      console.log(`[Lock] 控制權已轉移至: ${agentLabel}`);
+      res.json({ success: true, action: force ? 'transferred' : 'acquired' });
+    } else {
+      res.json({ success: false, action: 'pending', currentOwner: activeAgentLabel });
+    }
   }
 });
 
 // 2. Agent 拉取訊息 (Long Polling)
-app.get('/api/inbox', (req, res) => {
+app.get('/api/inbox', async (req, res) => {
   const { token } = req.query;
-  if (token !== activeAgentToken) {
+  const activeLock = await getActiveLock();
+  if (token !== activeLock.token) {
     return res.status(403).json({ error: 'Forbidden', message: 'AGENT_TRANSFER' });
   }
   
-  const pendingMsg = messageQueue.find(m => !m.processing);
-  if (pendingMsg) {
-    pendingMsg.processing = true;
-    pendingMsg.processingStartTime = Date.now();
-    saveState();
-    res.json({ message: pendingMsg });
-  } else {
-    // 進入長輪詢 (Long Polling)
-    const pollObj = { res, token };
-    pendingPolls.push(pollObj);
-
-    // 20 秒超時後回傳 null
-    setTimeout(() => {
-      const idx = pendingPolls.indexOf(pollObj);
-      if (idx !== -1) {
-        pendingPolls.splice(idx, 1);
-        res.json({ message: null });
+  if (useDb) {
+    try {
+      const query = `
+        UPDATE line_message_queue
+        SET processing = TRUE,
+            processing_start_time = $1
+        WHERE msg_id = (
+          SELECT msg_id
+          FROM line_message_queue
+          WHERE processing = FALSE
+          ORDER BY msg_id ASC
+          LIMIT 1
+          FOR UPDATE SKIP LOCKED
+        )
+        RETURNING msg_id, user_id AS "userId", source_id AS "sourceId", text, timestamp, processing, trace_id AS "traceId", retry_count AS "retryCount", notified;
+      `;
+      const dbRes = await dbState.pool.query(query, [Date.now()]);
+      if (dbRes.rowCount > 0) {
+        return res.json({ message: dbRes.rows[0] });
       }
-    }, 20000);
+    } catch (e) {
+      console.error('[DB] inbox query error:', e.message);
+    }
+  } else {
+    const pendingMsg = messageQueue.find(m => !m.processing);
+    if (pendingMsg) {
+      pendingMsg.processing = true;
+      pendingMsg.processingStartTime = Date.now();
+      saveState();
+      return res.json({ message: pendingMsg });
+    }
   }
+
+  // 進入長輪詢 (Long Polling)
+  const pollObj = { res, token };
+  pendingPolls.push(pollObj);
+
+  // 20 秒超時後回傳 null
+  setTimeout(() => {
+    const idx = pendingPolls.indexOf(pollObj);
+    if (idx !== -1) {
+      pendingPolls.splice(idx, 1);
+      res.json({ message: null });
+    }
+  }, 20000);
 });
 
 // 3. Agent 發送回覆 (Two-Phase Ack)
@@ -244,10 +471,28 @@ app.post('/api/outbox', express.json(), async (req, res) => {
   const { userId, text } = req.body;
   
   // 確認處理完成，移出佇列
-  const idx = messageQueue.findIndex(m => m.userId === userId && m.processing);
-  if (idx !== -1) {
-    messageQueue.splice(idx, 1);
-    saveState();
+  if (useDb) {
+    try {
+      await dbState.pool.query(
+        `DELETE FROM line_message_queue
+         WHERE msg_id = (
+           SELECT msg_id
+           FROM line_message_queue
+           WHERE user_id = $1 AND processing = TRUE
+           ORDER BY msg_id ASC
+           LIMIT 1
+         )`,
+        [userId]
+      );
+    } catch (e) {
+      console.error('[DB] outbox delete error:', e.message);
+    }
+  } else {
+    const idx = messageQueue.findIndex(m => m.userId === userId && m.processing);
+    if (idx !== -1) {
+      messageQueue.splice(idx, 1);
+      saveState();
+    }
   }
 
   console.log(`[←LINE] 傳送回覆給 ${userId}: ${text.substring(0, 30)}...`);
@@ -337,11 +582,14 @@ async function handleCommand(userId, sourceId, text, replyToken) {
 
   // 指令攔截
   if (cmd === '/status') {
+    const activeLock = await getActiveLock();
+    const qSize = await getQueueSize();
     const status = [
       `🟢 Bridge 伺服器：運作中 (Port ${PORT})`,
       `⚡ 傳輸模式：Zero-Delay File Event Pipeline`,
-      `${activeAgentToken ? '🔄' : '⚪'} 控制狀態：${activeAgentToken ? `由 ${activeAgentLabel} 控制中` : '閒置'}`,
-      `📋 佇列：${messageQueue.length} 則待處理`,
+      `🛡️ 狀態儲存：${useDb ? 'Neon DB (分散式鎖與佇列)' : '本地檔案/記憶體 (降級模式)'}`,
+      `${activeLock.token ? '🔄' : '⚪'} 控制狀態：${activeLock.token ? `由 ${activeLock.label} 控制中` : '閒置'}`,
+      `📋 佇列：${qSize} 則待處理`,
     ].join('\n');
     await pushToLine(sourceId, status);
     return;
@@ -367,7 +615,8 @@ async function handleCommand(userId, sourceId, text, replyToken) {
   }
 
   // 一般訊息：寫入佇列
-  if (messageQueue.length >= MAX_QUEUE_SIZE) {
+  const qSize = await getQueueSize();
+  if (qSize >= MAX_QUEUE_SIZE) {
     const now = Date.now();
     const lastWarn = lastQueueFullWarning[sourceId] || 0;
     if (now - lastWarn > 10000) { // 每 10 秒最多警告一次
@@ -377,27 +626,47 @@ async function handleCommand(userId, sourceId, text, replyToken) {
     return;
   }
   
-  messageQueue.push({ 
-    userId, 
-    sourceId, 
-    text, 
-    timestamp: Date.now(), 
-    processing: false,
-    traceId: crypto.randomUUID(),
-    retryCount: 0,
-    notified: false
-  });
-  saveState();
-  processPendingPolls();
+  if (useDb) {
+    try {
+      const traceId = crypto.randomUUID();
+      await dbState.pool.query(
+        `INSERT INTO line_message_queue (user_id, source_id, text, timestamp, processing, trace_id, retry_count, notified)
+         VALUES ($1, $2, $3, $4, FALSE, $5, 0, FALSE)`,
+        [userId, sourceId, text, Date.now(), traceId]
+      );
+      console.log(`[Queue-DB] 新訊息已入列，TraceID: ${traceId}`);
+    } catch (e) {
+      console.error('[DB] 入列失敗：', e.message);
+      try {
+        await pushToLine(sourceId, `❌ 系統錯誤：無法將訊息加入佇列。`);
+      } catch {}
+      return;
+    }
+  } else {
+    messageQueue.push({ 
+      userId, 
+      sourceId, 
+      text, 
+      timestamp: Date.now(), 
+      processing: false,
+      traceId: crypto.randomUUID(),
+      retryCount: 0,
+      notified: false
+    });
+    saveState();
+  }
   
-  if (messageQueue.length === 1) {
+  await processPendingPolls();
+  
+  const currentQSize = await getQueueSize();
+  if (currentQSize === 1) {
     // 佇列中的第一筆，直接觸發 loading
     try {
       await lineClient.showLoadingAnimation({ chatId: sourceId, loadingSeconds: 60 });
     } catch (e) { /* 忽略 */ }
   } else {
     // 告知排隊中
-    const pos = messageQueue.length;
+    const pos = currentQSize;
     await pushToLine(sourceId, `📋 訊息已排隊（第 ${pos} 則）\nAgent 處理中，請稍候...`);
   }
 }
@@ -533,23 +802,37 @@ app.use((err, req, res, next) => {
 });
 
 // ─── 管理 API ────────────────────────────────────────────────────────────────
-app.post('/internal/reset-lock', express.json(), (req, res) => {
+app.post('/internal/reset-lock', express.json(), async (req, res) => {
   const secret = req.headers['x-internal-secret'];
   if (secret !== process.env.INTERNAL_GATEWAY_TOKEN) return res.status(403).json({ error: 'Forbidden' });
   
   if (req.body && req.body.clearQueue) {
-    const dropped = messageQueue.length;
-    messageQueue.length = 0; // 清空佇列
-    saveState();
+    let dropped = 0;
+    if (useDb) {
+      try {
+        const countRes = await dbState.pool.query('SELECT COUNT(*) FROM line_message_queue');
+        dropped = parseInt(countRes.rows[0].count);
+        await dbState.pool.query('TRUNCATE TABLE line_message_queue');
+      } catch (e) {
+        console.error('[DB] truncate error:', e.message);
+      }
+    } else {
+      dropped = messageQueue.length;
+      messageQueue.length = 0; // 清空佇列
+      saveState();
+    }
     console.log(`[Bridge] 佇列已清空（${dropped} 則丟棄）`);
     res.json({ success: true, queueCleared: true, dropped });
   } else {
-    res.json({ success: true, queueSize: messageQueue.length });
+    const qSize = await getQueueSize();
+    res.json({ success: true, queueSize: qSize });
   }
 });
 
-app.get('/internal/status', (req, res) => {
-  res.json({ activeAgentLabel, queueSize: messageQueue.length, uptime: process.uptime() });
+app.get('/internal/status', async (req, res) => {
+  const activeLock = await getActiveLock();
+  const qSize = await getQueueSize();
+  res.json({ activeAgentLabel: activeLock.label, queueSize: qSize, uptime: process.uptime(), dbMode: useDb });
 });
 
 // ─── Auto-Healing Webhook Updater ──────────────────────────────────────────────

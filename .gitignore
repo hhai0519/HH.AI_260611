@@ -6,7 +6,7 @@ scratch/
 __pycache__/
 *.pyc
 .cache/
-line-bot-project/node_modules/
+Modules/line-bot-project/node_modules/
 # Runtime logs and binaries
 *.log
 *_log.txt

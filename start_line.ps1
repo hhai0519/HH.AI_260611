@@ -10,7 +10,7 @@
 
 $ScriptDir   = Split-Path -Parent $MyInvocation.MyCommand.Path
 $LogFile     = Join-Path $ScriptDir "cloudflared_log.txt"
-$BridgeDir   = Join-Path $ScriptDir "line-bot-project"
+$BridgeDir   = Join-Path $ScriptDir "Modules\line-bot-project"
 $Cloudflared = Join-Path $ScriptDir "cloudflared.exe"
 $Port        = 3000
 

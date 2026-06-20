@@ -26,37 +26,42 @@ require('dotenv').config({
   path: path.resolve(__dirname, '..', '.env.local'),
 });
 
-if (!process.env.DATABASE_URL) {
-  throw new Error(
-    '[db_state_manager] 致命錯誤：找不到 DATABASE_URL 環境變數。' +
-    '請確認 .env.local 已正確設定 Neon DB 連線字串。'
-  );
-}
+const isPlaceholderDb = () => {
+  const url = process.env.DATABASE_URL || '';
+  return url.includes('<USER>') || url.includes('<PASSWORD>') || url.includes('<HOST>') || url.includes('<DATABASE>') || url === '';
+};
 
 // ── 1. 連線池建立 ──────────────────────────────────────────────────────────────
-// 採用連線字串參數方式設定 SSL，避免 pg 套件因 ssl 物件觸發 SSL 模式相容性警告。
-// uselibpqcompat=true 強制使用 libpq 相容模式，sslmode=require 確保加密連線。
-const dbUrl = new URL(process.env.DATABASE_URL);
-dbUrl.searchParams.set('sslmode', 'require');
-dbUrl.searchParams.set('uselibpqcompat', 'true');
-const _connString = dbUrl.toString();
-
-const pool = new Pool({
-  connectionString: _connString,
-  max: 10,
-  idleTimeoutMillis: 30_000,
-  connectionTimeoutMillis: 5_000,
-});
-
-pool.on('error', (err) => {
-  if (process.env.DEBUG === 'true') console.error('[db_state_manager] Pool 非預期錯誤：', err.message);
-});
+let pool = null;
+if (!isPlaceholderDb()) {
+  try {
+    const dbUrl = new URL(process.env.DATABASE_URL);
+    dbUrl.searchParams.set('sslmode', 'require');
+    dbUrl.searchParams.set('uselibpqcompat', 'true');
+    const _connString = dbUrl.toString();
+    pool = new Pool({
+      connectionString: _connString,
+      max: 10,
+      idleTimeoutMillis: 30_000,
+      connectionTimeoutMillis: 5_000,
+    });
+    pool.on('error', (err) => {
+      if (process.env.DEBUG === 'true') console.error('[db_state_manager] Pool 非預期錯誤：', err.message);
+    });
+  } catch (e) {
+    console.warn('[db_state_manager] 資料庫連接字串格式無效，自動啟用降級防護模式。錯誤：', e.message);
+  }
+} else {
+  console.warn('[db_state_manager] 檢測到資料庫連接字串為占位符，自動啟用降級防護模式。');
+}
 
 // ── 優雅關閉（攔截系統訊號） ───────────────────────────────────────────────────
 const gracefulShutdown = async () => {
-  if (process.env.DEBUG === 'true') console.log('[db_state_manager] 系統中斷訊號觸發，正在優雅關閉資料庫連線池...');
-  await pool.end();
-  if (process.env.DEBUG === 'true') console.log('[db_state_manager] 資料庫連線池已關閉。');
+  if (pool) {
+    if (process.env.DEBUG === 'true') console.log('[db_state_manager] 系統中斷訊號觸發，正在優雅關閉資料庫連線池...');
+    await pool.end();
+    if (process.env.DEBUG === 'true') console.log('[db_state_manager] 資料庫連線池已關閉。');
+  }
   process.exit(0);
 };
 process.on('SIGTERM', gracefulShutdown);
@@ -72,9 +77,13 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 /**
  * initDB()
  * 建立所有系統所需資料表（若已存在則跳過），確保多次呼叫冪等安全。
- * 涵蓋：watchdog_pending_optimizations、agent_distributed_locks
+ * 涵蓋：watchdog_pending_optimizations、agent_distributed_locks、line_message_queue
  */
 async function initDB() {
+  if (isPlaceholderDb() || !pool) {
+    console.warn('[db_state_manager] 處於降級模式，跳過資料表初始化。');
+    return;
+  }
   const client = await pool.connect();
   try {
     await client.query(`
@@ -96,8 +105,23 @@ async function initDB() {
         locked_at    TIMESTAMPTZ   NOT NULL DEFAULT NOW(),
         expires_at   TIMESTAMPTZ   NOT NULL
       );
+
+      -- LINE 訊息佇列資料表 (方案 B)
+      CREATE TABLE IF NOT EXISTS line_message_queue (
+        msg_id                SERIAL        PRIMARY KEY,
+        user_id               VARCHAR(255)  NOT NULL,
+        source_id             VARCHAR(255)  NOT NULL,
+        text                  TEXT          NOT NULL,
+        timestamp             BIGINT        NOT NULL,
+        processing            BOOLEAN       NOT NULL DEFAULT FALSE,
+        trace_id              VARCHAR(255)  NOT NULL UNIQUE,
+        retry_count           INT           NOT NULL DEFAULT 0,
+        notified              BOOLEAN       NOT NULL DEFAULT FALSE,
+        processing_start_time BIGINT,
+        created_at            TIMESTAMPTZ   NOT NULL DEFAULT NOW()
+      );
     `);
-    if (process.env.DEBUG === 'true') console.log('[db_state_manager] 資料庫狀態管理器初始化完成（冪等性確保）。');
+    if (process.env.DEBUG === 'true') console.log('[db_state_manager] 資料庫狀態管理器初始化完成（包含 line_message_queue，冪等性確保）。');
   } finally {
     client.release();
   }
@@ -123,6 +147,7 @@ async function initDB() {
  * @returns {Promise<boolean>} - true = 取鎖成功，false = 鎖被佔用
  */
 async function acquireAgentLock(resourceId, agentId, ttlSeconds = 60) {
+  if (isPlaceholderDb() || !pool) return false;
   const maxRetries  = 5;
   const baseDelayMs = 200;
 
@@ -176,6 +201,7 @@ async function acquireAgentLock(resourceId, agentId, ttlSeconds = 60) {
  * 明確釋放鎖（非等待 TTL 過期），確保資源盡快可用。
  */
 async function releaseAgentLock(resourceId, agentId) {
+  if (isPlaceholderDb() || !pool) return;
   await pool.query(
     `DELETE FROM agent_distributed_locks
      WHERE resource_id = $1 AND locked_by = $2`,
@@ -189,6 +215,7 @@ async function releaseAgentLock(resourceId, agentId) {
  * 心跳續命：延長鎖的 expires_at，防止長期任務鎖自動過期。
  */
 async function renewAgentLock(resourceId, agentId, ttlSeconds = 60) {
+  if (isPlaceholderDb() || !pool) return;
   await pool.query(
     `UPDATE agent_distributed_locks
      SET expires_at = NOW() + ($1 || ' seconds')::INTERVAL
@@ -210,6 +237,7 @@ async function renewAgentLock(resourceId, agentId, ttlSeconds = 60) {
  * @returns {Function} stopHeartbeat — 任務結束時必須呼叫，終止心跳 interval
  */
 function startLockHeartbeat(resourceId, agentId, ttlSeconds = 60) {
+  if (isPlaceholderDb() || !pool) return () => {};
   const HEARTBEAT_INTERVAL_MS = 30_000; // 每 30 秒續命一次
 
   const intervalId = setInterval(async () => {
@@ -251,6 +279,10 @@ function startLockHeartbeat(resourceId, agentId, ttlSeconds = 60) {
  * @param {string} priority  - 優先級：'LOW' | 'MEDIUM' | 'HIGH' | 'CRITICAL'
  */
 async function writePendingOptimization(taskData, priority = 'MEDIUM') {
+  if (isPlaceholderDb() || !pool) {
+    console.log('[db_state_manager] [Placeholder Fallback] Pending Optimization: ', taskData);
+    return;
+  }
   await pool.query(
     `INSERT INTO watchdog_pending_optimizations (task_data, priority)
      VALUES ($1, $2)`,
@@ -268,4 +300,5 @@ module.exports = {
   renewAgentLock,
   startLockHeartbeat,
   writePendingOptimization,
+  isPlaceholderDb,
 };
