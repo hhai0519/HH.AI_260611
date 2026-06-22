@@ -24,6 +24,270 @@ import math
 import time
 import sys
 from dataclasses import dataclass, asdict
+from pathlib import Path
+import subprocess
+import threading
+import random
+import signal
+import atexit
+import json
+import urllib.request
+import urllib.error
+import uuid
+
+# ============================================================
+# Distributed Lock and Heartbeat Implementation (Antigravity v3.0)
+# ============================================================
+FENCING_TOKEN = None
+RUN_ID = None
+LOCK_ACTIVE = False
+HEARTBEAT_THREAD = None
+PID_FILE_PATH = None
+SELF_HEALING_ATTEMPTS = []
+HEALING_LOCK = threading.Lock()
+
+def load_env():
+    base_dir = Path(__file__).parent.resolve()
+    paths = [
+        base_dir / '.env',
+        base_dir / '../.env',
+        base_dir / '../../.env',
+        base_dir / '.env.local',
+        base_dir / '../.env.local',
+        base_dir / '../../.env.local',
+        base_dir.parent.parent.parent / '.env',
+        base_dir.parent.parent.parent / '.env.local'
+    ]
+    for p in paths:
+        if p.exists():
+            try:
+                with open(p, 'r', encoding='utf-8') as f:
+                    for line in f:
+                        line = line.strip()
+                        if line and not line.startswith('#'):
+                            parts = line.split('=', 1)
+                            if len(parts) == 2:
+                                key = parts[0].strip()
+                                val = parts[1].strip()
+                                if (val.startswith('"') and val.endswith('"')) or (val.startswith("'") and val.endswith("'")):
+                                    val = val[1:-1]
+                                os.environ[key] = val
+            except Exception as e:
+                print(f"[LOCK-INIT] Error loading env from {p}: {e}")
+
+load_env()
+INTERNAL_GATEWAY_TOKEN = os.getenv('INTERNAL_GATEWAY_TOKEN', 'mock-internal-secret-token')
+BRIDGE_URL = os.getenv('BRIDGE_URL', 'http://localhost:3000')
+
+def get_process_creation_time():
+    pid = os.getpid()
+    try:
+        if sys.platform == 'win32':
+            cmd = f'powershell -NoProfile -Command "(Get-Process -Id {pid}).StartTime.ToFileTime()"'
+            res = subprocess.run(cmd, shell=True, capture_output=True, text=True, timeout=5)
+            if res.returncode == 0 and res.stdout.strip():
+                return res.stdout.strip()
+        else:
+            if os.path.exists(f"/proc/{pid}/stat"):
+                with open(f"/proc/{pid}/stat", 'r') as f:
+                    parts = f.read().split()
+                    if len(parts) >= 22:
+                        return parts[21]
+    except Exception:
+        pass
+    return str(int(time.time() * 1000))
+
+def make_http_request(url, data):
+    headers = {
+        'Content-Type': 'application/json',
+        'x-internal-secret': INTERNAL_GATEWAY_TOKEN
+    }
+    req = urllib.request.Request(
+        url,
+        data=json.dumps(data).encode('utf-8'),
+        headers=headers,
+        method='POST'
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=8) as response:
+            res_data = response.read().decode('utf-8')
+            return response.status, json.loads(res_data)
+    except urllib.error.HTTPError as e:
+        try:
+            err_data = e.read().decode('utf-8')
+            return e.code, json.loads(err_data)
+        except:
+            return e.code, None
+    except Exception as e:
+        return 500, {"error": str(e)}
+
+def release_lock():
+    global FENCING_TOKEN, RUN_ID, LOCK_ACTIVE, PID_FILE_PATH
+    if not LOCK_ACTIVE:
+        return
+    LOCK_ACTIVE = False
+    print(f"\n[LOCK] Releasing lock for RUN_ID: {RUN_ID} (Token: {FENCING_TOKEN})...")
+    url = f"{BRIDGE_URL}/api/lock/release"
+    data = {
+        "agentId": "train_worker",
+        "fencingToken": FENCING_TOKEN,
+        "runId": RUN_ID
+    }
+    status, res = make_http_request(url, data)
+    if status == 200 and res.get('success'):
+        print("[LOCK] Lock released successfully.")
+    else:
+        print(f"[LOCK] Failed to release lock: {res}")
+        
+    if PID_FILE_PATH and os.path.exists(PID_FILE_PATH):
+        try:
+            os.remove(PID_FILE_PATH)
+            print(f"[LOCK] Removed PID file: {PID_FILE_PATH}")
+        except Exception as e:
+            print(f"[LOCK] Failed to remove PID file: {e}")
+
+def exit_handler():
+    release_lock()
+
+def signal_handler(signum, frame):
+    print(f"\n[LOCK] Signal {signum} received. Initiating cleanup...")
+    release_lock()
+    sys.exit(128 + signum)
+
+def self_healing():
+    global FENCING_TOKEN, LOCK_ACTIVE, SELF_HEALING_ATTEMPTS, PID_FILE_PATH
+    with HEALING_LOCK:
+        now_time = time.time()
+        SELF_HEALING_ATTEMPTS = [t for t in SELF_HEALING_ATTEMPTS if now_time - t < 3600]
+        
+        if len(SELF_HEALING_ATTEMPTS) >= 5:
+            print(f"\n[LOCK-FATAL] Self-healing frequency exceeded! (Max 5 attempts per hour). Aborting process...")
+            LOCK_ACTIVE = False
+            if PID_FILE_PATH and os.path.exists(PID_FILE_PATH):
+                try: os.remove(PID_FILE_PATH)
+                except: pass
+            os._exit(1)
+            
+        print("\n[LOCK-WARNING] Entering 30-second Grace Period for self-healing...")
+        grace_start = time.time()
+        backoffs = [5, 10, 20, 30]
+        
+        for backoff in backoffs:
+            if not LOCK_ACTIVE:
+                return False
+                
+            time.sleep(backoff)
+            
+            now_time = time.time()
+            SELF_HEALING_ATTEMPTS = [t for t in SELF_HEALING_ATTEMPTS if now_time - t < 3600]
+            if len(SELF_HEALING_ATTEMPTS) >= 5:
+                print(f"[LOCK-FATAL] Self-healing frequency limit reached during grace period. Aborting...")
+                LOCK_ACTIVE = False
+                os._exit(1)
+                
+            print(f"[LOCK-HEAL] Verifying lock status (backoff {backoff}s)...")
+            url = f"{BRIDGE_URL}/api/lock/verify"
+            data = {
+                "agentId": "train_worker",
+                "fencingToken": FENCING_TOKEN
+            }
+            status, res = make_http_request(url, data)
+            if status == 200 and res.get('success') and res.get('active'):
+                print(f"[LOCK-HEAL] Self-healing succeeded! Lock re-validated.")
+                SELF_HEALING_ATTEMPTS.append(time.time())
+                return True
+                
+            if time.time() - grace_start > 30:
+                print("[LOCK-FATAL] Grace period (30s) expired. Lock is definitely lost. Aborting...")
+                LOCK_ACTIVE = False
+                os._exit(1)
+                
+        print("[LOCK-FATAL] All self-healing attempts failed. Aborting process...")
+        LOCK_ACTIVE = False
+        os._exit(1)
+
+def heartbeat_loop():
+    global FENCING_TOKEN, LOCK_ACTIVE
+    consecutive_failures = 0
+    while LOCK_ACTIVE:
+        sleep_time = 12.0 + random.uniform(-2.0, 2.0)
+        time.sleep(sleep_time)
+        
+        if not LOCK_ACTIVE:
+            break
+            
+        url = f"{BRIDGE_URL}/api/lock/heartbeat"
+        data = {
+            "agentId": "train_worker",
+            "fencingToken": FENCING_TOKEN
+        }
+        status, res = make_http_request(url, data)
+        if status == 200 and res.get('success'):
+            consecutive_failures = 0
+        else:
+            consecutive_failures += 1
+            print(f"\n[LOCK-WARNING] Heartbeat failed ({consecutive_failures}/3): {res}")
+            if consecutive_failures >= 3:
+                healed = self_healing()
+                if healed:
+                    consecutive_failures = 0
+                else:
+                    break
+
+def acquire_lock_or_exit():
+    global FENCING_TOKEN, RUN_ID, LOCK_ACTIVE, PID_FILE_PATH
+    pid = os.getpid()
+    creation_time = get_process_creation_time()
+    RUN_ID = f"run_worker_{int(time.time())}_{uuid.uuid4().hex[:6]}"
+    
+    scratch_dir = Path(__file__).parent.resolve() / 'scratch'
+    scratch_dir.mkdir(parents=True, exist_ok=True)
+    PID_FILE_PATH = scratch_dir / f"train_cpu_{pid}.pid"
+    
+    pid_data = {
+        "pid": pid,
+        "creation_time": creation_time,
+        "script_name": "train_cpu.py",
+        "run_id": RUN_ID
+    }
+    
+    try:
+        with open(PID_FILE_PATH, 'w', encoding='utf-8') as f:
+            json.dump(pid_data, f, indent=2)
+        print(f"[LOCK] Created PID file at: {PID_FILE_PATH}")
+    except Exception as e:
+        print(f"[LOCK-ERROR] Failed to write PID file: {e}")
+        sys.exit(1)
+        
+    print(f"[LOCK] Attempting to acquire distributed lock for RUN_ID: {RUN_ID}...")
+    url = f"{BRIDGE_URL}/api/lock/acquire"
+    data = {
+        "agentId": "train_worker",
+        "agentLabel": f"train_worker_{pid}_{creation_time}",
+        "runId": RUN_ID,
+        "secret": os.getenv('CURRENT_AGENT_SECRET', 'default_agent_secret')
+    }
+    status, res = make_http_request(url, data)
+    if status == 200 and res.get('success'):
+        FENCING_TOKEN = res.get('fencingToken')
+        LOCK_ACTIVE = True
+        print(f"[LOCK] Lock acquired successfully! Fencing Token: {FENCING_TOKEN}")
+        
+        atexit.register(exit_handler)
+        signal.signal(signal.SIGINT, signal_handler)
+        signal.signal(signal.SIGTERM, signal_handler)
+        
+        global HEARTBEAT_THREAD
+        HEARTBEAT_THREAD = threading.Thread(target=heartbeat_loop, daemon=True)
+        HEARTBEAT_THREAD.start()
+    else:
+        print(f"[LOCK-REJECT] Failed to acquire lock (Status {status}): {res}")
+        if PID_FILE_PATH.exists():
+            try: os.remove(PID_FILE_PATH)
+            except: pass
+        sys.exit(1)
+
+acquire_lock_or_exit()
 
 # Fix Windows CP950 UnicodeEncodeError — force UTF-8 output
 if sys.stdout.encoding and sys.stdout.encoding.lower() not in ('utf-8', 'utf8'):

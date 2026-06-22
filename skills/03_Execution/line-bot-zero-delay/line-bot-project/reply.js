@@ -119,29 +119,106 @@ if (agentLabel && topicCategory && questionBrief) {
     }
 }
 
-const req = http.request({
-    hostname: 'localhost',
-    port: process.env.PORT || 3000,
-    path: '/api/outbox',
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json'
-    }
-}, (res) => {
-    let data = '';
-    res.on('data', chunk => data += chunk);
-    res.on('end', () => {
-        if (res.statusCode === 200) {
-            console.log(`已透過 API 將回覆寫入給 ${userId}`);
-        } else {
-            console.error(`API 錯誤: ${res.statusCode} ${data}`);
+const crypto = require('crypto');
+const messageId = process.env.MSG_ID || '';
+const epoch = process.env.TOKEN_EPOCH || '1';
+const tokenVal = process.env.SESSION_TOKEN || '0';
+const ticketId = process.env.TICKET_ID || '';
+const agentId = process.env.AGENT_ID || 'UnknownAgent';
+const timestamp = Date.now();
+
+const outboxSecret = process.env.CURRENT_OUTBOX_SECRET || 'default_outbox_secret';
+function sendOutboxWithRetry(retryCount = 0, currentEpoch = epoch, currentToken = tokenVal) {
+    const currentTimestamp = Date.now();
+    const currentSignature = crypto
+        .createHmac("sha256", outboxSecret)
+        .update(`${messageId}:${currentEpoch}:${currentToken}:${currentTimestamp}`)
+        .digest("hex");
+
+    const req = http.request({
+        hostname: 'localhost',
+        port: process.env.PORT || 3000,
+        path: '/api/outbox',
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
         }
+    }, (res) => {
+        let data = '';
+        res.on('data', chunk => data += chunk);
+        res.on('end', () => {
+            if (res.statusCode === 200) {
+                console.log(`已透過 API 將回覆寫入給 ${userId}`);
+            } else if (res.statusCode === 403 && data.includes('LOCK_LOST_OR_EXPIRED')) {
+                console.error(`[警告] 403 鎖遺失或超時: ${data}`);
+                if (retryCount < 3) {
+                    const delay = Math.pow(2, retryCount) * 1000 + Math.random() * 500;
+                    console.log(`[自癒重試] 準備重新取得鎖並發送 (${retryCount + 1}/3)，等待 ${Math.round(delay)}ms...`);
+                    setTimeout(() => {
+                        acquireLockAndResend(retryCount + 1);
+                    }, delay);
+                } else {
+                    console.error(`[錯誤] 鎖自癒重試超過上限，放棄發送。`);
+                }
+            } else {
+                console.error(`API 錯誤: ${res.statusCode} ${data}`);
+            }
+        });
     });
-});
 
-req.on('error', (e) => {
-    console.error(`無法連線到 Bridge API: ${e.message}`);
-});
+    req.on('error', (e) => {
+        console.error(`無法連線到 Bridge API: ${e.message}`);
+    });
 
-req.write(JSON.stringify({ userId, text }));
-req.end();
+    req.write(JSON.stringify({ 
+      userId, 
+      text, 
+      agentId, 
+      fencingToken: `${currentEpoch}:${currentToken}`,
+      signature: currentSignature,
+      timestamp: currentTimestamp.toString(),
+      epoch: currentEpoch,
+      token: currentToken,
+      messageId,
+      ticketId
+    }));
+    req.end();
+}
+
+function acquireLockAndResend(nextRetryCount) {
+    const lockReq = http.request({
+        hostname: 'localhost',
+        port: process.env.PORT || 3000,
+        path: '/api/lock/acquire',
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' }
+    }, (res) => {
+        let data = '';
+        res.on('data', chunk => data += chunk);
+        res.on('end', () => {
+            try {
+                const result = JSON.parse(data);
+                if (res.statusCode === 200 && result.success) {
+                    console.log(`[自癒成功] 已取得新鎖: ${result.fencingToken}`);
+                    const parts = result.fencingToken.split(':');
+                    sendOutboxWithRetry(nextRetryCount, parts[0], parts[1]);
+                } else {
+                    console.error(`[錯誤] 無法重新取得鎖: ${data}`);
+                }
+            } catch (e) {
+                console.error(`[錯誤] 解析重新取得鎖的結果失敗: ${e.message}`);
+            }
+        });
+    });
+    lockReq.on('error', (e) => console.error(`[錯誤] 請求取得鎖失敗: ${e.message}`));
+    lockReq.write(JSON.stringify({
+        agentId,
+        agentLabel,
+        force: true,
+        secret: process.env.CURRENT_AGENT_SECRET || 'default_agent_secret'
+    }));
+    lockReq.end();
+}
+
+sendOutboxWithRetry();
+

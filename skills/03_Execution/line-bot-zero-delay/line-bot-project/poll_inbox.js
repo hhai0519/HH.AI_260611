@@ -11,10 +11,11 @@ const POLL_INTERVAL = 1000; // 1 秒
 console.log("Antigravity API Polling 監聽器已啟動，等待事件中...");
 
 function poll() {
+  const fToken = process.env.SESSION_FENCING_TOKEN || '1:0';
   const req = http.request({
     hostname: 'localhost',
     port: process.env.PORT || 3000,
-    path: `/api/inbox?token=${encodeURIComponent(agentId)}`,
+    path: `/api/inbox?token=${encodeURIComponent(agentId)}&fencingToken=${encodeURIComponent(process.env.FENCING_TOKEN || '')}`,
     method: 'GET'
   }, (res) => {
     let data = '';

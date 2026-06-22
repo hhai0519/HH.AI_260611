@@ -18,7 +18,7 @@
 ---
 
 ## 🔴 緊急 — LINE 服務維運
-- [ ] **LINE Webhook URL 固定化**：Cloudflare free tunnel 每次重啟 URL 都會改變，必須至 LINE Developers Console 手動更新 Webhook URL，或改用具名隧道（Named Tunnel）解決此問題。
+- [x] **LINE Webhook URL 自癒同步**：已透過 `bridge.js` 中的 Auto-Heal 模組實現開機自癒同步——重啟時自動讀取 Cloudflare 隧道日誌，偵測到 URL 變更時，自動調用 LINE API 更新後台 Webhook endpoint，完美免除人工干預。
 - [ ] **Cloudflare Tunnel 穩定性優化**：目前使用 quick tunnel，日誌出現 DNS `i/o timeout`，建議改為建立具名 Cloudflare Tunnel（需登入帳號），確保公開 URL 永久固定、不受重啟影響。
 
 ---
@@ -26,8 +26,8 @@
 ## 🟠 系統架構合規性優化
 > 📄 **參考計畫文件：** [Architecture_Compliance_Plan_20260618.md](file:///c:/Users/HH.AI_260611/Desktop/HH.AI_260611/Data/Execution_Plans/Architecture_Compliance_Plan_20260618.md)
 
-- [ ] **LINE Bridge 狀態管理升級**：重構 `line-bot-project/bridge.js` 與 `start_line.js`，廢除本地 `bridge_state.json`，改用 `Modules/db_state_manager.js` 實作資料庫層級之分散式悲觀鎖（SOP_10）。
-- [ ] **架構位置決策**：決定 `line-bot-project/` 專案目錄是否需搬移至 `Modules/`，以及是否將 Message Queue 一併遷入 Neon DB。
+- [x] **LINE Bridge 狀態管理升級**：已成功重構 `Modules/line-bot-project/bridge.js` 與 `start_line.js`，對接 `db_state_manager.js` 實作資料庫悲觀鎖與 `line_message_queue` 佇列資料庫化（含防呆降級雙模式）。
+- [x] **架構位置決策**：已正式將專案搬移至 `Modules/line-bot-project/`（符合 SOP_00B 零散落原則），並實作 PM2 動態自癒回復。
 
 ---
 

@@ -69,9 +69,10 @@ node line-bot-project/start_line.js <AGENT_ID> "<AGENT_LABEL>" true
 ## 執行流程
 
 ### 1. 啟動或重啟橋接器
-如果在工作階段中需要重啟服務，由於我們已經改用 PM2，請執行：
-1. **重啟背景服務**: `node .\node_modules\pm2\bin\pm2 restart line-bridge`
-2. (Tunnel 已自動執行於背景，無須手動重啟)
+由於我們已採用 Node 原生自癒監管模式（Supervisor），橋接器與隧道的啟動與重啟已完全自動化。
+您不需要手動啟動 PM2 或手動重啟服務。只需執行唯一的標準啟動指令：
+`node line-bot-project/start_line.js <AGENT_ID> "<AGENT_LABEL>" true`
+系統會自動檢查 Redis Docker 容器、強殺任何佔用 Port 3000 的無關進程，並在背景以 IDE 任務的形式重新拉起 `bridge.js` 和 `cloudflared.exe`，隨後立即完成控制權接管。
 
 > [!IMPORTANT]
 > **V4 核心喚醒機制 (Task-Exit Loop)**

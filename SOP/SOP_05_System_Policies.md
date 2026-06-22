@@ -11,6 +11,27 @@ dependencies: ["SOP_00_Skill_Lifecycle_Management.md", "Modules/db_state_manager
 
 ---
 
+### 🚫 絕對禁止事項 (Anti-Patterns) [HARD CONSTRAINTS]
+
+> [!CAUTION]
+> **觸犯以下禁止事項，系統將立即判定任務失敗 (Task Failed)，並啟動斷路器強行中斷 Session。**
+
+1. **禁止常駐進程 (Resident Polling)**
+   - **嚴禁**使用 `setInterval`、`setTimeout` 建立私有的背景常駐輪詢。
+   - 所有排程或定時監聽任務，強制交由非同步 Watchdog 與 Neon DB 狀態管理器（或 `fs.watch` 事件驅動）接管。
+2. **禁止破壞性 Git 指令 (Destructive Commands)**
+   - **嚴禁**在腳本內寫死或執行 `git checkout .`、`git reset --hard`、`rm -rf` 等具有歷史抹除與物理破壞性的暴力還原指令。
+3. **禁止終端機越權寫入 (Unsafe File Writing)**
+   - **嚴禁**在終端機使用 PowerShell 的 `Out-File`、`Set-Content` 或 `>` 重導向來寫入程式碼或檔案。
+   - 所有寫入操作強制使用專用 API 工具 (`write_to_file`)，並確保為 **無 BOM 的標準 UTF-8** 編碼。
+
+### 🔒 工具呼叫狀態綁定 (Slot-filling Verification)
+Agent 在調用任何檔案寫入或終端指令前，**必須**動態填充並核對以下狀態插槽 (Slots)。狀態不符者立即中斷操作：
+- `[Current Workspace Root]`: 確認目標路徑是否在預期且合法的技能目錄內。
+- `[Intended Write Encoding]`: 寫入前強制確認預期編碼為 UTF-8 (無 BOM)。
+
+---
+
 ## 1. Watchdog 非同步巡檢機制 [HIGHEST_PERMISSION]
 
 > [!IMPORTANT]

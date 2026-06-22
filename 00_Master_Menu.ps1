@@ -9,8 +9,8 @@ $HistoryFile = Join-Path $DataPath "Optimized_History.md"
 $SopPath = Join-Path $Workspace "SOP"
 $SkillsPath = Join-Path $Workspace "Skills"
 
-# 確保資料庫存在
-if (-not (Test-Path $HistoryFile)) { "# 優化歷史紀錄`n" | Out-File $HistoryFile -Encoding UTF8 }
+# 確�?資�?庫�???
+if (-not (Test-Path $HistoryFile)) { "# ?��?歷史紀?�`n" | Out-File $HistoryFile -Encoding UTF8 }
 
 Function Get-PendingCount {
     try {
@@ -27,23 +27,23 @@ Function Get-PendingCount {
 Function Invoke-SOP {
     param([string]$FilePath)
     
-    Write-Host "`n[*] 開始執行 SOP: $(Split-Path $FilePath -Leaf)" -ForegroundColor Cyan
+    Write-Host "`n[*] ?��??��? SOP: $(Split-Path $FilePath -Leaf)" -ForegroundColor Cyan
     $content = Get-Content $FilePath -Raw
     
-    # 簡單提取有標記為 # @EXECUTE 的 powershell 區塊
+    # 簡單?��??��?記為 # @EXECUTE ??powershell ?��?
     $regex = "(?s)``````powershell\r?\n# @EXECUTE\r?\n(.*?)\r?\n``````"
     $matches = [regex]::Matches($content, $regex)
     
     if ($matches.Count -eq 0) {
-        Write-Host "沒有找到可執行的 PowerShell 區塊 (# @EXECUTE)。" -ForegroundColor Yellow
+        Write-Host "沒�??�到?�執行�? PowerShell ?��?(# @EXECUTE)?? -ForegroundColor Yellow
         return
     }
 
     foreach ($match in $matches) {
         $code = $match.Groups[1].Value
-        # [CRITICAL-01] 廢除動態 ScriptBlock 執行，提升系統安全性
-        Write-Host "由於 V3.2.0 安全性規範 [CRITICAL-01]，已禁止直接從 Markdown 執行 PowerShell 代碼。" -ForegroundColor Yellow
-        Write-Host "待執行區塊內容如下，請確認後手動執行：" -ForegroundColor Gray
+        # [CRITICAL-01] 廢除?��? ScriptBlock ?��?，�??�系統�??��?
+        Write-Host "?�於 V3.2.0 安全?��?�?[CRITICAL-01]，已禁止?�接�?Markdown ?��? PowerShell �?��?? -ForegroundColor Yellow
+        Write-Host "待執行�?塊內容�?下�?請確認�??��??��?�? -ForegroundColor Gray
         Write-Host "----------------------------------------" -ForegroundColor DarkGray
         Write-Host $code -ForegroundColor DarkCyan
         Write-Host "----------------------------------------" -ForegroundColor DarkGray
@@ -53,21 +53,22 @@ Function Invoke-SOP {
 Function Show-OptimizationMenu {
     Clear-Host
     Write-Host "===================================================================" -ForegroundColor Magenta
-    Write-Host "                    優化與修復控制台 (#自動化#)                    " -ForegroundColor Magenta
+    Write-Host "                    ?��??�修復控?�台 (#?��???)                    " -ForegroundColor Magenta
     Write-Host "===================================================================" -ForegroundColor Magenta
     Write-Host ""
-    Write-Host " [ 可執行的優化模組 ]" -ForegroundColor Yellow
-    Write-Host "  [1] 程式碼自癒與錯誤修復 (針對待修復清單進行修復)"
-    Write-Host "  [2] 演算法與效能優化 (檢查系統資源與迴圈效能)"
-    Write-Host "  [3] 量化與研究實驗迴圈 (背景迭代分析模型)"
-    Write-Host "  [4] 系統安全與配額監控 (觸發熔斷防護與資源清理)"
+    Write-Host " [ ?�執行�??��?模�? ]" -ForegroundColor Yellow
+    Write-Host "  [1] 程�?碼自?��??�誤修復 (?��?待修復�??�進�?修復)"
+    Write-Host "  [2] 演�?法�??�能?��? (檢查系統資�??�迴?��???"
+    Write-Host "  [3] ?��??��?究實驗迴??(?�景迭代?��?模�?)"
+    Write-Host "  [4] 系統安全?��?額監??(觸發?�斷?�護?��?源�???"
+    Write-Host "  [5] LINE Bot Auto-Heal & Infrastructure Recovery (Redis/PM2/Port)"
     Write-Host ""
     
     $out = node Modules\get_pending_tasks.js
     $pending = if ($LASTEXITCODE -eq 0) { $out | ConvertFrom-Json -ErrorAction SilentlyContinue } else { $null }
-    Write-Host " [ 待修復清單 (watchdog_pending_optimizations DB) ]" -ForegroundColor Red
+    Write-Host " [ 待修復�???(watchdog_pending_optimizations DB) ]" -ForegroundColor Red
     if ($null -eq $pending -or @($pending).Count -eq 0) {
-        Write-Host "  ✅ 目前系統健康，無待修復的錯誤項目。" -ForegroundColor Green
+        Write-Host "  ???��?系統?�康，無待修復�??�誤?�目?? -ForegroundColor Green
     } else {
         $i = 1
         foreach ($item in $pending) {
@@ -77,41 +78,46 @@ Function Show-OptimizationMenu {
     }
     
     Write-Host ""
-    Write-Host "  [B] 返回主選單"
+    Write-Host "  [B] 返�?主選??
     Write-Host "===================================================================" -ForegroundColor Magenta
     
-    $optChoice = Read-Host "請選擇要執行的優化項目 (1-4) 或返回 (B)"
+    $optChoice = Read-Host "請選?��??��??�優?��???(1-5) ?��???(B)"
+    if ($optChoice -eq "5") {
+        powershell -ExecutionPolicy Bypass -File Modules\Start-LineBot-SelfHeal.ps1
+        pause
+        return
+    }
     
     if ($optChoice -match '^[1-4]$') {
-        Write-Host "`n已選擇優化模組 [$optChoice]..." -ForegroundColor Cyan
+        Write-Host "`n已選?�優?�模�?[$optChoice]..." -ForegroundColor Cyan
         
         if ($optChoice -eq "1" -and $null -ne $pending -and @($pending).Count -gt 0) {
-            $fixChoice = Read-Host "請輸入要優先修復的清單編號 (例如 1)，或按 Enter 啟動全自動修復"
-            Write-Host "背景修復任務已派發！正在調用對應之技能進行處理..." -ForegroundColor Green
-            # 模擬背景修復動作
+            $fixChoice = Read-Host "請輸?��??��?修復?��??�編??(例�? 1)，�???Enter ?��??�自?�修�?
+            Write-Host "?�景修復任�?已派?��?�?��調用對�?之�??�進�??��?..." -ForegroundColor Green
+            # 模擬?�景修復?��?
             Start-Sleep -Seconds 2
             $dateStr = (Get-Date).ToString("yyyy-MM-dd HH:mm:ss")
             $diffText = @'
-### 修復紀錄 (自動化模組 {0})
-- **時間**: {1}
-- **執行動作**: 攔截錯誤並套用修復邏輯
+### 修復紀??(?��??�模�?{0})
+- **?��?**: {1}
+- **?��??��?**: ?�截?�誤並�??�修復�?�?
 ```diff
-- 原始錯誤邏輯
-+ 優化後的自動化腳本
+- ?��??�誤?�輯
++ ?��?後�??��??�腳??
 ```
 
 '@ -f $optChoice, $dateStr
             $diffText | Out-File -FilePath $HistoryFile -Append -Encoding UTF8
-            # [MED-04] 移除對 Pending_Optimization.json 的清空動作
-            Write-Host "修復紀錄已寫入，請確認 DB Worker 是否將任務標記為 RESOLVED。" -ForegroundColor Green
+            # [MED-04] 移除�?Pending_Optimization.json ?��?空�?�?
+            Write-Host "修復紀?�已寫入，�?確�? DB Worker ?�否將任?��?記為 RESOLVED?? -ForegroundColor Green
         } else {
-            Write-Host "該優化任務已派發至背景執行！您可以繼續其他操作。" -ForegroundColor Green
+            Write-Host "該優?�任?�已派發?��??�執行�??�可以繼續其他�?作�? -ForegroundColor Green
         }
     }
 }
 
 Function Update-YAML-Index {
-    Write-Host "掃描 SOP 檔案並確保 YAML 標頭存在..." -ForegroundColor Cyan
+    Write-Host "?��? SOP 檔�?並確�?YAML 標頭存在..." -ForegroundColor Cyan
     $files = Get-ChildItem -Path $SopPath -Filter "*.md"
     foreach ($file in $files) {
         $content = Get-Content $file.FullName -Raw
@@ -120,19 +126,19 @@ Function Update-YAML-Index {
             $yaml = "---`nTitle: `"$title`"`nTags: [SOP]`nDependencies: []`n---`n`n"
             $content = $yaml + $content
             $content | Set-Content $file.FullName -Encoding UTF8
-            Write-Host "已更新 YAML: $($file.Name)"
+            Write-Host "已更??YAML: $($file.Name)"
         }
     }
-    Write-Host "掃描完成！" -ForegroundColor Green
+    Write-Host "?��?完�?�? -ForegroundColor Green
     $global:cachedSops = @(Get-ChildItem -Path $SopPath -Filter "*.md")
 }
 
-# 初始快取建立 (降低迴圈磁碟 I/O)
+# ?��?快�?建�? (?��?迴�?磁�? I/O)
 $global:cachedSops = @(Get-ChildItem -Path $SopPath -Filter "*.md")
 $global:cachedSkillsCount = @(Get-ChildItem -Path $SkillsPath -Directory).Count
 if ($global:cachedSkillsCount -eq 0) { $global:cachedSkillsCount = @(Get-ChildItem -Path $SkillsPath -File).Count }
 
-# 進入主選單迴圈
+# ?�入主選?�迴??
 while ($true) {
     Clear-Host
     $pendingCount = Get-PendingCount
@@ -144,40 +150,40 @@ while ($true) {
         $envContent = Get-Content $envFile -Raw
         if ($envContent -match "<PASSWORD>" -or $envContent -match "<YOUR_") {
             Write-Host "===================================================================" -ForegroundColor Red
-            Write-Host " [溫馨提醒] 您的 .env.local 中仍有未填寫的機密金鑰 (如 DATABASE_URL 等)！" -ForegroundColor Yellow
-            Write-Host " 若需使用資料庫或 MCP 外部連線功能，請記得補足這些金鑰以恢復正常運作。" -ForegroundColor Yellow
+            Write-Host " [溫馨?��?] ?��? .env.local 中�??�未填寫?��?密�???(�?DATABASE_URL �?�? -ForegroundColor Yellow
+            Write-Host " ?��?使用資�?庫�? MCP 外部????�能，�?記�?補足?��??�鑰以恢復正常�?作�? -ForegroundColor Yellow
             Write-Host "===================================================================" -ForegroundColor Red
             Write-Host ""
         }
     }
 
     Write-Host "===================================================================" -ForegroundColor Cyan
-    Write-Host "             自動化與軟體工程工作站 (HH.AI_260611)               " -ForegroundColor Cyan
+    Write-Host "             ?��??��?軟�?工�?工�?�?(HH.AI_260611)               " -ForegroundColor Cyan
     Write-Host "===================================================================" -ForegroundColor Cyan
     Write-Host ""
-    Write-Host " [ 系統健康度 ]" -ForegroundColor Yellow
-    Write-Host " - 待優化項目: $pendingCount 筆 (紀錄於 Neon DB)"
-    Write-Host " - 已載入 SOP: $($sops.Count) 份"
-    Write-Host " - 核心技能數: $skillsCount 項"
+    Write-Host " [ 系統?�康�?]" -ForegroundColor Yellow
+    Write-Host " - 待優?��??? $pendingCount �?(紀?�於 Neon DB)"
+    Write-Host " - 已�???SOP: $($sops.Count) �?
+    Write-Host " - ?��??�?�數: $skillsCount ??
     Write-Host ""
-    Write-Host " [ 流程控制 (Orchestration) ]" -ForegroundColor Yellow
+    Write-Host " [ 流�??�制 (Orchestration) ]" -ForegroundColor Yellow
     
     $i = 1
     foreach ($sop in $sops) {
-        Write-Host "  [$i] 執行 $($sop.BaseName)"
+        Write-Host "  [$i] ?��? $($sop.BaseName)"
         $i++
     }
 
     Write-Host ""
-    Write-Host " [ 系統操作與優化 ]" -ForegroundColor Yellow
-    Write-Host "  [S] 掃描更新 : 自動寫入所有 .md 檔案的 YAML 標頭與建置執行索引"
-    Write-Host "  [R] 重新載入 : 刷新選單快取 (Reload Cache)"
-    Write-Host "  [#自動化#] : 進入優化控制台 (列出優化選項與待修復清單)"
-    Write-Host "  [V] 檢視日誌 : 查看 Optimized_History.md"
-    Write-Host "  [Q] 離開系統"
+    Write-Host " [ 系統?��??�優??]" -ForegroundColor Yellow
+    Write-Host "  [S] ?��??�新 : ?��?寫入?�??.md 檔�???YAML 標頭?�建置執行索�?
+    Write-Host "  [R] ?�新載入 : ?�新?�單快�? (Reload Cache)"
+    Write-Host "  [#?��???] : ?�入?��??�制??(?�出?��??��??��?修復清單)"
+    Write-Host "  [V] 檢�??��? : ?��? Optimized_History.md"
+    Write-Host "  [Q] ?��?系統"
     Write-Host "===================================================================" -ForegroundColor Cyan
 
-    $choice = Read-Host "請輸入指令 (1-$($sops.Count), S, R, V, Q, 或是 #自動化#)"
+    $choice = Read-Host "請輸?��?�?(1-$($sops.Count), S, R, V, Q, ?�是 #?��???)"
 
     if ($choice -match '^\d+$' -and [int]$choice -ge 1 -and [int]$choice -le $sops.Count) {
         Invoke-SOP -FilePath $sops[[int]$choice - 1].FullName
@@ -188,14 +194,14 @@ while ($true) {
         pause
     }
     elseif ($choice -eq "R" -or $choice -eq "r") {
-        Write-Host "重新掃描磁碟建立快取..." -ForegroundColor Cyan
+        Write-Host "?�新?��?磁�?建�?快�?..." -ForegroundColor Cyan
         $global:cachedSops = @(Get-ChildItem -Path $SopPath -Filter "*.md")
         $global:cachedSkillsCount = @(Get-ChildItem -Path $SkillsPath -Directory).Count
         if ($global:cachedSkillsCount -eq 0) { $global:cachedSkillsCount = @(Get-ChildItem -Path $SkillsPath -File).Count }
-        Write-Host "快取刷新完成！" -ForegroundColor Green
+        Write-Host "快�??�新完�?�? -ForegroundColor Green
         Start-Sleep -Seconds 1
     }
-    elseif ($choice -eq "#自動化#") {
+    elseif ($choice -eq "#?��???") {
         Show-OptimizationMenu
         pause
     }
@@ -203,13 +209,14 @@ while ($true) {
         if (Test-Path $HistoryFile) {
             Get-Content $HistoryFile | Out-Host
         } else {
-            Write-Host "尚無日誌。"
+            Write-Host "尚無?��???
         }
         pause
     }
     elseif ($choice -eq "Q" -or $choice -eq "q") {
-        Write-Host "系統關閉中..."
+        Write-Host "系統?��?�?.."
         break
     }
 }
+
 

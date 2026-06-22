@@ -1,0 +1,23 @@
+# LINE Startup Architecture Fix Tasks
+
+- `[x]` 1. Environment Cleanup
+  - `[x]` Stop all running PM2 processes related to line-bridge
+  - `[x]` Kill all existing `node.exe` processes running bridge.js or poll_inbox.js
+  - `[x]` Kill all existing `cloudflared.exe` processes
+- `[x]` 2. Directory Unification
+  - `[x]` Ensure all active files are in `skills/03_Execution/line-bot-zero-delay/line-bot-project/`
+  - `[x]` Delete obsolete `Modules/line-bot-project/` directory
+  - `[x]` Update `.gitignore` if necessary
+- `[x]` 3. Architecture Refactor (Code Changes)
+  - `[x]` Remove `selfHealAndRetry()` from `start_line.js`
+  - `[x]` Enhance `reply.js` with 403 Retry Pattern and Exponential Backoff
+  - `[x]` Fix `bridge.js` Redis duplicate message idempotency & fail-safe XACK
+  - `[x]` Upgrade `start_line.ps1` to extract `$env:TUNNEL_URL` and pass to `bridge.js`, ensuring single source of truth and resolving port conflicts.
+- `[/]` 4. Git Commit
+  - `[ ]` Stage all changes
+  - `[ ]` Commit with `fix(line-bot): architecture unification and auto-heal fix`
+- `[ ]` 5. Verification
+  - `[ ]` Run `start_line.ps1` in background task
+  - `[ ]` Verify Cloudflare tunnel connects
+  - `[ ]` Verify Bridge API responds on port 3000
+  - `[ ]` Send a simulated test message / check inbox polling

@@ -230,38 +230,18 @@ async function renewAgentLock(resourceId, agentId, ttlSeconds = 60) {
 
 /**
  * startLockHeartbeat(resourceId, agentId, ttlSeconds)
+ * 
+ * [V4 架構更新] 已廢除 setInterval 常駐輪詢，為遵循 SOP_05 禁止常駐進程之規範，
+ * 心跳續命改由 Agent 或 bridge.js 透過事件驅動 (如 HTTP Polling `/api/inbox`) 或 fs.watch 主動呼叫 renewAgentLock。
+ * 此函式目前僅保留空實作以維持向下相容性。
  *
- * 在背景每 30 秒自動呼叫 renewAgentLock，防止長期任務（如深度研究、模型編譯）
- * 因 TTL 到期而被其他 Agent 搶鎖。
- *
- * @returns {Function} stopHeartbeat — 任務結束時必須呼叫，終止心跳 interval
+ * @returns {Function} stopHeartbeat
  */
 function startLockHeartbeat(resourceId, agentId, ttlSeconds = 60) {
-  if (isPlaceholderDb() || !pool) return () => {};
-  const HEARTBEAT_INTERVAL_MS = 30_000; // 每 30 秒續命一次
-
-  const intervalId = setInterval(async () => {
-    try {
-      await renewAgentLock(resourceId, agentId, ttlSeconds);
-      if (process.env.DEBUG === 'true') {
-        console.log(
-          `[db_state_manager] 💓 心跳續命成功：${resourceId} (by ${agentId}) ` +
-          `→ 延長至 ${ttlSeconds}s 後過期`
-        );
-      }
-    } catch (err) {
-      console.error(
-        `[db_state_manager] [Heartbeat Error] Agent "${agentId}" 對鎖 "${resourceId}" 續命失敗：`,
-        err.message
-      );
-    }
-  }, HEARTBEAT_INTERVAL_MS);
-
-  // 返回停止函式，供 Agent 在任務結束時呼叫
-  return function stopHeartbeat() {
-    clearInterval(intervalId);
-    if (process.env.DEBUG === 'true') console.log(`[db_state_manager] 💔 心跳已停止：${resourceId} (by ${agentId})`);
-  };
+  if (process.env.DEBUG === 'true') {
+    console.log(`[db_state_manager] startLockHeartbeat 已被廢棄，續命機制已轉移至事件驅動 (資源: ${resourceId}, Agent: ${agentId})`);
+  }
+  return function stopHeartbeat() {};
 }
 
 // ══════════════════════════════════════════════════════════════════════════════
