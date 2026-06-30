@@ -118,7 +118,7 @@ $env:REPLY_TEXT = @"
 
 ### 3. 問題排解與災難自癒 (Troubleshooting & DRP)
 - **單點斷線復活**：如果 Agent 沒有自動醒來，這代表 `poll_inbox.js` 可能已經停止運作，請再次執行 `node poll_inbox.js <AGENT_ID>`。
-- **【基建災難級自癒】(502 / ECONNREFUSED)**：若 AI 呼叫 `poll_inbox.js` 或 `reply.js` 時遭遇 `502 Bad Gateway` 或 `ECONNREFUSED`，代表底層隧道或 Bridge 伺服器已徹底崩潰。**此時網路已斷，絕對不可嘗試用 LINE 傳送訊息求救。** AI 必須立刻停止動作，轉向 **Antigravity IDE 的終端機對話框**中向總管 (使用者) 求救：「基建已崩潰，請手動執行 `start_line.ps1` 進行重啟！」
+- **【基建災難級自癒】(502 / ECONNREFUSED)**：若 AI 呼叫 `poll_inbox.js` 或 `reply.js` 時遭遇 `502 Bad Gateway` 或 `ECONNREFUSED`，代表底層隧道或 Bridge 伺服器已徹底崩潰。**此時網路已斷，絕對不可嘗試用 LINE 傳送訊息求救。** AI 必須立刻停止動作，轉向 **Antigravity IDE 的終端機對話框**中向總管 (使用者) 求救，並提供以下重啟指令讓使用者執行：「基建已崩潰，請手動執行 `powershell -ExecutionPolicy Bypass -File start_line.ps1` 進行重啟！」
 - **如果指示透過 NotebookLM 研究**：
   1. 必須嚴格遵照指示呼叫 `notebooklm` 相關 MCP 工具。
   2. 若遇到無法連線、憑證過期 (`auth_status: stale` 或 `Authentication expired`) 等錯誤時，**絕對禁止**未經同意自行改用常規網路搜尋 (Web Search) 替代。
