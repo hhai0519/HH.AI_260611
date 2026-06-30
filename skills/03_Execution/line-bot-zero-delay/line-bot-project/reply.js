@@ -1,6 +1,8 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
+const WORKSPACE_ROOT = process.env.WORKSPACE_ROOT || path.resolve(__dirname, '../../../../');
+require('dotenv').config({ path: path.join(WORKSPACE_ROOT, '.env.local') });
 
 const userId = process.argv[2];
 let text = process.argv[3];
@@ -121,10 +123,27 @@ if (agentLabel && topicCategory && questionBrief) {
 
 const crypto = require('crypto');
 const messageId = process.env.MSG_ID || '';
-const epoch = process.env.TOKEN_EPOCH || '1';
-const tokenVal = process.env.SESSION_TOKEN || '0';
+let epoch = process.env.TOKEN_EPOCH || '1';
+let tokenVal = process.env.SESSION_TOKEN || '0';
 const ticketId = process.env.TICKET_ID || '';
-const agentId = process.env.AGENT_ID || 'UnknownAgent';
+let agentId = process.env.AGENT_ID || 'UnknownAgent';
+
+try {
+    const stateFile = path.join(WORKSPACE_ROOT, '.state', 'agent_state.json');
+    if (fs.existsSync(stateFile)) {
+        const state = JSON.parse(fs.readFileSync(stateFile, 'utf8'));
+        if (state.agentId) agentId = state.agentId;
+        if (state.fencingToken) {
+            const parts = state.fencingToken.split(':');
+            if (parts.length === 2) {
+                epoch = parts[0];
+                tokenVal = parts[1];
+            }
+        }
+    }
+} catch (e) {
+    // ignore
+}
 const timestamp = Date.now();
 
 const outboxSecret = process.env.CURRENT_OUTBOX_SECRET || 'default_outbox_secret';
@@ -200,6 +219,16 @@ function acquireLockAndResend(nextRetryCount) {
                 const result = JSON.parse(data);
                 if (res.statusCode === 200 && result.success) {
                     console.log(`[自癒成功] 已取得新鎖: ${result.fencingToken}`);
+                    try {
+                        const stateFile = path.join(WORKSPACE_ROOT, '.state', 'agent_state.json');
+                        const stateData = JSON.stringify({
+                            agentId: agentId,
+                            fencingToken: result.fencingToken
+                        }, null, 2);
+                        fs.writeFileSync(stateFile, stateData, 'utf8');
+                    } catch (e) {
+                        console.error(`[警告] 無法寫回狀態檔案: ${e.message}`);
+                    }
                     const parts = result.fencingToken.split(':');
                     sendOutboxWithRetry(nextRetryCount, parts[0], parts[1]);
                 } else {

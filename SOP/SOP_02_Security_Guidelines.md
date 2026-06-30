@@ -18,6 +18,9 @@ dependencies: []
 - **資料防洩偵測（DLP）**：
   - **憑證偵測**：AI 系統禁止在日誌、回覆或工件中直接記錄 API Key、OAuth Tokens 或其他憑證字串。Email 地址、電話號碼、身分識別碼等個資亦不得出現在非加密的 log 檔中。
   - **上下文清理**：在呼叫外部 API 或傳遞 Payload 前，必須掃描 context 內容，移除敏感資訊（如密碼、私鑰、個資片段），確保不對外洩漏。
+- **[V10 新增] WMI 精準狙擊原則 (Surgical Strike Principle)**：執行任何環境淨化或進程重置腳本時，**絕對禁止**使用無差別屠殺指令（例如 `Stop-Process -Name 'node'` 或 `Stop-Process -Name 'powershell'`）。
+  - **唯一合法查殺法**：必須使用 `Get-CimInstance Win32_Process` 搭配 `CommandLine LIKE '%特定特徵碼%'` 進行特徵追蹤狙擊，確保零誤殺。
+  - **正確範例**：`Get-CimInstance Win32_Process -Filter "Name = 'ssh.exe' AND CommandLine LIKE '%a.pinggy.io%'" | Invoke-CimMethod -MethodName Terminate`
 
 ---
 

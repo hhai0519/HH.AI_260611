@@ -7,6 +7,7 @@ const WORKSPACE_ROOT = process.env.WORKSPACE_ROOT || require('path').resolve(__d
 require('dotenv').config({ path: require('path').join(WORKSPACE_ROOT, '.env.local') });
 
 const express = require('express');
+const { spawn } = require('child_process');
 const line = require('@line/bot-sdk');
 const fs = require('fs');
 const path = require('path');
@@ -201,6 +202,7 @@ async function logLockEvent(eventType, agentId, runId, fencingToken, metadata = 
     try {
       await redis.xadd(
         'prod:linebot:lock_audit',
+        'MAXLEN', '~', 10000,
         '*',
         'event_type', eventType,
         'agent_id', agentId,
@@ -227,10 +229,10 @@ async function logToGitHubAudit(ticketId, messageId, agentId, text) {
     const logPath = path.join(logDir, 'replay-log.json');
     let logs = [];
     if (fs.existsSync(logPath)) {
-      try { logs = JSON.parse(fs.readFileSync(logPath, 'utf8')); } catch(e){}
+      try { logs = JSON.parse(await fs.promises.readFile(logPath, 'utf8')); } catch(e){}
     }
     logs.push({ ticketId, messageId, agentId, timestamp: new Date().toISOString(), textSnippet: text.substring(0, 100) });
-    fs.writeFileSync(logPath, JSON.stringify(logs, null, 2));
+    await fs.promises.writeFile(logPath, JSON.stringify(logs, null, 2));
     return;
   }
 
@@ -284,9 +286,9 @@ let saveTimer = null;
 function saveState() {
   if (saveTimer) clearTimeout(saveTimer);
   saveTimer = setTimeout(() => {
-    try {
-      fs.writeFileSync(STATE_FILE, JSON.stringify({ activeAgentToken, activeAgentLabel, activeAgentFencingToken, messageQueue }, null, 2));
-    } catch (e) {}
+    fs.writeFile(STATE_FILE, JSON.stringify({ activeAgentToken, activeAgentLabel, activeAgentFencingToken, messageQueue }, null, 2), (err) => {
+      if (err) console.error('[BRIDGE] Failed to save state:', err);
+    });
     saveTimer = null;
   }, 1000);
 }
@@ -436,6 +438,7 @@ app.post('/api/dlq/ticket/approve', express.json(), async (req, res) => {
       const payload = JSON.parse(ticket.payload);
       await redis.xadd(
         'prod:linebot:events',
+        'MAXLEN', '~', 10000,
         '*',
         'payload', JSON.stringify({
           ...payload,
@@ -708,6 +711,7 @@ app.get('/api/inbox', async (req, res) => {
             console.error(`[DLQ] Message ${messageId} reached retry limit, moving to dead letter stream`);
             await redis.xadd(
               'prod:linebot:dead_letter_stream',
+              'MAXLEN', '~', 10000,
               '*',
               'payload', JSON.stringify(messageToDeliver),
               'reason', 'max_retries_exceeded',
@@ -908,6 +912,7 @@ app.post('/api/outbox', express.json(), async (req, res) => {
         // 寫入 Redis Audit Stream
         await redis.xadd(
           'prod:linebot:replay_audit',
+          'MAXLEN', '~', 10000,
           '*',
           'ticket_id', ticketId,
           'message_id', messageId,
@@ -949,8 +954,13 @@ app.post('/api/outbox', express.json(), async (req, res) => {
   }
 
   console.log(`[←LINE] 傳送回覆給 ${userId}: ${text.substring(0, 30)}...`);
-  await pushToLine(userId, text);
-  res.json({ success: true });
+  try {
+    await pushToLine(userId, text);
+    res.json({ success: true });
+  } catch (err) {
+    console.error(`[←LINE] 傳送失敗: ${err.message}`);
+    res.status(500).json({ error: 'LINE_API_ERROR', message: err.message });
+  }
 });
 
 // ─── 推播訊息與安撫模組 ─────────────────────────────────────────────────────────
@@ -1106,6 +1116,7 @@ async function handleCommand(userId, sourceId, text, replyToken) {
 
       await redis.xadd(
         'prod:linebot:events',
+        'MAXLEN', '~', 10000,
         '*',
         'payload',
         JSON.stringify(payload)
@@ -1290,69 +1301,87 @@ app.post('/api/chaos/inject', express.json(), async (req, res) => {
   res.json({ success: true, injected: action });
 });
 
-// ─── Webhook 自動修復自癒機制 ──────────────────────────────────────────────────
-async function autoUpdateWebhook() {
-  try {
-    const localLogPath = path.join(WORKSPACE_ROOT, 'cloudflared_log.txt');
-    if (!fs.existsSync(localLogPath)) return;
+// ─── V10.0 Node.js 原生接管: Pinggy SSH 永動機 (免彈窗 / 免寫檔) ───────────
+let sshProcess = null;
+
+function startPinggyDaemon() {
+  console.log('[Auto-Heal] 啟動底層 SSH Pinggy 通道...');
+  
+  // 注入 windowsHide: true，沒收 Windows Terminal 的彈窗權限
+  sshProcess = spawn('ssh', [
+    '-p', '443', 
+    '-R0:localhost:3000', 
+    '-o', 'StrictHostKeyChecking=no', 
+    '-o', 'ServerAliveInterval=30', 
+    'a.pinggy.io'
+  ], { 
+    windowsHide: true,
+    stdio: ['ignore', 'pipe', 'pipe'] 
+  });
+
+  const handleOutput = async (data) => {
+    const output = data.toString();
+    const matches = output.match(/https:\/\/[a-z0-9.-]+\.(?:trycloudflare\.com|cloudflare\.com|free\.pinggy\.link|pinggy\.io|pinggy\.net|pinggy-free\.link)/g);
     
-    const logContent = fs.readFileSync(localLogPath, 'utf8');
-    // BUG-05 修復：擴充 Regex，同時支援 cloudflare + pinggy 系列 Tunnel
-    const matches = logContent.match(
-      /https:\/\/[a-z0-9.-]+\.(?:trycloudflare\.com|cloudflare\.com|free\.pinggy\.link|pinggy\.io)/g
-    );
-    if (!matches || matches.length === 0) return;
+    if (matches && matches.length > 0) {
+      const latestTunnelUrl = matches[matches.length - 1];
+      const newWebhookEndpoint = `${latestTunnelUrl}/webhook`;
+      
+      try {
+        const res = await axios.get('https://api.line.me/v2/bot/channel/webhook/endpoint', {
+          headers: { 'Authorization': `Bearer ${lineConfig.channelAccessToken}` }
+        });
 
-    const latestTunnelUrl = matches[matches.length - 1];
-    const newWebhookEndpoint = `${latestTunnelUrl}/webhook`;
-
-    // BUG-03 修復：先驗證 Tunnel 是否真正可連線，再向 LINE API 提交，避免 DNS 未就緒時提交失敗
-    try {
-      await axios.get(`${latestTunnelUrl}/lock/status`, { timeout: 5000 });
-    } catch (e) {
-      console.warn('[Auto-Heal] Tunnel URL 尚未就緒，跳過本次 Webhook 更新，等待事件觸發重試。URL:', latestTunnelUrl);
-      return;
-    }
-
-    const res = await axios.get('https://api.line.me/v2/bot/channel/webhook/endpoint', {
-      headers: { 'Authorization': `Bearer ${lineConfig.channelAccessToken}` }
-    });
-
-    const currentEndpoint = res.data.endpoint;
-
-    if (currentEndpoint !== newWebhookEndpoint) {
-      await axios.put('https://api.line.me/v2/bot/channel/webhook/endpoint', {
-        endpoint: newWebhookEndpoint
-      }, {
-        headers: {
-          'Authorization': `Bearer ${lineConfig.channelAccessToken}`,
-          'Content-Type': 'application/json'
+        if (res.data.endpoint !== newWebhookEndpoint) {
+          await axios.put('https://api.line.me/v2/bot/channel/webhook/endpoint', {
+            endpoint: newWebhookEndpoint
+          }, {
+            headers: {
+              'Authorization': `Bearer ${lineConfig.channelAccessToken}`,
+              'Content-Type': 'application/json'
+            }
+          });
+          console.log('[Auto-Heal] 記憶體攔截成功！LINE Webhook 已無縫更新至:', newWebhookEndpoint);
         }
-      });
-      console.log('[Auto-Heal] LINE Webhook Endpoint updated automatically to:', newWebhookEndpoint);
-    }
-  } catch (e) {
-    console.error('[Auto-Heal] Webhook update failed:', e.message);
-  }
-}
-// 啟動時主動執行一次
-autoUpdateWebhook();
-
-// 監聽 cloudflared_log.txt 檔案變更，事件驅動更新 Webhook
-const tunnelLogPath = path.join(WORKSPACE_ROOT, 'cloudflared_log.txt');
-if (fs.existsSync(tunnelLogPath)) {
-  let fsTimeout;
-  fs.watch(tunnelLogPath, (eventType) => {
-    if (eventType === 'change') {
-      if (!fsTimeout) {
-        fsTimeout = setTimeout(() => {
-          autoUpdateWebhook();
-          fsTimeout = null;
-        }, 3000); // 防抖動
+      } catch (e) {
+        console.error('[Auto-Heal] Webhook 更新失敗:', e.response ? e.response.data : e.message);
       }
     }
+  };
+
+  sshProcess.stdout.on('data', handleOutput);
+  sshProcess.stderr.on('data', handleOutput);
+
+  sshProcess.on('close', (code) => {
+    console.warn(`[Auto-Heal] Pinggy 連線已中斷 (Code ${code})。進入自癒模式，3 秒後重生...`);
+    sshProcess = null;
+    setTimeout(startPinggyDaemon, 3000);
+  });
+  
+  sshProcess.on('error', (err) => {
+    console.error(`[Auto-Heal] Pinggy 進程發生致命錯誤:`, err);
   });
 }
+
+// 服務啟動時點火
+startPinggyDaemon();
+
+// ─── 進程連坐法 (完整版 V10.1) ───────────────────────────────────────────────
+// 確保 Bridge 在任何情況下關閉時，SSH Pinggy 也必定死亡 (不殘留殭屍進程)
+// 涵蓋三種終止情境：正常退出、Ctrl+C、系統終止信號
+function cleanupAndExit(signal) {
+  console.log(`\n[連坐法] 接收到 ${signal} 信號，正在執行清理...`);
+  if (sshProcess) {
+    sshProcess.kill('SIGTERM');
+    sshProcess = null;
+    console.log('[連坐法] SSH Pinggy 進程已終止。');
+  }
+  process.exit(0);
+}
+
+process.on('exit',   () => { if (sshProcess) { sshProcess.kill(); } });
+process.on('SIGINT',  () => cleanupAndExit('SIGINT'));   // Ctrl+C 中斷
+process.on('SIGTERM', () => cleanupAndExit('SIGTERM'));  // 系統終止信號
 
 // ─── 啟動 Express 伺服器 ───────────────────────────────────────────────────────
 app.listen(PORT, () => {

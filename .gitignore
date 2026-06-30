@@ -12,3 +12,7 @@ Modules/line-bot-project/node_modules/
 *_log.txt
 *.exe
 Data/Pending_Optimization.json
+
+# .state/ — 揮發性狀態快取隔離區 (機密 Token 存放處，禁止上傳 Git)
+/.state/*
+!/.state/.gitkeep

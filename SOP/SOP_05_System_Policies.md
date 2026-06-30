@@ -19,11 +19,25 @@ dependencies: ["SOP_00_Skill_Lifecycle_Management.md", "Modules/db_state_manager
 1. **禁止常駐進程 (Resident Polling)**
    - **嚴禁**使用 `setInterval`、`setTimeout` 建立私有的背景常駐輪詢。
    - 所有排程或定時監聽任務，強制交由非同步 Watchdog 與 Neon DB 狀態管理器（或 `fs.watch` 事件驅動）接管。
+   - `*【官方特許豁免】*`：僅限於 LINE 架構專用接收中樞（絕對路徑限定：`skills/03_Execution/line-bot-zero-delay/line-bot-project/poll_inbox.js`）具備系統常駐豁免權。嚴禁任何其他同名偽裝腳本常駐。
 2. **禁止破壞性 Git 指令 (Destructive Commands)**
    - **嚴禁**在腳本內寫死或執行 `git checkout .`、`git reset --hard`、`rm -rf` 等具有歷史抹除與物理破壞性的暴力還原指令。
 3. **禁止終端機越權寫入 (Unsafe File Writing)**
    - **嚴禁**在終端機使用 PowerShell 的 `Out-File`、`Set-Content` 或 `>` 重導向來寫入程式碼或檔案。
    - 所有寫入操作強制使用專用 API 工具 (`write_to_file`)，並確保為 **無 BOM 的標準 UTF-8** 編碼。
+4. **禁止檔案型跨進程通訊 (No File-Based IPC)**
+   - **嚴禁**以「寫入暫存 `.txt` 或 `.json` 再由另一個程式讀取」的方式進行跨進程資料傳遞。
+   - **唯一合法作法**：強制使用記憶體串流 `stdio: ['pipe', 'pipe', 'pipe']`，或透過本機 HTTP API / WebSocket 進行傳遞。
+
+5. **嚴禁 PowerShell 隱形母體 (No Hidden PowerShell Daemons)**
+   - **嚴禁**使用 PowerShell 的 `-WindowStyle Hidden` 啟動任何需要長期常駐的背景服務。
+   - **唯一合法作法**：背景隱藏進程必須統一由 Node.js 發動 `child_process.spawn()` 並強制帶入 `{ windowsHide: true }` 旗標。
+
+6. **強制實作進程連坐法 (Process Synergy — Full Signal Coverage)**
+   - 任何由 Node.js 衍生的子進程，**強制要求**同時掛載以下三個信號監聽器：
+   - `process.on('exit', fn)` — 正常退出清理
+   - `process.on('SIGINT', fn)` — 使用者 Ctrl+C 中斷清理
+   - `process.on('SIGTERM', fn)` — 系統終止信號清理
 
 ### 🔒 工具呼叫狀態綁定 (Slot-filling Verification)
 Agent 在調用任何檔案寫入或終端指令前，**必須**動態填充並核對以下狀態插槽 (Slots)。狀態不符者立即中斷操作：

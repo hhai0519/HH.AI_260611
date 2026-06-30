@@ -17,5 +17,13 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-echo "✅ [Pre-commit Hook] 驗證通過，允許提交。"
+echo "✅ [Pre-commit Hook] Architecture 驗證通過。"
+
+echo "[Pre-commit Hook] 🛡️ 啟動 SOP Linter 驗證..."
+node ./.githooks/sop_linter.js
+if [ $? -ne 0 ]; then
+    exit 1
+fi
+
+echo "✅ [Pre-commit Hook] 全部驗證通過，允許提交。"
 exit 0

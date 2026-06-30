@@ -1,23 +1,13 @@
-# LINE Startup Architecture Fix Tasks
+# 🛠️ V17 架構升級追蹤清單
 
-- `[x]` 1. Environment Cleanup
-  - `[x]` Stop all running PM2 processes related to line-bridge
-  - `[x]` Kill all existing `node.exe` processes running bridge.js or poll_inbox.js
-  - `[x]` Kill all existing `cloudflared.exe` processes
-- `[x]` 2. Directory Unification
-  - `[x]` Ensure all active files are in `skills/03_Execution/line-bot-zero-delay/line-bot-project/`
-  - `[x]` Delete obsolete `Modules/line-bot-project/` directory
-  - `[x]` Update `.gitignore` if necessary
-- `[x]` 3. Architecture Refactor (Code Changes)
-  - `[x]` Remove `selfHealAndRetry()` from `start_line.js`
-  - `[x]` Enhance `reply.js` with 403 Retry Pattern and Exponential Backoff
-  - `[x]` Fix `bridge.js` Redis duplicate message idempotency & fail-safe XACK
-  - `[x]` Upgrade `start_line.ps1` to extract `$env:TUNNEL_URL` and pass to `bridge.js`, ensuring single source of truth and resolving port conflicts.
-- `[/]` 4. Git Commit
-  - `[ ]` Stage all changes
-  - `[ ]` Commit with `fix(line-bot): architecture unification and auto-heal fix`
-- `[ ]` 5. Verification
-  - `[ ]` Run `start_line.ps1` in background task
-  - `[ ]` Verify Cloudflare tunnel connects
-  - `[ ]` Verify Bridge API responds on port 3000
-  - `[ ]` Send a simulated test message / check inbox polling
+- `[x]` **階段一：`poll_inbox.js` 網路優化**
+  - `[x]` 實例化全域 `http.Agent({ keepAlive: true })`
+  - `[x]` 應用至 `http.request` 選項中
+- `[x]` **階段二：`bridge.js` 解除阻塞**
+  - `[x]` 替換 `saveState()` 中的 `fs.writeFileSync` 為 `fs.writeFile`
+  - `[x]` 替換 GitHub Audit 降級模式的 `fs.writeFileSync` 為 `fs.writeFile`
+- `[x]` **階段三：`bridge.js` 記憶體防護**
+  - `[x]` 在所有的 `redis.xadd` 指令中插入 `MAXLEN ~ 10000`
+- `[x]` **階段四：驗證與結案**
+  - `[x]` 啟動並驗證 `poll_inbox.js` 與 `bridge.js` 正常無報錯
+  - `[x]` 撰寫 V17 `walkthrough.md` 報告

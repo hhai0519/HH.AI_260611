@@ -17,7 +17,7 @@ if (Test-Path $modulesPath) {
         exit 1
     }
 
-    $allowedJsFiles = @("db_state_manager.js", "maintenance_worker.js", "quota_manager.js")
+    $allowedJsFiles = @("db_state_manager.js", "maintenance_worker.js", "quota_manager.js", "sop_router.js")
     $invalidFiles = Get-ChildItem -Path $modulesPath -File | Where-Object { $_.Extension -ne ".ps1" -and $_.Name -notin $allowedJsFiles }
     if ($invalidFiles.Count -gt 0) {
         $fileNames = $invalidFiles.Name -join ", "

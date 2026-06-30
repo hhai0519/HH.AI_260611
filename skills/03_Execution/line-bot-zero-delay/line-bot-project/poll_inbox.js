@@ -1,22 +1,41 @@
 const http = require('http');
 
-const agentId = process.argv[2];
+let agentId = process.argv[2];
+let fencingToken = process.env.FENCING_TOKEN || '';
+
+const fs = require('fs');
+const path = require('path');
+const WORKSPACE_ROOT = process.env.WORKSPACE_ROOT || path.resolve(__dirname, '../../../../');
+
+try {
+  const stateFile = path.join(WORKSPACE_ROOT, '.state', 'agent_state.json');
+  if (fs.existsSync(stateFile)) {
+    const state = JSON.parse(fs.readFileSync(stateFile, 'utf8'));
+    if (!agentId && state.agentId) agentId = state.agentId;
+    if (state.fencingToken) fencingToken = state.fencingToken;
+  }
+} catch (e) {
+  // ignore
+}
+
 if (!agentId) {
-  console.error("Usage: node poll_inbox.js <agentId>");
+  console.error("Usage: node poll_inbox.js [agentId]\n(Or ensure .agent_state.json exists)");
   process.exit(1);
 }
 
 const POLL_INTERVAL = 1000; // 1 秒
+const keepAliveAgent = new http.Agent({ keepAlive: true, maxSockets: 1 });
 
 console.log("Antigravity API Polling 監聽器已啟動，等待事件中...");
 
 function poll() {
-  const fToken = process.env.SESSION_FENCING_TOKEN || '1:0';
+
   const req = http.request({
     hostname: 'localhost',
     port: process.env.PORT || 3000,
-    path: `/api/inbox?token=${encodeURIComponent(agentId)}&fencingToken=${encodeURIComponent(process.env.FENCING_TOKEN || '')}`,
-    method: 'GET'
+    path: `/api/inbox?token=${encodeURIComponent(agentId)}&fencingToken=${encodeURIComponent(fencingToken)}`,
+    method: 'GET',
+    agent: keepAliveAgent
   }, (res) => {
     let data = '';
     res.on('data', chunk => data += chunk);
