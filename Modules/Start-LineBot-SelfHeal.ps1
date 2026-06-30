@@ -1,9 +1,9 @@
-# §7.3 SOP_00 V3.0.0 強制 UTF-8 宣告 — 置於腳本第一行，禁止省略
-$OutputEncoding = [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
-
 param(
     [string]$Workspace = $PSScriptRoot
 )
+
+# §7.3 SOP_00 V3.0.0 強制 UTF-8 宣告 — 置於腳本第一行，禁止省略
+$OutputEncoding = [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 
 # 如果直接執行此腳本，可能 Workspace 解析錯誤，強制切換回專案根目錄 (Desktop/HH.AI_260611)
 $RootDir = Split-Path $PSScriptRoot -Parent
