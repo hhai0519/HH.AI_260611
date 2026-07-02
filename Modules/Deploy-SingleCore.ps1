@@ -4,7 +4,7 @@
 param([string]$Workspace = (Split-Path -Parent $PSScriptRoot))
 if (-not $Workspace) { $Workspace = $PWD.Path }
 
-$ErrorActionPreference = "Stop"
+$ErrorActionPreference = "Continue"
 $LogsDir = Join-Path $Workspace "Data\logs"
 $BridgeDir = Join-Path $Workspace "skills\03_Execution\line-bot-zero-delay\line-bot-project"
 
