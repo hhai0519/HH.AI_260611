@@ -140,8 +140,8 @@ fetchBotInfo();
 
 // ─── 記憶體狀態與持久化 (降級模式用) ───────────────────────────────────────────
 const STATE_FILE = path.join(__dirname, 'bridge_state.json');
-let messageQueue = []; 
-const MAX_QUEUE_SIZE = parseInt(process.env.MAX_QUEUE_SIZE || '10');
+const ALLOW_IN_MEMORY_FALLBACK = process.env.ALLOW_IN_MEMORY_FALLBACK === 'true';
+const MAX_QUEUE_SIZE = parseInt(process.env.MAX_QUEUE_SIZE || '1000');
 
 let activeAgentToken = null;
 let activeAgentLabel = null;
@@ -1062,6 +1062,7 @@ async function checkRateLimit(agentId) {
     await redis.pexpire(rateKey, 60000);
   }
   if (count > LIMIT) {
+    console.warn(`[RATE_LIMIT] Agent ${agentId} exceeded ${LIMIT} req/min (count: ${count})`);
     throw new Error("rate limit exceeded");
   }
 }
@@ -1405,11 +1406,15 @@ startPinggyDaemon();
 function cleanupAndExit(signal) {
   console.log(`\n[連坐法] 接收到 ${signal} 信號，正在執行清理...`);
   if (sshProcess) {
-    sshProcess.kill('SIGTERM');
-    sshProcess = null;
+    const proc = sshProcess;  // 保存引用，避免被 on('close') 的 null 覆蓋
+    sshProcess = null;        // 阻止 on('close') callback 觸發 startPinggyDaemon 重啟
+    proc.kill('SIGTERM');
+    setTimeout(() => {
+      try { proc.kill('SIGKILL'); } catch(e) {}
+    }, 2000);
     console.log('[連坐法] SSH Pinggy 進程已終止。');
   }
-  process.exit(0);
+  setTimeout(() => process.exit(0), 2500);
 }
 
 process.on('exit',   () => { if (sshProcess) { sshProcess.kill(); } });

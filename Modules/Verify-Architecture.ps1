@@ -40,4 +40,23 @@ foreach ($file in $filesToScan) {
 }
 
 Write-Host "SUCCESS: Architecture Linter Check Passed." -ForegroundColor Green
+# Check PM2 Architecture Compliance
+$pm2ListOutput = npx pm2 jlist 2>$null
+if ($LASTEXITCODE -eq 0 -and $pm2ListOutput) {
+    if ($pm2ListOutput -match '"name":"cloudflare-tunnel"') {
+        Write-Error "ArchitectureViolation: Detected legacy 'cloudflare-tunnel' PM2 app! Only 'line-bridge' is allowed."
+        exit 1
+    }
+}
+
+# Check Startup folder for ghosts
+$startupPath = "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup"
+$ghostFiles = @("pm2_startup.bat", "LINE_Bot_AutoHeal.lnk")
+foreach ($g in $ghostFiles) {
+    if (Test-Path (Join-Path $startupPath $g)) {
+        Write-Error "ArchitectureViolation: Ghost startup file detected: $g"
+        exit 1
+    }
+}
+
 exit 0

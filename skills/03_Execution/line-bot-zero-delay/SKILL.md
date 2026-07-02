@@ -166,10 +166,12 @@ $env:REPLY_TEXT = @"
 - ❌ 不適用：直接使用 CDP `--remote-debugging-port` 注入 UI（目前環境不支援）。
 
 ## ⚠️ 已知行為 (Known Behavior)
-- Cloudflare Quick Tunnel 每次啟動都會分配一個**全新的隨機 URL**。
-  `bridge.js` 的 Auto-Heal 機制會在啟動後自動呼叫 LINE API 更新 Webhook URL。
-  若自動更新失敗，請前往 LINE Developers Console 手動更新 Webhook Endpoint。
-- 若 Agent 遭遇 `502 Bad Gateway` 或 `ECONNREFUSED`，代表底層基建崩潰，**禁止用 LINE 傳訊求救**，應轉向 IDE 終端對話框向使用者回報，並請使用者手動執行 `start_line.ps1`。
+- **V3.0 架構宣告**：系統已統一為 PM2 單核心守護 + bridge.js 內建 Pinggy SSH 隧道架構。
+  - PM2 負責守護 bridge.js 的生命週期（自動重啟、記憶體保護）
+  - 開機自啟動由 Windows Task Scheduler 排程任務 `Antigravity-LINE-Bridge` 負責（延遲 60 秒）
+  - bridge.js 內建的 `startPinggyDaemon()` 自主管理 SSH 隧道並自動更新 LINE Webhook URL
+  - **嚴禁**再手動執行 cloudflared.exe 或建立任何外部隧道（cloudflared.exe 保留為備用工具，不自動啟動）
+- 若 Agent 遭遇 `502 Bad Gateway` 或 `ECONNREFUSED`，代表底層基建崩潰，**禁止用 LINE 傳訊求救**，應轉向 IDE 終端對話框向使用者回報，並請使用者執行 `start_line.ps1` 進行 PM2 管理。
 
 ## 協同技能
 - `notebooklm-mcp`: 當 LINE 使用者要求進行長文研究時協同呼叫。

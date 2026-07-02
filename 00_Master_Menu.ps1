@@ -1,4 +1,4 @@
-﻿param(
+param(
     [string]$Workspace = $PSScriptRoot
 )
 
@@ -50,6 +50,7 @@ Function Show-OptimizationMenu {
     Write-Host "  [3] 基礎設施重啟 (強制重建運行環境)"
     Write-Host "  [4] 系統安全審計 (觸發壓力與漏洞防禦測試)"
     Write-Host "  [5] 啟動/接管 LINE Bot 與排程系統 (Zero Delay)"
+    Write-Host "  [6] LINE Bot PM2 即時監控 (Dashboard)"
     Write-Host ""
     
     $out = node Modules\get_pending_tasks.js
@@ -69,11 +70,18 @@ Function Show-OptimizationMenu {
     Write-Host "  [B] 返回主選單"
     Write-Host "===================================================================" -ForegroundColor Magenta
     
-    $optChoice = Read-Host "請選擇系統優化指令 (1-5) 或是 (B)"
+    $optChoice = Read-Host "請選擇系統優化指令 (1-6) 或是 (B)"
 
     if ($optChoice -eq "5") {
         powershell -NoProfile -ExecutionPolicy Bypass -File start_line.ps1
         pause
+        return
+    }
+
+    if ($optChoice -eq "6") {
+        Write-Host "`n進入 PM2 即時監控面板 (按 Ctrl+C 退出，服務仍會在背景守護)..." -ForegroundColor Cyan
+        Start-Sleep -Seconds 1
+        npx pm2 monit
         return
     }
     
