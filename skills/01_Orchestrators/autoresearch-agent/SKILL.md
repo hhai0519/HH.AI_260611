@@ -1,6 +1,5 @@
 ---
 name: autoresearch-agent
-type: orchestrator
 description: "微型 AI 模型超參數自動化優化代理人。僅在指令包含「$$自動化_微型模型$$」且涉及模型優化時啟用。符合 SOP §2.4 強制授權協議。"
 version: "3.0.0"
 type: "orchestrator"

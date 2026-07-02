@@ -4,9 +4,9 @@ description: 本協作系統 Cockpit Quota API 監控系統，強制實施 20% �
 version: "3.0.0"
 type: "orchestrator"
 capabilities:
-  logic_depth: "Standard"
-  strategic_focus: "General Analysis"
-  interaction_style: "Professional"
+  logic_depth: "原子性 SQL 行級鎖（FOR UPDATE）+ remainingFraction 百分比判定"
+  strategic_focus: "API 配額熔斷（20% 安全底線）與 QUOTA_EXCEEDED 強制中斷"
+  interaction_style: "精準阻斷式：超標即強制暫停，等待使用者確認後才恢復"
 ---
 
 # 配額監控系統 (Quota Monitor System)

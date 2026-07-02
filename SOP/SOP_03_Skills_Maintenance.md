@@ -163,17 +163,9 @@ Get-ChildItem -Path "<USER_HOME>\.gemini\本協作系統\skills" -Recurse -Name 
 ### 步驟 2：選取需要補齊的技能
 確認清單後，按照第 4 節範本逐一補齊 `SKILL_TW.md` 的內容。
 
-### 步驟 3：觸發儀表板更新
-```powershell
-# @EXECUTE
-# 已廢除（V3.1.3）— 請直接更新 Data/00_Skill_Manifest.json
-```
-
-### 步驟 4：驗證儀表板大小（確認更新成功）
-```powershell
-# @EXECUTE
-# 儀表板已廢棄（V3.1.3），技能資訊請查詢 Data/00_Skill_Manifest.json
-```
+> [!NOTE]
+> **V3.1.3 廢棄宣告**：原步驟 3（觸發儀表板更新）與步驟 4（驗證儀表板大小）已正式廢除。
+> 現行唯一真理來源為 `Data/00_Skill_Manifest.json`，請直接透過 `write_to_file` 工具更新該檔案，無需執行任何外部腳本。
 
 ### 步驟 5：同步部署至本地專案目錄
 ```powershell

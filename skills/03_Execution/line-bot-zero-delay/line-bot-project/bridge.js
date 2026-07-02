@@ -77,6 +77,27 @@ const PORT = parseInt(process.env.PORT || '3000');
 
 const app = express();
 
+// DLP：防禦性遮蔽日誌中的明文憑證，並加入 null/undefined 空值防護
+function sanitizeErrorLog(message, err) {
+  if (!err) {
+    console.error(`${message}: Unknown Error (null/undefined)`);
+    return;
+  }
+  
+  let errStr = '';
+  if (err.response && err.response.data) {
+    errStr = typeof err.response.data === 'object' ? JSON.stringify(err.response.data) : String(err.response.data);
+  } else {
+    errStr = err.message || String(err);
+  }
+
+  const token = lineConfig.channelAccessToken;
+  if (token && errStr.includes(token)) {
+    errStr = errStr.replace(new RegExp(token, 'g'), '*** LINE_ACCESS_TOKEN_REDACTED ***');
+  }
+  console.error(`${message}:`, errStr);
+}
+
 // ─── 安全防線 (Localhost Enforcement 中間件) ───────────────────────────────────
 function localhostOnly(req, res, next) {
   const ip = req.ip || req.connection.remoteAddress || '';
@@ -112,7 +133,7 @@ async function fetchBotInfo() {
     BOT_USER_ID = res.data.userId;
     console.log(`[系統] 已成功取得機器人自身 ID: ${BOT_USER_ID}`);
   } catch (e) {
-    console.error(`[系統] 無法取得機器人自身 ID:`, e.response ? e.response.data : e.message);
+    sanitizeErrorLog('[系統] 無法取得機器人自身 ID', e);
   }
 }
 fetchBotInfo();
@@ -1148,6 +1169,11 @@ async function handleCommand(userId, sourceId, text, replyToken) {
 }
 
 app.post('/webhook', express.raw({type: 'application/json'}), line.middleware(lineConfig), (req, res) => {
+  // 記憶體佇列 OOM 反壓保護
+  if (!useRedis && messageQueue.length >= MAX_QUEUE_SIZE) {
+    console.warn(`[OOM Backpressure] Queue full (${messageQueue.length}/${MAX_QUEUE_SIZE}). Returning 503.`);
+    return res.status(503).end();
+  }
   res.status(200).end();
 
   req.body.events.forEach(async (event) => {
@@ -1177,10 +1203,17 @@ app.post('/webhook', express.raw({type: 'application/json'}), line.middleware(li
       try {
         await handleCommand(userId, sourceId, text, replyToken);
       } catch (e) {
-        console.error('[ERROR]', e);
+        sanitizeErrorLog('[ERROR]', e);
       }
     } else if (event.message.type === 'image') {
       const messageId = event.message.id;
+      
+      // 資安加固：限制 messageId 只能是英數字，防範路徑穿透
+      if (!/^[a-zA-Z0-9]+$/.test(messageId)) {
+        console.warn(`[SECURITY WARNING] Invalid messageId character detected: ${messageId}`);
+        return;
+      }
+      
       try {
         const publicDir = path.join(__dirname, 'public');
         if (!fs.existsSync(publicDir)) fs.mkdirSync(publicDir, { recursive: true });
@@ -1203,7 +1236,7 @@ app.post('/webhook', express.raw({type: 'application/json'}), line.middleware(li
         const text = `[IMAGE:${imagePath}]\n使用者傳送了圖片，請分析。`;
         await handleCommand(userId, sourceId, text, replyToken);
       } catch (e) {
-        console.error('[IMAGE ERROR]', e);
+        sanitizeErrorLog('[IMAGE ERROR]', e);
       }
     }
   });
@@ -1344,7 +1377,7 @@ function startPinggyDaemon() {
           console.log('[Auto-Heal] 記憶體攔截成功！LINE Webhook 已無縫更新至:', newWebhookEndpoint);
         }
       } catch (e) {
-        console.error('[Auto-Heal] Webhook 更新失敗:', e.response ? e.response.data : e.message);
+        sanitizeErrorLog('[Auto-Heal] Webhook 更新失敗', e);
       }
     }
   };
@@ -1384,7 +1417,19 @@ process.on('SIGINT',  () => cleanupAndExit('SIGINT'));   // Ctrl+C 中斷
 process.on('SIGTERM', () => cleanupAndExit('SIGTERM'));  // 系統終止信號
 
 // ─── 啟動 Express 伺服器 ───────────────────────────────────────────────────────
-app.listen(PORT, () => {
+const http = require('http');
+const server = http.createServer(app);
+
+server.on('error', (err) => {
+  if (err.code === 'EADDRINUSE') {
+    console.error(`[FATAL ERROR] Port ${PORT} is already in use by another process. Exiting gracefully.`);
+    process.exit(1);
+  } else {
+    console.error('[SERVER ERROR]', err.message);
+  }
+});
+
+server.listen(PORT, () => {
   console.log('╔════════════════════════════════════════════════════════╗');
   console.log('║     Antigravity LINE Bridge v10.0 Final 已啟動         ║');
   console.log('╚════════════════════════════════════════════════════════╝');

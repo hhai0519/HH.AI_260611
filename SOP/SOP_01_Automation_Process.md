@@ -81,8 +81,10 @@ UPDATE session_quota_state
 4. 確認配額監控工具與 Watchdog Hook 就緒。
    ```powershell
    # @EXECUTE
-   # 啟動前確認：執行 本協作系統 配額監控
-   python "<USER_HOME>\Desktop\HH.AI_260611\scripts\quota_monitor.py"
+   # [A-1 修復] 已廢棄 Python 腳本，改用 Neon PostgreSQL 原子性操作
+   # 配額監控已整合至 Modules/quota_manager.js，無需手動執行獨立腳本
+   # 確認方式：檢查 Neon DB session_quota_state 資料表的 used_pct 欄位
+   # node -e "const qm = require('./Modules/quota_manager.js'); qm.check_and_consume_quota(process.env.SESSION_ID, 0).then(r => console.log('[配額狀態]', r));"
    ```
 5. 確認研究方向與關鍵問題清單。
 6. **GitLab 分支建立**：針對該任務建立對應的 GitLab Feature Branch，準備後續作業。

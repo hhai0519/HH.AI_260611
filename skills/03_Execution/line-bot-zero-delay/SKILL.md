@@ -1,7 +1,7 @@
 ---
 name: line-bot-zero-delay
 type: automation
-description: 當需要設定、修復或啟動 LINE Bot 與 Antigravity IDE 之間的「光速直連」時觸發。具備零延遲檔案驅動架構與 Cloudflare 隧道能力。
+description: 當需要將 LINE 的控制權「連線/切換」至當前 Agent 時觸發。請注意：基建啟動是人類的責任，Agent 僅負責接管對話控制權。
 version: "1.0.0"
 capabilities:
   tool_category: "Integration & Automation"
@@ -16,13 +16,17 @@ capabilities:
 透過完全拋棄傳統 `cron` 輪詢，改用語義清晰、低耗能的 `fs.watch` 事件驅動，並利用 Cloudflare Tunnel 突破本機網路限制，實現毫秒級的 LINE 遙控 Agent 功能。
 
 ## 觸發條件
-- **`$$Line啟動$$`** 或 **`$$Line啟動: <自訂名稱>$$`**：收到此關鍵字時，立即執行下方「標準啟動流程」，無需詢問確認。
-  *(範例：`$$Line啟動: 助理一號$$`)*
-- 使用者要求「啟動 LINE Bot」、「檢查 LINE 機器人連線」。
+- **`$$LINE連線$$`** 或 **`$$LINE連線: <自訂名稱>$$`**：收到此關鍵字時，立即執行下方「標準連線流程」，無需詢問確認。
+  *(範例：`$$LINE連線: 助理一號$$`)*
+- 使用者要求「取得 LINE 控制權」、「切換 LINE Agent」。
 - 系統日誌中看到「LINE_REQUEST」或是需要回覆 LINE 使用者的對話。
-- 使用者反映「LINE 收不到訊息」、「Bridge 沒有反應」。
 
-## `$$啟動LINE$$` 標準啟動流程 (SOP v2 — 單一 Agent 鎖定機制)
+> [!CAUTION]
+> **【越權防護紅線】**：收到觸發指令時，Agent **唯一的合法動作**就是執行 `start_line.js` 取得控制權。
+> 嚴禁執行任何健康檢查指令（如 `pm2 list`、`tasklist`、`Get-Process`）！
+> 嚴禁嘗試修復或排障 (No Auto-Troubleshooting)！若基建有問題，必須向使用者求援，讓使用者手動重啟 `start_line.ps1`。
+
+## `$$LINE連線$$` 標準連線流程 (SOP v2 — 單一 Agent 鎖定機制)
 
 > [!IMPORTANT]
 > 系統會自動判斷目前狀態，Agent 只需執行「唯一一個指令」，其餘邏輯由 `line_controller.js` 自動處理。
@@ -35,17 +39,17 @@ AGENT_LABEL = "[{AI模型名}] {使用者自訂名稱或預設名稱}"
 ```
 > [!WARNING]
 > **絕對禁止使用 `tasklist` 或任何指令去讀取作業系統視窗標題！這會導致嚴重的效能卡頓（長達數分鐘）！**
-> - 如果使用者輸入 `$$Line啟動: 我的機器人$$`，請將 LABEL 設為 `[Gemini 3.5] 我的機器人`。
-> - 如果使用者只輸入 `$$Line啟動$$`，請預設使用 `[Gemini 3.5] Zero-Delay`。
+> - 如果使用者輸入 `$$LINE連線: 我的機器人$$`，請將 LABEL 設為 `[Gemini 3.5] 我的機器人`。
+> - 如果使用者只輸入 `$$LINE連線$$`，請預設使用 `[Gemini 3.5] 萬能總管模式`。
 > - **絕對禁止因為對話題材改變 (例如從股票轉移到購物)，就自作主張改變自己的 `AGENT_LABEL`！** `AGENT_LABEL` 必須在整個過程中保持一致。話題分類請透過 `reply.js` 的 `TopicCategory` 引數進行區分，切勿幹擾 Agent 身份標籤！
 
 ### 步驟 2：執行控制器
-為了達成「零延遲無縫切換」，當收到 `$$Line啟動$$` 時，請 Agent **自主理解**使用者的意圖就是「強行切換回當前 Agent」。
+為了達成「零延遲無縫切換」，當收到 `$$LINE連線$$` 時，請 Agent **自主理解**使用者的意圖就是「強行切換回當前 Agent」。
 因此，呼叫控制器時，**必須**傳入 `true` 作為第三個引數（強行接管），絕對不要讓系統進入 pending 狀態再去問使用者。
 
 ```powershell
 // 注意最後一個引數必須是 true (代表強行接管)
-node line-bot-project/start_line.js <AGENT_ID> "<AGENT_LABEL>" true
+node skills/03_Execution/line-bot-zero-delay/line-bot-project/start_line.js <AGENT_ID> "<AGENT_LABEL>" true
 ```
 
 ### 步驟 3：根據回傳結果在 IDE 對話方塊中報告
@@ -69,9 +73,9 @@ node line-bot-project/start_line.js <AGENT_ID> "<AGENT_LABEL>" true
 ## 執行流程
 
 ### 1. 權限奪取與基建啟動狀態
-AI 假設基建 (cloudflared 與 bridge.js) 已由總管透過 `start_line.ps1` 啟動。**AI 絕對不可嘗試操作基建。**
-若要奪取或宣示控制權，只需執行唯一的標準指令：
-`node line-bot-project/start_line.js <AGENT_ID> "<AGENT_LABEL>" true`
+AI 假設基建 (cloudflared 與 bridge.js) 已由總管透過 `start_line.ps1` 啟動。
+**唯一合法動作**：收到 `$$LINE連線$$` 時，執行以下唯一標準指令搶奪控制權，其跡任何操作（包含 `pm2 list`、狀態查詢）均屬越權：
+`node skills/03_Execution/line-bot-zero-delay/line-bot-project/start_line.js <AGENT_ID> "<AGENT_LABEL>" true`
 系統會自動向已啟動的 Bridge 取得控制權，確保您的訊息不會被其他 Agent 干擾。
 
 > [!IMPORTANT]
@@ -79,7 +83,7 @@ AI 假設基建 (cloudflared 與 bridge.js) 已由總管透過 `start_line.ps1` 
 > 為了突破系統休眠，當 `poll_inbox.js` 收到訊息時，會立刻印出內容並自我結束 (`process.exit(0)`)，利用任務結束的系統通知強制喚醒您。
 > **因此，每次您被喚醒並處理完 LINE 訊息後，都必須立刻重啟監聽器！否則通訊將會中斷！**
 > 恢復監聽指令：
-> `node poll_inbox.js <您的AGENT_ID>` // 注意：若卡頓超過 5 秒為正常 403 退避自癒，嚴禁手動 Cancel Task！
+> `node skills/03_Execution/line-bot-zero-delay/line-bot-project/poll_inbox.js <您的AGENT_ID>` // 注意：若卡頓超過 5 秒為正常 403 退避自癒，嚴禁手動 Cancel Task！
 > 
 > ⚠️ **【效能紅線】**：Agent 剛啟動或恢復監聽時，**絕對禁止**使用任何系統指令 (如 `tasklist`, `Get-Process`) 去查詢自己的 LABEL！若不知道自己的 LABEL，請直接帶入預設字串 `[Gemini] Agent`。違規使用 `tasklist` 將導致 4 分鐘的系統死結！
 
@@ -97,7 +101,7 @@ AI 假設基建 (cloudflared 與 bridge.js) 已由總管透過 `start_line.ps1` 
    請透過 `run_command` (使用 PowerShell) 先將回覆設定為 `$env:REPLY_TEXT` (支援多行 `@"` 字串)，然後在同一行指令中呼叫 `reply.js` 並傳入 `env` 作為第二個引數。
 
    **引數說明：**
-   `node reply.js "<userId>" "env" "<AGENT_LABEL>" "<類別/標的名稱>" "<問題簡述>"`
+   `node skills/03_Execution/line-bot-zero-delay/line-bot-project/reply.js "<userId>" "env" "<AGENT_LABEL>" "<類別/標的名稱>" "<問題簡述>"`
    - `類別/標的名稱`：請您**自主判斷**目前討論的核心標的或類別（例如：「鉅祥」、「群創」、「掃地機器人」）。系統會自動依據這個類別名稱，幫您把對話分門別類歸檔到對應的資料夾中！
    - `問題簡述`：本次回答的重點摘要（例如：「分析技術面」）。
 
@@ -105,7 +109,7 @@ AI 假設基建 (cloudflared 與 bridge.js) 已由總管透過 `start_line.ps1` 
 // 範例指令：分析鉅祥的技術面
 $env:REPLY_TEXT = @"
 (您的長篇大論 Markdown 回覆內容)
-"@; node line-bot-project\reply.js "<userId>" "env" "[Gemini 3.1 Pro] 臺股分析工具" "鉅祥" "分析技術面" // 注意：若卡頓超過 5 秒為正常 403 退避自癒，嚴禁手動 Cancel Task！
+"@; node skills/03_Execution/line-bot-zero-delay/line-bot-project/reply.js "<userId>" "env" "[Gemini 3.1 Pro] 臺股分析工具" "鉅祥" "分析技術面" // 注意：若卡頓超過 5 秒為正常 403 退避自癒，嚴禁手動 Cancel Task！
 ```
 *(執行完畢後，`reply.js` 會自動讀取變數並傳送，並在桌面生成 `Line對話紀錄` 歸檔，過程中不會產生任何垃圾檔案！)*
 
@@ -117,7 +121,7 @@ $env:REPLY_TEXT = @"
 回覆的內容支援完整的 Markdown 語法（包含程式碼區塊）。
 
 ### 3. 問題排解與災難自癒 (Troubleshooting & DRP)
-- **單點斷線復活**：如果 Agent 沒有自動醒來，這代表 `poll_inbox.js` 可能已經停止運作，請再次執行 `node poll_inbox.js <AGENT_ID>`。
+- **單點斷線復活**：如果 Agent 沒有自動醒來，這代表 `poll_inbox.js` 可能已經停止運作，請再次執行 `node skills/03_Execution/line-bot-zero-delay/line-bot-project/poll_inbox.js <AGENT_ID>`。
 - **【基建災難級自癒】(502 / ECONNREFUSED)**：若 AI 呼叫 `poll_inbox.js` 或 `reply.js` 時遭遇 `502 Bad Gateway` 或 `ECONNREFUSED`，代表底層隧道或 Bridge 伺服器已徹底崩潰。**此時網路已斷，絕對不可嘗試用 LINE 傳送訊息求救。** AI 必須立刻停止動作，轉向 **Antigravity IDE 的終端機對話框**中向總管 (使用者) 求救，並提供以下重啟指令讓使用者執行：「基建已崩潰，請手動執行 `powershell -ExecutionPolicy Bypass -File start_line.ps1` 進行重啟！」
 - **如果指示透過 NotebookLM 研究**：
   1. 必須嚴格遵照指示呼叫 `notebooklm` 相關 MCP 工具。
@@ -160,6 +164,12 @@ $env:REPLY_TEXT = @"
 ## 邊界說明
 - ✅ 適用：LINE Bot 串接、Webhook 隧道建立、Zero-Delay 事件機制架設、原生 UI 解耦、許可權預警。
 - ❌ 不適用：直接使用 CDP `--remote-debugging-port` 注入 UI（目前環境不支援）。
+
+## ⚠️ 已知行為 (Known Behavior)
+- Cloudflare Quick Tunnel 每次啟動都會分配一個**全新的隨機 URL**。
+  `bridge.js` 的 Auto-Heal 機制會在啟動後自動呼叫 LINE API 更新 Webhook URL。
+  若自動更新失敗，請前往 LINE Developers Console 手動更新 Webhook Endpoint。
+- 若 Agent 遭遇 `502 Bad Gateway` 或 `ECONNREFUSED`，代表底層基建崩潰，**禁止用 LINE 傳訊求救**，應轉向 IDE 終端對話框向使用者回報，並請使用者手動執行 `start_line.ps1`。
 
 ## 協同技能
 - `notebooklm-mcp`: 當 LINE 使用者要求進行長文研究時協同呼叫。

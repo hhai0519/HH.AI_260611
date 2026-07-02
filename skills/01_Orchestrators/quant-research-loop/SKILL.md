@@ -104,13 +104,43 @@ class QuantStrategy:
         }
         return self.metrics
     
-    def grid_search(self, df: pd.DataFrame, param_grid: dict) -> pd.DataFrame:
-        """網格搜索最優參數組合"""
+    def grid_search(self, df: pd.DataFrame, param_grid: dict,
+                    max_iterations: int = None) -> pd.DataFrame:
+        """
+        網格搜索最優參數組合（含安全熔斷）
+        
+        Args:
+            df: 歷史行情 DataFrame
+            param_grid: 參數搜索空間字典，如 {'rsi_period': [10,14,21], 'volume_mult': [1.5,2.0]}
+            max_iterations: 最大回測次數上限，預設讀取環境變數 GRID_MAX_ITER（預設 500）
+        """
+        import os, random
+        # 支援環境變數覆寫，方便 CI/CD 或不同機器彈性調整（DevOps 顧問建議）
+        if max_iterations is None:
+            max_iterations = int(os.environ.get('GRID_MAX_ITER', 500))
+        
+        combos = list(self._get_param_combinations(param_grid))
+        total_combos = len(combos)
+        
+        # [安全熔斷] 防止搜索空間爆炸，超過上限時啟動隨機採樣
+        if total_combos > max_iterations:
+            random.seed(42)  # 固定種子確保可重現性（資安稽核官確認）
+            combos = random.sample(combos, max_iterations)
+            print(f"⚠️ [熔斷] 全量組合數 ({total_combos}) 超過上限 {max_iterations}，"
+                  f"已啟動隨機採樣（seed=42）。")
+        else:
+            print(f"ℹ️ [網格搜索] 共 {total_combos} 個參數組合，開始全量回測...")
+        
         results = []
-        for combo in self._get_param_combinations(param_grid):
+        for i, combo in enumerate(combos, 1):
             self.params = combo
             metrics = self.backtest(df)
             results.append({**combo, **metrics})
+            # 每 50 次輸出進度，避免沉默執行
+            if i % 50 == 0:
+                print(f"   進度：{i}/{len(combos)} ({i/len(combos)*100:.0f}%)")
+        
+        print(f"✅ [網格搜索完成] 共回測 {len(results)} 次，結果依 Sharpe Ratio 排序。")
         return pd.DataFrame(results).sort_values('sharpe_ratio', ascending=False)
 ```
 

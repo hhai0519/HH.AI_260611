@@ -78,34 +78,31 @@ graph TD
 
 ---
 
-## 03.5 本地端啟動 SOP LOCAL_DEV_STARTUP_SOP
+## 03.5 LINE Bot 服務啟動 SOP LOCAL_DEV_STARTUP_SOP
 
-**目標：** 在無殘留進程的環境下，正確啟動所有服務。
+**目標：** 透過 `start_line.ps1` 啟動 Cloudflare Tunnel 與 LINE Bot Bridge，讓 Agent 可接管對話控制權。
 
-**選項 A：使用批次檔（推薦）**
-執行工作目錄下的腳本：`start_all_servers.bat`
+> [!IMPORTANT]
+> 此為人類（總管）的職責。AI Agent **絕對不可**自行嘗試執行此段啟動流程。
 
-**選項 B：手動終端機啟動**
+**啟動指令（在工作區根目錄的 PowerShell 終端機執行）：**
 ```powershell
-# 步驟 1：解除 PowerShell 執行限制
-Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
-
-# 步驟 2：啟動 本協作系統 主控台 (Port 3000)
-cd "<工作目錄>\tw-stock-web"
-npm run dev   # 預期：Ready in ~400ms
-
-# 步驟 3：啟動舊版後端服務 (Port 8888)
-cd "<工作目錄>\taiwan-stock"
-py -m http.server 8888   # 預期：Serving HTTP on 0.0.0.0 port 8888
-
-# 步驟 4：驗證 Port 佔用
-netstat -ano | Select-String ":3000|:8888"   # 應有兩個 LISTENING 狀態
+powershell -ExecutionPolicy Bypass -File start_line.ps1
 ```
 
-**常駐服務列表：**
-- 本協作系統 專案主控台 (Next.js): `http://localhost:3000`
-- 舊版 Python HTTP 伺服器: `http://localhost:8888`
-- Skills Dashboard: `http://localhost:8888/skills_dashboard.html`
+**預期輸出流程：**
+1. `SUCCESS: cloudflared started (PID: XXXX)` — Cloudflare Tunnel 啟動
+2. `Cloudflare Tunnel established! Public URL: https://xxx.trycloudflare.com` — 取得公網 URL
+3. `Starting LINE Bridge (bridge.js)...` — Bridge 啟動
+4. Bridge 自動呼叫 LINE API 更新 Webhook (Auto-Heal)
+
+**Agent 接管控制權（基建啟動後，由 Agent 執行）：**
+```powershell
+node skills/03_Execution/line-bot-zero-delay/line-bot-project/start_line.js "Agent-<時間戳>" "[模型名] <標籤>" true
+```
+
+**服務終止：**
+- 在終端機按下 `Ctrl+C`，`try/finally` 機制將自動精準終止 cloudflared (PID-based)。
 
 ---
 

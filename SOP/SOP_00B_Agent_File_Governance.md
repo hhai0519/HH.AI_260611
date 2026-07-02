@@ -14,6 +14,7 @@ dependencies: ["00_Master_Menu.ps1"]
 - **根目錄 (`<USER_HOME>\Desktop\HH.AI_260611`)** 僅限存在：
   - `00_Master_Menu.ps1` (主控台入口)
   - `啟動系統.bat` (快捷啟動特許檔案)
+  - `start_line.ps1` (特許代理入口 Proxy)
   - 隱藏設定檔 (如 `.vscode`、`.env`、`.git`)
 - 其餘生成的任何暫存檔、腳本或說明檔，一律視為違規，必須被移入正確的子資料夾。
 

@@ -18,6 +18,7 @@ dependencies: ["SOP_00_Skill_Lifecycle_Management.md", "Modules/db_state_manager
 
 1. **禁止常駐進程 (Resident Polling)**
    - **嚴禁**使用 `setInterval`、`setTimeout` 建立私有的背景常駐輪詢。
+   - **嚴禁**使用 `pm2`、`forever`、`nodemon` 等第三方守護進程管理工具啟動或管理任何系統服務。系統的所有背景任務必須由 `start_line.ps1` 或 Antigravity 原生 Task 機制處理；違者將視為破壞系統架構，觸發斷路器強行中斷 Session。
    - 所有排程或定時監聽任務，強制交由非同步 Watchdog 與 Neon DB 狀態管理器（或 `fs.watch` 事件驅動）接管。
    - `*【官方特許豁免】*`：僅限於 LINE 架構專用接收中樞（絕對路徑限定：`skills/03_Execution/line-bot-zero-delay/line-bot-project/poll_inbox.js`）具備系統常駐豁免權。嚴禁任何其他同名偽裝腳本常駐。
 2. **禁止破壞性 Git 指令 (Destructive Commands)**

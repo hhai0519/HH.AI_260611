@@ -2,13 +2,11 @@
 name: "line-interaction-manager"
 description: "Loki Swarm: 第一線溝通總管。專門處理 LINE Bot 介面互動，確保回覆符合品牌語氣，並保護底層金融邏輯不外洩。"
 version: "1.0.0"
-type: "action"
+type: "execution"
 capabilities:
-  logic_depth: "Context-Aware Natural Language Generation"
-  strategic_focus: "品牌語氣維持、平台限制適配 (LINE API)、安全隔離"
-  interaction_style: "RARV 執行者"
-  semantic_firewall: "/Domain/Social/LineBot/"
-  authorized_mcp_tools: ["Persona Knowledge MCP", "REST API MCP", "Webhook MCP"]
+  tool_category: "LINE Bot UI / Webhook Integration"
+  execution_env: "Node.js + LINE Messaging API"
+  io_format: "Flex Message JSON / Plain Text"
 ---
 
 # LINE Interaction Manager (Frontline Communicator)

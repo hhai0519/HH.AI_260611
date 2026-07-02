@@ -414,7 +414,7 @@
     "capabilities": {}
   },
   "line-bot-zero-delay": {
-    "description": "當需要設定、修復或啟動 LINE Bot 與 Antigravity IDE 之間的「光速直連」時觸發。具備零延遲檔案驅動架構與 Cloudflare 隧道能力。",
+    "description": "當需要將 LINE 的控制權「連線/切換」至當前 Agent 時觸發。請注意：基建啟動是人類的責任，Agent 僅負責接管對話控制權。",
     "version": "3.0.0",
     "type": "skill",
     "path": "./skills/03_Execution/line-bot-zero-delay/SKILL.md",
