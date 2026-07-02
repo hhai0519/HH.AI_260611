@@ -62,9 +62,9 @@ $sshProc = Get-CimInstance Win32_Process -Filter "Name = 'ssh.exe' AND CommandLi
 if ($sshProc) { Write-Host "  [OK] Pinggy SSH tunnel established" -ForegroundColor Green }
 else { Write-Host "  [WARN] Pinggy SSH tunnel still establishing" -ForegroundColor Yellow }
 
-$task = Get-ScheduledTask -TaskName "Antigravity-LINE-Bridge" -ErrorAction SilentlyContinue
-if ($task) { Write-Host "  [OK] Task Scheduler task exists" -ForegroundColor Green }
-else { Write-Warning "  [FAIL] Task Scheduler task missing"; $auditPassed = $false }
+$vbsPath = "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup\Antigravity-LINE-Bridge.vbs"
+if (Test-Path $vbsPath) { Write-Host "  [OK] Startup VBScript exists" -ForegroundColor Green }
+else { Write-Warning "  [FAIL] Startup VBScript missing"; $auditPassed = $false }
 
 $startupPath = "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup"
 $noGhosts = $true
