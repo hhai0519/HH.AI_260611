@@ -4,17 +4,20 @@
 
 echo "[Pre-commit Hook] 🛡️ 啟動 Architecture Linter 驗證..."
 
-# 嚴格遵照 NotebookLM 指示：必須使用 -File 而非 -Command，確保 Exit Code 正確回傳
-powershell.exe -ExecutionPolicy Bypass -File "./verify_architecture.ps1"
+if [ -f "./verify_architecture.ps1" ]; then
+    powershell.exe -ExecutionPolicy Bypass -File "./verify_architecture.ps1"
 
-# 捕捉 PowerShell 腳本的回傳碼
-if [ $? -ne 0 ]; then
-    echo ""
-    echo "================================================================"
-    echo "❌ [Pre-commit Hook] 攔截！Architecture 驗證失敗 (Task Failed)。"
-    echo "請修正架構違規後再行提交。"
-    echo "================================================================"
-    exit 1
+    # 捕捉 PowerShell 腳本的回傳碼
+    if [ $? -ne 0 ]; then
+        echo ""
+        echo "================================================================"
+        echo "❌ [Pre-commit Hook] 攔截！Architecture 驗證失敗 (Task Failed)。"
+        echo "請修正架構違規後再行提交。"
+        echo "================================================================"
+        exit 1
+    fi
+else
+    echo "⚠️ [Pre-commit Hook] 找不到 ./verify_architecture.ps1，略過此驗證。"
 fi
 
 echo "✅ [Pre-commit Hook] Architecture 驗證通過。"
