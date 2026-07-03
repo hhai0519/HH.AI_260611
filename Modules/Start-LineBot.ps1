@@ -1,12 +1,14 @@
 # ==============================================================================
 # Start-LineBot.ps1 V3.0 — PM2 Smart Manager
 # ==============================================================================
+param([switch]$Start)
 
 $ScriptDir     = Split-Path -Parent $MyInvocation.MyCommand.Path
 $WorkspaceRoot = Split-Path -Parent $ScriptDir
 $BridgeDir     = Join-Path $WorkspaceRoot "skills\03_Execution\line-bot-zero-delay\line-bot-project"
 $EcoConfig     = Join-Path $BridgeDir "ecosystem.config.js"
 $LogsDir       = Join-Path $WorkspaceRoot "Data\logs"
+$env:PM2_HOME  = "C:\Users\HH.AI_260611\.pm2"
 
 Write-Host ""
 Write-Host "===========================================================" -ForegroundColor Cyan
@@ -30,7 +32,7 @@ if ($LASTEXITCODE -eq 0 -and $pm2Output) {
     }
 }
 
-if ($bridgeRunning) {
+if ($bridgeRunning -and -not $Start) {
     Write-Host "LINE Bridge is running under PM2!" -ForegroundColor Green
     Write-Host ""
     Write-Host "Available Actions:" -ForegroundColor Yellow
