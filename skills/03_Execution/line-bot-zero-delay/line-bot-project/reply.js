@@ -49,9 +49,8 @@ if (agentLabel && topicCategory && questionBrief) {
         const dateStr = `${yyyy}${mm}${dd}`;
         const timeStr = `${yyyy}${mm}${dd}_${hh}${min}${ss}`;
 
-        // 目標資料夾：[Gemini 3.1 Pro] 台股分析工具
-        const safeAgentLabel = agentLabel.replace(/[<>:"/\\|?*]/g, '');
-        const targetDir = path.join(baseRecordDir, safeAgentLabel);
+        // 目標資料夾：統一歸併在「萬能總管」模式
+        const targetDir = path.join(baseRecordDir, '萬能總管');
         if (!fs.existsSync(targetDir)) fs.mkdirSync(targetDir, { recursive: true });
 
         // 尋找符合 TopicCategory 的 Qxxx_ 子話題資料夾
@@ -62,7 +61,8 @@ if (agentLabel && topicCategory && questionBrief) {
         let maxQ = 0;
         let matchedQDir = null;
         
-        items.forEach(item => {
+        // 第一階段：精確比對
+        for (const item of items) {
             if (item.isDirectory()) {
                 const match = item.name.match(/^Q(\d{2})_(.*)$/);
                 if (match) {
@@ -71,10 +71,29 @@ if (agentLabel && topicCategory && questionBrief) {
                     if (qSeq > maxQ) maxQ = qSeq;
                     if (qName === safeCategory) {
                         matchedQDir = item.name;
+                        break;
                     }
                 }
             }
-        });
+        }
+
+        // 第二階段：模糊比對 (若精確比對未找到，且主題長度 >= 2)
+        if (!matchedQDir) {
+            for (const item of items) {
+                if (item.isDirectory()) {
+                    const match = item.name.match(/^Q(\d{2})_(.*)$/);
+                    if (match) {
+                        const qName = match[2];
+                        if (safeCategory.length >= 2 && qName.length >= 2) {
+                            if (qName.includes(safeCategory) || safeCategory.includes(qName)) {
+                                matchedQDir = item.name;
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+        }
 
         let threadDirName;
         if (matchedQDir) {
