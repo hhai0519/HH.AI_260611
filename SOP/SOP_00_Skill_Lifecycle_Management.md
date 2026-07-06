@@ -179,6 +179,15 @@ await writePendingOptimization({
 | `Status` | `"PENDING"` \| `"RESOLVED"` | ✅ REQUIRED | 修復狀態 |
 | `Priority` | `"HIGH"` \| `"MEDIUM"` \| `"LOW"` | ✅ REQUIRED | 優先級 |
 
+---
+
+### 6. 技能觸發詞排他性矩陣規範
+* **設計原則**：防止多個 Agent 搶奪同一個使用者自然語言意圖而造成衝突。
+* **排他性規則**：
+  * **最高總管 (Orchestrator)**：觸發詞僅限於高階協調、戰略規劃與狀態控制（如 "自動化"、"SOP14"、"專案重組"）。
+  * **專業代理 (Cognitive Agent)**：觸發詞僅限於專業學科（如 "台股"、"財務分析"），且**必須限定為僅能由 Orchestrator 進行內部調用**。
+  * **審查流程**：新技能 onboarding 時，必須交叉檢驗 `triggers` 是否與既有活躍技能重疊，如有重疊則強制退回，直到修改為獨佔詞為止。
+
 ### 5.6 使用者通報協定 (Alert Protocol)
 
 Buffer 寫入完成後，Agent **僅能**在對話**結尾**以一行警示通知使用者，禁止打斷正在進行的主任務說明：

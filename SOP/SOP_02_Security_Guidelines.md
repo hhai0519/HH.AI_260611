@@ -52,6 +52,13 @@ dependencies: []
 
 ## 5. 文件合規與本地化（Documentation & Localization）
 
+### SOP 6：本地對話紀錄的資料防洩漏 (DLP) 規範
+* **背景說明**：桌面 `Line對話紀錄` 資料夾為明文 TXT 檔案，極易被備份或系統日誌意外打包。
+* **強制規範**：
+  * 寫入檔案前，必須過濾對話內容中的敏感參數。
+  * 嚴禁在 TXT 檔案中寫入明文 LINE Secret、資料庫連接密碼、API Key 或身分證號。
+  * 偵測到敏感特徵時，必須自動漂白為 `*** SECURITY_SENSITIVE_DATA_REDACTED ***` 等提示。
+
 ### SOP 合規規範
 - **語言規定**：所有技能描述（SKILL.md）、正式文件與交接內容，必須先以**台灣正體中文**撰寫，英文原始版本僅作參考。
 - **翻譯索引（SSOT）**：所有技能的正體中文標題、描述與別名，統一維護於 `Data/skill_translations.json`。此為唯一合法路徑，嚴禁使用 `.agent/scripts/`、`scripts/` 或其他過期目錄。

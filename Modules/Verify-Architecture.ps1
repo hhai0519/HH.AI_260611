@@ -59,4 +59,44 @@ foreach ($g in $ghostFiles) {
     }
 }
 
+# ─── Check skill triggers uniqueness ──────────────────────────────────────────────
+$skillsPath = Join-Path $workspaceRoot "skills"
+if (Test-Path $skillsPath) {
+    $triggerMap = @{}
+    $activeSkills = Get-ChildItem -Path $skillsPath -Filter "SKILL.md" -Recurse | Where-Object { $_.FullName -notmatch "\\Archive\\" }
+    foreach ($skillFile in $activeSkills) {
+        $content = Get-Content $skillFile.FullName -Raw
+        $skillName = $skillFile.Directory.Name
+        $triggers = @()
+
+        if ($content -match 'triggers:\s*\[(.*?)\]') {
+            $triggerListStr = $Matches[1]
+            $triggers = $triggerListStr.Split(',') | ForEach-Object { $_.Trim(" `"'").ToLower() }
+        }
+        elseif ($content -match '(?s)triggers:\r?\n(.*?)(?:\r?\n\r?\n|\r?\n[a-zA-Z]|\r?\n---)') {
+            $linesBlock = $Matches[1]
+            $lines = $linesBlock -split "\r?\n"
+            foreach ($line in $lines) {
+                if ($line -match '^\s*-\s*(.*)$') {
+                    $triggers += $Matches[1].Trim(" `"'").ToLower()
+                }
+            }
+        }
+
+        foreach ($t in $triggers) {
+            if ($null -ne $t -and $t -ne "") {
+                if ($triggerMap.ContainsKey($t)) {
+                    $otherSkill = $triggerMap[$t]
+                    if ($otherSkill -ne $skillName) {
+                        Write-Error "ArchitectureViolation: Duplicate trigger '$t' detected between skill '$skillName' and skill '$otherSkill'!"
+                        exit 1
+                    }
+                } else {
+                    $triggerMap[$t] = $skillName
+                }
+            }
+        }
+    }
+}
+
 exit 0

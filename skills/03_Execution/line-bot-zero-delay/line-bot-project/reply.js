@@ -28,6 +28,52 @@ if (!userId || !text || !agentLabel || !topicCategory || !questionBrief) {
     process.exit(1);
 }
 
+// ==========================================
+// Phase 3: DLP 敏感資料淨化機制
+// ==========================================
+function sanitizeContentForDLP(content) {
+    if (!content) return content;
+    let sanitized = content;
+    // 遮蔽 LINE Channel Access Token (長度較長的 Base64 格式字串)
+    sanitized = sanitized.replace(/(eyJhbGciOiJIUzI1NiJ9\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+)/g, '[REDACTED_JWT]');
+    // 遮蔽可能的短 API Key / Token 格式 (啟發式)
+    sanitized = sanitized.replace(/([A-Za-z0-9_-]{40,})/g, '[REDACTED_LONG_TOKEN]');
+    return sanitized;
+}
+
+// ==========================================
+// Phase 3: 原子寫入與退避重試機制 (Atomic Write with Backoff)
+// ==========================================
+function writeStateAtomic(targetFilePath, data, maxRetries = 5, baseDelayMs = 100) {
+    const tmpFilePath = targetFilePath + '.' + process.pid + '.tmp';
+    let attempt = 0;
+
+    while (attempt < maxRetries) {
+        try {
+            // 先寫入暫存檔
+            fs.writeFileSync(tmpFilePath, data, 'utf8');
+            // 原子更名 (Windows 若目標存在且被鎖，可能拋錯)
+            fs.renameSync(tmpFilePath, targetFilePath);
+            return true;
+        } catch (err) {
+            attempt++;
+            if (fs.existsSync(tmpFilePath)) {
+                try { fs.unlinkSync(tmpFilePath); } catch (e) {}
+            }
+            if (attempt >= maxRetries) {
+                console.error(`[AtomicWrite] 放棄寫入 ${targetFilePath}，已重試 ${maxRetries} 次。錯誤: ${err.message}`);
+                throw err;
+            }
+            const delay = baseDelayMs * Math.pow(2, attempt) + Math.random() * 50;
+            console.warn(`[AtomicWrite] 檔案鎖死，${Math.round(delay)}ms 後重試 (${attempt}/${maxRetries}): ${targetFilePath}`);
+            // 使用同步等待來達成退避 (這裡使用迴圈卡住 Event Loop，因為這是短暫的腳本)
+            const waitTill = new Date(new Date().getTime() + delay);
+            while (waitTill > new Date()) {}
+        }
+    }
+    return false;
+}
+
 // 自動在回覆內容開頭加上 Agent 身份識別
 text = `【由 ${agentLabel} 提供回覆】\n\n` + text;
 
@@ -123,12 +169,12 @@ if (agentLabel && topicCategory && questionBrief) {
         const currentSeq = maxSeq + 1;
         const currentSeqStr = String(currentSeq).padStart(3, '0');
 
-        // 檔名: 001_鉅祥_分析技術面_20260613_133554.txt
         const fileName = `${currentSeqStr}_${safeCategory}_${safeBrief}_${timeStr}.txt`;
         const filePath = path.join(threadDirPath, fileName);
 
-        fs.writeFileSync(filePath, text, 'utf8');
-        console.log(`[系統] 對話紀錄已自動保存至: ${filePath}`);
+        const sanitizedText = sanitizeContentForDLP(text);
+        writeStateAtomic(filePath, sanitizedText);
+        console.log(`[系統] 對話紀錄已自動保存至: ${filePath} (DLP已套用)`);
 
         // 自動清理專案根目錄的暫存檔
         if (process.argv[3].endsWith('.txt') && fs.existsSync(process.argv[3])) {
@@ -245,7 +291,7 @@ function acquireLockAndResend(nextRetryCount) {
                             agentId: agentId,
                             fencingToken: result.fencingToken
                         }, null, 2);
-                        fs.writeFileSync(stateFile, stateData, 'utf8');
+                        writeStateAtomic(stateFile, stateData);
                     } catch (e) {
                         console.error(`[警告] 無法寫回狀態檔案: ${e.message}`);
                     }

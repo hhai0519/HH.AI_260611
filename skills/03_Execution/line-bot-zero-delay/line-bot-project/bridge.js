@@ -89,6 +89,8 @@ const ALLOWED_USER_ID = process.env.LINE_ALLOWED_USER_ID || '';
 const PORT = parseInt(process.env.PORT || '3000');
 
 const app = express();
+// 🛡️ 禁用 trust proxy，強制 req.ip 讀取真實物理 TCP Socket 來源，防範 X-Forwarded-For 偽造
+app.set('trust proxy', false);
 
 // DLP：防禦性遮蔽日誌中的明文憑證，並加入 null/undefined 空值防護
 function sanitizeErrorLog(message, err) {
@@ -124,6 +126,25 @@ function localhostOnly(req, res, next) {
 app.use('/api/lock/*', localhostOnly);
 app.use('/api/chaos/*', localhostOnly);
 app.use('/metrics', localhostOnly);
+
+// ─── 本地特權通知路由 (僅限 Localhost 呼叫，免簽章，專供監控 watchdog 使用) ───
+app.post('/api/local-notify', localhostOnly, express.json(), async (req, res) => {
+  const { userId, text } = req.body;
+  if (!userId || !text) {
+    return res.status(400).json({ error: 'BAD_REQUEST', message: 'Missing userId or text' });
+  }
+  try {
+    await lineClient.pushMessage({
+      to: userId,
+      messages: [{ type: 'text', text }]
+    });
+    console.log(`[LOCAL NOTIFY] 已成功向本地端點發送通知給 ${userId}`);
+    return res.json({ success: true });
+  } catch (err) {
+    sanitizeErrorLog('[LOCAL NOTIFY ERROR]', err);
+    return res.status(500).json({ error: 'LINE_API_ERROR', message: err.message });
+  }
+});
 
 // ─── 靜態檔案伺服器與下載端點 ──────────────────────────────────────────────
 app.use('/public', express.static(path.join(__dirname, 'public')));

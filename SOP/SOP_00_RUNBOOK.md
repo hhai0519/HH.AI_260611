@@ -57,3 +57,11 @@ curl -X POST \
 
 ### SOP 3：PostgreSQL 資料庫斷開自癒
 當 Prometheus 監控指標 `lock_heartbeat_failure_total` 觸發警報，且 DB 連線恢復後，Worker 會有 30 秒的自癒寬限期（Grace Period）自動呼叫 `/api/lock/verify` 校驗並重置心跳。若自癒失敗，Worker 將自動安全退出，SRE 僅需重新啟動控制器即可。
+
+### SOP 4：Windows 重啟自癒與 LINE Bot 監聽器排障
+當系統經歷 Windows 重啟後，監聽器 (Listener) 會嘗試自癒搶鎖。若在自癒日誌中見到：`[AGENT_TRANSFER] ⚠️ LINE 控制權已被其他 Agent 接管！此監聽器已自動停止。`，請執行以下步驟：
+1. **檢查鎖狀態**：執行 `powershell -Command "Invoke-RestMethod -Uri http://localhost:3000/lock/status"`。
+   * 若 `fencing_token` 正常更新且 `is_expired` 為 `false`，表示有另一背景進程已成功取得控制權。
+2. **查詢 Node 進程**：執行 `powershell -Command "Get-CimInstance Win32_Process -Filter \"name = 'node.exe'\" | Select-Object ProcessId, CommandLine"`。
+   * 確認是否有一 PID 正在執行 `node start_line.js Antigravity-Master \"AI_Master\"`。
+3. **判定處置**：若已有進程持有鎖且正在運行，表示背景監聽正常運作，此時 AI 或運維人員可安全退出，不需重啟或多重啟動。若無進程但鎖仍顯示被佔用，可調用 `SOP 1` 手動重設鎖。
