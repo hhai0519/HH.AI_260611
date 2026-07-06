@@ -83,7 +83,7 @@ capabilities:
 
 - **Skills Manifest**：`Data/00_Skill_Manifest.json`（技能唯一真理來源，現有 68 條）
 - **技能目錄**：`<WORKSPACE_ROOT>/skills/`（三層：01_Orchestrators / 02_Cognitive / 03_Execution）
-- **系統架構圖**：`00_System_Architecture_Map.md`
+- **系統架構圖**：`../../../SOP/SOP_00_System_Architecture_Map.md`
 - **Not-Delete Policy**：見 `SOP_05_System_Policies.md §7`
 
 ## 9. 下一個 Session 的首要任務

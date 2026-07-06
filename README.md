@@ -50,7 +50,7 @@ node line-bot-project\start_line.js  # LINE Bot 服務
 
 ## 系統架構
 
-詳細架構說明請見 [`00_System_Architecture_Map.md`](./00_System_Architecture_Map.md)。
+詳細架構說明請見 [`00_System_Architecture_Map.md`](./SOP/SOP_00_System_Architecture_Map.md)。
 
 ```
 HH.AI_260611/

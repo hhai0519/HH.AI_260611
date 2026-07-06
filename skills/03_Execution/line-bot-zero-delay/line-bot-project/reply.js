@@ -134,7 +134,8 @@ try {
         const state = JSON.parse(fs.readFileSync(stateFile, 'utf8'));
         if (state.agentId) agentId = state.agentId;
         if (state.fencingToken) {
-            const parts = state.fencingToken.split(':');
+            // 🛡️ [資安追加] 強制包裹 String() 防範讀取 JSON 時的隱式型別崩潰
+            const parts = String(state.fencingToken).split(':');
             if (parts.length === 2) {
                 epoch = parts[0];
                 tokenVal = parts[1];

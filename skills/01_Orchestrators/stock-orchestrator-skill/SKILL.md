@@ -1,3 +1,10 @@
+---
+name: stock-orchestrator-skill
+type: orchestrator
+description: 股票與量化領域總管，負責拆解金融任務並調度 06 層級的子模組。
+version: 1.0.0
+---
+
 # 股票與量化領域總管 (Stock Orchestrator Skill)
 
 ## 1. 核心定位 (Mission)

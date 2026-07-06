@@ -45,6 +45,16 @@ async function initRedis() {
       });
       console.log('[REDIS] Connecting to single instance:', redisUrl);
     }
+
+    // 🛡️ [資安/SRE 追加] 掛載背景錯誤監聽器，防止未捕獲異常崩潰
+    redis.on('error', (err) => {
+      if (err?.message?.includes('ECONNREFUSED')) {
+        console.warn('[REDIS] Connection refused, retrying in background...');
+      } else {
+        console.error('[REDIS] Background connection error:', err?.message || err);
+      }
+    });
+
     await redis.ping();
     useRedis = true;
     console.log('[REDIS] Connection established successfully.');
@@ -61,7 +71,10 @@ async function initRedis() {
   } catch (e) {
     console.warn('[REDIS] Redis unavailable. Falling back to Memory mode. Error:', e.message);
     useRedis = false;
-    redis = null;
+    if (redis) {
+      try { redis.disconnect(); } catch (err) {} // 🛡️ [SRE 追加] 釋放 Socket，防止背景重試洩漏
+      redis = null;
+    }
   }
 }
 initRedis();
@@ -298,7 +311,7 @@ if (fs.existsSync(STATE_FILE)) {
     const state = JSON.parse(fs.readFileSync(STATE_FILE, 'utf8'));
     activeAgentToken = state.activeAgentToken || null;
     activeAgentLabel = state.activeAgentLabel || null;
-    activeAgentFencingToken = state.activeAgentFencingToken || '1:0';
+    activeAgentFencingToken = state.activeAgentFencingToken !== undefined && state.activeAgentFencingToken !== null ? String(state.activeAgentFencingToken) : '1:0';
     messageQueue = state.messageQueue || [];
   } catch (e) {}
 }
@@ -552,7 +565,7 @@ app.post('/api/lock/acquire', express.json(), async (req, res) => {
       activeAgentToken = agentId;
       activeAgentLabel = agentLabel;
       activeAgentLockExpiresAt = now + 60000;
-      activeAgentFencingToken = `1:${(parseInt(activeAgentFencingToken?.split(':')[1] || '0') + 1)}`;
+      activeAgentFencingToken = `1:${(parseInt(String(activeAgentFencingToken || '').split(':')[1] || '0') + 1)}`;
       saveState();
       
       if (force && oldOwner && oldOwner !== agentId) {
@@ -691,7 +704,7 @@ app.get('/api/inbox', async (req, res) => {
       
       // 1.1 Fencing Token Epoch 驗證
       const curEpoch = parseInt(await redis.get('prod:linebot:token_epoch') || '1', 10);
-      const [reqEpochStr] = (fencingToken || '0:0').split(':');
+      const [reqEpochStr] = String(fencingToken || '0:0').split(':');
       const reqEpoch = parseInt(reqEpochStr || '0', 10);
       if (reqEpoch < curEpoch) {
         return res.status(403).json({ error: 'Forbidden', message: 'LOCK_LOST_OR_EXPIRED' });
@@ -813,8 +826,8 @@ app.get('/api/inbox', async (req, res) => {
     }
     
     // Fencing Token Epoch 驗證
-    const [reqEpochStr] = (fencingToken || '0:0').split(':');
-    const [curEpochStr] = (activeAgentFencingToken || '1:0').split(':');
+    const [reqEpochStr] = String(fencingToken || '0:0').split(':');
+    const [curEpochStr] = String(activeAgentFencingToken || '1:0').split(':');
     if (parseInt(reqEpochStr, 10) < parseInt(curEpochStr, 10)) {
       return res.status(403).json({ error: 'Forbidden', message: 'LOCK_LOST_OR_EXPIRED' });
     }
@@ -905,7 +918,7 @@ app.post('/api/outbox', express.json(), async (req, res) => {
       
       // Fencing Token Epoch 驗證
       const curEpoch = parseInt(await redis.get('prod:linebot:token_epoch') || '1', 10);
-      const [reqEpochStr] = (fencingToken || '0:0').split(':');
+      const [reqEpochStr] = String(fencingToken || '0:0').split(':');
       const reqEpoch = parseInt(reqEpochStr || '0', 10);
       if (reqEpoch < curEpoch) {
         return res.status(403).json({ error: 'Forbidden', message: 'LOCK_LOST_OR_EXPIRED' });
@@ -958,8 +971,8 @@ app.post('/api/outbox', express.json(), async (req, res) => {
     }
     
     // Fencing Token Epoch 驗證
-    const [reqEpochStr] = (fencingToken || '0:0').split(':');
-    const [curEpochStr] = (activeAgentFencingToken || '1:0').split(':');
+    const [reqEpochStr] = String(fencingToken || '0:0').split(':');
+    const [curEpochStr] = String(activeAgentFencingToken || '1:0').split(':'); // 🛡️ 強制轉型防崩潰
     if (parseInt(reqEpochStr, 10) < parseInt(curEpochStr, 10)) {
       return res.status(403).json({ error: 'Forbidden', message: 'LOCK_LOST_OR_EXPIRED' });
     }
@@ -1387,9 +1400,10 @@ function startPinggyDaemon() {
   sshProcess.stderr.on('data', handleOutput);
 
   sshProcess.on('close', (code) => {
-    console.warn(`[Auto-Heal] Pinggy 連線已中斷 (Code ${code})。進入自癒模式，3 秒後重生...`);
+    // 🛡️ [編碼/自癒 追加] 改為純英文防 Windows Console 亂碼，延遲改為 5 秒防止 Rate Limit
+    console.warn(`[Auto-Heal] Pinggy SSH connection lost (Code ${code}). Entering auto-heal mode, restarting in 5 seconds...`);
     sshProcess = null;
-    setTimeout(startPinggyDaemon, 3000);
+    setTimeout(startPinggyDaemon, 5000);
   });
   
   sshProcess.on('error', (err) => {

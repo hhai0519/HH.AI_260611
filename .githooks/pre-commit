@@ -4,8 +4,8 @@
 
 echo "[Pre-commit Hook] 🛡️ 啟動 Architecture Linter 驗證..."
 
-if [ -f "./verify_architecture.ps1" ]; then
-    powershell.exe -ExecutionPolicy Bypass -File "./verify_architecture.ps1"
+if [ -f "./Modules/Verify-Architecture.ps1" ]; then
+    powershell.exe -ExecutionPolicy Bypass -File "./Modules/Verify-Architecture.ps1"
 
     # 捕捉 PowerShell 腳本的回傳碼
     if [ $? -ne 0 ]; then
@@ -17,7 +17,7 @@ if [ -f "./verify_architecture.ps1" ]; then
         exit 1
     fi
 else
-    echo "⚠️ [Pre-commit Hook] 找不到 ./verify_architecture.ps1，略過此驗證。"
+    echo "⚠️ [Pre-commit Hook] 找不到 ./Modules/Verify-Architecture.ps1，略過此驗證。"
 fi
 
 echo "✅ [Pre-commit Hook] Architecture 驗證通過。"

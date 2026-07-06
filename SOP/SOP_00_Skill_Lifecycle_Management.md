@@ -24,7 +24,7 @@ dependencies: ["Data/00_Skill_Manifest.json", "Templates/Template_00_Universal_S
 - 萃取出真正的「運作機制」（例如：這是一個分類系統？還是一個傳遞參數的協議？）。
 
 ### 2. 現有系統盤點 (System Audit)
-- 讀取 `Data/00_Skill_Manifest.json` 與 `00_System_Architecture_Map.md`。
+- 讀取 `Data/00_Skill_Manifest.json` 與 `SOP_00_System_Architecture_Map.md`。
 - 比對現有的 Orchestrators、Cognitive、Execution 技能。
 
 ### 3. 適配性與缺口分析決策樹 (Decision Tree)
