@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "SOP 機器可讀索引庫。僅存儲標籤與路徑 Pointer，嚴禁在此重寫法條內容。SSOT 為各 SOP Markdown 原文。",
     "maintenance_note": "每次新增或修改 SOP 時，必須同步更新此索引對應的 tags。",
-    "last_updated": "2026-07-01",
+    "last_updated": "2026-07-17",
     "total_sop_files": 17
   },
   "tags": {

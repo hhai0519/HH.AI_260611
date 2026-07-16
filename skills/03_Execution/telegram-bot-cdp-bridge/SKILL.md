@@ -1,6 +1,6 @@
 ---
 name: "telegram-bot-cdp-bridge"
-description: "透過 Zero-Delay HTTP Bridge 架構，讓 Agent 透過 Telegram 接收指令並回覆"
+description: "[V14.1.0+ 舊 CDP App 已停用，現已完全改用零延遲的 tg-bridge-zero-delay] 透過 Zero-Delay HTTP Bridge 架構，讓 Agent 透過 Telegram 接收指令並回覆"
 version: "14.1.0"
 type: "execution"
 triggers: ["$$TG連線$$"]

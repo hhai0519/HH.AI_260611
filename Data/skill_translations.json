@@ -1,7 +1,7 @@
 {
   "_schema_version": "3.0.0",
   "_description": "全域技能別名映射表 — Skill Translations Registry。依 SOP §6.2 嚴格命名空間映射規範，記錄每個技能的 name、實體路徑與所有別名。任何更名或新增動作必須同步更新本文件。V3.1.0: 導入 Agency-Agents Squad 並修復結構 Bug。",
-  "_last_updated": "2026-06-20T22:20:00+08:00",
+  "_last_updated": "2026-07-17T01:15:00+08:00",
   "_total_skills": 65,
   "_compliance": "V3.0.0 — SOP §6.2 100% Absolute Compliance",
   "translations": [
@@ -850,11 +850,15 @@
       "name": "telegram-bot-cdp-bridge",
       "folder_path": "03_Execution/telegram-bot-cdp-bridge",
       "layer": "03_Execution",
+      "display_name": "Telegram Zero-Delay 橋接器",
       "aliases": [
         "telegram-remoat",
         "Telegram遙控",
         "remoat",
-        "TG連線"
+        "TG連線",
+        "$$TG連線$$",
+        "telegram-cdp-bridge",
+        "tg-bridge-zero-delay"
       ]
     }
   ]

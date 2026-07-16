@@ -21,7 +21,7 @@ dependencies: ["SOP_00_Skill_Lifecycle_Management.md", "Modules/db_state_manager
    - **嚴禁**使用 `forever`、`nodemon` 等未授權的第三方守護進程管理工具。
    - `*【官方特許豁免 V2】*`：PM2 可用於管理以下兩個官方認可的 App（可同時並行獨立運行）：
      1. `line-bridge`（LINE Bot 橋接器，透過 `Start-LineBot.ps1` V3.0 管理）
-     2. `telegram-cdp-bridge`（Telegram CDP 橋接器，透過 `Start-TelegramBot.ps1` V1.0 管理）
+     2. `tg-bridge-zero-delay`（Telegram Zero-Delay 橋接器，透過 `Start-TelegramBot.ps1` V2.0 管理）
      嚴禁在 PM2 中新增上述以外的任何其他 App（包含 cloudflare-tunnel）。
    - 開機自啟動機制首選 Windows Task Scheduler（延遲 60 秒啟動）。若因缺乏管理員權限無法建立，允許在 Startup 資料夾放置 `Antigravity-LINE-Bridge.vbs` 作為無 UAC 提示的備援機制。嚴禁放置其他 .bat 或 .lnk。
 2. **禁止破壞性 Git 指令 (Destructive Commands)**

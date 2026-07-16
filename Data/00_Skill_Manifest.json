@@ -457,14 +457,14 @@
     }
   },
   "telegram-bot-cdp-bridge": {
-    "description": "透過 Telegram Bot 與 Chrome DevTools Protocol (CDP) 遙控並監控本機的 Antigravity IDE",
-    "version": "13.0.0",
+    "description": "[V14.1.0+ 舊 CDP App 已停用，現已完全改用零延遲的 tg-bridge-zero-delay] 透過 Telegram Bot 遙控並監控本機的 Antigravity IDE",
+    "version": "14.1.0",
     "type": "execution",
     "path": "./skills/03_Execution/telegram-bot-cdp-bridge/SKILL.md",
     "capabilities": {
-      "tool_category": "Browser Automation & Remote Control",
-      "execution_env": "Node.js/TypeScript/grammY",
-      "io_format": "Markdown/JSON"
+      "tool_category": "Telegram Remote Control Interface",
+      "execution_env": "grammY / Express HTTP Long-Polling",
+      "io_format": "JSON over HTTP Long-Polling"
     }
   }
 }

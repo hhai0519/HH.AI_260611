@@ -45,7 +45,36 @@ function buildFilteredEnv(keys) {
 
 module.exports = {
   apps: [
-    // ─── Zero-Delay 輕量橋接器 (唯一 Telegram 橋接 App) ────────────────────────
+    // ─── 原有的 CDP 橋接器 ────────────────────────────────────────
+    {
+      name: "telegram-cdp-bridge",
+      script: "./dist/bin/cli.js",
+      args: "start",
+      instances: 1,
+      autorestart: true,
+      watch: false,
+      max_memory_restart: "300M",
+      min_uptime: "10s",
+      max_restarts: 10,
+      restart_delay: 5000,
+      exp_backoff_restart_delay: 1000,
+      kill_timeout: 5000,
+      listen_timeout: 8000,
+      shutdown_with_message: true,
+      log_date_format: "YYYY-MM-DD HH:mm:ss",
+      error_file: path.join(WORKSPACE_ROOT, "Data", "logs", "tg_bridge_err.log"),
+      out_file: path.join(WORKSPACE_ROOT, "Data", "logs", "tg_bridge_out.log"),
+      merge_logs: true,
+      ignore_watch: ["node_modules", "dist", "*.log"],
+      env: Object.assign({
+        NODE_ENV: "production",
+        WORKSPACE_ROOT: WORKSPACE_ROOT,
+        WORKSPACE_BASE_DIR: path.dirname(WORKSPACE_ROOT),
+        AGENT_MODEL_NAME: "Gemini"
+      }, buildFilteredEnv(ALLOWED_KEYS))
+    },
+
+    // ─── Zero-Delay 輕量橋接器 (Sidecar 模式) ────────────────────────
     {
       name: "tg-bridge-zero-delay",
       script: "./dist/bin/cli-zero-delay.js",
@@ -56,7 +85,6 @@ module.exports = {
       min_uptime: "10s",
       max_restarts: 10,
       restart_delay: 5000,
-      exp_backoff_restart_delay: 1000, // [NODE-01] 補回指數退避保護
       kill_timeout: 5000,
       listen_timeout: 8000,
       shutdown_with_message: true,
@@ -68,7 +96,6 @@ module.exports = {
       env: Object.assign({
         NODE_ENV: "production",
         WORKSPACE_ROOT: WORKSPACE_ROOT,
-        WORKSPACE_BASE_DIR: path.dirname(WORKSPACE_ROOT), // [CODE-03] 恢復相依環境變數
         AGENT_MODEL_NAME: "Gemini"
       }, buildFilteredEnv(ALLOWED_KEYS), {
         TG_BRIDGE_PORT: "3001"   // 強制覆蓋，確保獨立
