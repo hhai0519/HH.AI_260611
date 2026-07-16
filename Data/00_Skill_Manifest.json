@@ -455,5 +455,16 @@
       "strategic_focus": "零容忍漏洞防線，pre-merge 攔截",
       "interaction_style": "嚴格、明確、提供可執行修復方案"
     }
+  },
+  "telegram-bot-cdp-bridge": {
+    "description": "透過 Telegram Bot 與 Chrome DevTools Protocol (CDP) 遙控並監控本機的 Antigravity IDE",
+    "version": "13.0.0",
+    "type": "execution",
+    "path": "./skills/03_Execution/telegram-bot-cdp-bridge/SKILL.md",
+    "capabilities": {
+      "tool_category": "Browser Automation & Remote Control",
+      "execution_env": "Node.js/TypeScript/grammY",
+      "io_format": "Markdown/JSON"
+    }
   }
 }

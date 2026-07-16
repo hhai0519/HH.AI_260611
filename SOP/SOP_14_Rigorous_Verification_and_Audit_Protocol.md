@@ -15,7 +15,7 @@ dependencies: ["SOP_00_Skill_Lifecycle_Management.md", "SOP_05_System_Policies.m
 
 以下任一情況發生時，**強制觸發**本 SOP 聯席審計程序，不得省略：
 - 修改超過 **2 個以上** SOP 或 SKILL 文件的任務
-- 任何涉及 `start_line.ps1`、`bridge.js`、`poll_inbox.js` 的修改
+- 任何涉及 `start_line.ps1`、`bridge.js`、`poll_inbox.js`、`telegram-bot-cdp-bridge` 或 `Start-TelegramBot.ps1` 的修改
 - 新增或刪除技能目錄
 - 在生產環境執行首次部署或架構重組
 - 使用者明確輸入「請進行審計」或「SOP14」關鍵字

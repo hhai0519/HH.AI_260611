@@ -80,7 +80,7 @@ graph TD
 
 ## 03.5 LINE Bot 服務啟動 SOP LOCAL_DEV_STARTUP_SOP
 
-**目標：** 透過 `start_line.ps1` 啟動 Cloudflare Tunnel 與 LINE Bot Bridge，讓 Agent 可接管對話控制權。
+**目標：** 透過 `00_Master_Menu.ps1` 啟動 LINE Bot Bridge 或 Telegram CDP Bridge，讓 Agent 可接管對話控制權。
 
 > [!IMPORTANT]
 > 此為人類（總管）的職責。AI Agent **絕對不可**自行嘗試執行此段啟動流程。

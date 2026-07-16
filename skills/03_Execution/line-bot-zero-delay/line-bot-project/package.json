@@ -4,7 +4,8 @@
   "description": "LINE Bot built with Node.js",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "audit:sop14": "node ../../../../scripts/sop14_audit_tool.js"
   },
   "dependencies": {
     "@line/bot-sdk": "^9.0.0",

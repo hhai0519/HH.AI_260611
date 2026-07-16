@@ -29,17 +29,11 @@ if (!userId || !text || !agentLabel || !topicCategory || !questionBrief) {
 }
 
 // ==========================================
-// Phase 3: DLP 敏感資料淨化機制
+// Phase 3: DLP 敏感資料淨化機制 (V13 升級共用模組)
 // ==========================================
-function sanitizeContentForDLP(content) {
-    if (!content) return content;
-    let sanitized = content;
-    // 遮蔽 LINE Channel Access Token (長度較長的 Base64 格式字串)
-    sanitized = sanitized.replace(/(eyJhbGciOiJIUzI1NiJ9\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+)/g, '[REDACTED_JWT]');
-    // 遮蔽可能的短 API Key / Token 格式 (啟發式)
-    sanitized = sanitized.replace(/([A-Za-z0-9_-]{40,})/g, '[REDACTED_LONG_TOKEN]');
-    return sanitized;
-}
+const { sanitizeDlp: sanitizeContentForDLP } = require(path.join(WORKSPACE_ROOT, 'Modules', 'shared', 'dlpSanitizer.js'));
+
+
 
 // ==========================================
 // Phase 3: 原子寫入與退避重試機制 (Atomic Write with Backoff)
@@ -95,8 +89,8 @@ if (agentLabel && topicCategory && questionBrief) {
         const dateStr = `${yyyy}${mm}${dd}`;
         const timeStr = `${yyyy}${mm}${dd}_${hh}${min}${ss}`;
 
-        // 目標資料夾：統一歸併在「萬能總管」模式
-        const targetDir = path.join(baseRecordDir, '萬能總管');
+        // 目標資料夾：統一歸併在「LINE_萬能總管」模式
+        const targetDir = path.join(baseRecordDir, 'LINE_萬能總管');
         if (!fs.existsSync(targetDir)) fs.mkdirSync(targetDir, { recursive: true });
 
         // 尋找符合 TopicCategory 的 Qxxx_ 子話題資料夾

@@ -158,6 +158,34 @@ const lineClient = new line.messagingApi.MessagingApiClient({
   channelAccessToken: lineConfig.channelAccessToken,
 });
 
+// ─── [SOP_14] 零額度消耗 Mock 隔離防護層 (Monkey Patching) ──────────────────────
+const originalPush = lineClient.pushMessage.bind(lineClient);
+lineClient.pushMessage = async (request, ...args) => {
+  if (request && request.to && String(request.to).startsWith('Umock_')) {
+    console.log(`[MOCK_BYPASS] pushMessage intercepted for: ${request.to}`);
+    return { xLineRequestId: 'mock-push-id', sentMessages: [] };
+  }
+  return originalPush(request, ...args);
+};
+
+const originalReply = lineClient.replyMessage.bind(lineClient);
+lineClient.replyMessage = async (request, ...args) => {
+  if (request && request.replyToken && String(request.replyToken).startsWith('mock_')) {
+    console.log(`[MOCK_BYPASS] replyMessage intercepted for token: ${request.replyToken}`);
+    return { xLineRequestId: 'mock-reply-id', sentMessages: [] };
+  }
+  return originalReply(request, ...args);
+};
+
+const originalLoading = lineClient.showLoadingAnimation.bind(lineClient);
+lineClient.showLoadingAnimation = async (request, ...args) => {
+  if (request && request.chatId && String(request.chatId).startsWith('Umock_')) {
+    console.log(`[MOCK_BYPASS] showLoadingAnimation intercepted for: ${request.chatId}`);
+    return {};
+  }
+  return originalLoading(request, ...args);
+};
+
 let BOT_USER_ID = null;
 async function fetchBotInfo() {
   try {
@@ -836,6 +864,15 @@ app.get('/api/inbox', async (req, res) => {
       }
     } catch (e) {
       console.error('[REDIS] inbox error:', e.message);
+      if (e.message && e.message.includes('NOGROUP')) {
+        console.warn('[REDIS AUTO-HEAL] 偵測到消費群組遺失，正在嘗試動態重建...');
+        try {
+          await redis.xgroup('CREATE', 'prod:linebot:events', 'agent_group', '$', 'MKSTREAM');
+          console.log('[REDIS AUTO-HEAL] 消費群組 "agent_group" 已成功自動重建。');
+        } catch (healErr) {
+          console.error('[REDIS AUTO-HEAL] 重建消費群組失敗:', healErr.message);
+        }
+      }
       return res.status(500).json({ error: 'Redis error', message: e.message });
     }
   } else {
@@ -1211,74 +1248,78 @@ app.post('/webhook', express.raw({type: 'application/json'}), line.middleware(li
   }
   res.status(200).end();
 
-  req.body.events.forEach(async (event) => {
-    if (event.type !== 'message') return;
+  if (req.body && Array.isArray(req.body.events)) {
+    req.body.events.forEach(async (event) => {
+      if (event.type !== 'message') return;
 
-    const userId = event.source.userId;
-    const sourceId = event.source.groupId || event.source.roomId || event.source.userId;
-    const replyToken = event.replyToken;
+      const userId = event.source.userId;
+      const sourceId = event.source.groupId || event.source.roomId || event.source.userId;
+      const replyToken = event.replyToken;
 
-    if (ALLOWED_USER_ID && userId !== ALLOWED_USER_ID) {
-      console.warn(`[SECURITY] 拒絕未授權的使用者: ${userId}`);
-      return;
-    }
-
-    if (event.message.type === 'text') {
-      let text = twConverter(event.message.text);
-      const isGroup = !!(event.source.groupId || event.source.roomId);
-
-      if (isGroup) {
-        const mentionees = event.message.mention?.mentionees || [];
-        const isMentioned = BOT_USER_ID && mentionees.some(m => m.userId === BOT_USER_ID);
-        if (!isMentioned) return;
-        text = `[User: ${userId.substring(0,6)}] ` + text;
-      }
-
-      console.log(`[LINE→] 來自 ${userId}: ${text}`);
-      try {
-        await handleCommand(userId, sourceId, text, replyToken);
-      } catch (e) {
-        sanitizeErrorLog('[ERROR]', e);
-      }
-    } else if (event.message.type === 'image') {
-      const messageId = event.message.id;
-      
-      // 資安加固：限制 messageId 只能是英數字，防範路徑穿透
-      if (!/^[a-zA-Z0-9]+$/.test(messageId)) {
-        console.warn(`[SECURITY WARNING] Invalid messageId character detected: ${messageId}`);
+      if (ALLOWED_USER_ID && userId !== ALLOWED_USER_ID) {
+        console.warn(`[SECURITY] 拒絕未授權的使用者: ${userId}`);
         return;
       }
-      
-      try {
-        const publicDir = path.join(__dirname, 'public');
-        if (!fs.existsSync(publicDir)) fs.mkdirSync(publicDir, { recursive: true });
-        const imagePath = path.join(publicDir, `image_${messageId}.jpg`);
 
-        const response = await axios({
-          method: 'GET',
-          url: `https://api-data.line.me/v2/bot/message/${messageId}/content`,
-          headers: { 'Authorization': `Bearer ${lineConfig.channelAccessToken}` },
-          responseType: 'stream'
-        });
+      if (event.message.type === 'text') {
+        let text = twConverter(event.message.text);
+        const isGroup = !!(event.source.groupId || event.source.roomId);
+
+        if (isGroup) {
+          const mentionees = event.message.mention?.mentionees || [];
+          const isMentioned = BOT_USER_ID && mentionees.some(m => m.userId === BOT_USER_ID);
+          if (!isMentioned) return;
+          text = `[User: ${userId.substring(0,6)}] ` + text;
+        }
+
+        console.log(`[LINE→] 來自 ${userId}: ${text}`);
+        try {
+          await handleCommand(userId, sourceId, text, replyToken);
+        } catch (e) {
+          sanitizeErrorLog('[ERROR]', e);
+        }
+      } else if (event.message.type === 'image') {
+        const messageId = event.message.id;
         
-        const writer = fs.createWriteStream(imagePath);
-        response.data.pipe(writer);
-        await new Promise((resolve, reject) => {
-          writer.on('finish', resolve);
-          writer.on('error', reject);
-        });
+        // 資安加固：限制 messageId 只能是英數字，防範路徑穿透
+        if (!/^[a-zA-Z0-9]+$/.test(messageId)) {
+          console.warn(`[SECURITY WARNING] Invalid messageId character detected: ${messageId}`);
+          return;
+        }
+        
+        try {
+          const publicDir = path.join(__dirname, 'public');
+          if (!fs.existsSync(publicDir)) fs.mkdirSync(publicDir, { recursive: true });
+          const imagePath = path.join(publicDir, `image_${messageId}.jpg`);
 
-        const text = `[IMAGE:${imagePath}]\n使用者傳送了圖片，請分析。`;
-        await handleCommand(userId, sourceId, text, replyToken);
-      } catch (e) {
-        sanitizeErrorLog('[IMAGE ERROR]', e);
+          const response = await axios({
+            method: 'GET',
+            url: `https://api-data.line.me/v2/bot/message/${messageId}/content`,
+            headers: { 'Authorization': `Bearer ${lineConfig.channelAccessToken}` },
+            responseType: 'stream'
+          });
+          
+          const writer = fs.createWriteStream(imagePath);
+          response.data.pipe(writer);
+          await new Promise((resolve, reject) => {
+            writer.on('finish', resolve);
+            writer.on('error', reject);
+          });
+
+          const text = `[IMAGE:${imagePath}]\n使用者傳送了圖片，請分析。`;
+          await handleCommand(userId, sourceId, text, replyToken);
+        } catch (e) {
+          sanitizeErrorLog('[IMAGE ERROR]', e);
+        }
       }
-    }
-  });
+    });
+  } else {
+    console.warn('[SECURITY] Malformed events field in Webhook payload (not an array).');
+  }
 });
 
 app.use((err, req, res, next) => {
-  if (err instanceof SyntaxError && err.status === 400 && 'body' in err) {
+  if (err instanceof SyntaxError || err.name === 'JSONParseError' || (err.message && err.message.includes('JSON'))) {
     console.error('[SECURITY] Malformed JSON payload blocked:', err.message);
     return res.status(400).json({ error: 'Bad Request', message: 'Malformed JSON payload' });
   }

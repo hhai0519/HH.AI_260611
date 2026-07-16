@@ -1,4 +1,4 @@
-# ==============================================================================
+﻿# ==============================================================================
 # Start-LineBot.ps1 V3.0 — PM2 Smart Manager
 # ==============================================================================
 param([switch]$Start)
@@ -8,7 +8,7 @@ $WorkspaceRoot = Split-Path -Parent $ScriptDir
 $BridgeDir     = Join-Path $WorkspaceRoot "skills\03_Execution\line-bot-zero-delay\line-bot-project"
 $EcoConfig     = Join-Path $BridgeDir "ecosystem.config.js"
 $LogsDir       = Join-Path $WorkspaceRoot "Data\logs"
-$env:PM2_HOME  = "C:\Users\HH.AI_260611\.pm2"
+$env:PM2_HOME  = Join-Path $env:USERPROFILE ".pm2"
 
 Write-Host ""
 Write-Host "===========================================================" -ForegroundColor Cyan
@@ -27,8 +27,21 @@ if (-not (Test-Path $EcoConfig)) {
 $pm2Output = npx pm2 jlist 2>$null
 $bridgeRunning = $false
 if ($LASTEXITCODE -eq 0 -and $pm2Output) {
-    if ($pm2Output -match '"name":"line-bridge"' -and $pm2Output -match '"status":"online"') {
-        $bridgeRunning = $true
+    try {
+        $jsonStart = $pm2Output.IndexOf('[')
+        if ($jsonStart -ge 0) {
+            $cleanJson = $pm2Output.Substring($jsonStart)
+            $apps = ConvertFrom-Json $cleanJson -ErrorAction Stop
+            foreach ($app in $apps) {
+                if ($app.name -eq "line-bridge" -and ($app.status -eq "online" -or $app.pm2_env.status -eq "online")) {
+                    $bridgeRunning = $true
+                }
+            }
+        }
+    } catch {
+        if ($pm2Output -match '"name":"line-bridge"[^}]+"status":"online"') {
+            $bridgeRunning = $true
+        }
     }
 }
 
@@ -88,4 +101,17 @@ if ($bridgeRunning -and -not $Start) {
     } else {
         Write-Host "[WARN] Startup might have failed. Check PM2 logs." -ForegroundColor Yellow
     }
+
+    # V14 連鎖啟動優化：僅在開機自啟動 (-Start) 模式下進行連鎖喚醒，避免手動調試干擾，防止 PM2 競態衝突
+    if ($Start) {
+        $TgScript = Join-Path $ScriptDir "Start-TelegramBot.ps1"
+        if (Test-Path $TgScript) {
+            Write-Host ""
+            Write-Host "===========================================================" -ForegroundColor Cyan
+            Write-Host "   正在連鎖喚醒 Telegram CDP Bridge...                       " -ForegroundColor Cyan
+            Write-Host "===========================================================" -ForegroundColor Cyan
+            & $TgScript -Start
+        }
+    }
 }
+

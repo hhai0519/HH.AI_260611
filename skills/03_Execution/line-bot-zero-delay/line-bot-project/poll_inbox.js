@@ -29,11 +29,13 @@ const keepAliveAgent = new http.Agent({ keepAlive: true, maxSockets: 1 });
 console.log("Antigravity API Polling 監聽器已啟動，等待事件中...");
 
 function poll() {
+  const targetPath = `/api/inbox?token=${encodeURIComponent(agentId)}&fencingToken=${encodeURIComponent(fencingToken)}`;
+  console.log(`[DEBUG] Polling target path: ${targetPath}`);
 
   const req = http.request({
     hostname: 'localhost',
     port: process.env.PORT || 3000,
-    path: `/api/inbox?token=${encodeURIComponent(agentId)}&fencingToken=${encodeURIComponent(fencingToken)}`,
+    path: targetPath,
     method: 'GET',
     agent: keepAliveAgent
   }, (res) => {

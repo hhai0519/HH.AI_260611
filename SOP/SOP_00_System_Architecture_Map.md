@@ -1,5 +1,5 @@
 # 系統架構總覽 (System Architecture Map)
-> **版本**：V4.0.1 | **更新日期**：2026-06-20 | **技能總數**：64 個
+> **版本**：V4.1.0 | **更新日期**：2026-07-16 | **技能總數**：65 個
 
 此文件為自動化工作站的「大腦地圖」，定義了所有 Skills 的相互呼叫關係與核心執行目的。為確保系統穩定與代理人邏輯清晰，所有技能均歸類於三大核心維度：調度與流程控制、認知與角色框架、執行與自動化工具。
 
@@ -41,14 +41,15 @@ graph TD
     end
 
     %% 第三層次：執行手腳 (Execution Scripts)
-    subgraph 03_Execution ["⚙️ 03_Execution (執行與自動化工具) — 26 個技能"]
+    subgraph 03_Execution ["⚙️ 03_Execution (執行與自動化工具) — 28 個技能"]
         WebTest(webapp-testing)
         D3Viz(d3js-visualization)
         SysDebug(systematic-debugging-skill)
-        MCPSetup(mcp-setup)
+        MCPSetup(mcp-engineer)
         Postgres(postgres)
         LangSmith(langsmith-fetch)
         SkillCreator(skill-creator)
+        TGBot(telegram-bot-cdp-bridge)
     end
 
     %% 依賴與呼叫關係
@@ -74,7 +75,7 @@ graph TD
     %% 賦予顏色
     class SysGov,DevSOP,ResLoop,SubCollab,AutoRes,StockOrch orchestrator;
     class TWSELogic,TechAna,SentScout,FinAna cognitive;
-    class WebTest,D3Viz,SysDebug,MCPSetup,Postgres,LangSmith,SkillCreator execution;
+    class WebTest,D3Viz,SysDebug,MCPSetup,Postgres,LangSmith,SkillCreator,TGBot execution;
 ```
 
 ---
@@ -135,7 +136,7 @@ graph TD
 
 ---
 
-### ⚙️ 03_Execution (執行與自動化工具) — 27 個技能
+### ⚙️ 03_Execution (執行與自動化工具) — 28 個技能
 負責具體程式碼運作、檔案操作、外部 API 串接或環境配置的實體技能。
 
 | 技能目錄 | 核心目的摘要 (存在意義與輸入/輸出) |
@@ -168,6 +169,7 @@ graph TD
 | **ui-prototype-builder** | **UI 原型建構器**：用 HTML 製作高保真原型、互動 Demo 與動畫設計。 |
 | **mcp-engineer** | **MCP 工程師** [NEW]：整合原 mcp-builder + mcp-setup，覆蓋 MCP 工具完整生命週期。 |
 | **workspace-migration-recovery** | **工作站遷移復原** [防禦技能]：系統環境遷移後的路徑修復與架構完整性驗證。 |
+| **telegram-bot-cdp-bridge** | **Telegram CDP 遙控服務** [NEW]：透過 Telegram Bot 與 CDP 遙控 IDE，日誌統一序列化寫入。 |
 
 ---
 
@@ -175,7 +177,7 @@ graph TD
 
 | 資料檔案 | 說明 | 重要性 |
 | :--- | :--- | :--- |
-| `Data/00_Skill_Manifest.json` | 技能索引（64條，唯一真實來源） | 🔴 CRITICAL |
+| `Data/00_Skill_Manifest.json` | 技能索引（65條，唯一真實來源） | 🔴 CRITICAL |
 | `Data/skill_translations.json` | 技能中文名稱與別名對照 | 🟠 HIGH |
 | `Data/personas/` | 15 個人物思維框架目錄 | 🟡 MEDIUM |
 | `Modules/db_state_manager.js` | Neon DB 狀態管理（Watchdog 寫入） | 🔴 CRITICAL |
@@ -183,4 +185,17 @@ graph TD
 
 ---
 
-*本文件由 Antigravity 總管於 2026-06-16 更新至 V4.0.0，完成 V4 Patch 優化計畫：封存幽靈與冗餘節點，架構地圖與 64 技能 Manifest 完全同步。*
+*本文件由 Antigravity 總管於 2026-07-16 更新至 V4.1.0，完成 V4 Patch 優化計畫：封存幽靈與冗餘節點，架構地圖與 65 技能 Manifest 完全同步。*
+
+---
+
+## 雙生遙控通訊架構 (LINE & Telegram Shared Bridge)
+
+為了降低跨平台維護成本，系統中負責遠端通訊的 **LINE Bot (line-bot-zero-delay)** 與 **Telegram Bot (telegram-bot-cdp-bridge)** 已全面整合為「不同種類、相同屬性」的孿生橋接器架構。未來無論是新增平台或維護現有功能，皆應遵循以下三大共用支柱：
+
+1. **資料安全層 (DLP Sanitizer)**
+   雙邊皆強制引用 `Modules/shared/dlpSanitizer.js`，確保外發之對話不會洩漏 API 金鑰、JWT 或資料庫密碼。
+2. **日誌歸檔層 (Atomic Write Queue)**
+   雙邊的對話紀錄統一寫入 `C:\Users\HH.AI_260611\Desktop\Line對話紀錄\萬能總管`，並具備非同步佇列與 EBUSY 鎖死防禦機制。
+3. **服務守護層 (PM2 Exemption)**
+   皆受 `SOP_05` PM2 雙開特許白名單保護，直接與 IDE CDP (Port 9229) 接口通訊，擁有最高等級的系統操作權。

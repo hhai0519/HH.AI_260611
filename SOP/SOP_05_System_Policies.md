@@ -19,7 +19,10 @@ dependencies: ["SOP_00_Skill_Lifecycle_Management.md", "Modules/db_state_manager
 1. **禁止常駐進程 (Resident Polling)**
    - **嚴禁**使用 `setInterval`、`setTimeout` 建立私有的背景常駐輪詢。
    - **嚴禁**使用 `forever`、`nodemon` 等未授權的第三方守護進程管理工具。
-   - `*【官方特許豁免】*`：PM2 僅限用於 `ecosystem.config.js` 中定義的 `line-bridge` 單一 App 守護。嚴禁在 PM2 中新增任何其他 App（包含 cloudflare-tunnel）。所有 PM2 操作必須透過 `Start-LineBot.ps1` V3.0 介面執行。
+   - `*【官方特許豁免 V2】*`：PM2 可用於管理以下兩個官方認可的 App（可同時並行獨立運行）：
+     1. `line-bridge`（LINE Bot 橋接器，透過 `Start-LineBot.ps1` V3.0 管理）
+     2. `telegram-cdp-bridge`（Telegram CDP 橋接器，透過 `Start-TelegramBot.ps1` V1.0 管理）
+     嚴禁在 PM2 中新增上述以外的任何其他 App（包含 cloudflare-tunnel）。
    - 開機自啟動機制首選 Windows Task Scheduler（延遲 60 秒啟動）。若因缺乏管理員權限無法建立，允許在 Startup 資料夾放置 `Antigravity-LINE-Bridge.vbs` 作為無 UAC 提示的備援機制。嚴禁放置其他 .bat 或 .lnk。
 2. **禁止破壞性 Git 指令 (Destructive Commands)**
    - **嚴禁**在腳本內寫死或執行 `git checkout .`、`git reset --hard`、`rm -rf` 等具有歷史抹除與物理破壞性的暴力還原指令。
@@ -99,7 +102,7 @@ Agent 在調用任何檔案寫入或終端指令前，**必須**動態填充並�
 ## 4. 跨平台編碼與檔案規範 (Cross-Platform Encoding Protocol)
 
 ### 4.1 零容忍編碼政策
-- **唯一合法編碼**：系統內所有的文字檔案（包含 `*.md`, `*.json`, `*.py`, `*.js`, `*.ps1` 等）**強制使用 UTF-8 (無 BOM)** 格式儲存。
+- **唯一合法編碼**：系統內所有的文字檔案（包含 `*.md`, `*.json`, `*.py`, `*.js`, `*.ps1` 等）**強制使用 UTF-8 (無 BOM)** 格式儲存。唯一特許例外：主選單 `00_Master_Menu.ps1` 為了相容 Windows PowerShell 5.1 的解釋器限制，強制採用 UTF-8 with BOM 格式儲存。
 - **BOM 字元防範**：嚴禁檔案中出現 `\uFEFF` (BOM) 字元。任何因工具（如 Windows 記事本）自動附加 BOM 所導致的損壞，系統一旦發現必須立即進行無 BOM 清洗作業。
 - **跨平台相容**：行尾符號（Line Endings）應盡量保持標準化（如預設 LF 或相容 CRLF），但在任何修改與寫入操作中，絕對禁止引入非標準或混合編碼。
 
@@ -119,7 +122,7 @@ Agent 在調用任何檔案寫入或終端指令前，**必須**動態填充並�
 > **V3.1.3 架構宣告：強制前綴政策（`sys-*`, `finance-*`, `tool-*`, `persona-*`）已正式廢除。**
 > 任何文件中仍保留相關前綴規定者，視為過期條文，一律忽略。
 
-- **命名規則**：技能實體目錄名稱必須與該技能 `SKILL.md` YAML 標頭的 `name` 欄位**完全一致（1:1 映射）**，不得加入任何前綴、後綴或縮寫。
+- **命名規則**：技能實體目錄名稱必須與該技能 `SKILL.md` YAML 標頭的 `name` 欄位**完全一致（1:1 映射）**，不得加入任何前綴、後綴或縮寫。唯一歷史遺留特許：`skills/03_Execution/tool-executor` 為了避免協作鏈中斷，保留其原有名稱不進行強制變更。
 - **技能分類管理**：所有技能的分類、標籤與所屬層級，統一由 `Data/00_Skill_Manifest.json` 集中管理。SOP 文件中禁止重複維護靜態分類列表。
 - **合規驗證**：新增或更名技能後，必須確認 Manifest 的 `path` 欄位與實體目錄名稱完全一致，否則視為架構違規。
 
