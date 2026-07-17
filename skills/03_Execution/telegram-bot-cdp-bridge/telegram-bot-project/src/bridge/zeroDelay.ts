@@ -26,6 +26,22 @@ export async function startZeroDelayBridge(opts: BridgeOptions): Promise<void> {
 
     const app = express();
     app.set('trust proxy', false);
+
+    const bot = new Bot(botToken);
+    bot.catch((err) => {
+        console.error('[TG Zero-Delay] Bot error:', err);
+    });
+
+    // [BUG-05 修正] 補齊對稱鎖釋放端點
+    app.post('/api/lock/release', (req, res) => {
+        const { token } = req.body;
+        if (activeAgentToken === token) {
+            activeAgentToken = null;
+            console.log(`[Zero-Delay] Agent 釋放鎖：${token}`);
+            return res.json({ success: true });
+        }
+        return res.status(400).json({ error: 'LOCK_NOT_HELD', message: 'You do not hold the lock' });
+    });
     
     app.use(helmet());
     app.use(express.json());
@@ -183,12 +199,7 @@ export async function startZeroDelayBridge(opts: BridgeOptions): Promise<void> {
         }
     });
 
-    const bot = new Bot(botToken);
-
-    // SOP14 修正：防禦性全域錯誤捕獲，防止 API 錯誤拖垮 Bridge 進程
-    bot.catch((err) => {
-        console.error('[TG Zero-Delay] Bot error:', err);
-    });
+    // bot 宣告已移至 startZeroDelayBridge 開頭宣告，確保時序安全 (BUG-04)
 
     bot.on('message', async (ctx) => {
         const userId = ctx.from?.id.toString() ?? '';

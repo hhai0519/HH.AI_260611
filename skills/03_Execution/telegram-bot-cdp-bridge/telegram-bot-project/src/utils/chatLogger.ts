@@ -28,7 +28,10 @@ async function processQueue() {
     }
     
     isWriting = false;
-    processQueue(); // 遞迴處理下一個
+    // OPT-01: 改用 setImmediate 進行事件循環調度，徹底防止遞迴呼叫堆疊溢出 (Stack Overflow)
+    if (writeQueue.length > 0) {
+        setImmediate(processQueue);
+    }
 }
 
 export function logTelegramChat(userId: string | number, username: string, message: string, isBot = false) {
