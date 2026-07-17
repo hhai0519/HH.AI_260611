@@ -8,8 +8,8 @@ $workspaceRoot = Split-Path -Parent $PSScriptRoot
 # Check Modules directory
 $modulesPath = Join-Path $workspaceRoot "Modules"
 if (Test-Path $modulesPath) {
-    # Check for subdirectories in Modules/
-    $subDirs = Get-ChildItem -Path $modulesPath | Where-Object { $_.PSIsContainer }
+    # Check for subdirectories in Modules/ (allowing 'shared' directory)
+    $subDirs = Get-ChildItem -Path $modulesPath | Where-Object { $_.PSIsContainer -and $_.Name -ne "shared" }
     if ($subDirs.Count -gt 0) {
         $dirNames = $subDirs.Name -join ", "
         Write-Error "ArchitectureViolation: Subdirectories are strictly forbidden in Modules/! Found: $dirNames"

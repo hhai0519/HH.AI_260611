@@ -5,6 +5,8 @@ import path from 'path';
 import crypto from 'crypto';
 import { Bot, InputFile } from 'grammy';
 import { run as runGrammyRunner, RunnerHandle } from '@grammyjs/runner';
+// [AUDIT-10] 引入對話記錄器，保障對話留痕
+import { logTelegramChat } from '../utils/chatLogger';
 
 const PORT = parseInt(process.env.TG_BRIDGE_PORT || '3001', 10);
 
@@ -156,6 +158,10 @@ export async function startZeroDelayBridge(opts: BridgeOptions): Promise<void> {
             } else {
                 await bot.api.sendMessage(chatId, text);
             }
+            
+            // [AUDIT-10] 記錄 Bot 發送的回覆訊息 (isBot = true)
+            logTelegramChat(chatId, 'BOT', text, true);
+
             res.json({ success: true });
         } catch (e: any) {
             res.status(500).json({ error: e.message });
@@ -191,6 +197,10 @@ export async function startZeroDelayBridge(opts: BridgeOptions): Promise<void> {
         }
         const messageText = ctx.message.text ?? ctx.message.caption ?? '[圖片或非文字訊息]';
         
+        // [AUDIT-10] 記錄使用者傳入的訊息 (isBot = false)
+        const username = ctx.from?.username || ctx.from?.first_name || 'unknown';
+        logTelegramChat(userId, username, messageText, false);
+
         if (inboxQueue.length >= 100) inboxQueue.shift();
         inboxQueue.push({
             chatId: ctx.chat.id.toString(),
