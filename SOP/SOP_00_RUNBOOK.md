@@ -63,5 +63,5 @@ curl -X POST \
 1. **檢查鎖狀態**：執行 `powershell -Command "Invoke-RestMethod -Uri http://localhost:3000/lock/status"`。
    * 若 `fencing_token` 正常更新且 `is_expired` 為 `false`，表示有另一背景進程已成功取得控制權。
 2. **查詢 Node 進程**：執行 `powershell -Command "Get-CimInstance Win32_Process -Filter \"name = 'node.exe'\" | Select-Object ProcessId, CommandLine"`。
-   * 確認是否有一 PID 正在執行 `node start_line.js Antigravity-Master \"AI_Master\"`。
+   * 確認是否有一 PID 正在執行 `node start_line.js Antigravity-Master \"AI_Master\" true`。
 3. **判定處置**：若已有進程持有鎖且正在運行，表示背景監聽正常運作，此時 AI 或運維人員可安全退出，不需重啟或多重啟動。若無進程但鎖仍顯示被佔用，可調用 `SOP 1` 手動重設鎖。

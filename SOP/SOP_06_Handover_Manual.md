@@ -86,23 +86,31 @@ graph TD
 > 此為人類（總管）的職責。AI Agent **絕對不可**自行嘗試執行此段啟動流程。
 
 **啟動指令（在工作區根目錄的 PowerShell 終端機執行）：**
+> [!IMPORTANT]
+> 此為人類（總管）的職責。AI Agent **絕對不可**自行嘗試執行此段啟動流程。
+
+PM2 基礎設施採開機自動啟動（Windows Task Scheduler 延遲 60 秒）。
+若需手動重啟，使用以下指令：
 ```powershell
-powershell -ExecutionPolicy Bypass -File start_line.ps1
+$env:PM2_HOME = "$env:USERPROFILE\.pm2"
+npx pm2 restart line-bridge
 ```
 
-**預期輸出流程：**
-1. `SUCCESS: cloudflared started (PID: XXXX)` — Cloudflare Tunnel 啟動
-2. `Cloudflare Tunnel established! Public URL: https://xxx.trycloudflare.com` — 取得公網 URL
-3. `Starting LINE Bridge (bridge.js)...` — Bridge 啟動
-4. Bridge 自動呼叫 LINE API 更新 Webhook (Auto-Heal)
+**預期輸出流程（Zero-Delay 架構，無 Cloudflare Tunnel）：**
+1. `line-bridge` 已由 PM2 常駐管理，系統開機時自動啟動於 Port 3000。
+2. `bridge.js` 內建的 `startPinggyDaemon()` 自動建立 SSH 隧道並更新 LINE Webhook URL。
+3. `tg-bridge-zero-delay` 同樣由 PM2 管理，獨立運行於 Port 3001。
 
 **Agent 接管控制權（基建啟動後，由 Agent 執行）：**
 ```powershell
-node skills/03_Execution/line-bot-zero-delay/line-bot-project/start_line.js "Agent-<時間戳>" "[模型名] <標籤>" true
+# LINE 接管
+node skills/03_Execution/line-bot-zero-delay/line-bot-project/start_line.js Antigravity-Master "AI_Master" true
+
+# TG 接管
+node skills/03_Execution/telegram-bot-cdp-bridge/telegram-bot-project/start_tg.js Antigravity-Master
 ```
 
-**服務終止：**
-- 在終端機按下 `Ctrl+C`，`try/finally` 機制將自動精準終止 cloudflared (PID-based)。
+**注意：LINE 與 TG 兩個橋接器完全獨立運行（Port 3000 vs Port 3001），可同時並行，不存在任何衝突。**
 
 ---
 

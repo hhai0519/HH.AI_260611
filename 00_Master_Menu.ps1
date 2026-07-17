@@ -50,6 +50,7 @@ Function Show-OptimizationMenu {
     Write-Host "  [3] 基礎設施重啟 (強制重建運行環境)"
     Write-Host "  [4] 系統安全審計 (觸發壓力與漏洞防禦測試)"
     Write-Host "  [5] 啟動/接管 LINE Bot 與排程系統 (Zero Delay)"
+    Write-Host "  [7] 啟動/接管 Telegram Bot (Zero Delay)"
     Write-Host "  [6] LINE Bot PM2 即時監控 (Dashboard)"
     Write-Host ""
     
@@ -74,6 +75,12 @@ Function Show-OptimizationMenu {
 
     if ($optChoice -eq "5") {
         powershell -NoProfile -ExecutionPolicy Bypass -File start_line.ps1
+        pause
+        return
+    }
+
+    if ($optChoice -eq "7") {
+        powershell -NoProfile -ExecutionPolicy Bypass -File start_telegram.ps1
         pause
         return
     }

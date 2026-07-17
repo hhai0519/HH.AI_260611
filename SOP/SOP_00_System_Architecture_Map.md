@@ -169,7 +169,7 @@ graph TD
 | **ui-prototype-builder** | **UI 原型建構器**：用 HTML 製作高保真原型、互動 Demo 與動畫設計。 |
 | **mcp-engineer** | **MCP 工程師** [NEW]：整合原 mcp-builder + mcp-setup，覆蓋 MCP 工具完整生命週期。 |
 | **workspace-migration-recovery** | **工作站遷移復原** [防禦技能]：系統環境遷移後的路徑修復與架構完整性驗證。 |
-| **telegram-bot-cdp-bridge** | **Telegram CDP 遙控服務** [NEW]：透過 Telegram Bot 與 CDP 遙控 IDE，日誌統一序列化寫入。 |
+| **telegram-bot-cdp-bridge** | **Telegram Zero-Delay 橋接器** [V14.2]：透過 Zero-Delay HTTP Long-Polling 架構，讓 Agent 透過 Telegram 接收指令並回覆。採長駐阻塞式輪詢，Port 3001 獨立運行，與 LINE Bridge 完全隔離。 |
 
 ---
 

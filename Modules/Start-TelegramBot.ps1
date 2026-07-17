@@ -48,9 +48,9 @@ function Get-TgOnlineStatus {
 Write-Host "Checking runtime dependency environment..." -ForegroundColor Cyan
 $testResult = node -e "try { require('better-sqlite3'); process.exit(0); } catch(e) { process.exit(1); }" 2>$null
 if ($LASTEXITCODE -ne 0) {
-    Write-Host "[WARNING] better-sqlite3 not installed, executing npm install..." -ForegroundColor Yellow
+    Write-Host "[WARNING] better-sqlite3 not detected. Trying to install..." -ForegroundColor Yellow
     Set-Location $BridgeDir
-    npm install
+    npm install --omit=dev 2>$null
     Set-Location $WorkspaceRoot
 }
 

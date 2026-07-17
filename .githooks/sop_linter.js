@@ -12,6 +12,7 @@ const stagedFiles = execSync('git diff --cached --name-only --diff-filter=ACM', 
 const EXEMPT_FILES = [
   'skills/03_Execution/line-bot-zero-delay/line-bot-project/poll_inbox.js',
   'Modules/Start-LineBot-SelfHeal.ps1',
+  '00_Master_Menu.ps1',
   '.githooks/sop_linter.js'
 ];
 

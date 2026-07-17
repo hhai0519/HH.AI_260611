@@ -1,4 +1,4 @@
-﻿# ==============================================================================
+# ==============================================================================
 # Start-LineBot.ps1 V3.0 — PM2 Smart Manager
 # ==============================================================================
 param([switch]$Start)
@@ -108,7 +108,7 @@ if ($bridgeRunning -and -not $Start) {
         if (Test-Path $TgScript) {
             Write-Host ""
             Write-Host "===========================================================" -ForegroundColor Cyan
-            Write-Host "   正在連鎖喚醒 Telegram CDP Bridge...                       " -ForegroundColor Cyan
+            Write-Host "   正在連鎖喚醒 Telegram Zero-Delay Bridge...                       " -ForegroundColor Cyan
             Write-Host "===========================================================" -ForegroundColor Cyan
             & $TgScript -Start
         }
