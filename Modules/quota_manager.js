@@ -8,7 +8,7 @@
  *   1. 透過 DATABASE_URL 環境變數連線 Neon DB，使用 Connection Pool 管理連線。
  *   2. 自動初始化 session_quota_state 與 agent_quota_log 資料表。
  *   3. check_and_consume_quota() 使用 DB Transaction 與原子性 UPDATE，
- *      確保在多 Agent 併發下精準執行 20% 熔斷判斷（Race Condition 零風險）。
+ *      確保在多 Agent 併發下精準執行 10% 熔斷判斷（Race Condition 零風險）。
  *
  * 依賴：npm install pg dotenv
  * 環境：.env.local 中必須設定 DATABASE_URL=postgresql://...
@@ -34,7 +34,7 @@ if (!process.env.DATABASE_URL) {
 
 // ── Connection Pool 初始化 ─────────────────────────────────────────────────────
 // [MED-03] 統一引用 db_state_manager 的共享連線池，避免連線數超限
-const { pool } = require('./db_state_manager');
+const { pool, isPlaceholderDb } = require('./db_state_manager');
 
 pool.on('error', (err) => {
   console.error('[quota_manager] Pool 非預期錯誤：', err.message);
@@ -81,7 +81,7 @@ async function initTables() {
  *
  * 使用 DB Transaction + 行級鎖（SELECT ... FOR UPDATE）確保在高併發下：
  *   1. 讀取當前累計消耗（避免 Dirty Read）
- *   2. 判斷加總後是否超過 20% 熔斷警戒線
+ *   2. 判斷加總後是否超過 10% 熔斷警戒線
  *   3. 若未超標：原子性寫入新消耗值，記錄軌跡日誌
  *   4. 若超標：ROLLBACK，拋出 QUOTA_EXCEEDED 錯誤，強制觸發任務暫停
  *
@@ -92,7 +92,18 @@ async function initTables() {
  * @throws  {Error}           - 錯誤碼 'QUOTA_EXCEEDED' 或 DB 連線錯誤
  */
 async function check_and_consume_quota(sessionId, agentId, costPct) {
-  const QUOTA_LIMIT = 20; // 20% 熔斷警戒線（SOP §2.2 鐵律）
+  const QUOTA_LIMIT = 10; // 10% 熔斷警戒線（SOP §2.2 鐵律）
+
+  // 🛡️ [SRE 降級防護] 若資料庫為佔位符，自動啟用降級放行模式，防止 null.connect() 崩潰
+  if (isPlaceholderDb() || !pool) {
+    if (process.env.DEBUG === 'true') {
+      console.log(
+        `[quota_manager] [Fallback Mode] Session "${sessionId}" | Agent: "${agentId}" | 消耗: ${costPct}%`
+      );
+    }
+    return { usedAfter: 0, status: 'OK' };
+  }
+
   const client = await pool.connect();
 
   try {

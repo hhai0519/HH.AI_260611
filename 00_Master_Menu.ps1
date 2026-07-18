@@ -1,6 +1,24 @@
 param(
-    [string]$Workspace = $PSScriptRoot
+    [string]$Workspace = $PSScriptRoot,
+    [string]$Panel = ""
 )
+
+# ── [SOP 豁免] 視窗識別與 PID 綁定機制 (防多開) ──
+$PidFile = Join-Path $Workspace "Data\monitoring_pid.tmp"
+if ($Panel) {
+    if (Test-Path $PidFile) {
+        $OldPid = Get-Content $PidFile -ErrorAction SilentlyContinue
+        if ($OldPid) {
+            $Proc = Get-Process -Id $OldPid -ErrorAction SilentlyContinue
+            if ($Proc) {
+                Write-Host "已存在運行中的監控視窗 (PID: $OldPid)，跳過啟動。" -ForegroundColor Yellow
+                return
+            }
+        }
+    }
+    if (!(Test-Path (Join-Path $Workspace "Data"))) { New-Item -ItemType Directory -Path (Join-Path $Workspace "Data") | Out-Null }
+    $PID | Out-File -FilePath $PidFile -Encoding UTF8 -Force
+}
 
 Set-Location $Workspace
 
@@ -143,6 +161,16 @@ $global:cachedSkillsCount = @(Get-ChildItem -Path $SkillsPath -Directory).Count
 if ($global:cachedSkillsCount -eq 0) { $global:cachedSkillsCount = @(Get-ChildItem -Path $SkillsPath -File).Count }
 
 # 進入主選單迴圈
+if ($Panel) {
+    if ($Panel -eq "自動化") { Show-OptimizationMenu }
+    elseif ($Panel -eq "LINE橋接") { powershell -NoProfile -ExecutionPolicy Bypass -File start_line.ps1 }
+    elseif ($Panel -eq "TG橋接") { powershell -NoProfile -ExecutionPolicy Bypass -File start_telegram.ps1 }
+    
+    Write-Host "已執行完畢或被中斷，關閉自啟動視窗..."
+    if (Test-Path $PidFile) { Remove-Item $PidFile -Force -ErrorAction SilentlyContinue }
+    return
+}
+
 while ($true) {
     Clear-Host
     $pendingCount = Get-PendingCount

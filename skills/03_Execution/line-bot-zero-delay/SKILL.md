@@ -22,8 +22,8 @@ capabilities:
 - 系統日誌中看到「LINE_REQUEST」或是需要回覆 LINE 使用者的對話。
 
 > [!CAUTION]
-> **【越權防護紅線】**：收到觸發指令時，Agent **唯一的合法動作**就是執行 `start_line.js` 取得控制權。
-> 嚴禁執行任何健康檢查指令（如 `pm2 list`、`tasklist`、`Get-Process`）！
+> **【越權防護紅線】**：收到觸發指令時，Agent 應優先執行 `start_line.js` 取得控制權。
+> 允許執行 `Get-Process -Id <PID>` 專門用於檢查 `Data/monitoring_pid.tmp` 的存活狀態，但絕對禁止使用 `Get-Process` 無參數查詢或 `tasklist` 查詢視窗標題與 Agent 身份！
 > 嚴禁嘗試修復或排障 (No Auto-Troubleshooting)！若基建有問題，必須向使用者求援，讓使用者手動重啟 `start_line.ps1`。
 
 ## `$$LINE連線$$` 標準連線流程 (SOP v2 — 單一 Agent 鎖定機制)
@@ -85,7 +85,7 @@ AI 假設基建 (cloudflared 與 bridge.js) 已由總管透過 `start_line.ps1` 
 > 恢復監聽指令：
 > `node skills/03_Execution/line-bot-zero-delay/line-bot-project/poll_inbox.js <您的AGENT_ID>` // 注意：若卡頓超過 5 秒為正常 403 退避自癒，嚴禁手動 Cancel Task！
 > 
-> ⚠️ **【效能紅線】**：Agent 剛啟動或恢復監聽時，**絕對禁止**使用任何系統指令 (如 `tasklist`, `Get-Process`) 去查詢自己的 LABEL！若不知道自己的 LABEL，請直接帶入預設字串 `[Gemini] Agent`。違規使用 `tasklist` 將導致 4 分鐘的系統死結！
+> ⚠️ **【效能紅線】**：Agent 剛啟動或恢復監聽時，允許執行 `Get-Process -Id <PID>` 檢查監控視窗存活狀態，但**絕對禁止**使用任何系統指令 (如 `tasklist`) 去查詢自己的 LABEL！若不知道自己的 LABEL，請直接帶入預設字串 `[Gemini] Agent`。違規使用 `tasklist` 將導致 4 分鐘的系統死結！
 
 ### 2. 回覆 LINE 使用者
 當 Agent (您) 在 stdout 或日誌中收到 `[LINE_REQUEST] <userId> : <text>` 時，必須使用專屬回覆指令碼，**絕對不能使用自然語言回答在終端機或聊天室中**。

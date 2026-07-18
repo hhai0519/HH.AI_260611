@@ -105,6 +105,11 @@ function writeStateAtomic(targetFilePath, data, maxRetries = 5, baseDelayMs = 10
 
 // 取得輸入文字的主函數
 async function getReplyText() {
+  // 0. 優先順序：如果系統參數為 'env'，直接從環境變數讀取 (對齊 LINE reply.js，防範檔案型 IPC 違規)
+  if (process.argv[3] === 'env') {
+    return process.env.REPLY_TEXT;
+  }
+
   // 1. 優先順序：如果提供了系統參數且為現有檔案路徑，則自檔案讀取
   if (process.argv[3]) {
     const filePath = process.argv[3];

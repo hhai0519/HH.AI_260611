@@ -45,10 +45,13 @@ describe('ConfigLoader', () => {
     });
 
     describe('getDefaultDbPath()', () => {
-        it('returns ~/.remoat/antigravity.db', () => {
-            expect(ConfigLoader.getDefaultDbPath()).toBe(
-                path.join(os.homedir(), '.remoat', 'antigravity.db'),
+        it('returns standard database path under workspace Data', () => {
+            const expectedPath = path.join(
+                require('../../../../../../Modules/shared/workspaceLoader.js').resolveWorkspaceRoot(__dirname),
+                'Data',
+                'telegram_remoat.db'
             );
+            expect(ConfigLoader.getDefaultDbPath()).toBe(expectedPath);
         });
     });
 

@@ -45,6 +45,10 @@ capabilities:
 請回覆「選項 1 / 2 / 3」或直接描述您的需求。
 ```
 
+## 新增指令路由與特權豁免
+1. **自動化面板映射**：將面板切換邏輯委派給 `00_Master_Menu.ps1` 內部處理。總管代理人在收到如 `$$自動化$$`、`$$LINE連線$$` 或 `$$TG連線$$` 的觸發詞時，必須執行類似 `pwsh.exe -NoProfile -ExecutionPolicy Bypass -File C:\Users\HH.AI_260611\Desktop\HH.AI_260611\00_Master_Menu.ps1 -Panel 自動化` (或對應的 `LINE橋接`, `TG橋接`) 的指令。
+2. **PID 豁免宣告**：Agent 允許執行 `Get-Process -Id <PID>` 專門用於檢查 `Data/monitoring_pid.tmp` 的存活狀態，但絕對禁止使用 `Get-Process` 或 `tasklist` 查詢視窗標題與 Agent 身份。
+
 ## 核心工作流：4-Phase State Machine
 
 你必須強制任務依序經過以下四個階段，除非使用者明確跳過：

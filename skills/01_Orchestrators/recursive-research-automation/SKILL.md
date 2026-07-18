@@ -16,7 +16,10 @@ capabilities:
 - ✓ DLP 資料安全驗證已通過 | 資料加密處理 | 隱私保護協議
 
 ## 功能概述
-本技能定義了自動化深度研究的標準作業程式 (SOP)。它採用「遞迴式」的研究邏輯，透過不斷分析前一階段的發現來啟動更深化的研究路徑，並整合資源配額監控（如 Gemini 3 Flash 配額），確保在資源耗盡前（預設 20%）安全產出報告。
+本技能定義了自動化深度研究的標準作業程式 (SOP)。它採用「遞迴式」的研究邏輯，透過不斷分析前一階段的發現來啟動更深化的研究路徑，並整合資源配額監控（如 Gemini 3 Flash 配額），確保在資源耗盡前（預設 10%）安全產出報告。
+
+> [!IMPORTANT]
+> **Sub-Budgeting 保護機制**：研究代理人在自我遞迴時，必須遵守單次探索不可超過總剩餘 Quota 的 5% 原則，以確保有足夠空間完成收斂報告。
 
 ## 觸發條件
 - 指令必須明確包含「$$自動化_通用研究$$」。
@@ -109,7 +112,7 @@ pre_flight_auth_check(mcp_client=your_mcp_client_instance)
 
 ### 1. 初始化與規劃 (Initial Setup)
 - **定義主題**：確立研究的核心領域（如：臺股技術指標、AI 醫療應用）。
-- **設定終結點**：確認監控對象（預設為 Gemini 3 Flash）與門檻（預設 20%）。
+- **設定終結點**：確認監控對象（預設為 Gemini 3 Flash）與門檻（預設 10%）。
 - **啟動任務單**：在 `task.md` 中標註當前自動化循環的版本。
 
 ### 2. 廣度探索階段 (Breadth Exploration)
@@ -124,8 +127,8 @@ pre_flight_auth_check(mcp_client=your_mcp_client_instance)
 ### 4. 資源配額監控 (Quota Monitoring)
 - 每次循環跳轉前，必須呼叫 `Modules/quota_manager.js` 的 `check_and_consume_quota` 方法。
 - 方法將透過 Neon PostgreSQL 原子性操作讀取 `session_quota_state.used_pct`。
-- 若剩餘配額 > 20%：繼續下一個循環。
-- 若剩餘配額 <= 20%：觸發「強制終結序列」（`quota_manager.js` 拋出 `QUOTA_EXCEEDED` 錯誤）。
+- 若剩餘配額 > 10%：繼續下一個循環。
+- 若剩餘配額 <= 10%：觸發「強制終結序列」（`quota_manager.js` 拋出 `QUOTA_EXCEEDED` 錯誤）。
 
 ### 5. 終結與報告 (Termination & Reporting)
 - **整合資料**：調用 `studio_create` 產出最終報告。

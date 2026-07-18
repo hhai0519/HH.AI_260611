@@ -1,6 +1,7 @@
 // scripts/switch_bot_env.js
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto'); // ★ Hash Diff 備份策略
 
 const platform = process.argv[2];     // "line" 或 "tg"
 const targetAccount = process.argv[3]; // e.g. "922dmfib" 或 "backup"
@@ -16,16 +17,101 @@ if (!targetAccount) {
 
 const rootDir = path.resolve(__dirname, '../');
 const envPath = path.join(rootDir, '.env.local');
-const backupPath = path.join(rootDir, `.env.local.bak.${Date.now()}`);
+
+// ★ 備份管理常數（單一修改點）
+const MAX_BACKUPS_TO_KEEP = 3;
+const CHECKSUM_FILE = path.join(rootDir, '.env.local.bak.checksum');
 
 if (!fs.existsSync(envPath)) {
   console.error(`[ERROR] 找不到設定檔: ${envPath}`);
   process.exit(1);
 }
 
-try {
-  // 1. 備份 env.local 防止寫入中斷 (OPT-02)
+// ★ 計算 SHA256 Hash（接受任意檔案路徑，預留加密版接口）
+function calculateHash(filePath) {
+  try {
+    const fileBuffer = fs.readFileSync(filePath);
+    const hashSum = crypto.createHash('sha256');
+    hashSum.update(fileBuffer);
+    return hashSum.digest('hex');
+  } catch (err) {
+    // [SOP14-R2] 計算失敗返回空字串，強制觸發備份（Fail-Closed 方向）
+    console.warn(`[WARN] 無法計算 Checksum（${err.message}），將強制觸發備份。`);
+    return '';
+  }
+}
+
+// ★ Hash Diff 備份（只有內容真正改變才建立備份）
+function backupIfChanged() {
+  const currentHash = calculateHash(envPath);
+
+  // 讀取上次備份的 Hash
+  let lastHash = '';
+  if (fs.existsSync(CHECKSUM_FILE)) {
+    try {
+      lastHash = fs.readFileSync(CHECKSUM_FILE, 'utf8').trim();
+    } catch (e) {
+      lastHash = ''; // 讀取失敗視為無記錄，強制備份
+    }
+  }
+
+  // Hash 相同 → 內容未變，跳過備份
+  if (currentHash !== '' && currentHash === lastHash) {
+    console.log('[Backup] 內容未變更 (Checksum 一致)，跳過備份作業。');
+    return null;
+  }
+
+  // Hash 不同 → 建立備份
+  const backupPath = path.join(rootDir, `.env.local.bak.${Date.now()}`);
   fs.copyFileSync(envPath, backupPath);
+
+  // [SOP14-R3] 備份成功後才更新 Checksum，防止備份失敗造成 Checksum 誤更新
+  fs.writeFileSync(CHECKSUM_FILE, currentHash, 'utf8');
+  console.log(`[Backup] 內容已變更，建立備份：${path.basename(backupPath)}（Checksum: ${currentHash.slice(0, 8)}...）`);
+  return backupPath;
+}
+
+// ★ Auto TTL 清理（保留最新 N 個時間戳備份）
+function cleanupOldBackups() {
+  try {
+    const allFiles = fs.readdirSync(rootDir);
+    const backupFiles = allFiles
+      .filter(f => /^\.env\.local\.bak\.\d+$/.test(f))
+      .map(f => ({
+        name: f,
+        fullPath: path.join(rootDir, f),
+        ts: parseInt(f.replace('.env.local.bak.', ''), 10)
+      }))
+      .sort((a, b) => a.ts - b.ts);
+
+    // [SOP14-R3] 執行前打印當前備份數量
+    console.log(`[Backup] 開始執行備份清理，目前共 ${backupFiles.length} 個時間戳備份，保留最新 ${MAX_BACKUPS_TO_KEEP} 個...`);
+
+    const toDelete = backupFiles.slice(0, Math.max(0, backupFiles.length - MAX_BACKUPS_TO_KEEP));
+    if (toDelete.length === 0) {
+      console.log('[Backup] 備份數量未超出限制，無需清理。');
+      return;
+    }
+
+    toDelete.forEach(({ name, fullPath }) => {
+      try {
+        // [SOP14-R1] 逐一捕捉刪除失敗，只 warn 不中斷主流程（防 EBUSY 鎖定）
+        fs.unlinkSync(fullPath);
+        console.log(`[Backup] 已清理舊備份: ${name}`);
+      } catch (delErr) {
+        console.warn(`[WARN] 無法刪除備份 ${name}: ${delErr.message}`);
+      }
+    });
+
+    console.log(`[Backup] 清理完成，目前保留 ${Math.min(backupFiles.length, MAX_BACKUPS_TO_KEEP)} 個備份 + .bak.init 基準。`);
+  } catch (err) {
+    console.warn(`[WARN] 備份清理執行異常: ${err.message}`);
+  }
+}
+
+try {
+  // 1. 備份 env.local（Hash Diff 策略，只有內容改變才備份）
+  backupIfChanged();
 
   // 2. 讀取與解析環境變數 (主動清理 BOM 標頭)
   let envContent = fs.readFileSync(envPath, 'utf8').replace(/^\uFEFF+/, '');
@@ -63,7 +149,7 @@ try {
     const escapedKey = escapeRegex(key);
     const regex = new RegExp(`^${escapedKey}\\s*=.*$`, 'm');
     if (regex.test(content)) {
-      // NEW-BUG-01: 改用 Callback 函式傳入替換值，防止金鑰中的 $ 符號被 JavaScript replace 誤判為正則替換指令
+      // NEW-BUG-01: 改用 Callback 函式傳入替換值，防止金鑰中的 $ 符號被誤判
       return content.replace(regex, () => `${key}=${value}`);
     } else {
       return content + `\n${key}=${value}`;
@@ -98,7 +184,7 @@ try {
   // 4. 原子寫入 (同目錄 tmp 寫入並 renameSync 以保障原子性)
   const tmpPath = envPath + '.' + process.pid + '.tmp';
   fs.writeFileSync(tmpPath, updatedContent, 'utf8');
-  
+
   // BUG-03 & EBUSY Windows 退避機制
   function renameWithRetrySync(src, dest, retries = 5, delay = 100) {
     for (let i = 0; i <= retries; i++) {
@@ -110,7 +196,7 @@ try {
         if (err.code === 'EACCES' || err.code === 'EPERM' || err.code === 'EBUSY') {
           console.warn(`[RETRY] 檔案鎖定中，${delay}ms 後重新嘗試原子替換... (剩餘 ${retries - i} 次)`);
           const start = Date.now();
-          while (Date.now() - start < delay) {} // 同步阻塞式等待
+          while (Date.now() - start < delay) {}
         } else {
           throw err;
         }
@@ -119,15 +205,27 @@ try {
   }
 
   renameWithRetrySync(tmpPath, envPath);
+
+  // 5. Auto TTL 清理（保留最新 MAX_BACKUPS_TO_KEEP 個備份）
+  cleanupOldBackups();
+
+  // 6. [SRE 自動排障] 自動清理殘留進程，防止舊快取連線搶鎖 (SOP14-R12.1-3Rounds)
+  try {
+    const zombieScriptPath = path.join(__dirname, 'kill_zombies.js');
+    if (fs.existsSync(zombieScriptPath)) {
+      const { spawnSync } = require('child_process');
+      console.log('[System] Triggering automatic zombie process cleanup...');
+      spawnSync('node', [zombieScriptPath], { stdio: 'inherit' });
+    }
+  } catch (cleanErr) {
+    console.warn(`[WARN] 自動清理殘留進程執行異常: ${cleanErr.message}`);
+  }
+
   console.log(`[OK] 已成功將 active ${platform.toUpperCase()} 帳號切換為 @${targetAccount}`);
   process.exit(0);
 
 } catch (err) {
   console.error(`[ERROR] 切換失敗: ${err.message}`);
-  // 還原備份
-  if (fs.existsSync(backupPath)) {
-    fs.copyFileSync(backupPath, envPath);
-    fs.unlinkSync(backupPath);
-  }
+  // 切換失敗：不執行 cleanupOldBackups，確保最近備份可用於回滾
   process.exit(1);
 }

@@ -24,12 +24,12 @@ dependencies: []
 - **強制規定**：所有 Agent 撰寫的對話回覆、規劃文件（Dialogue）、實作計畫（Implementation Plan）、頂層 SOP 規範，以及技能描述（SKILL.md）皆須使用**台灣正體中文**。
 - 工件標題與專業術語允許保留英文縮寫，但說明段落必須以正體中文撰寫，禁止使用英文或簡體中文替代。
 
-### 2.2 配額監控原則（20% 安全法則）
+### 2.2 配額監控原則（10% 安全法則）
 
 > [!IMPORTANT]
 > **V3.1.3 升級宣告**：配額管理機制已全面廢棄 `current_quota.tmp` 檔案系統與 `quota_monitor.py` Python 腳本，改採 **Neon PostgreSQL 原子性資料庫操作**，徹底解決多 Agent 協作時的 Race Condition。
 
-**配額監控實作**：系統已全面採用 Neon PostgreSQL 進行狀態管理。所有 Agent 執行任務前，必須呼叫 `Modules/quota_manager.js` 中的 `check_and_consume_quota` 方法。利用資料庫的原子性操作防止併發造成的 Race Condition。一旦單一 Session 消耗超過 20%，資料庫將拒絕寫入並拋出 `QUOTA_EXCEEDED` 錯誤，強制觸發任務暫停。
+**配額監控實作**：系統已全面採用 Neon PostgreSQL 進行狀態管理。所有 Agent 執行任務前，必須呼叫 `Modules/quota_manager.js` 中的 `check_and_consume_quota` 方法。利用資料庫的原子性操作防止併發造成的 Race Condition。一旦單一 Session 消耗超過 10%，資料庫將拒絕寫入並拋出 `QUOTA_EXCEEDED` 錯誤，強制觸發任務暫停。
 
 **核心 SQL 機制**（位於 `check_and_consume_quota`）：
 ```sql
@@ -108,7 +108,7 @@ UPDATE session_quota_state
 | 例外類型 | 觸發條件 | 建議處置 |
 |---------|---------|---------|
 | API 限流 | 請求回傳 429 錯誤 | 啟用指數退讓策略（見 §2.2 流程） |
-| 配額超標 | 單會話消耗超過 20% | 立即暫停並等待使用者確認 |
+| 配額超標 | 單會話消耗超過 10% | 立即暫停並等待使用者確認 |
 | 研究死鎖 | 任務無法產出有效輸出 | 深度研究方向改以備用知識庫替補 |
 | 工具失效 | 瀏覽器 / MCP 連線中斷 | 切換至無頭模式（headless: true） |
 
@@ -146,7 +146,7 @@ UPDATE session_quota_state
 | `autoresearch-agent` | 自動化研究代理人：負責 CPU/GPU 超參數調優 |
 | `nuwa-skill-template` | 女媧造人：自動深度調研並生成新 Skill 技能框架 |
 | `recursive-research-automation` | 遞迴深度研究自動化執行器 |
-| `quota-monitor-skill` | API 配額監控：強制實施 20% 熔斷機制 |
+| `quota-monitor-skill` | API 配額監控：強制實施 10% 熔斷機制 |
 | `mcp-setup-skill` | MCP 伺服器配置與排錯（v260503 版本） |
 | `webapp-testing-skill` | Web App 自動化測試（v260503 版本） |
 | `notebooklm-mcp` | NotebookLM MCP 整合操作指南 |

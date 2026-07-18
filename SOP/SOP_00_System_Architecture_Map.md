@@ -93,7 +93,7 @@ graph TD
 | **autoresearch-agent** | **超參數優化**：微型 AI 模型的自動化優化代理人。精準觸發詞：`$$自動化_微型模型$$`（由 agency-orchestrator-skill 攔截 `$$自動化$$` 後派發）。 |
 | **recursive-research-automation** | **遞迴研究框架**：通用自動化研究循環。精準觸發詞：`$$自動化_通用研究$$`。輸入研究主題，輸出深度調研報告。 |
 | **optimization-status** | **優化狀態監控**：監控超參數實驗進度。輸入環境狀態，輸出進度與指標。 |
-| **quota-monitor-skill** | **資源熔斷機制**：監控 API Quota 並實施 20% 熔斷防護。 |
+| **quota-monitor-skill** | **資源熔斷機制**：監控 API Quota 並實施 10% 熔斷防護。 |
 | **quant-research-loop** | **量化研究自動迴圈**：金融實驗與策略驗證。精準觸發詞：`$$自動化_量化實驗$$`。輸入市場假說，輸出策略回測結果。 |
 | **twse-dev-sop-skill** | **專案開發 SOP**：台股網站開發的標準作業程序，整合圖表實作與驗證。 |
 | **handover-manual-skill** | **知識移交**：標準化的專案上下文與知識轉移手冊。 |

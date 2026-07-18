@@ -21,6 +21,19 @@ capabilities:
    - 動態解析帶有後綴的金鑰變數與描述欄位（例如 `LINE_ACCOUNT_DESC_922dmfib="新帳號 - 運作中"`），以帳號描述的「友善名稱」呼叫 `ask_question` 供總管點選。
 3. **寫入配置與重啟**：
    - 執行 `node scripts/switch_bot_env.js <platform> <選擇字尾>`。
-   - 若為 `line`，執行 `npx pm2 restart line-bridge`
-   - 若為 `tg`，執行 `npx pm2 restart tg-bridge-zero-delay`
-4. **確認與回報**：確認服務成功重啟，並回報總管切換完成。
+   - 若為 `line`，執行以下指令以防進程不存在：
+     ```powershell
+     try { npx pm2 restart line-bridge 2>$null; if ($LASTEXITCODE -ne 0) { throw "restart failed" } } catch { powershell -ExecutionPolicy Bypass -File start_line.ps1 -Start }
+     ```
+   - 若為 `tg`，執行以下指令以防進程不存在：
+     ```powershell
+     try { npx pm2 restart tg-bridge-zero-delay 2>$null; if ($LASTEXITCODE -ne 0) { throw "restart failed" } } catch { powershell -ExecutionPolicy Bypass -File start_telegram.ps1 -Start }
+     ```
+4. **喚醒監聽器與接管控制權**：
+   重啟完成後，Agent 必須根據平台執行以下動作以啟動背景長輪詢監聽器（請將指令放入背景執行）：
+   - 若為 `line`：
+     執行：`node skills/03_Execution/line-bot-zero-delay/line-bot-project/start_line.js Antigravity-Master "AI_Master" true` 
+   - 若為 `tg`：
+     先執行：`node skills/03_Execution/telegram-bot-cdp-bridge/telegram-bot-project/start_tg.js Antigravity-Master`
+     再執行：`node skills/03_Execution/telegram-bot-cdp-bridge/telegram-bot-project/poll_tg.js Antigravity-Master`
+5. **確認與回報**：確認服務與監聽器皆成功啟動，並回報總管切換完成。

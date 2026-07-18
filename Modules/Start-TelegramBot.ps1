@@ -50,7 +50,7 @@ $testResult = node -e "try { require('better-sqlite3'); process.exit(0); } catch
 if ($LASTEXITCODE -ne 0) {
     Write-Host "[WARNING] better-sqlite3 not detected. Trying to install..." -ForegroundColor Yellow
     Set-Location $BridgeDir
-    npm install --omit=dev 2>$null
+    npm install 2>$null
     Set-Location $WorkspaceRoot
 }
 

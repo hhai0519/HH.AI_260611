@@ -1147,7 +1147,7 @@ async function checkTimeoutsAndAlert() {
       const list = await redis.xpending('prod:linebot:events', 'agent_group', '0-0', '+', 10);
       for (const item of list) {
         const msgId = item[0];
-        const elapsed = Date.now() - item[2]; 
+        const elapsed = item[2]; 
         if (elapsed > 180000) { 
           console.log(`[UX-Redis] Message ${msgId} timed out, sending progress alert.`);
         }
@@ -1437,11 +1437,21 @@ function startPinggyDaemon() {
       const newWebhookEndpoint = `${latestTunnelUrl}/webhook`;
       
       try {
-        const res = await axios.get('https://api.line.me/v2/bot/channel/webhook/endpoint', {
-          headers: { 'Authorization': `Bearer ${lineConfig.channelAccessToken}` }
-        });
+        let currentEndpoint = null;
+        try {
+          const res = await axios.get('https://api.line.me/v2/bot/channel/webhook/endpoint', {
+            headers: { 'Authorization': `Bearer ${lineConfig.channelAccessToken}` }
+          });
+          currentEndpoint = res.data.endpoint;
+        } catch (getErr) {
+          if (getErr.response && getErr.response.status === 404) {
+            console.log('[Auto-Heal] Webhook endpoint is not set yet, proceeding to initialize...');
+          } else {
+            throw getErr;
+          }
+        }
 
-        if (res.data.endpoint !== newWebhookEndpoint) {
+        if (currentEndpoint !== newWebhookEndpoint) {
           await axios.put('https://api.line.me/v2/bot/channel/webhook/endpoint', {
             endpoint: newWebhookEndpoint
           }, {

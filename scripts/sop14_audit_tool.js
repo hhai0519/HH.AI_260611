@@ -15,7 +15,7 @@ try {
   // Fallback if dotenv not loaded
 }
 
-const REPORT_PATH = 'C:/Users/HH.AI_260611/.gemini/antigravity-ide/brain/3bab4ea8-e684-4653-bd0e-610a20e2a8d5/SOP14_SYSTEM_AUDIT_REPORT.md';
+const REPORT_PATH = path.join(WORKSPACE_ROOT, 'Data/SOP14_SYSTEM_AUDIT_REPORT.md');
 
 console.log('🔍 啟動 SOP_14 最嚴格聯席自動化安全審計...');
 
@@ -147,8 +147,8 @@ async function run() {
   // ══════════════════════════════════════════════════
   console.log('  [5/6] 正在執行 1,800 次 Zero-Quota 壓力測試 (此項不消耗任何 LINE 訊息額度)...');
   try {
-    const testScriptPath = 'C:/Users/HH.AI_260611/.gemini/antigravity-ide/brain/3bab4ea8-e684-4653-bd0e-610a20e2a8d5/scratch/line_exclusive_stress_test.js';
-    const resultJsonPath = 'C:/Users/HH.AI_260611/.gemini/antigravity-ide/brain/3bab4ea8-e684-4653-bd0e-610a20e2a8d5/scratch/line_stress_result.json';
+    const testScriptPath = path.join(WORKSPACE_ROOT, 'scripts/line_exclusive_stress_test.js');
+    const resultJsonPath = path.join(WORKSPACE_ROOT, 'Data/line_stress_result.json');
     
     // 刪除舊結果
     if (fs.existsSync(resultJsonPath)) fs.unlinkSync(resultJsonPath);

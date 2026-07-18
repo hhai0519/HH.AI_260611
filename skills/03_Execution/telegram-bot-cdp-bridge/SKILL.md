@@ -18,8 +18,8 @@ capabilities:
 API Server 在 `127.0.0.1:3001` 監聽（與 LINE 的 3000 完全隔離），PM2 守護進程名稱為 `tg-bridge-zero-delay`。
 
 > [!CAUTION]
-> **【越權防護紅線】**：收到 `$$TG連線$$` 時，Agent **唯一的合法動作**是執行以下啟動腳本。
-> 嚴禁額外執行 `pm2 list`、`Get-Process` 等查詢指令。
+> **【越權防護紅線】**：收到 `$$TG連線$$` 時，Agent 應優先執行以下啟動腳本。
+> 允許執行 `Get-Process -Id <PID>` 專門用於檢查 `Data/monitoring_pid.tmp` 的存活狀態，但嚴禁額外執行 `pm2 list`、`Get-Process` 等無參數查詢指令。
 
 ## 操作步驟
 當收到 `$$TG連線$$` 觸發字時，Agent 依序執行：

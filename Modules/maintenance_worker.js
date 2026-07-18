@@ -26,7 +26,7 @@ require('dotenv').config({
   path: path.resolve(__dirname, '..', '.env.local'),
 });
 
-const { pool, initDB } = require('./db_state_manager');
+const { pool, initDB, isPlaceholderDb } = require('./db_state_manager');
 
 // ── 常數設定 ───────────────────────────────────────────────────────────────────
 const IDLE_SLEEP_MS    = 5_000;  // 佇列為空時的休眠間隔
@@ -89,6 +89,12 @@ async function runWorker() {
     console.log('[maintenance_worker] 🚀 維護排程器啟動 (Database Worker V3.2.0)');
     console.log(`[maintenance_worker] 時間戳：${new Date().toISOString()}`);
     console.log('═'.repeat(70));
+  }
+
+  // 🛡️ [SRE 降級防護]
+  if (isPlaceholderDb() || !pool) {
+    console.log('[Maintenance] 資料庫處於 Fallback 模式，略過清理排程。');
+    return;
   }
 
   // 確保資料表存在（冪等性初始化）

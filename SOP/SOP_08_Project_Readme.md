@@ -111,7 +111,7 @@ netstat -ano | Select-String ":3000|:8888"
 | **生命週期** | `./SOP/SOP_00_Skill_Lifecycle_Management.md` | 技能誕生、防腐化過濾與更版核心原則。 |
 | **架構守門員** | `./SOP/SOP_00B_Agent_File_Governance.md` | 零散落政策、無前綴 1:1 映射命名規則。 |
 | **技能報到** | `./SOP/SOP_00C_New_Skill_Onboarding.md` | 新技能全自動報到、Manifest 注入與映射表同步。 |
-| **自動化** | `./SOP/SOP_01_Automation_Process.md` | 自動化模型腳本 SOP 與 20% 熔斷機制。 |
+| **自動化** | `./SOP/SOP_01_Automation_Process.md` | 自動化模型腳本 SOP 與 10% 熔斷機制。 |
 | **安全規範** | `./SOP/SOP_02_Security_Guidelines.md` | 安全性限制、Token 保護防線。 |
 | **技能維護** | `./SOP/SOP_03_Skills_Maintenance.md` | 技能庫更新、翻譯索引與儀表板重整。 |
 | **系統政策** | `./SOP/SOP_05_System_Policies.md` | Watchdog Hook 機制、跨平台編碼與命名空間治理。 |
