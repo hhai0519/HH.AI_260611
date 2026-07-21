@@ -244,6 +244,18 @@ module.exports = {
 - `webapp-testing`：快速即時調試（截圖+日誌）
 - `webapp-testing-skill`：臺股網站的完整測試流程
 - `systematic-debugging-skill`：深層問題排障
+- `chrome-devtools-mcp`：實時現場勘查與 Selector 除錯工具
+
+---
+
+## 🔍 實時現場勘查與 Selector 除錯流程 (新支援)
+
+在執行複雜的 Playwright 測試過程中，若遇到 CSS 選擇器找不到或點擊超時等問題，可配合 `chrome-devtools-mcp` 進行即時調試：
+1. **定位故障頁面**：呼叫 `list_pages` 列出當前測試中開啟的所有瀏覽器分頁。
+2. **進入上下文**：使用 `select_page(page_id)` 連接至發生錯誤的特定分頁。
+3. **實時 DOM 檢驗**：使用 `evaluate_script` 原生工具，在該分頁中實時測試你的 CSS 選擇器（例如 `document.querySelector('...')`），確認 DOM 是否已載入。
+4. **防範 Session 污染**：若測試涉及敏感帳號 Cookie，呼叫 `new_page` 時請務必帶入 `isolatedContext: "debug_session"` 參數，將除錯環境與主要環境隔離。
+5. **確認修復後寫入代碼**：在 MCP 實時調試成功後，再將正確的 Selector 或等待邏輯更新至 E2E 測試腳本中，避免盲目重試。
 
 ---
 

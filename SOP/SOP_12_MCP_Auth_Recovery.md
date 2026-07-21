@@ -42,10 +42,19 @@ server_info()  # 查看 auth_status 欄位
 > [!CAUTION]
 > **步驟順序絕對不可顛倒。** 若直接執行 `nlm login` 而未先完成步驟 3.1，Cookie 將無效，修復會失敗。
 
-### 步驟 3.1：請使用者手動訪問 NotebookLM
-1. 告知使用者：請開啟 Chrome，前往 `https://notebooklm.google.com`
-2. 確認使用者看到**筆記本列表頁面**（不只是 Google 帳號選擇畫面）
-3. 等待使用者回報「完成」
+### 步驟 3.1：執行自動或引導式預檢 (Chrome DevTools MCP)
+Agent 優先使用 `chrome-devtools-mcp` 進行自動預檢，降低人工介入頻率。此過程必須包覆於 `try-catch` 異常處理中：
+
+1. **自動導航與預檢**：
+   - 呼叫 `chrome-devtools-mcp` 的 `new_page` 工具，並帶入參數 `url: "https://notebooklm.google.com"` 與 `timeout: 15000` (15 秒)。
+2. **登入狀態判定與 SRE 處置**：
+   - 呼叫 `take_screenshot` 工具擷取當前頁面，並判斷登入狀態：
+     - **情況 A（已自動登入）**：若截圖中已直接顯示筆記本列表，代表 Cookie 已自動刷新並就緒。此時請呼叫 `close_page` 關閉分頁，並直接前進至 **步驟 3.2**。
+     - **情況 B（未登入 / 需人工介入）**：若截圖顯示 Google 登入或選擇帳號畫面，請將截圖呈送給使用者，並告知：「已為您開啟瀏覽器登入頁面，請在彈出的視窗中完成 Google 登入。」
+       > [!SECURITY]
+       > **資安防線**：Agent 嚴禁嘗試使用 `type_text` 或 `fill` 自動填寫使用者的密碼，亦不得將含有敏感 OAuth Token 參數的 URL 或密碼輸入畫面記錄至 any walkthrough 或日誌中。
+     - **情況 C（MCP 異常 / 無頭模式不可互動）**：若 MCP 工具呼叫超時或回傳錯誤，立即啟動軟性降級，執行傳統手動引導（請使用者手動開啟 Chrome 瀏覽器訪問該網址）。
+3. 確認進入筆記本列表後，再次呼叫 `close_page` 釋放資源，隨後執行步驟 3.2。
 
 ### 步驟 3.2：執行認證指令
 ```powershell

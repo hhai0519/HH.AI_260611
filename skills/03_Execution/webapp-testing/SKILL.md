@@ -31,7 +31,27 @@ capabilities:
 
 ---
 
-## 🛠️ 快速啟動（單文件模式）
+## 🛠️ 輕量 MCP 直接測試模式 (新支援)
+
+當只需快速驗證頁面渲染、檢查控制台錯誤，或進行簡單互動時，優先使用 `chrome-devtools-mcp` 提供之原生工具，避免編寫與執行實體腳本：
+
+1. **載入網頁分頁**：
+   - 呼叫 `new_page(url="http://localhost:3000", timeout=15000)` 建立並載入頁面。**請注意：`url` 為必要參數。**
+2. **截圖驗證外觀**：
+   - 呼叫 `take_screenshot` 取得渲染結果。
+3. **檢查控制台錯誤**：
+   - 呼叫 `list_console_messages` 檢查有無 JS 報錯。
+4. **點擊與輸入互動 (關鍵規範)**：
+   > [!IMPORTANT]
+   > `chrome-devtools-mcp` 的 `click` 與 `fill` 工具**不接受** CSS 選擇器 (Selector)，僅接受 a11y 樹的 `uid`。請依以下兩種方式進行互動：
+   > - **方式一 (原生 MCP)**：先呼叫 `take_snapshot` 取得頁面節點的 `uid`，再將 `uid` 帶入 `click(uid="...")` 或 `fill(uid="...", value="...")`。
+   > - **方式二 (JS 注入)**：呼叫 `evaluate_script` 注入執行，例如：`function: "() => document.querySelector('#search-input').click()"`。
+5. **釋放資源**：
+   - 任務結束時，務必呼叫 `close_page` 關閉分頁以防止記憶體溢出。
+
+---
+
+## 🛠️ 快速啟動（單文件模式 - 複雜斷言與自訂邏輯）
 
 ```python
 import asyncio
