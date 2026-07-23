@@ -6,10 +6,17 @@ require('dotenv').config({ path: require('path').join(WORKSPACE_ROOT, '.env.loca
 // 動態讀取命令列參數，不再寫死
 const agentId = process.argv[2] || 'Antigravity';
 const agentLabel = process.argv[3] || 'Master_Mode';
-const force = process.argv.length > 4 ? process.argv[4] === 'true' : true;
+const force = process.argv.length >= 5 ? process.argv[4] === 'true' : true;
 if (!agentId) {
   console.log('[LINE_CONTROLLER_RESULT] action=error');
   console.log('[LINE_CONTROLLER_MESSAGE] 缺少 agentId');
+  process.exit(1);
+}
+
+const agentSecret = process.env.CURRENT_AGENT_SECRET;
+if (!agentSecret || agentSecret === 'default_agent_secret') {
+  console.log('[LINE_CONTROLLER_RESULT] action=error');
+  console.log('[LINE_CONTROLLER_MESSAGE] ❌ 安全錯誤：環境變數 CURRENT_AGENT_SECRET 未於 .env.local 正確設定，請先配置後再試！');
   process.exit(1);
 }
 
@@ -84,6 +91,6 @@ req.write(JSON.stringify({
   agentId, 
   agentLabel, 
   force, 
-  secret: process.env.CURRENT_AGENT_SECRET || 'default_agent_secret'
+  secret: agentSecret
 }));
 req.end();

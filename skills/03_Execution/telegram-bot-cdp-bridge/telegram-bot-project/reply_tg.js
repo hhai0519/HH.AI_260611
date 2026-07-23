@@ -260,7 +260,8 @@ async function run() {
   }
 
   // 執行 API 傳送
-  const postData = JSON.stringify({ chatId, text });
+  const agentId = process.env.AGENT_ID || 'Antigravity-Master';
+  const postData = JSON.stringify({ chatId, text, agentId });
 
   const req = http.request({
     hostname: '127.0.0.1',

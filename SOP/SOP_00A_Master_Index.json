@@ -33,5 +33,15 @@
     "auth":               ["SOP_12_MCP_Auth_Recovery.md"],
     "hyperparameter":     ["SOP_13_Hyperparameter_Training.md"],
     "audit":              ["SOP_14_Rigorous_Verification_and_Audit_Protocol.md"]
+  },
+  "special_trigger_routes": {
+    "$$自動化$$": "skills/01_Orchestrators/agency-orchestrator-skill/SKILL.md#自動化指令攔截與詢問",
+    "$$自動化_微型模型$$": "skills/01_Orchestrators/autoresearch-agent/SKILL.md",
+    "$$自動化_通用研究$$": "skills/01_Orchestrators/recursive-research-automation/SKILL.md",
+    "$$自動化_量化實驗$$": "skills/01_Orchestrators/quant-research-loop/SKILL.md",
+    "$$Line帳號$$": ".agents/skills/bot-account-switcher/SKILL.md",
+    "$$TG帳號$$": ".agents/skills/bot-account-switcher/SKILL.md",
+    "$$Allow All$$": "SOP/SOP_01_Automation_Process.md#24-強制授權協議-strong-authorization-protocol",
+    "$$allowall$$": "SOP/SOP_01_Automation_Process.md#24-強制授權協議-strong-authorization-protocol"
   }
 }

@@ -1,7 +1,7 @@
 ---
 name: "telegram-bot-cdp-bridge"
-description: "[V14.2.0] 透過 Zero-Delay HTTP Bridge 架構，讓 Agent 透過 Telegram 接收指令並回覆。採長駐阻塞式輪詢，只在收到真實訊息時喚醒 Agent，消除監聽器週期性退出所造成的洗版問題。"
-version: "14.2.0"
+description: "[V14.3.0] 透過 Zero-Delay HTTP Bridge 架構，讓 Agent 透過 Telegram 接收指令並回覆。採長駐阻塞式輪詢，只在收到真實訊息時喚醒 Agent。"
+version: "14.3.0"
 type: "execution"
 triggers: ["$$TG連線$$"]
 dependencies: []
@@ -11,7 +11,7 @@ capabilities:
   io_format: "JSON over HTTP Long-Polling"
 ---
 
-# Telegram Zero-Delay Bridge (v14.2)
+# Telegram Zero-Delay Bridge (v14.3)
 
 ## 核心功能
 本技能透過 Zero-Delay HTTP Long-Polling 架構，讓 Agent 能從 Telegram 接收使用者訊息並即時回覆。
@@ -51,16 +51,25 @@ node skills\03_Execution\telegram-bot-cdp-bridge\telegram-bot-project\start_tg.j
 node skills\03_Execution\telegram-bot-cdp-bridge\telegram-bot-project\poll_tg.js Antigravity-Master
 ```
 
-## 回覆格式（強烈建議使用模式 2 或模式 3，防範環境變數殘留衝突）
+## 回覆格式（統一規範：與 AGENTS.md 完全對齊）
 ```powershell
-# 模式 1：環境變數（舊版，不建議，跨通道切換易殘留）
-$env:REPLY_TEXT = "回覆內容"
-node skills\03_Execution\telegram-bot-cdp-bridge\telegram-bot-project\reply_tg.js <chatId>
+# 模式 1：環境變數傳遞（官方標準 SOP，無痕傳送不留暫存檔）
+$env:REPLY_TEXT = @"
+(您的 Markdown 回覆內容)
+"@; node skills\03_Execution\telegram-bot-cdp-bridge\telegram-bot-project\reply_tg.js <chatId> "env" "[Gemini] 萬能總管" "<主題分類>" "<問題簡述>"
 
-# 模式 2：從文字檔讀取（推薦！支援 UTF-16 LE 自癒，防 PowerShell 重導向截斷）
-$longText | Out-File -FilePath reply.txt -Encoding unicode
-node skills\03_Execution\telegram-bot-cdp-bridge\telegram-bot-project\reply_tg.js <chatId> reply.txt
+# 模式 2：文字檔備用讀取（僅當文字量極大且包含複雜轉義字元時使用）
+node skills\03_Execution\telegram-bot-cdp-bridge\telegram-bot-project\reply_tg.js <chatId> reply.txt "[Gemini] 萬能總管" "<主題分類>" "<問題簡述>"
+```
 
-# 模式 3：stdin 管道（適合程式輸出直接導入）
-echo "回覆內容" | node skills\03_Execution\telegram-bot-cdp-bridge\telegram-bot-project\reply_tg.js <chatId>
+## 接力監聽規範 (Task-Exit Loop SOP)
+當 Agent (您) 處理完 Telegram 使用者對話並呼叫 `reply_tg.js` 傳送回覆後，**必須立刻手動重啟下一輪背景監聽器**：
+```powershell
+node skills\03_Execution\telegram-bot-cdp-bridge\telegram-bot-project\poll_tg.js Antigravity-Master
+```
+
+## 災難自癒與排障手冊 (DRP)
+- 若遭遇 `ECONNREFUSED` 或 `3001` 埠口無回應，執行以下指令手動重啟 PM2 服務：
+```powershell
+npx pm2 restart tg-bridge-zero-delay
 ```

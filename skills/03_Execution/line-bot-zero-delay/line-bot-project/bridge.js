@@ -6,6 +6,10 @@
 const WORKSPACE_ROOT = process.env.WORKSPACE_ROOT || require('path').resolve(__dirname, '../../../../');
 require('dotenv').config({ path: require('path').join(WORKSPACE_ROOT, '.env.local') });
 
+if (!process.env.CURRENT_AGENT_SECRET || process.env.CURRENT_AGENT_SECRET === 'default_agent_secret') {
+  console.warn(`[SECURITY WARNING] ⚠️ CURRENT_AGENT_SECRET 未於 .env.local 正確配置或正使用預設值！建議盡快更新。`);
+}
+
 const express = require('express');
 const { spawn } = require('child_process');
 const line = require('@line/bot-sdk');
@@ -125,6 +129,9 @@ function localhostOnly(req, res, next) {
 }
 app.use('/api/lock/*', localhostOnly);
 app.use('/api/chaos/*', localhostOnly);
+app.use('/api/inbox', localhostOnly);
+app.use('/api/outbox', localhostOnly);
+app.use('/api/dlq/*', localhostOnly);
 app.use('/metrics', localhostOnly);
 
 // ─── 本地特權通知路由 (僅限 Localhost 呼叫，免簽章，專供監控 watchdog 使用) ───
@@ -1288,25 +1295,10 @@ app.post('/webhook', express.raw({type: 'application/json'}), line.middleware(li
         }
         
         try {
-          const publicDir = path.join(__dirname, 'public');
-          if (!fs.existsSync(publicDir)) fs.mkdirSync(publicDir, { recursive: true });
-          const imagePath = path.join(publicDir, `image_${messageId}.jpg`);
+          const { downloadLinePhoto, formatImagePrompt } = require('../../shared-bot-utils/mediaDownloader');
+          const imagePath = await downloadLinePhoto(lineConfig.channelAccessToken, messageId);
 
-          const response = await axios({
-            method: 'GET',
-            url: `https://api-data.line.me/v2/bot/message/${messageId}/content`,
-            headers: { 'Authorization': `Bearer ${lineConfig.channelAccessToken}` },
-            responseType: 'stream'
-          });
-          
-          const writer = fs.createWriteStream(imagePath);
-          response.data.pipe(writer);
-          await new Promise((resolve, reject) => {
-            writer.on('finish', resolve);
-            writer.on('error', reject);
-          });
-
-          const text = `[IMAGE:${imagePath}]\n使用者傳送了圖片，請分析。`;
+          const text = formatImagePrompt(imagePath);
           await handleCommand(userId, sourceId, text, replyToken);
         } catch (e) {
           sanitizeErrorLog('[IMAGE ERROR]', e);
@@ -1430,7 +1422,7 @@ function startPinggyDaemon() {
 
   const handleOutput = async (data) => {
     const output = data.toString();
-    const matches = output.match(/https:\/\/[a-z0-9.-]+\.(?:trycloudflare\.com|cloudflare\.com|free\.pinggy\.link|pinggy\.io|pinggy\.net|pinggy-free\.link)/g);
+    const matches = output.match(/https:\/\/[a-z0-9-]+(?:\.[a-z0-9-]+)*\.(?:trycloudflare\.com|cloudflare\.com|pinggy\.io|pinggy\.net|pinggy\.link|pinggy\.online|pinggy-free\.link|free\.pinggy\.link)/gi);
     
     if (matches && matches.length > 0) {
       const latestTunnelUrl = matches[matches.length - 1];

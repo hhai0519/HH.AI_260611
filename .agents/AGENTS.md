@@ -32,3 +32,17 @@
      ```powershell
      node skills\03_Execution\telegram-bot-cdp-bridge\telegram-bot-project\poll_tg.js Antigravity-Master
      ```
+
+4. **特權語彙 ($$ Triggers) 精準路由與資安邊界 SOP**：
+   - **輸入淨化與邊界封閉 (Boundary Validation & Sanitization)**：
+     - 長度防護：Payload 長度 > 50 字元一律拒絕處理。
+     - 全形轉半形：自動將全形 `＄＄` 轉為半形 `$$`。
+     - 封閉性校驗：輸入必須嚴格以 `$$` 開頭且以 `$$` 結尾（如 `$$自動化$$`）。凡帶有尾隨指令（如 `$$自動化$$; rm -rf`）直接拒絕匹配。
+   - **雙向 Key 正規化 (Dual Key Normalization)**：
+     - 解析時一律抹平內部所有空格並轉小寫 (`.replace(/\s+/g, '').toLowerCase()`)。
+   - **零腦補與權威選單渲染**：
+     - 嚴禁根據近期運維紀錄（如 PM2 重啟、DB 檢查）自訂或合成選單內容。
+     - 若匹配結果為 `$$自動化$$`，必須完整讀取 `skills/01_Orchestrators/agency-orchestrator-skill/SKILL.md` 中「自動化指令攔截與詢問」區段之三個標準選項原文原樣輸出。
+     - 若匹配結果為直通子觸發詞（如 `$$自動化_微型模型$$`），直接載入對應技能，不跳詢問選單。
+     - 若匹配結果為 `$$Line帳號$$` 或 `$$TG帳號$$`，直接載入 `.agents/skills/bot-account-switcher/SKILL.md` 執行帳號切換流程。
+

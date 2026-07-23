@@ -32,7 +32,8 @@ def load_env():
                                 val = parts[1].strip()
                                 if (val.startswith('"') and val.endswith('"')) or (val.startswith("'") and val.endswith("'")):
                                     val = val[1:-1]
-                                os.environ[key] = val
+                                if key not in os.environ:
+                                    os.environ[key] = val
             except Exception as e:
                 print(f"[ENV-INIT] Error loading env: {e}")
 
@@ -150,13 +151,15 @@ SKILL_MD = Path(__file__).parent.parent / 'optimization-status' / 'SKILL.md'
 RESULTS_TSV = BASE_DIR / 'results.tsv'
 TARGET_BPB = 4.0
 
-# Search Space
+# Search Space (Expanded Hyperparameter Tuning)
 SEARCH_SPACE = [
-    {'DEPTH': 2, 'LR': 3e-4},
     {'DEPTH': 2, 'LR': 5e-4},
-    {'DEPTH': 3, 'LR': 3e-4},
+    {'DEPTH': 2, 'LR': 8e-4},
+    {'DEPTH': 2, 'LR': 1e-3},
     {'DEPTH': 3, 'LR': 5e-4},
+    {'DEPTH': 3, 'LR': 8e-4},
     {'DEPTH': 4, 'LR': 3e-4},
+    {'DEPTH': 4, 'LR': 5e-4},
 ]
 
 def update_skill_md(best_bpb, current_exp, last_log):
@@ -189,6 +192,7 @@ description: 🤖 背景自動優化狀態監控器。目前正在針對 TinySto
 
 def run_experiment(depth, lr):
     env = os.environ.copy()
+    env['SKIP_LOCK'] = '1'
     env['DEPTH'] = str(depth)
     env['LR'] = f"{lr:.2e}"
     

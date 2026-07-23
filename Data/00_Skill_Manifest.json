@@ -1,4 +1,52 @@
 {
+  "_system_triggers_matrix": {
+    "$$自動化$$": {
+      "target_skill": "agency-orchestrator-skill",
+      "target_file": "./skills/01_Orchestrators/agency-orchestrator-skill/SKILL.md",
+      "action": "render_interception_menu",
+      "allowed_options": [
+        "$$自動化_微型模型$$",
+        "$$自動化_通用研究$$",
+        "$$自動化_量化實驗$$"
+      ]
+    },
+    "$$自動化_微型模型$$": {
+      "target_skill": "autoresearch-agent",
+      "target_file": "./skills/01_Orchestrators/autoresearch-agent/SKILL.md",
+      "action": "direct_execution"
+    },
+    "$$自動化_通用研究$$": {
+      "target_skill": "recursive-research-automation",
+      "target_file": "./skills/01_Orchestrators/recursive-research-automation/SKILL.md",
+      "action": "direct_execution"
+    },
+    "$$自動化_量化實驗$$": {
+      "target_skill": "quant-research-loop",
+      "target_file": "./skills/01_Orchestrators/quant-research-loop/SKILL.md",
+      "action": "direct_execution"
+    },
+    "$$Line帳號$$": {
+      "target_skill": "bot-account-switcher",
+      "target_file": "./.agents/skills/bot-account-switcher/SKILL.md",
+      "platform": "line"
+    },
+    "$$TG帳號$$": {
+      "target_skill": "bot-account-switcher",
+      "target_file": "./.agents/skills/bot-account-switcher/SKILL.md",
+      "platform": "tg"
+    },
+    "$$Allow All$$": {
+      "target_policy": "SOP_01_Automation_Process.md",
+      "target_file": "./SOP/SOP_01_Automation_Process.md",
+      "action": "enable_full_tool_authorization"
+    },
+    "$$allowall$$": {
+      "alias_for": "$$Allow All$$",
+      "target_policy": "SOP_01_Automation_Process.md",
+      "target_file": "./SOP/SOP_01_Automation_Process.md",
+      "action": "enable_full_tool_authorization"
+    }
+  },
   "agency-orchestrator-skill": {
     "display_name": "萬能總管模式",
     "description": "萬能總管模式（Agency-Agents 最高總管），負責通用意圖解析與全局任務拆解，並執行 4-Phase 狀態機工作流。",

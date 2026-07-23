@@ -71,7 +71,8 @@ def load_env():
                                 val = parts[1].strip()
                                 if (val.startswith('"') and val.endswith('"')) or (val.startswith("'") and val.endswith("'")):
                                     val = val[1:-1]
-                                os.environ[key] = val
+                                if key not in os.environ:
+                                    os.environ[key] = val
             except Exception as e:
                 print(f"[LOCK-INIT] Error loading env from {p}: {e}")
 
@@ -236,6 +237,9 @@ def heartbeat_loop():
 
 def acquire_lock_or_exit():
     global FENCING_TOKEN, RUN_ID, LOCK_ACTIVE, PID_FILE_PATH
+    if os.getenv('SKIP_LOCK', '0') == '1' or os.getenv('IGNORE_LOCK', '0') == '1':
+        print("[LOCK-BYPASS] SKIP_LOCK/IGNORE_LOCK is enabled. Bypassing distributed lock.")
+        return
     pid = os.getpid()
     creation_time = get_process_creation_time()
     RUN_ID = f"run_worker_{int(time.time())}_{uuid.uuid4().hex[:6]}"

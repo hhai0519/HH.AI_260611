@@ -26,11 +26,18 @@ if (!agentId) {
 const POLL_INTERVAL = 1000; // 1 秒
 const keepAliveAgent = new http.Agent({ keepAlive: true, maxSockets: 1 });
 
+// 🛡️ [Fix T-01] 全域連線失敗計數器，跨遞迴呼叫累積
+let consecutiveFailures = 0;
+const MAX_FAILURES = 50;
+
 console.log("Antigravity API Polling 監聽器已啟動，等待事件中...");
 
 function poll() {
   const targetPath = `/api/inbox?token=${encodeURIComponent(agentId)}&fencingToken=${encodeURIComponent(fencingToken)}`;
-  console.log(`[DEBUG] Polling target path: ${targetPath}`);
+  
+  if (process.env.DEBUG === 'true') {
+    console.log(`[DEBUG] Polling target path: ${targetPath}`);
+  }
 
   const req = http.request({
     hostname: 'localhost',
@@ -51,6 +58,7 @@ function poll() {
         try {
           const json = JSON.parse(data);
           if (json.message) {
+            consecutiveFailures = 0; // 🛡️ [Fix T-04] 成功連線拉取訊息，重置計數器
             const msg = json.message;
             // 輸出給 Agent 看
             console.log(`[LINE_REQUEST] ${msg.userId} : ${msg.text}`);
@@ -68,8 +76,13 @@ function poll() {
   });
 
   req.on('error', (e) => {
-    // 若 bridge 沒啟動，等待後重試
-    setTimeout(poll, 3000);
+    consecutiveFailures++;
+    if (consecutiveFailures > MAX_FAILURES) {
+      console.error(`[POLL_INBOX] 連續連線失敗超過上限 (${MAX_FAILURES} 次)，自動結束輪詢。`);
+      process.exit(1);
+    }
+    const backoffDelay = Math.min(3000 * Math.pow(1.2, consecutiveFailures), 15000);
+    setTimeout(poll, backoffDelay);
   });
 
   req.end();

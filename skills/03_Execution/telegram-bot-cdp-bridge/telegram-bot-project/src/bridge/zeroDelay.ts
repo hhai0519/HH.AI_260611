@@ -201,15 +201,99 @@ export async function startZeroDelayBridge(opts: BridgeOptions): Promise<void> {
 
     // bot 宣告已移至 startZeroDelayBridge 開頭宣告，確保時序安全 (BUG-04)
 
+    // 引入共用媒體下載器與文字規格化器 (SOP14 v3.0 Final)
+    const { downloadTelegramPhoto, formatImagePrompt, formatAlbumPrompt } = require('../../../../shared-bot-utils/mediaDownloader');
+    const { normalizeToTraditionalChinese } = require('../../../../shared-bot-utils/textNormalizer');
+
+    // 相簿防抖動快取
+    const albumCache = new Map<string, { timer: NodeJS.Timeout; images: string[]; caption: string; chatId: string; messageId: number }>();
+
     bot.on('message', async (ctx) => {
         const userId = ctx.from?.id.toString() ?? '';
         if (!allowedUserIds.includes(userId)) {
             return ctx.reply('未經授權的存取。');
         }
-        const messageText = ctx.message.text ?? ctx.message.caption ?? '[圖片或非文字訊息]';
-        
-        // [AUDIT-10] 記錄使用者傳入的訊息 (isBot = false)
+
         const username = ctx.from?.username || ctx.from?.first_name || 'unknown';
+
+        // 偵測圖片訊息
+        if (ctx.message.photo && ctx.message.photo.length > 0) {
+            try {
+                const photos = ctx.message.photo;
+                const largestPhoto = photos[photos.length - 1]; // 取最高畫質圖片
+                const fileInfo = await bot.api.getFile(largestPhoto.file_id);
+                
+                if (fileInfo.file_path) {
+                    const localPath = await downloadTelegramPhoto(
+                        botToken,
+                        fileInfo.file_path,
+                        largestPhoto.file_id
+                    );
+
+                    // 處理 相簿 (Album)
+                    const mediaGroupId = ctx.message.media_group_id;
+                    if (mediaGroupId) {
+                        const existing = albumCache.get(mediaGroupId);
+                        if (existing) {
+                            clearTimeout(existing.timer);
+                            existing.images.push(localPath);
+                            if (ctx.message.caption) existing.caption = ctx.message.caption;
+                        } else {
+                            albumCache.set(mediaGroupId, {
+                                images: [localPath],
+                                caption: ctx.message.caption || '',
+                                chatId: ctx.chat.id.toString(),
+                                messageId: ctx.message.message_id,
+                                timer: setTimeout(() => {}, 0)
+                            });
+                        }
+
+                        const albumData = albumCache.get(mediaGroupId)!;
+                        albumData.timer = setTimeout(() => {
+                            let combinedPrompt = formatAlbumPrompt(albumData.images, albumData.caption);
+                            combinedPrompt = normalizeToTraditionalChinese(combinedPrompt);
+
+                            logTelegramChat(userId, username, combinedPrompt, false);
+
+                            if (inboxQueue.length >= 100) inboxQueue.shift();
+                            inboxQueue.push({
+                                chatId: albumData.chatId,
+                                text: combinedPrompt,
+                                messageId: albumData.messageId
+                            });
+                            ctx.replyWithChatAction('typing').catch(() => {});
+                            notifyNewMessage();
+                            albumCache.delete(mediaGroupId);
+                        }, 1200);
+
+                        return;
+                    }
+
+                    // 單張圖片處理
+                    let messageText = formatImagePrompt(localPath, ctx.message.caption);
+                    messageText = normalizeToTraditionalChinese(messageText);
+
+                    logTelegramChat(userId, username, messageText, false);
+
+                    if (inboxQueue.length >= 100) inboxQueue.shift();
+                    inboxQueue.push({
+                        chatId: ctx.chat.id.toString(),
+                        text: messageText,
+                        messageId: ctx.message.message_id
+                    });
+                    ctx.replyWithChatAction('typing').catch(() => {});
+                    notifyNewMessage();
+                    return;
+                }
+            } catch (err: any) {
+                console.error('[TG Photo Download Error]', err?.message || err);
+            }
+        }
+
+        // 一般純文字訊息處理
+        let messageText = ctx.message.text ?? ctx.message.caption ?? '[非文字訊息]';
+        messageText = normalizeToTraditionalChinese(messageText);
+
         logTelegramChat(userId, username, messageText, false);
 
         if (inboxQueue.length >= 100) inboxQueue.shift();
