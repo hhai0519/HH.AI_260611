@@ -151,22 +151,15 @@ SKILL_MD = Path(__file__).parent.parent / 'optimization-status' / 'SKILL.md'
 RESULTS_TSV = BASE_DIR / 'results.tsv'
 TARGET_BPB = 4.0
 
-# Search Space (Advanced Multi-dimensional Hyperparameter Tuning)
+# Search Space (Expanded Hyperparameter Tuning)
 SEARCH_SPACE = [
-    # 階段 1：探索 DEPTH=2 更高 LR 臨界邊界 (60s 時間預算)
-    {'DEPTH': 2, 'LR': 1.2e-3, 'WEIGHT_DECAY': 0.1,  'TIME_BUDGET': 60},
-    {'DEPTH': 2, 'LR': 1.5e-3, 'WEIGHT_DECAY': 0.1,  'TIME_BUDGET': 60},
-    {'DEPTH': 2, 'LR': 1.8e-3, 'WEIGHT_DECAY': 0.1,  'TIME_BUDGET': 60},
-
-    # 階段 2：解鎖時間預算 (120s)，驗證深層 DEPTH=3 與 DEPTH=4 收斂效果
-    {'DEPTH': 3, 'LR': 8e-4,   'WEIGHT_DECAY': 0.1,  'TIME_BUDGET': 120},
-    {'DEPTH': 3, 'LR': 1.0e-3, 'WEIGHT_DECAY': 0.1,  'TIME_BUDGET': 120},
-    {'DEPTH': 4, 'LR': 5e-4,   'WEIGHT_DECAY': 0.1,  'TIME_BUDGET': 120},
-    {'DEPTH': 4, 'LR': 8e-4,   'WEIGHT_DECAY': 0.1,  'TIME_BUDGET': 120},
-
-    # 階段 3：權重衰減 (Weight Decay) 對高 LR 訓練穩定性之影響測試
-    {'DEPTH': 2, 'LR': 1.5e-3, 'WEIGHT_DECAY': 0.01, 'TIME_BUDGET': 60},
-    {'DEPTH': 2, 'LR': 1.5e-3, 'WEIGHT_DECAY': 0.2,  'TIME_BUDGET': 60},
+    {'DEPTH': 2, 'LR': 5e-4},
+    {'DEPTH': 2, 'LR': 8e-4},
+    {'DEPTH': 2, 'LR': 1e-3},
+    {'DEPTH': 3, 'LR': 5e-4},
+    {'DEPTH': 3, 'LR': 8e-4},
+    {'DEPTH': 4, 'LR': 3e-4},
+    {'DEPTH': 4, 'LR': 5e-4},
 ]
 
 def update_skill_md(best_bpb, current_exp, last_log):
@@ -197,43 +190,21 @@ description: 🤖 背景自動優化狀態監控器。目前正在針對 TinySto
     SKILL_MD.parent.mkdir(parents=True, exist_ok=True)
     SKILL_MD.write_text(status_content, encoding='utf-8')
 
-def load_executed_cache():
-    """讀取 results.tsv 快取以支援重複組合自動 Skip"""
-    executed = set()
-    if RESULTS_TSV.exists():
-        try:
-            with open(RESULTS_TSV, 'r', encoding='utf-8') as f:
-                for line in f:
-                    parts = line.strip().split('\t')
-                    if len(parts) >= 4:
-                        executed.add(parts[3]) # 紀錄 description 欄位
-        except Exception as e:
-            print(f"[CACHE-READ-WARN] Error reading results.tsv cache: {e}")
-    return executed
-
-def run_experiment(exp_config):
-    depth = exp_config['DEPTH']
-    lr = exp_config['LR']
-    weight_decay = exp_config.get('WEIGHT_DECAY', 0.1)
-    time_budget = exp_config.get('TIME_BUDGET', 60)
-    
+def run_experiment(depth, lr):
     env = os.environ.copy()
     env['SKIP_LOCK'] = '1'
     env['DEPTH'] = str(depth)
     env['LR'] = f"{lr:.2e}"
-    env['WEIGHT_DECAY'] = str(weight_decay)
-    env['TIME_BUDGET'] = str(time_budget)
     
-    print(f"Running: DEPTH={depth}, LR={lr:.2e}, WD={weight_decay}, TIME={time_budget}s...")
+    print(f"Running: DEPTH={depth}, LR={lr}...")
     try:
         import sys
         result = subprocess.run([sys.executable, 'train_cpu.py'], env=env, cwd=BASE_DIR, capture_output=True, text=True)
         if result.returncode != 0:
-            print(f"[TRAIN-ERROR] train_cpu.py 執行異常 (ReturnCode={result.returncode}): {result.stderr}")
-            return f"ERROR: {result.stderr}"
+            print(f"ERROR in train_cpu.py: {result.stderr}")
         return result.stdout
     except Exception as e:
-        print(f"[CONTROLLER-CRASH] 捕獲控制器異常防護: {e}")
+        print(f"CRASH in controller: {e}")
         return f"CRASH: {e}"
 
 def extract_bpb(output):
@@ -273,8 +244,6 @@ def main():
     best_bpb = get_best_bpb_from_tsv()
     print(f"Loaded current best val_bpb baseline: {best_bpb:.6f}")
     
-    executed_cache = load_executed_cache()
-    
     for i, params in enumerate(SEARCH_SPACE):
         # Check CANARY_STOP valve
         while True:
@@ -287,26 +256,21 @@ def main():
                 
         depth = params['DEPTH']
         lr = params['LR']
-        weight_decay = params.get('WEIGHT_DECAY', 0.1)
-        time_budget = params.get('TIME_BUDGET', 60)
-        desc = f"experiment: DEPTH={depth}, LR={lr:.2e}, WD={weight_decay}, TIME={time_budget}s"
         
-        if desc in executed_cache:
-            print(f"[CACHE-SKIP] 組合已存在於 results.tsv，跳過重複訓練 ({i+1}/{len(SEARCH_SPACE)}): {desc}")
-            continue
-
-        output = run_experiment(params)
+        output = run_experiment(depth, lr)
         bpb = extract_bpb(output)
         
         status = "keep" if bpb < best_bpb else "discard"
         if status == "keep":
             best_bpb = bpb
+            # In a real autoresearch we would git commit here
         
         # Log to TSV
-        with open(RESULTS_TSV, 'a', encoding='utf-8') as f:
+        desc = f"experiment: DEPTH={depth}, LR={lr:.2e}"
+        with open(RESULTS_TSV, 'a') as f:
             f.write(f"local\t{bpb:.6f}\t{status}\t{desc}\n")
         
-        last_log = f"- `n_layer`: {depth}\n  - `LR`: {lr:.2e}\n  - `WD`: {weight_decay}\n  - `TIME`: {time_budget}s\n  - `Result`: {bpb:.4f} ({status})"
+        last_log = f"- `n_layer`: {depth}\n  - `LR`: {lr:.2e}\n  - `Result`: {bpb:.4f} ({status})"
         update_skill_md(best_bpb, i+1, last_log)
         
         print(f"Exp {i+1} Result: {bpb:.4f} ({status})")

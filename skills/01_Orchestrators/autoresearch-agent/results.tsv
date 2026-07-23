@@ -86,3 +86,12 @@ local	11.314633	discard	experiment: DEPTH=3, LR=5.00e-04
 local	10.089373	discard	experiment: DEPTH=3, LR=8.00e-04
 local	12.072965	discard	experiment: DEPTH=4, LR=3.00e-04
 local	10.116045	discard	experiment: DEPTH=4, LR=5.00e-04
+local	7.958358	keep	experiment: DEPTH=2, LR=1.20e-03, WD=0.1, TIME=60s
+local	7.845391	keep	experiment: DEPTH=2, LR=1.50e-03, WD=0.1, TIME=60s
+local	7.713703	keep	experiment: DEPTH=2, LR=1.80e-03, WD=0.1, TIME=60s
+local	7.444474	keep	experiment: DEPTH=3, LR=8.00e-04, WD=0.1, TIME=120s
+local	7.216140	keep	experiment: DEPTH=3, LR=1.00e-03, WD=0.1, TIME=120s
+local	8.014703	discard	experiment: DEPTH=4, LR=5.00e-04, WD=0.1, TIME=120s
+local	7.500426	discard	experiment: DEPTH=4, LR=8.00e-04, WD=0.1, TIME=120s
+local	8.116389	discard	experiment: DEPTH=2, LR=1.50e-03, WD=0.01, TIME=60s
+local	8.144359	discard	experiment: DEPTH=2, LR=1.50e-03, WD=0.2, TIME=60s

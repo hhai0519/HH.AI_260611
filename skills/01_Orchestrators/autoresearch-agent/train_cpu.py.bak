@@ -237,7 +237,7 @@ def heartbeat_loop():
 
 def acquire_lock_or_exit():
     global FENCING_TOKEN, RUN_ID, LOCK_ACTIVE, PID_FILE_PATH
-    if os.getenv('SKIP_LOCK', '0').strip().lower() in ('1', 'true') or os.getenv('IGNORE_LOCK', '0').strip().lower() in ('1', 'true'):
+    if os.getenv('SKIP_LOCK', '0') == '1' or os.getenv('IGNORE_LOCK', '0') == '1':
         print("[LOCK-BYPASS] SKIP_LOCK/IGNORE_LOCK is enabled. Bypassing distributed lock.")
         return
     pid = os.getpid()
@@ -463,14 +463,14 @@ DEPTH          = int(os.getenv('DEPTH', '2'))      # 原版 8 — CPU 用 2 層
 ASPECT_RATIO   = 64     # model_dim = depth * ASPECT_RATIO
 
 # Training
-TIME_BUDGET        = int(os.environ.get('TIME_BUDGET', '60'))  # 動態時間預算 (秒)
+TIME_BUDGET        = 60           # 秒 (原版 300 — CPU 用 60s)
 TOTAL_BATCH_SIZE   = 2 ** 12      # ~4K tokens (原版 2^19)
 DEVICE_BATCH_SIZE  = 4            # per-device (原版 128)
 MAX_SEQ_LEN        = 256          # (原版 2048)
 
 # Optimizer (AdamW, simpler than Muon for CPU)
 LR           = float(os.getenv('LR', '3e-4'))
-WEIGHT_DECAY = float(os.getenv('WEIGHT_DECAY', '0.1'))       # 動態權重衰減
+WEIGHT_DECAY = 0.1
 BETAS        = (0.9, 0.95)
 WARMUP_RATIO    = 0.1
 WARMDOWN_RATIO  = 0.5
