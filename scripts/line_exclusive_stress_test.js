@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 
 // ── 載入環境變數與 DLP 遮蔽 ───────────────────────────────────
-const WORKSPACE_ROOT = 'C:/Users/HH.AI_260611/Desktop/HH.AI_260611';
+const WORKSPACE_ROOT = 'C:/Users/HH.AI_260726/Desktop/HH.AI_260726';
 try {
   require(path.join(WORKSPACE_ROOT, 'skills/03_Execution/line-bot-zero-delay/line-bot-project/node_modules/dotenv')).config({
     path: path.join(WORKSPACE_ROOT, '.env.local')

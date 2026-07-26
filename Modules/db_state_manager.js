@@ -36,7 +36,9 @@ let pool = null;
 if (!isPlaceholderDb()) {
   try {
     const dbUrl = new URL(process.env.DATABASE_URL);
-    dbUrl.searchParams.set('sslmode', 'require');
+    if (!dbUrl.hostname.includes('localhost') && !dbUrl.hostname.includes('127.0.0.1')) {
+      dbUrl.searchParams.set('sslmode', 'require');
+    }
     dbUrl.searchParams.set('uselibpqcompat', 'true');
     const _connString = dbUrl.toString();
     pool = new Pool({

@@ -16,6 +16,7 @@ capabilities:
 
 本技能為系統的**主動防禦層**，能自動偵測並引導修復以下架構問題：
 目錄結構違規、Manifest 路徑失效、歷史硬編碼路徑殘留、廢棄腳本引用。
+（V2 擴充：包含 MCP Config 動態路徑修復、資料庫 Fallback SSL 容錯驗證、外網隧道引擎一致性掃描、SOP_14 終極壓測與資安驗證）
 
 ---
 
@@ -29,7 +30,7 @@ capabilities:
 
 ---
 
-## 🔍 四大掃描模組
+## 🔍 八大自動化掃描模組
 
 ### 模組 1：目錄結構合規掃描
 
@@ -90,6 +91,66 @@ Get-ChildItem -Path "SOP","skills\01_Orchestrators","skills\02_Cognitive","skill
 | 歷史硬編碼 | 替換為 `<WORKSPACE_ROOT>` 語意佔位符 |
 | 廢棄腳本引用 | 改為 `Data/00_Skill_Manifest.json` |
 
+### 模組 5：MCP Config 動態路徑修復器
+
+**目的**：環境更換後，OS User 帳號一定不同，需自動化替換。
+**判斷標準**：掃描 `%USERPROFILE%\.gemini\config\mcp_config.json`，若發現舊路徑（如 `HH.AI_260611`），自動提示並提供替換腳本。
+
+```powershell
+$mcpConfig = "$env:USERPROFILE\.gemini\config\mcp_config.json"
+if (Test-Path $mcpConfig) {
+  $content = Get-Content $mcpConfig -Raw
+  if ($content -match "HH\.AI_260611") {
+    Write-Warning "⚠️ MCP Config 發現遺留路徑 (HH.AI_260611)，建議執行全域字串替換！"
+  }
+}
+```
+
+### 模組 6：資料庫 Fallback SSL 容錯驗證
+
+**目的**：確保新環境即使沒有正式雲端資料庫，也能用本地 Docker PostgreSQL 頂替。
+**判斷標準**：掃描 `Modules/db_state_manager.js`，確認是否包含 localhost 的 SSL 繞過邏輯。
+
+```powershell
+$dbManager = "Modules/db_state_manager.js"
+if (Test-Path $dbManager) {
+  $content = Get-Content $dbManager -Raw
+  if ($content -notmatch "rejectUnauthorized:\s*false") {
+    Write-Error "❌ 致命錯誤：資料庫管理器缺少 Fallback SSL 容錯機制！本地降級連線將會崩潰。"
+  }
+}
+```
+
+### 模組 7：外網隧道引擎一致性掃描
+
+**目的**：防止 Agent 再次載入舊版 Pinggy 代碼，確保 Cloudflared 隧道穩定啟動。
+**判斷標準**：掃描 `skills/03_Execution/line-bot-zero-delay/line-bot-project/bridge.js` 檔案內容，確保不存在 `startPinggyDaemon`。
+
+```powershell
+$bridgeJs = "skills\03_Execution\line-bot-zero-delay\line-bot-project\bridge.js"
+if (Test-Path $bridgeJs) {
+  $content = Get-Content $bridgeJs -Raw
+  if ($content -match "startPinggyDaemon") {
+    Write-Error "❌ 架構違規：發現舊版 Pinggy 隧道代碼殘留！請將橋接器升級為 Cloudflared 引擎。"
+  }
+}
+```
+
+### 模組 8：SOP_14 終極壓測與資安驗證
+
+**目的**：確保系統復原後，資安設定不會誤擋壓力測試與監控。
+**判斷標準**：確保 `bridge.js` 包含 `Umock_` 專屬的 `[MOCK_BYPASS]` 白名單設計。
+
+```powershell
+$bridgeJs = "skills\03_Execution\line-bot-zero-delay\line-bot-project\bridge.js"
+if (Test-Path $bridgeJs) {
+  $content = Get-Content $bridgeJs -Raw
+  if ($content -notmatch "String\(userId\)\.startsWith\('Umock_'\)") {
+    Write-Warning "⚠️ 遺失 [MOCK_BYPASS] 防護網：18-Agent 壓測將會消耗真實 LINE 配額！"
+  }
+}
+```
+
 ---
 
 ## 📋 執行 SOP
@@ -107,6 +168,14 @@ node scratch/update_manifest.js
 # 3. 歷史路徑掃描
 Get-ChildItem -Path "SOP","skills\01_Orchestrators","skills\02_Cognitive","skills\03_Execution" `
   -Recurse -Filter "*.md" | Select-String "AI Test_260"
+
+# 4. MCP Config 路徑與隧道健康檢查
+$mcpConfig = "$env:USERPROFILE\.gemini\config\mcp_config.json"
+if ((Get-Content $mcpConfig -Raw) -match "HH\.AI_260611") { Write-Warning "MCP Config 需要清理舊版路徑" }
+if ((Get-Content "skills\03_Execution\line-bot-zero-delay\line-bot-project\bridge.js" -Raw) -match "startPinggyDaemon") { Write-Error "隧道引擎版本退化，需還原 Cloudflared 邏輯" }
+
+# 5. SOP_14 自動化安全審計 (最終驗證)
+node scripts/sop14_audit_tool.js
 ```
 
 ---

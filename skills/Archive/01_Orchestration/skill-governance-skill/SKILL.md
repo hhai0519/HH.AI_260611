@@ -90,7 +90,7 @@ capabilities:
 
 ```powershell
 # 每次修改技能後必須執行
-node "<USER_HOME>\Desktop\HH.AI_260611\.agent\scripts\refresh_skills.js"
+node "<USER_HOME>\Desktop\HH.AI_260726\.agent\scripts\refresh_skills.js"
 ```
 
 確認輸出包含：

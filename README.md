@@ -1,4 +1,4 @@
-# 本協作系統 工作區 HH.AI_260611
+# 本協作系統 工作區 HH.AI_260726
 
 > **版本**：Argus v6.0 ｜ **架構版本**：V3.2.0 ｜ **更新**：2026-06-16
 
@@ -53,7 +53,7 @@ node line-bot-project\start_line.js  # LINE Bot 服務
 詳細架構說明請見 [`00_System_Architecture_Map.md`](./SOP/SOP_00_System_Architecture_Map.md)。
 
 ```
-HH.AI_260611/
+HH.AI_260726/
 ├── SOP/              ← 標準作業程序（15 份）
 ├── skills/           ← 技能庫（69 個技能，三層架構）
 │   ├── 01_Orchestrators/  (18 個) — 調度與流程控制

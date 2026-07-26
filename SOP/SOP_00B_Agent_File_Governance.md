@@ -11,7 +11,7 @@ dependencies: ["00_Master_Menu.ps1"]
 > 此文件為最高優先級設定。未來代理人在本目錄進行任何新建、修改、刪除動作前，都必須先讀取此文件作為「系統行為準則」。
 
 ## 1. 絕對零散落原則 (Zero-Clutter Policy)
-- **根目錄 (`<USER_HOME>\Desktop\HH.AI_260611`)** 僅限存在：
+- **根目錄 (`<USER_HOME>\Desktop\HH.AI_260726`)** 僅限存在：
   - `00_Master_Menu.ps1` (主控台入口)
   - `啟動系統.bat` (快捷啟動特許檔案)
   - `start_line.ps1` (特許代理入口 Proxy)

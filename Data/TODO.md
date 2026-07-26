@@ -24,7 +24,7 @@
 ---
 
 ## 🟠 系統架構合規性優化
-> 📄 **參考計畫文件：** [Architecture_Compliance_Plan_20260618.md](file:///c:/Users/HH.AI_260611/Desktop/HH.AI_260611/Data/Execution_Plans/Architecture_Compliance_Plan_20260618.md)
+> 📄 **參考計畫文件：** [Architecture_Compliance_Plan_20260618.md](file:///c:/Users/HH.AI_260726/Desktop/HH.AI_260726/Data/Execution_Plans/Architecture_Compliance_Plan_20260618.md)
 
 - [x] **LINE Bridge 狀態管理升級**：已成功重構 `Modules/line-bot-project/bridge.js` 與 `start_line.js`，對接 `db_state_manager.js` 實作資料庫悲觀鎖與 `line_message_queue` 佇列資料庫化（含防呆降級雙模式）。
 - [x] **架構位置決策**：已正式將專案搬移至 `Modules/line-bot-project/`（符合 SOP_00B 零散落原則），並實作 PM2 動態自癒回復。

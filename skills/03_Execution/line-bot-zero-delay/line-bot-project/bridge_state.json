@@ -2,5 +2,86 @@
   "activeAgentToken": null,
   "activeAgentLabel": null,
   "activeAgentFencingToken": "1:6",
-  "messageQueue": []
+  "messageQueue": [
+    {
+      "userId": "Umock_stress_tester",
+      "sourceId": "Umock_stress_tester",
+      "text": "fallback test 47",
+      "timestamp": 1785068052294,
+      "processing": false,
+      "traceId": "ec0be47a-3b7a-4268-9701-8c41e358ef05",
+      "retryCount": 0,
+      "notified": false
+    },
+    {
+      "userId": "Umock_stress_tester",
+      "sourceId": "Umock_stress_tester",
+      "text": "fallback test 48",
+      "timestamp": 1785068052306,
+      "processing": false,
+      "traceId": "3552c409-c6eb-429a-b5f1-b991899b5fb1",
+      "retryCount": 0,
+      "notified": false
+    },
+    {
+      "userId": "Umock_stress_tester",
+      "sourceId": "Umock_stress_tester",
+      "text": "fallback test 49",
+      "timestamp": 1785068052308,
+      "processing": false,
+      "traceId": "a566614e-a21a-45f4-a08d-2198bdd0ce7a",
+      "retryCount": 0,
+      "notified": false
+    },
+    {
+      "userId": "Umock_stress_tester",
+      "sourceId": "Umock_stress_tester",
+      "text": "fallback test 50",
+      "timestamp": 1785068052310,
+      "processing": false,
+      "traceId": "38f932e3-687b-4170-a8de-424d187ff3e2",
+      "retryCount": 0,
+      "notified": false
+    },
+    {
+      "userId": "Umock_stress_tester",
+      "sourceId": "Umock_stress_tester",
+      "text": "fallback test 51",
+      "timestamp": 1785068052311,
+      "processing": false,
+      "traceId": "a5994ec0-4d84-42b3-bb1f-fbab933977ce",
+      "retryCount": 0,
+      "notified": false
+    },
+    {
+      "userId": "Umock_stress_tester",
+      "sourceId": "Umock_stress_tester",
+      "text": "fallback test 52",
+      "timestamp": 1785068052313,
+      "processing": false,
+      "traceId": "708b6c8b-85d3-46e8-9671-5a8df1708755",
+      "retryCount": 0,
+      "notified": false
+    },
+    {
+      "userId": "Umock_stress_tester",
+      "sourceId": "Umock_stress_tester",
+      "text": "fallback test 53",
+      "timestamp": 1785068052314,
+      "processing": false,
+      "traceId": "e5c7fce1-b1c4-4c3d-b744-aca3ec6ee300",
+      "retryCount": 0,
+      "notified": false
+    },
+    {
+      "userId": "Umock_stress_tester",
+      "sourceId": "Umock_stress_tester",
+      "text": "fallback test 54",
+      "timestamp": 1785068052317,
+      "processing": false,
+      "traceId": "bb276432-3f97-4f04-b9ad-70da8aa8b51a",
+      "retryCount": 0,
+      "notified": false
+    }
+  ]
 }

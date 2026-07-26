@@ -1,6 +1,6 @@
 # 🔐 全站 TODO 清零作戰計畫 (v1.2) — 專業審計報告 (Auditor's Report)
 
-本報告針對萬能總管修訂之「[全站 TODO 清零作戰計畫 (v1.2)](file:///c:/Users/HH.AI_260611/.gemini/antigravity-ide/brain/9195d618-8907-47b2-b2d9-c1959af95765/implementation_plan.md)」進行最新一輪的安全與治理審計。
+本報告針對萬能總管修訂之「[全站 TODO 清零作戰計畫 (v1.2)](file:///c:/Users/HH.AI_260726/.gemini/antigravity-ide/brain/9195d618-8907-47b2-b2d9-c1959af95765/implementation_plan.md)」進行最新一輪的安全與治理審計。
 
 ---
 

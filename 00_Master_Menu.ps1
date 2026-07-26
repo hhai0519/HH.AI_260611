@@ -190,7 +190,7 @@ while ($true) {
     }
 
     Write-Host "===================================================================" -ForegroundColor Cyan
-    Write-Host "             防重力軟體工程工作台 (HH.AI_260611)               " -ForegroundColor Cyan
+    Write-Host "             防重力軟體工程工作台 (HH.AI_260726)               " -ForegroundColor Cyan
     Write-Host "===================================================================" -ForegroundColor Cyan
     Write-Host ""
     Write-Host " [ 系統健康度 ]" -ForegroundColor Yellow
