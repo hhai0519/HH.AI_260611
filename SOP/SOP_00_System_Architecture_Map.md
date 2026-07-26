@@ -1,5 +1,6 @@
 # 系統架構總覽 (System Architecture Map)
-> **版本**：V4.1.0 | **更新日期**：2026-07-16 | **技能總數**：65 個
+> **版本**：V4.2.0 | **更新日期**：2026-07-27 | **技能總數**：65 個
+
 
 此文件為自動化工作站的「大腦地圖」，定義了所有 Skills 的相互呼叫關係與核心執行目的。為確保系統穩定與代理人邏輯清晰，所有技能均歸類於三大核心維度：調度與流程控制、認知與角色框架、執行與自動化工具。
 
@@ -199,3 +200,6 @@ graph TD
    雙邊的對話紀錄統一寫入 `C:\Users\HH.AI_260726\Desktop\Line對話紀錄\萬能總管`，並具備非同步佇列與 EBUSY 鎖死防禦機制。
 3. **服務守護層 (PM2 Exemption)**
    皆受 `SOP_05` PM2 雙開特許白名單保護，直接與 IDE CDP (Port 9229) 接口通訊，擁有最高等級的系統操作權。
+
+> 📖 **完整歷程與權威規範文件**：請參閱 [SOP_15_OmniChannel_Connection_Development_History.md](file:///c:/Users/HH.AI_260726/Desktop/HH.AI_260726/SOP/SOP_15_OmniChannel_Connection_Development_History.md) 了解 LINE 與 Telegram 通訊模組的所有開發演進細節與實務運作 SOP。
+

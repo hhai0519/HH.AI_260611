@@ -1,0 +1,9 @@
+{
+  "auth_status": "valid",
+  "mock_cookies": {
+    "SID": "mock_sid_valid_token",
+    "HSID": "mock_hsid_valid_token",
+    "SSID": "mock_ssid_valid_token"
+  },
+  "updated_at": "2026-07-27T00:00:00.000Z"
+}
