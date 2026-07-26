@@ -16,7 +16,7 @@ capabilities:
 
 本技能為系統的**主動防禦層**，能自動偵測並引導修復以下架構問題：
 目錄結構違規、Manifest 路徑失效、歷史硬編碼路徑殘留、廢棄腳本引用。
-（V2 擴充：包含 MCP Config 動態路徑修復、資料庫 Fallback SSL 容錯驗證、外網隧道引擎一致性掃描、SOP_14 終極壓測與資安驗證）
+（V3 擴充：包含 MCP Config 動態路徑修復、資料庫 Fallback SSL 容錯驗證、外網隧道引擎一致性掃描、交接手冊環境版本校準）
 
 ---
 
@@ -136,17 +136,17 @@ if (Test-Path $bridgeJs) {
 }
 ```
 
-### 模組 8：SOP_14 終極壓測與資安驗證
+### 模組 8：交接手冊與環境版本自動校準
 
-**目的**：確保系統復原後，資安設定不會誤擋壓力測試與監控。
-**判斷標準**：確保 `bridge.js` 包含 `Umock_` 專屬的 `[MOCK_BYPASS]` 白名單設計。
+**目的**：確保系統復原後，交接手冊內不會殘留舊版的環境資訊（如舊版 Cloudflared 版本或舊版 MCP 數量），避免誤導後續接手的 Agent。
+**判斷標準**：掃描 `SOP_06_Handover_Manual.md` 等交接文件，檢查是否有過時的關鍵字，引導自動校準。
 
 ```powershell
-$bridgeJs = "skills\03_Execution\line-bot-zero-delay\line-bot-project\bridge.js"
-if (Test-Path $bridgeJs) {
-  $content = Get-Content $bridgeJs -Raw
-  if ($content -notmatch "String\(userId\)\.startsWith\('Umock_'\)") {
-    Write-Warning "⚠️ 遺失 [MOCK_BYPASS] 防護網：18-Agent 壓測將會消耗真實 LINE 配額！"
+$handoverSop = "SOP\SOP_06_Handover_Manual.md"
+if (Test-Path $handoverSop) {
+  $content = Get-Content $handoverSop -Raw
+  if ($content -match "106 個工具" -or $content -match "Cloudflared v2026.4") {
+    Write-Warning "⚠️ 交接手冊含有舊環境的硬編碼版本資訊！請啟動校準更新至當前正確版本。"
   }
 }
 ```
@@ -174,8 +174,8 @@ $mcpConfig = "$env:USERPROFILE\.gemini\config\mcp_config.json"
 if ((Get-Content $mcpConfig -Raw) -match "HH\.AI_260611") { Write-Warning "MCP Config 需要清理舊版路徑" }
 if ((Get-Content "skills\03_Execution\line-bot-zero-delay\line-bot-project\bridge.js" -Raw) -match "startPinggyDaemon") { Write-Error "隧道引擎版本退化，需還原 Cloudflared 邏輯" }
 
-# 5. SOP_14 自動化安全審計 (最終驗證)
-node scripts/sop14_audit_tool.js
+# 5. 交接手冊版本校準掃描
+if ((Get-Content "SOP\SOP_06_Handover_Manual.md" -ErrorAction SilentlyContinue | Out-String) -match "106 個工具|Cloudflared v2026.4") { Write-Warning "交接手冊包含舊版環境資訊，需進行更新" }
 ```
 
 ---
