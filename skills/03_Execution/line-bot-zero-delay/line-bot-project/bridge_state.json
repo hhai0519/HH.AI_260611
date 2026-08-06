@@ -1,6 +1,5 @@
 {
-  "activeAgentToken": null,
-  "activeAgentLabel": null,
-  "activeAgentFencingToken": "1:6",
+  "activeAgentToken": "Sandbox-Agent-Test",
+  "activeAgentFencingToken": "1:20",
   "messageQueue": []
 }

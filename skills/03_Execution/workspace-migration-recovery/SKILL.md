@@ -90,6 +90,66 @@ fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2), 'utf8');
 - 執行 `node scripts/sop14_audit_tool.js`，完成弱金鑰、防護模式降級、漏洞靜態掃描與 Zero-Quota 壓力測試。
 - 在 `artifacts` 目錄自動生成 `system_restoration_audit_report.md` 作為最高指揮官簽核文件。
 
+### 模組 5：MCP Config 動態路徑修復器
+
+**目的**：環境更換後，OS User 帳號一定不同，需自動化替換。
+**判斷標準**：掃描 `%USERPROFILE%\.gemini\config\mcp_config.json`，若發現舊路徑（如 `HH.AI_260611`），自動提示並提供替換腳本。
+
+```powershell
+$mcpConfig = "$env:USERPROFILE\.gemini\config\mcp_config.json"
+if (Test-Path $mcpConfig) {
+  $content = Get-Content $mcpConfig -Raw
+  if ($content -match "HH\.AI_260611") {
+    Write-Warning "⚠️ MCP Config 發現遺留路徑 (HH.AI_260611)，建議執行全域字串替換！"
+  }
+}
+```
+
+### 模組 6：資料庫 Fallback SSL 容錯驗證
+
+**目的**：確保新環境即使沒有正式雲端資料庫，也能用本地 Docker PostgreSQL 頂替。
+**判斷標準**：掃描 `Modules/db_state_manager.js`，確認是否包含 localhost 的 SSL 繞過邏輯。
+
+```powershell
+$dbManager = "Modules/db_state_manager.js"
+if (Test-Path $dbManager) {
+  $content = Get-Content $dbManager -Raw
+  if ($content -notmatch "rejectUnauthorized:\s*false") {
+    Write-Error "❌ 致命錯誤：資料庫管理器缺少 Fallback SSL 容錯機制！本地降級連線將會崩潰。"
+  }
+}
+```
+
+### 模組 7：外網隧道引擎一致性掃描
+
+**目的**：防止 Agent 再次載入舊版 Pinggy 代碼，確保 Cloudflared 隧道穩定啟動。
+**判斷標準**：掃描 `skills/03_Execution/line-bot-zero-delay/line-bot-project/bridge.js` 檔案內容，確保不存在 `startPinggyDaemon`。
+
+```powershell
+$bridgeJs = "skills\03_Execution\line-bot-zero-delay\line-bot-project\bridge.js"
+if (Test-Path $bridgeJs) {
+  $content = Get-Content $bridgeJs -Raw
+  if ($content -match "startPinggyDaemon") {
+    Write-Error "❌ 架構違規：發現舊版 Pinggy 隧道代碼殘留！請將橋接器升級為 Cloudflared 引擎。"
+  }
+}
+```
+
+### 模組 8：交接手冊與環境版本自動校準
+
+**目的**：確保系統復原後，交接手冊內不會殘留舊版的環境資訊（如舊版 Cloudflared 版本或舊版 MCP 數量），避免誤導後續接手的 Agent。
+**判斷標準**：掃描 `SOP_06_Handover_Manual.md` 等交接文件，檢查是否有過時的關鍵字，引導自動校準。
+
+```powershell
+$handoverSop = "SOP\SOP_06_Handover_Manual.md"
+if (Test-Path $handoverSop) {
+  $content = Get-Content $handoverSop -Raw
+  if ($content -match "106 個工具" -or $content -match "Cloudflared v2026.4") {
+    Write-Warning "⚠️ 交接手冊含有舊環境的硬編碼版本資訊！請啟動校準更新至當前正確版本。"
+  }
+}
+```
+
 ---
 
 ## 📋 修復指令與快速執行 SOP (Restoration Cheat Sheet)

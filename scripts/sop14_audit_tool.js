@@ -93,11 +93,11 @@ async function run() {
       const testUrl = webhookUrl.replace('/webhook', '/lock/status');
       const status = await pingHttpsUrl(testUrl);
       
-      // 3. 檢查本地 ssh.exe 隧道進程
-      const sshRunning = isSshProcessRunning();
+      // 3. 檢查本地 cloudflared 隧道進程
+      const tunnelRunning = isCloudflaredRunning();
 
-      reportData.tunnelHealth.details = `Registered Webhook: ${webhookUrl}\n- Public URL Status: ${status === 200 ? '🟢 200 OK (Responsive)' : `🔴 Error ${status}`}\n- Local SSH Tunnel Process: ${sshRunning ? '🟢 Running' : '🔴 Stopped'}`;
-      if (status !== 200 || !sshRunning) {
+      reportData.tunnelHealth.details = `Registered Webhook: ${webhookUrl}\n- Public URL Status: ${status === 200 ? '🟢 200 OK (Responsive)' : `🔴 Error ${status}`}\n- Local Cloudflared Tunnel Process: ${tunnelRunning ? '🟢 Running' : '🔴 Stopped'}`;
+      if (status !== 200 || !tunnelRunning) {
         reportData.tunnelHealth.status = '🔴 Unhealthy';
       }
     } catch(err) {
@@ -288,11 +288,11 @@ function pingHttpsUrl(urlStr) {
   });
 }
 
-// 輔助：檢查 ssh 進程是否存在
-function isSshProcessRunning() {
+// 輔助：檢查 cloudflared 進程是否存在
+function isCloudflaredRunning() {
   try {
-    const output = execSync('tasklist /FI "IMAGENAME eq ssh.exe"', { encoding: 'utf8' });
-    return output.includes('ssh.exe');
+    const output = execSync('tasklist', { encoding: 'utf8' });
+    return output.toLowerCase().includes('cloudflared');
   } catch(e) {
     return false;
   }
