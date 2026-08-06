@@ -196,6 +196,6 @@ graph TD
 1. **資料安全層 (DLP Sanitizer)**
    雙邊皆強制引用 `Modules/shared/dlpSanitizer.js`，確保外發之對話不會洩漏 API 金鑰、JWT 或資料庫密碼。
 2. **日誌歸檔層 (Atomic Write Queue)**
-   雙邊的對話紀錄統一寫入 `C:\Users\HH.AI_260611\Desktop\Line對話紀錄\萬能總管`，並具備非同步佇列與 EBUSY 鎖死防禦機制。
+   雙邊的對話紀錄統一寫入 `C:\Users\HH.AI_260806\Desktop\Line對話紀錄\萬能總管`，並具備非同步佇列與 EBUSY 鎖死防禦機制。
 3. **服務守護層 (PM2 Exemption)**
    皆受 `SOP_05` PM2 雙開特許白名單保護，直接與 IDE CDP (Port 9229) 接口通訊，擁有最高等級的系統操作權。

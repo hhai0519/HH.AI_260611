@@ -103,10 +103,10 @@ NotebookLM 需要特定的認證 Cookie（`OSID`、`__Secure-OSID`）才能通�
 
 | 項目 | 路徑 |
 |------|------|
-| MCP 指示文件 | `C:\Users\HH.AI_260611\.gemini\antigravity-ide\mcp\notebooklm\instructions.md` |
-| Antigravity Skill | `C:\Users\HH.AI_260611\.gemini\antigravity\skills\nlm-skill\` |
-| Knowledge Item | `C:\Users\HH.AI_260611\.gemini\antigravity-ide\knowledge\notebooklm-auth-sop\` |
-| 認證憑證儲存 | `C:\Users\HH.AI_260611\.notebooklm-mcp-cli\profiles\default\` |
+| MCP 指示文件 | `C:\Users\HH.AI_260806\.gemini\antigravity-ide\mcp\notebooklm\instructions.md` |
+| Antigravity Skill | `C:\Users\HH.AI_260806\.gemini\antigravity\skills\nlm-skill\` |
+| Knowledge Item | `C:\Users\HH.AI_260806\.gemini\antigravity-ide\knowledge\notebooklm-auth-sop\` |
+| 認證憑證儲存 | `C:\Users\HH.AI_260806\.notebooklm-mcp-cli\profiles\default\` |
 
 ---
 

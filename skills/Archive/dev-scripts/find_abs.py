@@ -1,7 +1,7 @@
 ﻿import os
 import glob
 
-base = r'c:\Users\HH.AI_260611\Desktop\HH.AI_260611\skills'
+base = r'c:\Users\HH.AI_260806\Desktop\HH.AI_260806\skills'
 found_files = []
 for root, dirs, files in os.walk(base):
     for f in files:
@@ -9,7 +9,7 @@ for root, dirs, files in os.walk(base):
         try:
             with open(path, 'r', encoding='utf-8', errors='ignore') as file:
                 content = file.read()
-                if r'C:\Users\HH.AI_260611\Desktop\HH.AI_260611' in content or r'C:/Users/HH.AI_260611/Desktop/HH.AI_260611' in content:
+                if r'C:\Users\HH.AI_260806\Desktop\HH.AI_260806' in content or r'C:/Users/HH.AI_260806/Desktop/HH.AI_260806' in content:
                     found_files.append(path)
         except Exception:
             pass

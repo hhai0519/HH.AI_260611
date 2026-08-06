@@ -4,7 +4,7 @@ version: "3.1.3"
 tags: [SOP, Readme, Directory]
 dependencies: []
 ---
-# 本協作系統 工作區 ─ HH.AI_260611
+# 本協作系統 工作區 ─ HH.AI_260806
 
 版本控制：v260611 (2026-06-11)
 
@@ -24,7 +24,7 @@ dependencies: []
 ## 1. 工作區目錄結構
 
 ```text
-HH.AI_260611/
+HH.AI_260806/
 ├── README.md                  # 工作區基礎指南
 ├── Summary_History.md         # 歷史操作紀錄與摘要
 ├── skills/                    # 包含 本協作系統 Skills 的本地目錄

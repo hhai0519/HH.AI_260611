@@ -106,7 +106,7 @@ Task 3 成功標準：
 ```markdown
 ## 任務背景
 我正在開發臺股分析網站，目標是讓使用者查看個股 K 線圖與技術指標。
-工作目錄：<USER_HOME>\Desktop\HH.AI_260611\
+工作目錄：<USER_HOME>\Desktop\HH.AI_260806\
 
 ## 你的具體任務
 實作 D3.js K 線圖元件，儲存為 js/candlestick.js
@@ -320,7 +320,7 @@ function parseTWSEDailyK(rawData) {
 
 ```
 環境
-- [ ] 工作目錄正確：<USER_HOME>\Desktop\HH.AI_260611\
+- [ ] 工作目錄正確：<USER_HOME>\Desktop\HH.AI_260806\
 - [ ] Python + Playwright 可用（pip install playwright && playwright install chromium）
 - [ ] 瀏覽器可開啟目標 URL
 

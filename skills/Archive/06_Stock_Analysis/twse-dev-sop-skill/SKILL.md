@@ -108,7 +108,7 @@ Task 3 成功標準：
 ## 任務背景
 <<<<<<< HEAD:skills/01_Orchestrators/twse-dev-sop-skill/SKILL.md
 我正在開發臺股分析網站，目標是讓使用者查看個股 K 線圖與技術指標。
-工作目錄：<USER_HOME>\Desktop\HH.AI_260611\
+工作目錄：<USER_HOME>\Desktop\HH.AI_260806\
 =======
 我正在開發臺股分析網站，目標是讓使用者檢視個股 K 線圖與技術指標。
 工作目錄：<USER_HOME>\Desktop\AI Test_260413\
@@ -326,7 +326,7 @@ function parseTWSEDailyK(rawData) {
 
 ```
 環境
-- [ ] 工作目錄正確：<USER_HOME>\Desktop\HH.AI_260611\
+- [ ] 工作目錄正確：<USER_HOME>\Desktop\HH.AI_260806\
 - [ ] Python + Playwright 可用（pip install playwright && playwright install chromium）
 - [ ] 瀏覽器可開啟目標 URL
 

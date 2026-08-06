@@ -48,7 +48,8 @@ module.exports = {
     // ─── Zero-Delay 輕量橋接器 (唯一 Telegram 橋接 App) ────────────────────────
     {
       name: "tg-bridge-zero-delay",
-      script: "./dist/bin/cli-zero-delay.js",
+      script: path.join(__dirname, "dist", "bin", "cli-zero-delay.js"),
+      exec_mode: "fork",
       instances: 1,
       autorestart: true,
       watch: false,
