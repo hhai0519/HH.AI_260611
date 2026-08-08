@@ -79,7 +79,7 @@ NO FIXES WITHOUT ROOT CAUSE INVESTIGATION FIRST
    **在每個邊界加入診斷：**
    ```powershell
    # 確認執行檔存在
-   Test-Path "<USER_HOME>\AppData\Local\Programs\Python\Python313\Scripts\notebooklm-mcp.exe"
+   where.exe notebooklm-mcp
 
    # 確認 docker 可用
    docker --version
@@ -164,7 +164,7 @@ NO FIXES WITHOUT ROOT CAUSE INVESTIGATION FIRST
 | 工具超出 100 上限 | 新增 MCP 超出額度 | 計算各 MCP 工具數，找可停用的 |
 | MCP server 啟動失敗 | 執行檔路徑錯誤或不存在 | `Test-Path <executable>` |
 | GitHub MCP 連線失敗 | PAT 過期 / Docker 未啟動 | `docker ps` + 確認 PAT 有效期 |
-| NotebookLM 認證錯誤 | Session 過期 | `nlm login` 重新登入 |
+| NotebookLM 認證錯誤 | Session 過期 | `nlm doctor` 接著 `nlm login` 重新登入 |
 | Docker OAuth 警告 | Docker Desktop 背景服務 | 確認 Docker Desktop 已開啟，可忽略 |
 | npm 404 錯誤 | 套件名稱錯誤 | 確認官方文件中的正確 npm 套件名 |
 
@@ -199,7 +199,7 @@ NO FIXES WITHOUT ROOT CAUSE INVESTIGATION FIRST
  
 - **mcp-setup-skill** — 查找正確的設定格式與常見問題解法
 - **subagent-collaboration-skill** — 複雜除錯任務可以派發子代理人進行診斷
-- **nlm-skill** — NotebookLM 相關問題的專屬指令參考
+- **notebooklm-mcp** — NotebookLM 相關問題的專屬指令參考
 
 ## 版本紀錄 (Changelog)
 - **[2.0.0]** 2026-05-04：V2.0.0 Polymorphic Labeling Migration — 依生命週期 SOP 導入多態功能性技術標籤 (tool_category, execution_env, io_format)，建立執行層 Manifest 路由能力。

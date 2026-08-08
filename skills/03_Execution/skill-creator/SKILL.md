@@ -126,7 +126,7 @@ New-Item "<USER_HOME>\.gemini\本協作系統\skills\<new-skill-name>\SKILL.md"
 
 ### Step 4：執行儀錶板同步
 ```powershell
-node "<USER_HOME>\Desktop\HH.AI_260611\.agent\scripts\refresh_skills.js"
+node "<USER_HOME>\Desktop\HH.AI_260806\scratch\update_manifest.js"
 ```
 
 ### Step 5：驗證

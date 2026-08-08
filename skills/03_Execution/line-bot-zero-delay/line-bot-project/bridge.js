@@ -327,7 +327,7 @@ async function logToGitHubAudit(ticketId, messageId, agentId, text) {
   }
 
   try {
-    const owner = 'HH.AI_260611'; 
+    const owner = 'HH.AI_260806'; 
     const repo = 'audit-repo';     
     const path = 'audit/replay-log.json';
     

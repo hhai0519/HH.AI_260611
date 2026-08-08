@@ -92,7 +92,7 @@ Task 3 成功標準：
 | 決定指標閾值與市場邏輯 | `twse-market-logic-skill` |
 | 完成任何前端功能後 | `webapp-testing-skill` |
 | MCP 或環境設定 | `mcp-setup-skill` |
-| NotebookLM 研究 | `nlm-skill` |
+| NotebookLM 研究 | `notebooklm-mcp` |
 | 錯誤無法解決 | `systematic-debugging-skill` |
 
 ---
@@ -106,7 +106,7 @@ Task 3 成功標準：
 ```markdown
 ## 任務背景
 我正在開發臺股分析網站，目標是讓使用者查看個股 K 線圖與技術指標。
-工作目錄：<USER_HOME>\Desktop\HH.AI_260611\
+工作目錄：<USER_HOME>\Desktop\HH.AI_260806\
 
 ## 你的具體任務
 實作 D3.js K 線圖元件，儲存為 js/candlestick.js
@@ -320,7 +320,7 @@ function parseTWSEDailyK(rawData) {
 
 ```
 環境
-- [ ] 工作目錄正確：<USER_HOME>\Desktop\HH.AI_260611\
+- [ ] 工作目錄正確：<USER_HOME>\Desktop\HH.AI_260806\
 - [ ] Python + Playwright 可用（pip install playwright && playwright install chromium）
 - [ ] 瀏覽器可開啟目標 URL
 
@@ -409,7 +409,7 @@ c3d4e5f	55	discard	散點圖嘗試失敗
 | 「幫我畫 K 線圖 / 熱力圖」 | d3-viz-skill |
 | 「確認這個頁面有沒有問題」 | webapp-testing-skill |
 | 「MCP 工具不能用了」 | systematic-debugging-skill |
-| 「幫我研究臺股技術指標」 | nlm-skill |
+| 「幫我研究臺股技術指標」 | notebooklm-mcp |
 | 「幫我確認市場分析指標與閾值」 | **twse-market-logic-skill** |
 | 「開始開發 XX 功能」 | **本 SOP（twse-dev-sop-skill）** |
 | 「自主迭代優化圖表」 | **本 SOP PHASE 5（autoresearch 模式）** |

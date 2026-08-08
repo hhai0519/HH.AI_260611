@@ -11,7 +11,7 @@
 * **發現隱患**：
   效能壓測官建議「讓 Agent 每次產生報表時，順手用指令刪除 7 天前的舊檔」。稽核員強烈反對！讓 AI Agent 隨意執行 `Remove-Item` 刪除指令，有極高風險誤刪系統關鍵檔案，這**嚴重違反了 `SOP_05` 的「嚴禁破壞性指令」與「雙重確認防護」鐵律**！
 * **優化提案**：
-  **剝奪 Agent 的刪除權限**。清理 `C:\Users\HH.AI_260611\Desktop\Line對話紀錄` 目錄的任務，依照舊版邏輯應交由底層的 `start_line.ps1` 守護神在每次系統重啟時全自動執行（Auto Garbage Collection）。Agent 在 `SKILL.md` 中的任務只有「寫入檔案」，絕對禁止 Agent 自主執行任何刪除動作！
+  **剝奪 Agent 的刪除權限**。清理 `C:\Users\HH.AI_260806\Desktop\Line對話紀錄` 目錄的任務，依照舊版邏輯應交由底層的 `start_line.ps1` 守護神在每次系統重啟時全自動執行（Auto Garbage Collection）。Agent 在 `SKILL.md` 中的任務只有「寫入檔案」，絕對禁止 Agent 自主執行任何刪除動作！
 
 ---
 

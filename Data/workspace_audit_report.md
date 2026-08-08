@@ -1,7 +1,7 @@
 # 🔐 全站安全與架構治理 — 內部審查官審計報告 (Workspace Audit Report)
 
 > **審計時間**：2026-06-21 00:30 | **審計執行官**：內部審查官 (Internal Auditor)
-> **審計對象**：工作區 `C:\Users\HH.AI_260611\Desktop\HH.AI_260611` 全體檔案與配置
+> **審計對象**：工作區 `C:\Users\HH.AI_260806\Desktop\HH.AI_260806` 全體檔案與配置
 > **整體判定**：🟢 **通過 (Passed)** (路徑已完全對接，開機自動回復修復成功，防呆降級雙模式運作正常)
 
 ---
@@ -31,7 +31,7 @@
 
 ## 🛠️ 審計官優化行動清單 (Action Plan)
 
-1. **[Completed]** 執行 [LINE Bridge 與 Neon DB 狀態管理無縫整合計畫](file:///C:/Users/HH.AI_260611/.gemini/antigravity-ide/brain/26a40543-1c93-4b8c-a5fb-7c61086fb3d3/implementation_plan.md) (已完成雙模式重構與 PM2 在合規目錄下的重新註冊)。
+1. **[Completed]** 執行 [LINE Bridge 與 Neon DB 狀態管理無縫整合計畫](file:///C:/Users/HH.AI_260806/.gemini/antigravity-ide/brain/26a40543-1c93-4b8c-a5fb-7c61086fb3d3/implementation_plan.md) (已完成雙模式重構與 PM2 在合規目錄下的重新註冊)。
 2. **[Completed]** 啟動與版控配置路徑修正 (已完成 `start_line.ps1` 與 `.gitignore` 路徑更新，並完成 `pm2 save` 開機自動回復狀態鎖定)。
 3. **[Completed]** 於背景啟動 `auto_optimize_controller.py`，繼續微型模型優化實驗 (累計已跑完 44 次實驗，且動態基準載入驗證成功)。
 4. **[Completed]** 刪除根目錄殘留之舊 `line-bot-project/` 空目錄 (已由使用者手動安全清除，全工作區達到 100% 零散落絕對合規)。

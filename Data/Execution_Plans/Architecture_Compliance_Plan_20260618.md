@@ -8,7 +8,7 @@
 ## ⚠️ 發現的 SOP 違規項目
 
 ### 1. 違反「絕對零散落原則 (Zero-Clutter Policy)」
-**依據：** [`SOP_00B_Agent_File_Governance.md`](file:///c:/Users/HH.AI_260611/Desktop/HH.AI_260611/SOP/SOP_00B_Agent_File_Governance.md)
+**依據：** [`SOP_00B_Agent_File_Governance.md`](file:///c:/Users/HH.AI_260806/Desktop/HH.AI_260806/SOP/SOP_00B_Agent_File_Governance.md)
 SOP_00B 明確規範根目錄僅能存在 `00_Master_Menu.ps1`、`啟動系統.bat` 與隱藏設定檔。其餘任何腳本、專案與說明檔皆須歸入子資料夾（`Modules/`、`SOP/`、`Data/` 等）。
 - **違規檔案**：
   - `LINE_Bridge_Improvement_Report.md`、`TODO.md` 散落在根目錄。
@@ -16,7 +16,7 @@ SOP_00B 明確規範根目錄僅能存在 `00_Master_Menu.ps1`、`啟動系統.b
   - `line-bot-project/` 獨立於根目錄，未納入模組或系統資料夾規範。
 
 ### 2. 違反「分散式悲觀鎖機制 (Pessimistic Distributed Lock)」
-**依據：** [`SOP_10_AI_Command_Center.md`](file:///c:/Users/HH.AI_260611/Desktop/HH.AI_260611/SOP/SOP_10_AI_Command_Center.md)
+**依據：** [`SOP_10_AI_Command_Center.md`](file:///c:/Users/HH.AI_260806/Desktop/HH.AI_260806/SOP/SOP_10_AI_Command_Center.md)
 SOP_10 強制宣告 V3.2.0 已廢除本地檔案鎖機制，所有 Agent 資源鎖定必須透過 `Modules/db_state_manager.js` 操作資料庫。
 - **違規實作**：目前的 `bridge.js` 仍使用本地檔案 `bridge_state.json` 作為 `messageQueue` 與 `activeAgentToken` 的儲存媒介，並且自行實作了 `/api/lock/acquire`，這在多 Agent 併發環境下不具備分散式互斥的安全性。
 

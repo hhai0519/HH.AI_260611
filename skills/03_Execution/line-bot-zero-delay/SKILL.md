@@ -115,7 +115,7 @@ $env:REPLY_TEXT = @"
 
 3. **【重載傳輸協定】(針對字數大於 4000 或表格排版)**：
    若內容字數過大或使用者要求「表格排版」，**絕對禁止直接透過 `reply.js` 推播全文或 Markdown 表格**（會導致 LINE 當機或排版崩潰）。請嚴格執行實體分離法：
-   - AI 先手動將巨型報表寫入桌面專屬歸檔區：`C:\Users\HH.AI_260611\Desktop\Line對話紀錄\report_{timestamp}.txt` (表格請轉為 CSV 逗號分隔格式)。
+   - AI 先手動將巨型報表寫入桌面專屬歸檔區：`C:\Users\HH.AI_260806\Desktop\Line對話紀錄\report_{timestamp}.txt` (表格請轉為 CSV 逗號分隔格式)。
    - 組合出 API 網址：`$env:TUNNEL_URL/api/download?file=report_{timestamp}.txt`。
    - 使用 `reply.js` 發送短提示語：「💡 報表過長已轉檔。請點擊下載：[上述網址] (建議使用電腦版觀看獲得最佳體驗)」。
 回覆的內容支援完整的 Markdown 語法（包含程式碼區塊）。

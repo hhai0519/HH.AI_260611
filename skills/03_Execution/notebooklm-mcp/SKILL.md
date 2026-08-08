@@ -15,7 +15,7 @@ capabilities:
 ### 【摘要】觸發條件與 DLP 聲明
 - ✓ DLP 資料安全驗證已通過 | 資料加密處理 | 隱私保護協議
 
-本技能透過 **NotebookLM MCP Server** 讓 本協作系統 Agent 直接自動化操控 Google NotebookLM，實現：批量建立知識庫、多源研究彙整、Podcast 製作、AI 報告生成，以及跨 Notebook 的深度知識交叉查詢。
+本技能透過 **NotebookLM MCP Server** 讓 本協作系統 Agent 直接自動化操控 Gemini Notebook (formerly Google NotebookLM)，實現：批量建立知識庫、多源研究彙整、Podcast 製作、AI 報告生成，以及跨 Notebook 的深度知識交叉查詢。
 
 ---
 
@@ -30,6 +30,8 @@ capabilities:
 ---
 
 ## 🛠️ 核心功能矩陣
+
+本 MCP 伺服器包含 43 個強大工具，近期新增 `label`, `studio_revise`, `note`, `pipeline` 等自動化控制單元。
 
 | 功能類別 | MCP 工具 | 說明 |
 |---|---|---|
@@ -110,7 +112,13 @@ mcp_notebooklm_cross_notebook_query(
 
 ## 🔐 認證管理
 
+> [!WARNING]
+> Antigravity IDE 的擴充套件可能干擾 Chrome 的背景登入。若發生 `401 Unauthorized` 錯誤，強烈建議使用 Edge 進行登入 (`nlm config set auth.browser edge`) 或採用 File Mode 擷取 Cookie。
+
 ```bash
+# 診斷環境與連線
+nlm doctor
+
 # 首次登入（在終端執行）
 nlm login
 
@@ -136,7 +144,7 @@ mcp_notebooklm_refresh_auth
 
 ## 🤝 協同技能
 
-- `nlm-skill`：CLI 操作進階 SOP
+- `notebooklm-mcp （本技能）`：CLI 操作進階 SOP
 - `csv-data-summarizer`：下載的 data_table 後續統計分析
 - `handover-manual-skill`：研究成果整合到交接文件
 

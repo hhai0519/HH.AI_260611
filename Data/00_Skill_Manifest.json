@@ -1,52 +1,4 @@
 {
-  "_system_triggers_matrix": {
-    "$$自動化$$": {
-      "target_skill": "agency-orchestrator-skill",
-      "target_file": "./skills/01_Orchestrators/agency-orchestrator-skill/SKILL.md",
-      "action": "render_interception_menu",
-      "allowed_options": [
-        "$$自動化_微型模型$$",
-        "$$自動化_通用研究$$",
-        "$$自動化_量化實驗$$"
-      ]
-    },
-    "$$自動化_微型模型$$": {
-      "target_skill": "autoresearch-agent",
-      "target_file": "./skills/01_Orchestrators/autoresearch-agent/SKILL.md",
-      "action": "direct_execution"
-    },
-    "$$自動化_通用研究$$": {
-      "target_skill": "recursive-research-automation",
-      "target_file": "./skills/01_Orchestrators/recursive-research-automation/SKILL.md",
-      "action": "direct_execution"
-    },
-    "$$自動化_量化實驗$$": {
-      "target_skill": "quant-research-loop",
-      "target_file": "./skills/01_Orchestrators/quant-research-loop/SKILL.md",
-      "action": "direct_execution"
-    },
-    "$$Line帳號$$": {
-      "target_skill": "bot-account-switcher",
-      "target_file": "./.agents/skills/bot-account-switcher/SKILL.md",
-      "platform": "line"
-    },
-    "$$TG帳號$$": {
-      "target_skill": "bot-account-switcher",
-      "target_file": "./.agents/skills/bot-account-switcher/SKILL.md",
-      "platform": "tg"
-    },
-    "$$Allow All$$": {
-      "target_policy": "SOP_01_Automation_Process.md",
-      "target_file": "./SOP/SOP_01_Automation_Process.md",
-      "action": "enable_full_tool_authorization"
-    },
-    "$$allowall$$": {
-      "alias_for": "$$Allow All$$",
-      "target_policy": "SOP_01_Automation_Process.md",
-      "target_file": "./SOP/SOP_01_Automation_Process.md",
-      "action": "enable_full_tool_authorization"
-    }
-  },
   "agency-orchestrator-skill": {
     "display_name": "萬能總管模式",
     "description": "萬能總管模式（Agency-Agents 最高總管），負責通用意圖解析與全局任務拆解，並執行 4-Phase 狀態機工作流。",
@@ -56,28 +8,28 @@
     "capabilities": {}
   },
   "autoresearch-agent": {
-    "description": "微型 AI 模型超參數自動化優化代理人。僅在指令包含「$$自動化$$」且涉及模型優化時啟用。符合 SOP §2.4 強制授權協議。 [精準觸發詞：$$自動化_微型模型$$]",
+    "description": "微型 AI 模型超參數自動化優化代理人。僅在指令包含「$$自動化_微型模型$$」且涉及模型優化時啟用。符合 SOP §2.4 強制授權協議。",
     "version": "3.0.0",
     "type": "skill",
     "path": "./skills/01_Orchestrators/autoresearch-agent/SKILL.md",
     "capabilities": {}
   },
   "optimization-status": {
-    "description": "🤖 背景自動優化狀態監控器。追蹤超參數實驗進度，管理 val_bpb 閾值與結果日誌。",
+    "description": "🤖 背景自動優化狀態監控器。目前正在針對 TinyStories 數據進行超參數 (DEPTH, LR) 實驗中。",
     "version": "3.0.0",
     "type": "skill",
     "path": "./skills/01_Orchestrators/optimization-status/SKILL.md",
     "capabilities": {}
   },
   "quant-research-loop": {
-    "description": "Autonomous financial experimentation and strategy validation loop. 僅在指令包含「$$自動化$$」時啟用。符合 SOP §2.4 強制授權協議。 [精準觸發詞：$$自動化_量化實驗$$]",
+    "description": "Autonomous financial experimentation and strategy validation loop. 僅在指令包含「$$自動化_量化實驗$$」時啟用。符合 SOP §2.4 強制授權協議。",
     "version": "3.0.0",
     "type": "skill",
     "path": "./skills/01_Orchestrators/quant-research-loop/SKILL.md",
     "capabilities": {}
   },
   "quota-monitor-skill": {
-    "description": "本協作系統 Cockpit Quota API 監控系統，強制實施 20% 安全熔斷。僅在啟用「$$自動化$$」流程或手動查詢時調用。符合 SOP §2.4 授權協議。",
+    "description": "本協作系統 Cockpit Quota API 監控系統，強制實施 10% 安全熔斷。僅在啟用「$$自動化$$」流程或手動查詢時調用。符合 SOP §2.4 授權協議。",
     "version": "3.0.0",
     "type": "skill",
     "path": "./skills/01_Orchestrators/quota-monitor-skill/SKILL.md",
@@ -91,14 +43,14 @@
     "capabilities": {}
   },
   "recursive-research-automation": {
-    "description": "通用的遞迴研究自動化框架。僅在指令包含「$$自動化$$」時啟用。符合 SOP §2.4 強制授權協議。 [精準觸發詞：$$自動化_通用研究$$]",
+    "description": "通用的遞迴研究自動化框架。僅在指令包含「$$自動化_通用研究$$」時啟用。符合 SOP §2.4 強制授權協議。",
     "version": "3.0.0",
     "type": "skill",
     "path": "./skills/01_Orchestrators/recursive-research-automation/SKILL.md",
     "capabilities": {}
   },
   "reflection-module": {
-    "description": "'具備前瞻性 (Prospective) 與多代理人 (Multi-Agent) 協作架構的自我反思與行為優化模組。'",
+    "description": "具備前瞻性 (Prospective) 與多代理人 (Multi-Agent) 協作架構的自我反思與行為優化模組。",
     "version": "'2.0.0'",
     "type": "skill",
     "path": "./skills/01_Orchestrators/reflection-module/SKILL.md",
@@ -112,7 +64,7 @@
     "capabilities": {}
   },
   "backend-architect": {
-    "description": "後端架構師，負責 API 設計、資料庫 Schema 與資料流優化。",
+    "description": "後端架構師，負責 API 設計、資料庫 Schema 與資料流最佳化。",
     "version": "3.0.0",
     "type": "skill",
     "path": "./skills/02_Cognitive/backend-architect/SKILL.md",
@@ -147,7 +99,7 @@
     "capabilities": {}
   },
   "frontend-developer": {
-    "description": "前端開發工程師，負責 UI/UX 邏輯、組件實作與互動設計。",
+    "description": "前端開發工程師，負責 UI/UX 邏輯、元件實作與互動設計。",
     "version": "3.0.0",
     "type": "skill",
     "path": "./skills/02_Cognitive/frontend-developer/SKILL.md",
@@ -182,7 +134,7 @@
     "capabilities": {}
   },
   "twse-market-logic-skill": {
-    "description": "臺股市場分析深度邏輯。包含恐慌指數 (VIX/VIXTWN) 閾值、分層確認模型 (Hierarchical Confirmation)、MSTL 網絡預測、以及籌碼面分析 (法人、融資維持率、大戶持股)。用於規劃分析功能、設定警報閾值、以及開發投資決策支援系統。Triggers on: '恐慌指數', 'Panic Index', '市場邏輯', '籌碼分析', '融資維持率', '千張大戶', '八大行庫'. 「深度籌碼分析請直接向本技能請求；歷史邏輯備援存於 skills/Archive/chip-logic-expert 與 skills/Archive/ownership-cluster」",
+    "description": "臺股市場分析深度邏輯。包含恐慌指數 (VIX/VIXTWN) 閾值、分層確認模型 (Hierarchical Confirmation)、MSTL 網絡預測、以及籌碼面分析 (法人、融資維持率、大戶持股)。用於規劃分析功能、設定警報閾值、以及開發投資決策支援系統。Triggers on: '恐慌指數', 'Panic Index', '市場邏輯', '籌碼分析', '融資維持率', '千張大戶', '八大行庫'.",
     "version": "3.0.0",
     "type": "skill",
     "path": "./skills/02_Cognitive/twse-market-logic-skill/SKILL.md",
@@ -196,7 +148,7 @@
     "capabilities": {}
   },
   "canvas-design": {
-    "description": "[LEGACY - 請改用 ui-prototype-builder] 使用設計哲學在 .png 和 .pdf 文件中建立美觀的視覺藝術。當使用者要求建立海報、藝術品、設計或其他靜態視覺作品時使用。",
+    "description": "使用設計哲學在 .png 和 .pdf 文件中建立美觀的視覺藝術。當使用者要求建立海報、藝術品、設計或其他靜態視覺作品時使用。",
     "version": "3.0.0",
     "type": "skill",
     "path": "./skills/03_Execution/canvas-design/SKILL.md",
@@ -238,7 +190,7 @@
     "capabilities": {}
   },
   "image-enhancer": {
-    "description": "透過提高解析度、銳利度和清晰度來提升圖像（特別是截圖）的品質。非常適合為簡報、文件或社群媒體貼文準備圖像。",
+    "description": "透過提高解析度、銳利度和清晰度來提升影象（特別是截圖）的品質。非常適合為簡報、檔案或社群媒體貼文準備影象。",
     "version": "3.0.0",
     "type": "skill",
     "path": "./skills/03_Execution/image-enhancer/SKILL.md",
@@ -273,7 +225,7 @@
     "capabilities": {}
   },
   "playwright-automation": {
-    "description": "[觸發場景：通用自動化腳本、非測試的瀏覽器操作] 使用 Playwright 進行完整的瀏覽器自動化。自動偵測開發伺服器，編寫乾淨的測試指令碼。測試頁面、填寫表單、截取螢幕截圖、檢查響應式設計、驗證 UX、測試登入流程、檢查連結，並自動化任何瀏覽器任務。",
+    "description": "使用 Playwright 進行完整的瀏覽器自動化。自動偵測開發伺服器，編寫乾淨的測試指令碼。測試頁面、填寫表單、截取螢幕截圖、檢查響應式設計、驗證 UX、測試登入流程、檢查連結，並自動化任何瀏覽器任務。",
     "version": "3.0.0",
     "type": "skill",
     "path": "./skills/03_Execution/playwright-automation/SKILL.md",
@@ -301,14 +253,14 @@
     "capabilities": {}
   },
   "theme-factory": {
-    "description": "[LEGACY - 請改用 ui-prototype-builder] 為成品設定主題風格的工具包。成品可以是投影片、文件、報告、HTML 登陸頁面等。包含 10 個預設的主題色彩/字體可供套用，或即時生成新主題。",
+    "description": "為成品設定主題風格的工具包。成品可以是投影片、文件、報告、HTML 登陸頁面等。包含 10 個預設的主題色彩/字體可供套用，或即時生成新主題。",
     "version": "3.0.0",
     "type": "skill",
     "path": "./skills/03_Execution/theme-factory/SKILL.md",
     "capabilities": {}
   },
   "webapp-testing": {
-    "description": "[觸發場景：Web 應用功能測試、截圖驗證、Playwright 測試套件] 使用 Playwright 互動和測試本地 Web 應用程式的工具包。支援驗證前端功能、偵錯 UI 行為、擷取瀏覽器螢幕截圖以及查看瀏覽器日誌。",
+    "description": "使用 Playwright 互動和測試本地 Web 應用程式的工具包。支援驗證前端功能、偵錯 UI 行為、擷取瀏覽器螢幕截圖以及查看瀏覽器日誌。",
     "version": "3.0.0",
     "type": "skill",
     "path": "./skills/03_Execution/webapp-testing/SKILL.md",
@@ -322,28 +274,28 @@
     "capabilities": {}
   },
   "ui-prototype-builder": {
-    "description": "Claude Design——用HTML做高保真原型、互動Demo、幻燈片、動畫、設計變體探索的一體化設計能力。",
+    "description": "Claude Design（claude-design）——用HTML做高保真原型、互動Demo、幻燈片、動畫、設計變體探索+設計方向顧問+專家評審的一體化設計能力，並整合靜態藝術創作（海報/PNG/PDF）。HTML是工具不是媒介，根據任務embody不同專家（UX設計師/動畫師/幻燈片設計師/原型師/平面藝術家），避免web design tropes。觸發詞：做原型、設計Demo、互動原型、HTML演示、動畫Demo、設計變體、hi-fi設計、UI mockup、prototype、設計探索、做個HTML頁面、做個視覺化、app原型、iOS原型、移動應用mockup、匯出MP4、匯出GIF、60fps影片、設計風格、設計方向、設計哲學、配色方案、視覺風格、推薦風格、選個風格、做個好看的、評審、好不好看、review this design、做張海報、做張圖、出圖、做藝術感的、做有設計感的、幫我做張、平面設計。繁體觸發詞：做原型、設計Demo、互動原型、HTML演示、動畫Demo、設計變體、hi-fi設計、UI mockup、prototype、設計探索、做個HTML頁面、做個視覺化、app原型、iOS原型、行動應用mockup、匯出MP4、匯出GIF、60fps影片、設計風格、設計方向、設計哲學、配色方案、視覺風格、推薦風格、選個風格、做個好看的、評審、好不好看、review this design、做張海報、做張圖、出圖、做藝術感的、做有設計感的、幫我做張、平面設計。English triggers: wireframe, design system, create landing page, design exploration, UI prototype, interactive prototype, motion design, export video, design variants, brand guidelines, design review, hi-fi mockup, app prototype, slide deck, presentation design, infographic, data visualization, poster, make a visual, graphic design piece, art direction, design piece.**主幹能力**：Junior Designer工作流（先給假設+reasoning+placeholder再迭代）、反AI slop清單、React+Babel最佳實踐、Tweaks變體切換、Speaker Notes演示、Starter Components（幻燈片外殼/變體畫布/動畫引擎/裝置邊框）、App原型專屬守則（預設從Wikimedia/Met/Unsplash取真圖、每臺iPhone包AppPhone狀態管理器可互動、交付前跑Playwright點選測試）、Playwright驗證、HTML動畫→MP4/GIF影片匯出（25fps基礎 + 60fps插幀 + palette最佳化GIF + 6首場景化BGM + 自動fade）。**需求模糊時的Fallback**：設計方向顧問模式——從5流派×20種設計哲學（Pentagram資訊建築/Field.io運動詩學/Kenya Hara東方極簡/Sagmeister實驗先鋒等）推薦3個差異化方向，展示24個預製showcase（8場景×3風格），並行生成3個視覺Demo讓使用者選。**交付後可選**：專家級5維度評審（哲學一致性/視覺層級/細節執行/功能性/創新性各打10分+修復清單）。",
     "version": "1.4.0",
     "type": "skill",
     "path": "./skills/03_Execution/ui-prototype-builder/SKILL.md",
     "capabilities": {}
   },
   "handover-manual-skill": {
-    "description": "Auto-generated manifest entry during massive optimization.",
+    "description": "標準化的專案上下文與知識轉移手冊。",
     "version": "3.0.0",
     "type": "skill",
     "path": "./skills/01_Orchestrators/handover-manual-skill/SKILL.md",
     "capabilities": {}
   },
   "skill-governance-skill": {
-    "description": "Auto-generated manifest entry during massive optimization.",
+    "description": "技能生態系統的生命週期管理與邏輯審計。",
     "version": "3.0.0",
     "type": "skill",
     "path": "./skills/01_Orchestrators/skill-governance-skill/SKILL.md",
     "capabilities": {}
   },
   "subagent-collaboration-skill": {
-    "description": "Auto-generated manifest entry during massive optimization.",
+    "description": "執行多步驟任務、執行計畫或複雜的單次操作時使用。同時具備「配方混合器 (Recipe Mixer)」職責，負責將使用者意圖封裝為動態參數，並精準調度對應的 Cognitive Personas。",
     "version": "3.0.0",
     "type": "skill",
     "path": "./skills/01_Orchestrators/subagent-collaboration-skill/SKILL.md",
@@ -371,7 +323,7 @@
     "capabilities": {}
   },
   "global-workspace": {
-    "description": "[LEGACY - 職責已由 agency-orchestrator-skill 涵蓋] 動態工作流引擎。取代靜態的協作腳本與研究迴圈。實作 ReCAP (Recursive Context-Aware Planning) 引擎，負責遞迴式任務拆解、滑動視窗上下文廣播 (Context Broadcasting)，並透過 A2A Gateway 指揮 Loki Swarm。",
+    "description": "動態工作流引擎。取代靜態的協作腳本與研究迴圈。實作 ReCAP (Recursive Context-Aware Planning) 引擎，負責遞迴式任務拆解、滑動視窗上下文廣播 (Context Broadcasting)，並透過 A2A Gateway 指揮 Loki Swarm。",
     "version": "3.0.0",
     "type": "skill",
     "path": "./skills/01_Orchestrators/global-workspace/SKILL.md",
@@ -385,7 +337,7 @@
     "capabilities": {}
   },
   "stock-orchestrator-skill": {
-    "description": "",
+    "description": "股票與量化領域總管，負責拆解金融任務並調度 06 層級的子模組。",
     "version": "3.0.0",
     "type": "skill",
     "path": "./skills/01_Orchestrators/stock-orchestrator-skill/SKILL.md",
@@ -476,14 +428,14 @@
     "capabilities": {}
   },
   "workspace-migration-recovery": {
-    "description": "偵測並修復工作站架構違規。掃描 skills/ 目錄結構異常、Manifest 路徑失效、歷史硬編碼路徑（AI Test_260*）與廢棄腳本引用。",
+    "description": "偵測並修復工作站架構違規與新環境還原。包含工作區舊名稱全量正則對齊、MCP 伺服器環境自動補齊與實測、Manifest 即時同步、舊版無效引用掃描及 SOP14 審計認證。觸發關鍵字：架構違規、Manifest失效、路徑掃描、環境遷移、孤兒技能、健康檢查、全站重建、災難復原。",
     "version": "1.0.0",
     "type": "skill",
     "path": "./skills/03_Execution/workspace-migration-recovery/SKILL.md",
     "capabilities": {}
   },
   "mcp-engineer": {
-    "description": "MCP 開發與環境配置完整生命週期工程師。整合原 mcp-builder 與 mcp-setup，覆蓋 MCP 工具的完整生命週期（開發、配置、排錯）。",
+    "description": "MCP 開發與環境配置完整生命週期工程師。整合 mcp-builder（建立高品質 MCP 伺服器的標準流程）與 mcp-setup（本地環境設定與排錯）為單一職責技能。觸發關鍵字：建立MCP、MCP伺服器、MCP配置、MCP環境、mcp-builder、mcp-setup。",
     "version": "1.0.0",
     "type": "execution",
     "path": "./skills/03_Execution/mcp-engineer/SKILL.md",
@@ -494,7 +446,7 @@
     }
   },
   "security-auditor": {
-    "description": "資訊安全與弱點掃描總監。在程式碼合併、API 串接或外部資料處理前，自動執行安全審查。掃描 SQL Injection、XSS、API 密鑰外洩、路徑穿越等高危漏洞。",
+    "description": "資訊安全與弱點掃描總監。在程式碼合併、API 串接或外部資料處理前，自動執行安全審查。掃描 SQL Injection、XSS、API 密鑰外洩、路徑穿越等高危漏洞。觸發關鍵字：安全掃描、資安審計、弱點掃描、密碼外洩、secret外洩、SQL注入、XSS。",
     "version": "1.0.0",
     "type": "orchestrator",
     "path": "./skills/01_Orchestrators/security-auditor/SKILL.md",
@@ -505,7 +457,7 @@
     }
   },
   "telegram-bot-cdp-bridge": {
-    "description": "[V14.1.0+ 舊 CDP App 已停用，現已完全改用零延遲的 tg-bridge-zero-delay] 透過 Telegram Bot 遙控並監控本機的 Antigravity IDE",
+    "description": "[V14.3.0] 透過 Zero-Delay HTTP Bridge 架構，讓 Agent 透過 Telegram 接收指令並回覆。採長駐阻塞式輪詢，只在收到真實訊息時喚醒 Agent。",
     "version": "14.1.0",
     "type": "execution",
     "path": "./skills/03_Execution/telegram-bot-cdp-bridge/SKILL.md",

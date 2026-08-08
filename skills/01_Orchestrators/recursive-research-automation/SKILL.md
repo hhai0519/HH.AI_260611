@@ -74,7 +74,7 @@ def pre_flight_auth_check(mcp_client) -> bool:
 
         # Step 2：認證失效，依 SOP_12 §3.1 引導使用者
         print(f"\n⚠️ [認證警告] NotebookLM auth_status = '{auth_status}'（第 {retry+1}/{MAX_AUTH_RETRIES} 次嘗試）")
-        print("依照 SOP_12，請先在 Chrome 開啟 https://notebooklm.google.com 並確認登入。")
+        print("依照 SOP_12，請先在 Chrome 開啟 https://notebook.google.com 並確認登入。")
 
         try:
             _input_with_timeout("👉 登入完成後，請按 Enter 鍵繼續...", AUTH_INPUT_TIMEOUT_SEC)
@@ -140,7 +140,7 @@ pre_flight_auth_check(mcp_client=your_mcp_client_instance)
 - ❌ 不適用：簡單的一次性問答、無配額限制的任務、不需深化的基礎查詢。
 
 ## 協同技能
-- `nlm-skill`：核心研究工具。
+- `notebooklm-mcp`：核心研究工具。
 - `twse-market-logic-skill`：臺股研究時的邏輯參考。
 - `quant-research-loop`：量化資料驗證。
 - `systematic-debugging-skill`：自動化中斷時的排障。

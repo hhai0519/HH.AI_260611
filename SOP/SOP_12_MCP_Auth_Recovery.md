@@ -58,7 +58,11 @@ Agent 優先使用 `chrome-devtools-mcp` 進行自動預檢，降低人工介入
 
 ### 步驟 3.2：執行認證指令
 ```powershell
+# 優先嘗試全域指令
 nlm login
+
+# 若遇到 PATH 環境變數遺失或指令無法辨識，請改用絕對路徑強制喚醒：
+C:\Users\HH.AI_260806\.local\bin\nlm.exe login
 ```
 
 ### 步驟 3.3：判斷成功標準（關鍵！）
@@ -96,6 +100,7 @@ NotebookLM 需要特定的認證 Cookie（`OSID`、`__Secure-OSID`）才能通�
 | `refresh_auth` 回傳 `status: expired` | `nlm login` 未成功完成 | 重新從步驟 3.1 開始 |
 | `notebook_list` 回傳認證錯誤 | MCP 快取未更新 | 等待 30 秒後再次呼叫 `refresh_auth` |
 | Chrome 未彈出 | 瀏覽器衝突 | 手動關閉 Chrome 再執行 `nlm login` |
+| `nlm : The term 'nlm' is not recognized` | 新環境 PATH 變數遺失 | 改用絕對路徑 `C:\Users\HH.AI_260806\.local\bin\nlm.exe login` |
 
 ---
 
@@ -103,10 +108,10 @@ NotebookLM 需要特定的認證 Cookie（`OSID`、`__Secure-OSID`）才能通�
 
 | 項目 | 路徑 |
 |------|------|
-| MCP 指示文件 | `C:\Users\HH.AI_260611\.gemini\antigravity-ide\mcp\notebooklm\instructions.md` |
-| Antigravity Skill | `C:\Users\HH.AI_260611\.gemini\antigravity\skills\nlm-skill\` |
-| Knowledge Item | `C:\Users\HH.AI_260611\.gemini\antigravity-ide\knowledge\notebooklm-auth-sop\` |
-| 認證憑證儲存 | `C:\Users\HH.AI_260611\.notebooklm-mcp-cli\profiles\default\` |
+| MCP 指示文件 | `C:\Users\HH.AI_260806\.gemini\antigravity-ide\mcp\notebooklm\instructions.md` |
+| Antigravity Skill | `C:\Users\HH.AI_260806\.gemini\antigravity\skills\nlm-skill\` |
+| Knowledge Item | `C:\Users\HH.AI_260806\.gemini\antigravity-ide\knowledge\notebooklm-auth-sop\` |
+| 認證憑證儲存 | `C:\Users\HH.AI_260806\.notebooklm-mcp-cli\profiles\default\` |
 
 ---
 

@@ -162,5 +162,5 @@ Agent 必須模擬發送以下格式的字串：
 ## 7. MCP 伺服器與外部大腦串接 (MCP Integration)
 
 當新技能需要調用外部環境（如 GitHub、Notion、NotebookLM）時，必須遵守 MCP 串接規範：
-- **單一真理來源**：所有 MCP 伺服器的連線配置必須且只能維護於 `C:\Users\HH.AI_260611\.gemini\config\mcp_config.json`。
+- **單一真理來源**：所有 MCP 伺服器的連線配置必須且只能維護於 `C:\Users\HH.AI_260806\.gemini\config\mcp_config.json`。
 - **禁止本地配置**：嚴禁在單一技能的目錄內私自存放獨立的 MCP 啟動設定檔，以確保全域授權的統一管理與安全性。

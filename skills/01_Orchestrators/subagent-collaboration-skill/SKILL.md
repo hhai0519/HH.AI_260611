@@ -128,7 +128,7 @@ capabilities:
 ## Integration with Other Skills
 
 - **mcp-setup-skill** — 當子代理人任務涉及 MCP 設定時，參考設定格式
-- **nlm-skill** — 當任務涉及 NotebookLM 操作時，參考 nlm CLI 指令
+- **notebooklm-mcp** — 當任務涉及 NotebookLM 操作時，參考 nlm CLI 指令
 - **systematic-debugging-skill** — 當子代理人回報 BLOCKED 超過 2 次時，切換至系統化除錯模式
 
 ---

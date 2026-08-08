@@ -185,7 +185,7 @@ async function run() {
   // 維度 6：NotebookLM MCP 認證時效檢驗
   // ══════════════════════════════════════════════════
   console.log('  [6/6] 正在進行 NotebookLM 離線認證審計...');
-  const cookiePath = 'C:/Users/HH.AI_260611/.gemini/antigravity-ide/knowledge/notebooklm-auth-sop/artifacts/mock_cookies.json';
+  const cookiePath = 'C:/Users/HH.AI_260806/.gemini/antigravity-ide/knowledge/notebooklm-auth-sop/artifacts/mock_cookies.json';
   if (!fs.existsSync(cookiePath)) {
     reportData.notebookLm.status = '🟡 Warning';
     reportData.notebookLm.details = '未偵測到本地 mock_cookies.json 快取，NotebookLM 將於執行時要求重新認證';
