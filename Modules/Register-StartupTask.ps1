@@ -1,32 +1,42 @@
 # ==============================================================================
 # Register-StartupTask.ps1 (VBS Fallback Edition)
-# Fallback: Creates an invisible VBScript in the Startup folder since 
+# Fallback: Creates invisible VBScripts in the Startup folder since 
 # Task Scheduler requires Admin privileges.
-# Delays 60 seconds to ensure WSL2 Redis is ready.
+# Delays 30 seconds for network and environment readiness.
 # ==============================================================================
 param([string]$Workspace = (Split-Path -Parent $PSScriptRoot))
 if (-not $Workspace) { $Workspace = $PWD.Path }
 
-$bridgeDir = Join-Path $Workspace "skills\03_Execution\line-bot-zero-delay\line-bot-project"
 $startupPath = "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup"
-$vbsPath = Join-Path $startupPath "Antigravity-LINE-Bridge.vbs"
+$lineVbsPath = Join-Path $startupPath "Antigravity-LINE-Bridge.vbs"
+$tgVbsPath = Join-Path $startupPath "Antigravity-TG-Bridge.vbs"
 
-$startScriptPath = Join-Path $Workspace "Modules\Start-LineBot.ps1"
+$startLineScript = Join-Path $Workspace "Modules\Start-LineBot.ps1"
+$startTgScript = Join-Path $Workspace "Modules\Start-TelegramBot.ps1"
 
-Write-Host "`n[ Phase 2.5: Create Startup VBScript (Non-Admin Fallback / SOP14 Audited) ]`n" -ForegroundColor Cyan
+Write-Host "`n[ Register Startup VBScripts (Non-Admin Fallback / SOP14 Audited) ]`n" -ForegroundColor Cyan
 
-# VBScript content: Sleep 60s, then run Start-LineBot.ps1 invisibly
-$vbsContent = @"
-WScript.Sleep 60000
+# LINE VBScript
+$lineVbsContent = @"
+WScript.Sleep 30000
 Set objShell = CreateObject("WScript.Shell")
-objShell.Run "powershell.exe -ExecutionPolicy Bypass -WindowStyle Hidden -File ""$startScriptPath"" -Start", 0, False
+objShell.Run "powershell.exe -ExecutionPolicy Bypass -WindowStyle Hidden -File ""$startLineScript"" -Start", 0, False
+"@
+
+# TG VBScript
+$tgVbsContent = @"
+WScript.Sleep 35000
+Set objShell = CreateObject("WScript.Shell")
+objShell.Run "powershell.exe -ExecutionPolicy Bypass -WindowStyle Hidden -File ""$startTgScript"" -Start", 0, False
 "@
 
 try {
-    $vbsContent | Out-File -FilePath $vbsPath -Encoding ascii -Force
-    Write-Host "  [OK] Startup VBScript created at: $vbsPath" -ForegroundColor Green
+    $lineVbsContent | Out-File -FilePath $lineVbsPath -Encoding ascii -Force
+    $tgVbsContent | Out-File -FilePath $tgVbsPath -Encoding ascii -Force
+    Write-Host "  [OK] LINE Startup VBScript created at: $lineVbsPath" -ForegroundColor Green
+    Write-Host "  [OK] TG Startup VBScript created at: $tgVbsPath" -ForegroundColor Green
     exit 0
 } catch {
-    Write-Host "  [FAIL] Failed to create VBScript: $_" -ForegroundColor Red
+    Write-Host "  [FAIL] Failed to create Startup VBScripts: $_" -ForegroundColor Red
     exit 1
 }

@@ -1,4 +1,4 @@
-﻿import os
+import os
 import glob
 
 base = r'c:\Users\HH.AI_260806\Desktop\HH.AI_260806\skills'
