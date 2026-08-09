@@ -1,8 +1,3 @@
-/**
- * 🛡️ RC-01 / RC-02 / RC-03 修正版 (ecosystem.config.js)
- * 解決 PM2 重啟路徑遺失、日誌污染、以及 .env.local 解析順序問題。
- * 包含完整的 6 大進程。
- */
 const path = require('path');
 const dotenv = require('dotenv');
 
@@ -12,7 +7,7 @@ dotenv.config({ path: path.join(WORKSPACE_ROOT, '.env.local') });
 module.exports = {
   apps: [
     {
-      name: 'line-bridge',
+      name: 'line-bridge-sandbox',
       script: 'skills/03_Execution/line-bot-zero-delay/line-bot-project/bridge.js',
       cwd: WORKSPACE_ROOT,
       out_file: path.join(WORKSPACE_ROOT, 'Data', 'logs', 'line_bridge_out.log'),
@@ -21,7 +16,7 @@ module.exports = {
       log_date_format: 'YYYY-MM-DD HH:mm:ss Z'
     },
     {
-      name: 'tg-bridge-zero-delay',
+      name: 'tg-bridge-zero-delay-sandbox',
       script: 'skills/03_Execution/telegram-bot-cdp-bridge/telegram-bot-project/dist/bin/cli-zero-delay.js',
       cwd: WORKSPACE_ROOT,
       out_file: path.join(WORKSPACE_ROOT, 'Data', 'logs', 'tg_zero_delay_out.log'),
@@ -30,39 +25,12 @@ module.exports = {
       log_date_format: 'YYYY-MM-DD HH:mm:ss Z'
     },
     {
-      name: 'line-daemon',
+      name: 'line-daemon-sandbox',
       script: 'skills/03_Execution/line-bot-zero-delay/line-bot-project/start_line.js',
       args: 'Antigravity-Master "[Gemini] 萬能總管" true',
       cwd: WORKSPACE_ROOT,
       out_file: path.join(WORKSPACE_ROOT, 'Data', 'logs', 'line_daemon_out.log'),
       error_file: path.join(WORKSPACE_ROOT, 'Data', 'logs', 'line_daemon_err.log'),
-      log_date_format: 'YYYY-MM-DD HH:mm:ss Z'
-    },
-    {
-      name: 'tg-daemon',
-      script: 'node',
-      args: 'scripts/tg_daemon.js',
-      cwd: WORKSPACE_ROOT,
-      out_file: path.join(WORKSPACE_ROOT, 'Data', 'logs', 'tg_daemon_out.log'),
-      error_file: path.join(WORKSPACE_ROOT, 'Data', 'logs', 'tg_daemon_err.log'),
-      log_date_format: 'YYYY-MM-DD HH:mm:ss Z'
-    },
-    {
-      name: 'line-tunnel',
-      script: '_archive_legacy_docs/bin/cloudflared.exe',
-      args: 'tunnel --url http://localhost:3000',
-      cwd: WORKSPACE_ROOT,
-      out_file: path.join(WORKSPACE_ROOT, 'Data', 'logs', 'tunnel_out.log'),
-      error_file: path.join(WORKSPACE_ROOT, 'Data', 'logs', 'tunnel_err.log'),
-      log_date_format: 'YYYY-MM-DD HH:mm:ss Z'
-    },
-    {
-      name: 'sync-tunnel',
-      script: 'node',
-      args: 'scripts/sync_tunnel_url.js',
-      cwd: WORKSPACE_ROOT,
-      out_file: path.join(WORKSPACE_ROOT, 'Data', 'logs', 'sync_tunnel_out.log'),
-      error_file: path.join(WORKSPACE_ROOT, 'Data', 'logs', 'sync_tunnel_err.log'),
       log_date_format: 'YYYY-MM-DD HH:mm:ss Z'
     }
   ]

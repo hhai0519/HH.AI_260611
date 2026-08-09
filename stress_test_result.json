@@ -1,0 +1,17 @@
+{
+  "duration": 20043,
+  "stats": {
+    "line": {
+      "success": 0,
+      "error": 15094,
+      "timeouts": 0
+    },
+    "tg": {
+      "success": 0,
+      "error": 15088,
+      "timeouts": 0
+    }
+  },
+  "totalSent": 30182,
+  "errorRate": "100.00"
+}
