@@ -16,3 +16,14 @@ Data/Pending_Optimization.json
 # .state/ — 揮發性狀態快取隔離區 (機密 Token 存放處，禁止上傳 Git)
 /.state/*
 !/.state/.gitkeep
+
+# MCP 設定檔副本（含明文憑證，禁止進版控）
+temp_mcp.json
+mcp_config*.json
+**/mcp_config*.json
+
+# 執行期產物
+skills/03_Execution/temp_images/
+**/bridge_state.json
+Data/monitoring_pid.tmp
+*.tmp

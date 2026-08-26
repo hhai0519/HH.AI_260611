@@ -1,5 +1,6 @@
 ---
 name: csv-data-summarizer
+description: "全自動解析 CSV 或 TSV 資料並產出統計報告與視覺化圖表。當使用者要求『分析 CSV 資料』、『了解資料統計特徵』、『偵測離群值與缺失值』、『生成資料視覺化圖表』或『繪製相關性熱力圖』時使用。"
 type: execution
 
 version: "3.0.0"

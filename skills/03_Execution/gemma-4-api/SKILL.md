@@ -1,5 +1,6 @@
 ---
 name: gemma-4-api
+description: "提供存取 Gemma 4 API 的標準作業流程、模型設定與防錯指南。當使用者要求『串接 Gemma 4 服務』、『建立 AI 助理』、『實作 Function Calling』或『處理 API Rate Limit (429) 錯誤』時使用。"
 type: execution
 
 version: "3.0.0"

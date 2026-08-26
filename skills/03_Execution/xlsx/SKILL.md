@@ -1,5 +1,6 @@
 ---
 name: xlsx
+description: "提供 Excel (XLSX) 檔案讀寫、多 Sheet 整合與格式化報表生成。當使用者要求『讀取 Excel』、『產生格式化 Excel 報表』、『跨 Sheet 整合資料』、『套用條件格式』或『Excel 格式轉換』時使用。"
 type: execution
 
 version: "3.0.0"
