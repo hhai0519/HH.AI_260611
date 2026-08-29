@@ -27,3 +27,5 @@ skills/03_Execution/temp_images/
 **/bridge_state.json
 Data/monitoring_pid.tmp
 *.tmp
+nlm_cookies.txt
+*cookies*
